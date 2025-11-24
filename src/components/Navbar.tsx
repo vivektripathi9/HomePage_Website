@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { useState } from "react";
 
 const menuItems = [
   "Home",
@@ -12,7 +13,18 @@ const menuItems = [
   "Contact",
 ];
 
+const services = [
+  "Hair Services",
+  "Beauty Treatments",
+  "Nail Services",
+  "Skincare",
+  "Makeup",
+  "Massage Therapy",
+];
+
 export default function Navbar() {
+  const [isServiceOpen, setIsServiceOpen] = useState(false);
+
   return (
     <header className="w-full border-b border-gray-200 bg-white">
       <div className="w-full border-b border-gray-200 px-20 py-2 text-sm text-gray-700">
@@ -38,18 +50,42 @@ export default function Navbar() {
       </div>
 
       <div className="flex w-full flex-wrap items-center justify-start px-20 py-4">
-        <h1 className="text-3xl font-light tracking-[0.4em]">scent</h1>
+        <h1 className="text-3xl font-light tracking-[0.4em]" style={{ fontFamily: "serif" }}>scent</h1>
 
         <nav className="ml-auto">
           <ul className="flex flex-wrap items-center gap-8 text-[15px] text-gray-700">
             {menuItems.map((item) => (
               <li
                 key={item}
-                className={`cursor-pointer transition-colors hover:text-red-500 ${
+                className={`relative cursor-pointer transition-colors hover:text-red-500 ${
                   item === "Contact" ? "font-medium text-red-600" : ""
                 }`}
+                onMouseEnter={() => item === "Service" && setIsServiceOpen(true)}
+                onMouseLeave={() => item === "Service" && setIsServiceOpen(false)}
               >
-                {item}
+                {item === "Service" ? (
+                  <a href="/services" onClick={() => setIsServiceOpen(false)}>
+                    {item}
+                  </a>
+                ) : item === "Home" ? (
+                  <a href="/">{item}</a>
+                ) : (
+                  item
+                )}
+                {item === "Service" && isServiceOpen && (
+                  <div className="absolute left-0 top-full z-50 mt-2 w-56 rounded-md bg-white shadow-lg border border-gray-200 py-2">
+                    {services.map((service) => (
+                      <a
+                        key={service}
+                        href={`/services#${service.toLowerCase().replace(/\s+/g, "-")}`}
+                        className="block px-4 py-2 text-sm text-gray-700 transition-colors hover:bg-gray-50 hover:text-red-500"
+                        onClick={() => setIsServiceOpen(false)}
+                      >
+                        {service}
+                      </a>
+                    ))}
+                  </div>
+                )}
               </li>
             ))}
           </ul>
