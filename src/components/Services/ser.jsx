@@ -132,31 +132,30 @@ export default function ServicesSection() {
   }, []);
 
   return (
-    <section id="services" className="bg-white py-12">
-      <div className="flex w-full flex-col items-center gap-8 px-20">
-        {/* Hero Video */}
-        <div className="relative w-full overflow-hidden rounded-[36px] border border-gray-200 shadow-[0px_30px_80px_rgba(0,0,0,0.12)]">
-          <video
-            src="/hair_Wash.mp4"
-            autoPlay
-            muted
-            loop
-            playsInline
-            className="h-[420px] w-full object-cover"
-          />
-          <div className="absolute inset-0 bg-black/45" />
-          <div className="absolute inset-0 flex flex-col items-start justify-center gap-4 px-10 py-12 text-white md:px-16">
-           
-            <h1 className="text-4xl font-semibold leading-tight md:text-5xl" style={{ fontFamily: "serif" }}>
-              Hair Services
-            </h1>
-            <p className="max-w-3xl text-base leading-relaxed text-white/85 md:text-lg">
-              Visit SCENT Hair Salon for top-notch haircuts, hair coloring, hair spa, and hair smoothening
-              services performed by expert stylists trained by Sassoon. Your journey to fabulous hair starts here!
-            </p>
-          </div>
+    <section id="services" className="bg-white">
+      {/* Hero Video Full Width */}
+      <div className="relative w-full overflow-hidden">
+        <video
+          src="/service_video.mp4"
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="h-[60vh] min-h-[480px] w-full object-cover"
+        />
+        <div className="absolute inset-0 bg-black/60" />
+        <div className="absolute inset-0 flex flex-col items-start justify-center gap-4 px-10 py-12 text-white md:px-20 lg:px-32">
+          <h1 className="text-4xl font-semibold leading-tight md:text-5xl lg:text-6xl" style={{ fontFamily: "serif" }}>
+            Hair Services
+          </h1>
+          <p className="max-w-3xl text-base leading-relaxed text-white/90 md:text-lg lg:text-xl">
+            Visit SCENT Hair Salon for top-notch haircuts, hair coloring, hair spa, and hair smoothening
+            services performed by expert stylists trained by Sassoon. Your journey to fabulous hair starts here!
+          </p>
         </div>
+      </div>
 
+      <div className="flex w-full flex-col items-center gap-8 px-20 py-12">
         {/* Header */}
         <div className="flex flex-col items-center gap-4 text-center">
           <h2
@@ -222,12 +221,34 @@ export default function ServicesSection() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
                   <div className="pointer-events-none absolute inset-0 flex flex-col items-center justify-center gap-3 px-6 text-center text-white opacity-0 transition-opacity duration-500 group-hover:opacity-100">
-                    <p className="text-sm tracking-[0.3em] uppercase text-pink-100" style={{ fontFamily: "serif" }}>
+                    <p 
+                      className="pointer-events-auto cursor-pointer text-sm tracking-[0.3em] uppercase text-pink-100 transition-all hover:scale-110 hover:text-white" 
+                      style={{ fontFamily: "serif" }}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setActiveService(category.id);
+                      }}
+                    >
                       {category.title}
                     </p>
-                    <p className="text-xs leading-relaxed text-white/80">
+                    <p 
+                      className="pointer-events-auto cursor-pointer text-xs leading-relaxed text-white/80 transition-all hover:text-white"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setActiveService(category.id);
+                      }}
+                    >
                       Hover to preview & click to reveal full service details.
                     </p>
+                    <button
+                      className="pointer-events-auto rounded-full border border-white/80 bg-white/10 px-6 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-white backdrop-blur-sm transition-all hover:bg-white hover:text-black hover:border-white"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setActiveService(category.id);
+                      }}
+                    >
+                      Book Now
+                    </button>
                   </div>
                 </div>
 

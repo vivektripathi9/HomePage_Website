@@ -64,11 +64,13 @@ export default function Navbar() {
                 onMouseLeave={() => item === "Service" && setIsServiceOpen(false)}
               >
                 {item === "Service" ? (
-                  <a href="/services" onClick={() => setIsServiceOpen(false)}>
+                  <a href="/new-service" onClick={() => setIsServiceOpen(false)}>
                     {item}
                   </a>
                 ) : item === "Home" ? (
                   <a href="/">{item}</a>
+                ) : item === "Salon Memberships" ? (
+                  <a href="/salon-memberships">{item}</a>
                 ) : (
                   item
                 )}
