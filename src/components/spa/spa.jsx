@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useRef, useState } from "react";
+import WhyScent from "../why/why";
 import PowerTeam from "../Thepower/thepower";
 
 const spaServices = [
