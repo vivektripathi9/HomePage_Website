@@ -14,12 +14,12 @@ const menuItems = [
 ];
 
 const services = [
-  "Hair Services",
-  "Beauty Treatments",
-  "Nail Services",
-  "Skincare",
-  "Makeup",
-  "Massage Therapy",
+  { name: "Hair Services", href: "/services" },
+  { name: "Beauty Treatments", href: "/new-service" },
+  { name: "Nail Services", href: "/nails" },
+  { name: "Skincare", href: "/new-service" },
+  { name: "Makeup", href: "/bridal" },
+  { name: "Massage Therapy", href: "/spa" },
 ];
 
 export default function Navbar() {
@@ -75,18 +75,30 @@ export default function Navbar() {
                   item
                 )}
                 {item === "Service" && isServiceOpen && (
-                  <div className="absolute left-0 top-full z-50 mt-2 w-56 rounded-md bg-white shadow-lg border border-gray-200 py-2">
-                    {services.map((service) => (
-                      <a
-                        key={service}
-                        href={`/services#${service.toLowerCase().replace(/\s+/g, "-")}`}
-                        className="block px-4 py-2 text-sm text-gray-700 transition-colors hover:bg-gray-50 hover:text-red-500"
-                        onClick={() => setIsServiceOpen(false)}
-                      >
-                        {service}
-                      </a>
-                    ))}
-                  </div>
+                  <>
+                    {/* Transparent bridge to prevent dropdown from closing when moving mouse */}
+                    <div 
+                      className="absolute left-0 top-full z-50 h-2 w-56"
+                      onMouseEnter={() => setIsServiceOpen(true)}
+                      onMouseLeave={() => setIsServiceOpen(false)}
+                    />
+                    <div 
+                      className="absolute left-0 top-full z-50 mt-2 w-56 rounded-md bg-white shadow-lg border border-gray-200 py-2"
+                      onMouseEnter={() => setIsServiceOpen(true)}
+                      onMouseLeave={() => setIsServiceOpen(false)}
+                    >
+                      {services.map((service) => (
+                        <a
+                          key={service.name}
+                          href={service.href}
+                          className="block px-4 py-2 text-sm text-gray-700 transition-colors hover:bg-gray-50 hover:text-red-500"
+                          onClick={() => setIsServiceOpen(false)}
+                        >
+                          {service.name}
+                        </a>
+                      ))}
+                    </div>
+                  </>
                 )}
               </li>
             ))}

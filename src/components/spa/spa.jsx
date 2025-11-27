@@ -501,6 +501,7 @@ export default function SpaSection() {
           </div>
         )}
 
+        <WhyScent />
         <PowerTeam />
       </div>
     </section>

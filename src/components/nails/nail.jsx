@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useRef, useState } from "react";
 import PowerTeam from "../Thepower/thepower";
+import WhyScent from "../why/why";
 
 const serviceChapters = [
   {
@@ -554,6 +555,7 @@ export default function NailCouture() {
           </div>
         )}
 
+        <WhyScent />
         <PowerTeam />
       </div>
     </section>
