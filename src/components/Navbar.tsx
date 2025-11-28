@@ -115,7 +115,7 @@ export default function Navbar() {
     message: "",
   });
 
-  const handleAppointmentSubmit = (e) => {
+  const handleAppointmentSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     // Handle form submission - you can integrate with your backend or WhatsApp
     const whatsappMessage = `Hello! I would like to book an appointment:\n\nName: ${appointmentForm.name}\nEmail: ${appointmentForm.email}\nPhone: ${appointmentForm.phone}\nService: ${appointmentForm.service}\nDate: ${appointmentForm.date}\nTime: ${appointmentForm.time}\nMessage: ${appointmentForm.message}`;
@@ -133,7 +133,7 @@ export default function Navbar() {
     });
   };
 
-  const handleInputChange = (e) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setAppointmentForm({
       ...appointmentForm,
       [e.target.name]: e.target.value,
@@ -169,7 +169,7 @@ export default function Navbar() {
       )
     : [];
 
-  const handleSearchSubmit = (e) => {
+  const handleSearchSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (filteredResults.length > 0) {
       window.location.href = filteredResults[0].href;
@@ -725,9 +725,7 @@ export default function Navbar() {
                     <div>
                       <button
                         onClick={() => setIsServiceOpen(!isServiceOpen)}
-                        className={`w-full text-left py-2 text-base text-gray-700 transition-colors hover:text-red-500 ${
-                          item === "Contact" ? "font-medium text-red-600" : ""
-                        }`}
+                        className="w-full text-left py-2 text-base text-gray-700 transition-colors hover:text-red-500"
                       >
                         {item} {isServiceOpen ? '−' : '+'}
                       </button>
