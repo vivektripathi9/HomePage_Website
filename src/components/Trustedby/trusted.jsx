@@ -47,35 +47,35 @@ export default function TrustedBy() {
   const visibleBrands = getVisibleBrands();
 
   return (
-    <section className="bg-white py-12">
-      <div className="flex w-full flex-col items-center gap-8 px-20">
-        <h2 className="text-3xl font-semibold leading-tight text-[#1f1f2e] sm:text-[42px]" style={{ fontFamily: "serif" }}>Trusted by the Best</h2>
-        <div className="flex items-center justify-center gap-4 text-center text-gray-300">
-          <span className="h-px w-12 bg-black" />
-          <span className="text-pink-400 text-xl">❀</span>
-          <span className="h-px w-12 bg-black" />
+    <section className="bg-white py-8 sm:py-12">
+      <div className="flex w-full flex-col items-center gap-6 sm:gap-8 px-4 sm:px-6 md:px-12 lg:px-20">
+        <h2 className="text-2xl sm:text-3xl md:text-[42px] font-semibold leading-tight text-[#1f1f2e]" style={{ fontFamily: "serif" }}>Trusted by the Best</h2>
+        <div className="flex items-center justify-center gap-3 sm:gap-4 text-center text-gray-300">
+          <span className="h-px w-10 sm:w-12 bg-black" />
+          <span className="text-pink-400 text-lg sm:text-xl">❀</span>
+          <span className="h-px w-10 sm:w-12 bg-black" />
         </div>
-        <div className="relative mt-4 flex w-full items-center justify-center">
+        <div className="relative mt-2 sm:mt-4 flex w-full items-center justify-center overflow-hidden">
           <button
             type="button"
             onClick={handlePrev}
             aria-label="Previous brand"
-            className="flex h-8 w-8 items-center justify-center text-2xl font-light text-black transition-opacity hover:opacity-70 -mr-4"
+            className="flex h-8 w-8 sm:h-10 sm:w-10 items-center justify-center text-xl sm:text-2xl font-light text-black transition-opacity hover:opacity-70 -mr-2 sm:-mr-4 z-10 bg-white/80 sm:bg-transparent"
           >
             ‹
           </button>
-          <div className="flex items-center justify-center gap-2">
+          <div className="flex items-center justify-center gap-1 sm:gap-2 overflow-x-auto scrollbar-hide">
             {visibleBrands.map((brand, index) => (
               <div
                 key={`${brand.name}-${currentIndex}-${index}`}
-                className="flex items-center justify-center px-2"
+                className="flex items-center justify-center px-1 sm:px-2 flex-shrink-0"
               >
                 <Image
                   src={brand.logo}
                   alt={brand.name}
                   width={200}
                   height={100}
-                  className="h-20 w-auto object-contain"
+                  className="h-12 sm:h-16 md:h-20 w-auto object-contain"
                 />
               </div>
             ))}
@@ -84,7 +84,7 @@ export default function TrustedBy() {
             type="button"
             onClick={handleNext}
             aria-label="Next brand"
-            className="flex h-8 w-8 items-center justify-center text-2xl font-light text-black transition-opacity hover:opacity-70 -ml-4"
+            className="flex h-8 w-8 sm:h-10 sm:w-10 items-center justify-center text-xl sm:text-2xl font-light text-black transition-opacity hover:opacity-70 -ml-2 sm:-ml-4 z-10 bg-white/80 sm:bg-transparent"
           >
             ›
           </button>

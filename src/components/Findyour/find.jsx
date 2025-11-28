@@ -12,121 +12,86 @@ const salons = [
 ];
 
 export default function FindNearest() {
-  const [selectedImage, setSelectedImage] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [mounted, setMounted] = useState(false);
 
-  // Rotate images automatically every 3 seconds
+  // Ensure component is mounted before rotating (prevents hydration mismatch)
   useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  // Rotate images automatically every 3 seconds (only after mount)
+  useEffect(() => {
+    if (!mounted) return;
+    
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % salons.length);
     }, 3000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [mounted]);
 
   // Get rotated array of images based on current index
-  const getRotatedSalons = () => {
-    return [...salons.slice(currentIndex), ...salons.slice(0, currentIndex)];
-  };
-
-  const rotatedSalons = getRotatedSalons();
-
-  const openModal = (image) => {
-    setSelectedImage(image);
-  };
-
-  const closeModal = () => {
-    setSelectedImage(null);
-  };
+  // Always use original order on server to prevent hydration mismatch
+  const rotatedSalons = mounted 
+    ? [...salons.slice(currentIndex), ...salons.slice(0, currentIndex)]
+    : salons;
 
   return (
-    <section className="bg-white py-12">
-      <div className="flex w-full flex-col items-center gap-4 px-20 text-center">
-        <h2 className="text-3xl font-semibold leading-tight text-[#1f1f2e] sm:text-[42px]" style={{ fontFamily: "serif" }}>
+    <section className="bg-white py-8 sm:py-12">
+      <div className="flex w-full flex-col items-center gap-3 sm:gap-4 px-4 sm:px-6 md:px-12 lg:px-20 text-center">
+        <h2 className="text-2xl sm:text-3xl md:text-[42px] font-semibold leading-tight text-[#1f1f2e]" style={{ fontFamily: "serif" }}>
           Find Your Nearest SCENT
         </h2>
-        <div className="flex items-center justify-center gap-4 text-gray-300">
-          <span className="h-px w-12 bg-black" />
-          <span className="text-pink-400 text-xl">❀</span>
-          <span className="h-px w-12 bg-black" />
+        <div className="flex items-center justify-center gap-3 sm:gap-4 text-gray-300">
+          <span className="h-px w-10 sm:w-12 bg-black" />
+          <span className="text-pink-400 text-lg sm:text-xl">❀</span>
+          <span className="h-px w-10 sm:w-12 bg-black" />
         </div>
-        <p className="max-w-3xl text-sm text-gray-500 sm:text-base">
+        <p className="max-w-3xl text-xs sm:text-sm md:text-base text-gray-500 px-2">
           Step into a space where beauty meets expertise — your perfect experience is closer than you think.
         </p>
 
-        <div className="grid w-full gap-6">
+        <div className="grid w-full gap-4 sm:gap-6">
           {/* First Row: 3 images */}
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+          <div className="grid grid-cols-1 gap-4 sm:gap-6 md:grid-cols-3">
             {rotatedSalons.slice(0, 3).map((image, index) => (
               <div
-                key={`salon-${currentIndex}-${index}`}
-                onClick={() => openModal(image)}
-                className="relative cursor-pointer overflow-hidden shadow-[0px_25px_70px_rgba(0,0,0,0.1)] transition-all duration-700 ease-in-out hover:scale-105"
-                style={{
-                  animation: "fadeIn 0.8s ease-in-out",
-                }}
+                key={`salon-${mounted ? currentIndex : 0}-${index}`}
+                className="relative h-48 sm:h-64 md:h-80 overflow-hidden rounded-lg shadow-[0px_25px_70px_rgba(0,0,0,0.1)] transition-all duration-700 ease-in-out hover:scale-105"
               >
                 <Image
                   src={image}
                   alt={`SCENT location ${index + 1}`}
-                  width={600}
-                  height={400}
-                  className="h-full w-full object-cover transition-all duration-700 ease-in-out hover:scale-110"
+                  fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  className="object-cover transition-all duration-700 ease-in-out hover:scale-110"
+                  loading={index < 3 ? "eager" : "lazy"}
+                  quality={85}
                 />
               </div>
             ))}
           </div>
           {/* Second Row: 2 images (centered, same size as first row) */}
-          <div className="flex flex-col items-center gap-6 md:flex-row md:justify-center">
+          <div className="flex flex-col items-center gap-4 sm:gap-6 md:flex-row md:justify-center">
             {rotatedSalons.slice(3, 5).map((image, index) => (
               <div
-                key={`salon-${currentIndex}-${index + 3}`}
-                onClick={() => openModal(image)}
-                className="relative w-full cursor-pointer overflow-hidden shadow-[0px_25px_70px_rgba(0,0,0,0.1)] transition-all duration-700 ease-in-out hover:scale-105 md:w-1/3"
-                style={{
-                  animation: "fadeIn 0.8s ease-in-out",
-                }}
+                key={`salon-${mounted ? currentIndex : 0}-${index + 3}`}
+                className="relative w-full h-48 sm:h-64 md:h-80 overflow-hidden rounded-lg shadow-[0px_25px_70px_rgba(0,0,0,0.1)] transition-all duration-700 ease-in-out hover:scale-105 md:w-1/3"
               >
                 <Image
                   src={image}
                   alt={`SCENT location ${index + 4}`}
-                  width={600}
-                  height={400}
-                  className="h-full w-full object-cover transition-all duration-700 ease-in-out hover:scale-110"
+                  fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 768px) 100vw, 33vw"
+                  className="object-cover transition-all duration-700 ease-in-out hover:scale-110"
+                  loading="lazy"
+                  quality={85}
                 />
               </div>
             ))}
           </div>
         </div>
-
-        {/* Modal/Lightbox */}
-        {selectedImage && (
-          <div
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4 backdrop-blur-sm transition-opacity duration-300"
-            onClick={closeModal}
-          >
-            <div
-              className="relative max-h-[90vh] max-w-6xl"
-              style={{ animation: "zoomIn 0.3s ease-out" }}
-              onClick={(e) => e.stopPropagation()}
-            >
-              <button
-                onClick={closeModal}
-                className="absolute -right-4 -top-4 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-white text-2xl text-black shadow-lg transition hover:bg-gray-100"
-                aria-label="Close"
-              >
-                ×
-              </button>
-              <Image
-                src={selectedImage}
-                alt="Zoomed SCENT location"
-                width={1200}
-                height={800}
-                className="max-h-[90vh] w-auto object-contain"
-              />
-            </div>
-          </div>
-        )}
       </div>
     </section>
   );

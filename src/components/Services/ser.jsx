@@ -16,7 +16,9 @@ const serviceCategories = [
     title: "Haircut & Styling",
     description:
       "Signature dry and wet cutting, precision texturising, and couture blowouts designed to frame your features while keeping movement natural. Every session begins with a detailed face-shape consultation so your cut stays effortless for weeks.",
-    image: "/A1.png",
+    detailedDescription:
+      "Our Haircut & Styling service is a comprehensive hair transformation experience. We specialize in both dry and wet cutting techniques, allowing us to work with your hair's natural texture. Our expert stylists use precision texturising methods to add movement and dimension. Each session includes a personalized face-shape consultation to ensure your cut complements your features perfectly. We offer couture blowouts that give you that salon-fresh look, and our cuts are designed to grow out beautifully, staying effortless for weeks. Whether you want a classic cut, a modern layered style, or a precision bob, our Sassoon-trained stylists will create a look that's uniquely yours.",
+    image: "/hairdresser-taking-care-her-client.jpg",
     services: [
       { name: "Classic Haircut", price: "₹1,299" },
       { name: "Designer Layered Cut", price: "₹1,899" },
@@ -31,7 +33,9 @@ const serviceCategories = [
     title: "Highlights & Streaks",
     description:
       "Lived-in balayage, foil brilliance, and bold streaks created with bond-protect colour systems that keep hair glossy. We map complexion, undertone, and lifestyle before placing a single foil so the light always hits right.",
-    image: "/A2.png",
+    detailedDescription:
+      "Our Highlights & Streaks service transforms your hair with professional color techniques. We specialize in lived-in balayage that creates natural-looking dimension, foil highlights for precise color placement, and bold streaks for those who want to make a statement. All our coloring services use bond-protect color systems that not only add beautiful color but also strengthen and protect your hair, keeping it glossy and healthy. Before we place a single foil, we conduct a thorough consultation analyzing your skin complexion, undertones, and lifestyle to ensure the color placement is perfect. Our techniques ensure the light always hits right, creating depth and dimension that looks natural and grows out beautifully.",
+    image: "/elegant-makeup-portrait.jpg",
     services: [
       { name: "Global Balayage", price: "₹5,999" },
       { name: "Foil Highlights", price: "₹4,499" },
@@ -46,7 +50,9 @@ const serviceCategories = [
     title: "Hair Spa Rituals",
     description:
       "Steam-powered rituals that combine scalp brushing, booster ampoules, and pressure-point massage to restore shine, strength, and calm. Choose hydration, detox, or shine protocols crafted specifically for your scalp condition.",
-    image: "/A3.png",
+    detailedDescription:
+      "Our Hair Spa Rituals are luxurious, steam-powered treatments designed to restore your hair's natural health and vitality. Each ritual combines therapeutic scalp brushing to stimulate circulation, specialized booster ampoules packed with nourishing ingredients, and relaxing pressure-point massage techniques. We offer three distinct protocols: Hydration for dry, damaged hair that needs moisture; Detox for removing product buildup and impurities; and Shine for restoring natural luster and gloss. Our expert therapists assess your scalp condition and customize the treatment to address your specific needs. The steam therapy opens hair cuticles, allowing deep penetration of nutrients, while the massage promotes relaxation and reduces stress. This comprehensive approach not only improves hair health but also provides a calming, rejuvenating experience.",
+    image: "/young-woman-relaxing-spa-salon.jpg",
     services: [
       { name: "Hydra Repair Spa", price: "₹2,299" },
       { name: "Keratin Spa Ritual", price: "₹2,899" },
@@ -61,7 +67,9 @@ const serviceCategories = [
     title: "Hair Treatments",
     description:
       "Clinical-strength keratin, botox, and bond-building therapies that tame frizz, seal the cuticle, and repair damage from within. Ideal before milestone events or as seasonal hair rehab for stressed strands.",
-    image: "/A4.png",
+    detailedDescription:
+      "Our Hair Treatments are intensive, clinical-strength therapies designed to transform damaged, frizzy, or stressed hair. We offer keratin treatments that smooth and straighten hair while adding strength and shine. Our hair botox therapy provides deep conditioning and repair, filling in gaps in damaged hair cuticles. Bond-building treatments like Olaplex work at the molecular level to repair broken disulfide bonds, restoring hair's structural integrity. These treatments effectively tame frizz, seal the cuticle for smoothness, and repair damage from within. Perfect for preparing for milestone events like weddings or special occasions, or as seasonal hair rehabilitation for hair that's been stressed by styling, coloring, or environmental factors. Each treatment is customized to your hair's specific needs and condition.",
+    image: "/beautiful-woman-with-towel-holding-lily.jpg",
     services: [
       { name: "Keratin Therapy", price: "₹6,499" },
       { name: "Hair Botox Revival", price: "₹5,999" },
@@ -76,7 +84,9 @@ const serviceCategories = [
     title: "Beard Styling",
     description:
       "Clipper fades, razor detailing, and nourishing oils curated for contemporary beards and classic grooms alike. We map face shape, neckline, and growth pattern to deliver silhouettes that stay sharp for days.",
-    image: "/f1.png",
+    detailedDescription:
+      "Our Beard Styling service is a precision grooming experience tailored to your unique facial features. We specialize in clipper fades that create seamless transitions, razor detailing for sharp, clean lines, and the application of nourishing oils that keep your beard healthy and manageable. Our expert barbers analyze your face shape, natural neckline, and growth patterns to design a beard silhouette that complements your features perfectly. Whether you prefer a contemporary, modern look or a classic, traditional style, we craft your beard to stay sharp and well-groomed for days. Our services include precision trims, hot towel shaves for the ultimate smooth finish, color blending for a natural look, and spa rituals that condition and style your beard. Every service is performed with professional tools and premium products to ensure the best results.",
+    image: "/beard.jpg",
     services: [
       { name: "Precision Beard Trim", price: "₹799" },
       { name: "Beard Fade & Line-up", price: "₹999" },
@@ -91,7 +101,9 @@ const serviceCategories = [
     title: "Mustache Design",
     description:
       "Classic tapers, curled ends, and sculpted lines for every kind of mustache—from vintage handlebar to minimalist fades. Finish with waxes and serums so your look stays expressive from morning to midnight.",
-    image: "/f2.png",
+    detailedDescription:
+      "Our Mustache Design service is an art form that transforms your facial hair into a statement piece. We offer classic taper trims for a timeless look, curled ends for vintage handlebar styles, and sculpted lines for modern, minimalist designs. Our skilled barbers work with precision to create the perfect mustache shape that matches your personal style and facial structure. We finish every service with premium waxes that hold your style in place and nourishing serums that keep your mustache healthy and manageable. Whether you want a bold, expressive handlebar, a subtle minimalist fade, or a classic tapered look, we'll design it to stay perfect from morning to midnight. Our signature twirl technique adds character, while our color touch-up services ensure a natural, polished appearance. Each service includes styling tips and product recommendations to help you maintain your look at home.",
+    image: "/mustache.jpg",
     services: [
       { name: "Classic Taper Trim", price: "₹399" },
       { name: "Handlebar Styling", price: "₹699" },
@@ -198,7 +210,7 @@ export default function ServicesSection() {
         </div>
 
         {/* Service Categories Grid */}
-        <div className="grid w-full gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid w-full gap-6 sm:gap-8 md:grid-cols-2 lg:grid-cols-3">
           {serviceCategories.map((category) => {
             const isActive = activeService === category.id;
             return (
@@ -216,8 +228,10 @@ export default function ServicesSection() {
                     src={category.image}
                     alt={category.title}
                     fill
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    sizes="(max-width: 640px) 100vw, (max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     className="object-cover transition-transform duration-500 group-hover:scale-110"
+                    loading="lazy"
+                    quality={90}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
                   <div className="pointer-events-none absolute inset-0 flex flex-col items-center justify-center gap-3 px-6 text-center text-white opacity-0 transition-opacity duration-500 group-hover:opacity-100">
@@ -253,26 +267,33 @@ export default function ServicesSection() {
                 </div>
 
                 {/* Content Section */}
-                <div className="flex flex-1 flex-col gap-4 px-6 pb-8 pt-12">
+                <div className="flex flex-1 flex-col gap-3 sm:gap-4 px-4 sm:px-6 pb-6 sm:pb-8 pt-8 sm:pt-12">
                   <div className="flex items-center justify-between">
                     <h3
-                      className="text-xl font-semibold text-[#22223b]"
+                      className="text-lg sm:text-xl font-semibold text-[#22223b]"
                       style={{ fontFamily: "serif" }}
                     >
                       {category.title}
                     </h3>
-                    <span className="text-xs uppercase tracking-[0.3em] text-gray-400">
+                    <span className="text-[10px] sm:text-xs uppercase tracking-[0.3em] text-gray-400">
                       {isActive ? "Hide" : "View"}
                     </span>
                   </div>
                   <div
                     className={`space-y-3 text-sm text-gray-500 transition-all duration-500 ${
-                      isActive ? "max-h-52 opacity-100" : "max-h-0 opacity-0"
-                    } overflow-hidden`}
+                      isActive ? "max-h-[400px] sm:max-h-[450px] md:max-h-[500px] opacity-100" : "max-h-0 opacity-0"
+                    } overflow-y-auto`}
                   >
-                    <p className="leading-relaxed">{category.description}</p>
+                    <p className="leading-relaxed font-medium text-xs sm:text-sm">{category.description}</p>
+                    {category.detailedDescription && (
+                      <div className="pt-2 border-t border-gray-200">
+                        <p className="leading-relaxed text-[10px] sm:text-xs text-gray-600 mt-2 line-clamp-6 sm:line-clamp-none">
+                          {category.detailedDescription}
+                        </p>
+                      </div>
+                    )}
                     <button
-                      className="w-fit rounded-full border border-black/20 px-5 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-[#1f1f2e] transition-all hover:bg-black hover:text-white"
+                      className="w-fit rounded-full border border-black/20 px-4 sm:px-5 py-1.5 sm:py-2 text-[10px] sm:text-xs font-semibold uppercase tracking-[0.3em] text-[#1f1f2e] transition-all hover:bg-black hover:text-white mt-3 sm:mt-4"
                       onClick={(e) => {
                         e.stopPropagation();
                         setActiveService(category.id);
@@ -289,8 +310,8 @@ export default function ServicesSection() {
 
         {/* Fullscreen Modal */}
         {activeService && (
-          <div className="fixed inset-0 z-[999] flex items-center justify-center bg-black/70 px-4 py-8">
-            <div className="relative flex w-full max-w-5xl flex-col overflow-hidden rounded-[40px] bg-white shadow-[0px_40px_120px_rgba(0,0,0,0.35)] md:flex-row">
+          <div className="fixed inset-0 z-[999] flex items-center justify-center bg-black/70 px-4 py-4 sm:py-8 overflow-y-auto">
+            <div className="relative flex w-full max-w-5xl flex-col overflow-hidden rounded-[40px] bg-white shadow-[0px_40px_120px_rgba(0,0,0,0.35)] md:flex-row my-auto max-h-[95vh]">
               {(() => {
                 const activeCategory = serviceCategories.find((item) => item.id === activeService);
                 if (!activeCategory) return null;
@@ -309,7 +330,8 @@ export default function ServicesSection() {
                         alt={activeCategory.title}
                         fill
                         className="object-cover"
-                        sizes="(max-width:768px) 100vw, 50vw"
+                        sizes="(max-width: 640px) 100vw, (max-width: 768px) 100vw, 50vw"
+                        quality={90}
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
                       <div className="absolute bottom-4 left-4 text-white">
@@ -319,12 +341,19 @@ export default function ServicesSection() {
                         <p className="text-xs text-white/80">Tailored rituals for every mood</p>
                       </div>
                     </div>
-                    <div className="flex w-full flex-col gap-5 px-8 py-10 md:w-1/2">
+                    <div className="flex w-full flex-col gap-4 sm:gap-5 px-4 sm:px-6 md:px-8 py-6 sm:py-8 md:py-10 md:w-1/2 max-h-[85vh] overflow-y-auto">
                       <div className="flex flex-col gap-3">
-                        <h3 className="text-3xl font-semibold text-[#1f1f2e]" style={{ fontFamily: "serif" }}>
+                        <h3 className="text-2xl sm:text-3xl font-semibold text-[#1f1f2e]" style={{ fontFamily: "serif" }}>
                           {activeCategory.title}
                         </h3>
-                        <p className="text-sm leading-relaxed text-gray-600">{activeCategory.description}</p>
+                        <p className="text-sm sm:text-base leading-relaxed text-gray-700 font-medium">{activeCategory.description}</p>
+                        {activeCategory.detailedDescription && (
+                          <div className="pt-3 border-t border-gray-200">
+                            <p className="text-xs sm:text-sm leading-relaxed text-gray-600 mt-2">
+                              {activeCategory.detailedDescription}
+                            </p>
+                          </div>
+                        )}
                       </div>
                       <div className="space-y-3">
                         <p className="text-xs uppercase tracking-[0.3em] text-gray-400">

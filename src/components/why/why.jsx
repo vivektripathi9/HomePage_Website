@@ -43,15 +43,15 @@ const benefits = [
 
 export default function WhyScent() {
   return (
-    <section className="bg-white py-12">
-      <div className="flex w-full flex-col items-center gap-6 px-20 text-center">
-        <h2 className="text-3xl font-semibold leading-tight text-[#2E2E2E] sm:text-[42px]" style={{ fontFamily: "serif" }}>
+    <section className="bg-white py-8 sm:py-12">
+      <div className="flex w-full flex-col items-center gap-4 sm:gap-6 px-4 sm:px-6 md:px-12 lg:px-20 text-center">
+        <h2 className="text-2xl sm:text-3xl md:text-[42px] font-semibold leading-tight text-[#2E2E2E]" style={{ fontFamily: "serif" }}>
           Why SCENT? Because You Deserve More
         </h2>
-        <div className="flex items-center justify-center gap-4">
-          <span className="h-px w-12 bg-black" />
-          <span className="text-pink-400 text-xl">❀</span>
-          <span className="h-px w-12 bg-black" />
+        <div className="flex items-center justify-center gap-3 sm:gap-4">
+          <span className="h-px w-10 sm:w-12 bg-black" />
+          <span className="text-pink-400 text-lg sm:text-xl">❀</span>
+          <span className="h-px w-10 sm:w-12 bg-black" />
         </div>
 
         <div className="flex flex-col gap-6 sm:gap-8 md:gap-12">
