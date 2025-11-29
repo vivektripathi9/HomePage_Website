@@ -181,13 +181,23 @@ export default function Navbar() {
   return (
     <header className="w-full border-b border-gray-200 bg-white">
       {/* Top Bar */}
-      <div className="w-full border-b border-gray-200 px-4 sm:px-6 md:px-12 lg:px-20 py-2 text-xs sm:text-sm text-gray-700">
-        <div className="flex flex-wrap items-center gap-3 sm:gap-4 md:gap-6">
-          <div className="flex items-center gap-1 sm:gap-2">
-            <Image src="/icons/phone-red.svg" alt="phone icon" width={14} height={14} className="sm:w-4 sm:h-4" />
-            <span className="font-medium text-xs sm:text-sm">Contact:</span>
-            <a href="tel:18009156270" className="text-gray-600 hover:text-red-500 text-xs sm:text-sm">
-              1-800-915-6270
+      <div className="w-full border-b border-gray-200 px-4 sm:px-6 md:px-12 lg:px-20 py-2 text-[11px] sm:text-xs md:text-sm text-gray-700">
+        <div className="flex flex-wrap items-center gap-2 sm:gap-4 md:gap-6">
+          {/* Phone block */}
+          <div className="flex items-center gap-1.5 sm:gap-2">
+            <Image
+              src="/icons/phone-red.svg"
+              alt="phone icon"
+              width={14}
+              height={14}
+              className="w-3 h-3 sm:w-4 sm:h-4"
+            />
+            <a
+              href="tel:18009156270"
+              className="flex items-center gap-1 sm:gap-1.5 text-gray-800 hover:text-red-500"
+            >
+              <span className="font-medium whitespace-nowrap">Contact:</span>
+              <span className="font-semibold whitespace-nowrap">1-800-915-6270</span>
             </a>
           </div>
           <div className="hidden sm:flex items-center gap-2">
