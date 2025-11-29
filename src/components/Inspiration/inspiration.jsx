@@ -62,6 +62,7 @@ export default function InspirationSection() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedPost, setSelectedPost] = useState(null);
   const [imageIndices, setImageIndices] = useState({});
+  const [mounted, setMounted] = useState(false);
 
   const featured = posts.find((post) => post.featured);
   const sidePosts = posts.filter((post) => !post.featured);
@@ -71,8 +72,15 @@ export default function InspirationSection() {
     return post.images[index % post.images.length];
   };
 
-  // Auto-rotate images every 3 seconds
+  // Ensure component is mounted before starting animations (prevents hydration mismatch)
   useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  // Auto-rotate images every 3 seconds (only after mount)
+  useEffect(() => {
+    if (!mounted) return;
+    
     const interval = setInterval(() => {
       setImageIndices((prevIndices) => {
         const newIndices = { ...prevIndices };
@@ -85,7 +93,7 @@ export default function InspirationSection() {
     }, 3000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [mounted]);
 
   const handleReadMore = (post) => {
     setSelectedPost(post);

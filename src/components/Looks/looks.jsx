@@ -4,6 +4,13 @@ import Image from "next/image";
 import Link from "next/link";
 import RedefineHeading from "@/components/Redefine/redefine";
 
+const openBookAppointment = (serviceName) => {
+  if (typeof window !== "undefined") {
+    const event = new CustomEvent("openBookAppointment", { detail: { service: serviceName || "" } });
+    window.dispatchEvent(event);
+  }
+};
+
 const services = [
   {
     title: "Facial Care",
@@ -85,9 +92,16 @@ export default function LooksSection() {
               <h3 className="text-lg sm:text-xl font-semibold text-[#22223b]" style={{ fontFamily: "serif" }}>{service.title}</h3>
               <p className="text-xs sm:text-sm leading-relaxed text-gray-500 text-center px-2">{service.description}</p>
               <span className="h-px w-full bg-gray-100" />
-              <span className="text-xs sm:text-sm font-semibold uppercase tracking-wide text-gray-800 transition hover:text-black">
+              <button
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  openBookAppointment(service.title);
+                }}
+                className="w-full text-xs sm:text-sm font-semibold uppercase tracking-wide text-gray-800 transition hover:text-red-600 text-center"
+              >
                 Book Now →
-              </span>
+              </button>
             </Link>
           ))}
         </div>

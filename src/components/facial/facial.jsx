@@ -227,8 +227,10 @@ export default function FacialExperience() {
                   </div>
                   <button
                     onClick={() => {
-                      setSelectedService(service);
-                      setIsModalOpen(true);
+                      if (typeof window !== "undefined") {
+                        const event = new CustomEvent("openBookAppointment", { detail: { service: service.title } });
+                        window.dispatchEvent(event);
+                      }
                     }}
                     className="rounded-full bg-gradient-to-r from-pink-600 via-rose-500 to-pink-600 px-8 py-4 text-base font-semibold text-white shadow-xl transition-all duration-300 hover:shadow-2xl hover:scale-105"
                   >
@@ -322,6 +324,10 @@ export default function FacialExperience() {
                   <button 
                     onClick={(e) => {
                       e.stopPropagation();
+                      if (typeof window !== "undefined") {
+                        const event = new CustomEvent("openBookAppointment", { detail: { service: selectedService?.title || "Facial Treatment" } });
+                        window.dispatchEvent(event);
+                      }
                     }}
                     className="w-full rounded-full bg-gradient-to-r from-black via-gray-800 to-black px-6 py-3 text-sm font-semibold text-white shadow-xl transition-all duration-300 hover:from-pink-600 hover:via-rose-500 hover:to-pink-600 hover:shadow-2xl hover:scale-105 transform"
                   >
@@ -397,7 +403,16 @@ export default function FacialExperience() {
                     </div>
 
                     <div className="flex flex-col sm:flex-row gap-4">
-                      <button className="flex-1 rounded-full bg-gradient-to-r from-pink-600 via-rose-500 to-pink-600 px-8 py-4 text-base font-semibold text-white shadow-xl transition-all duration-300 hover:shadow-2xl hover:scale-105">
+                      <button
+                        onClick={() => {
+                          if (typeof window !== "undefined") {
+                            const event = new CustomEvent("openBookAppointment", { detail: { service: selectedService?.title || "Facial Treatment" } });
+                            window.dispatchEvent(event);
+                            setIsModalOpen(false);
+                          }
+                        }}
+                        className="flex-1 rounded-full bg-gradient-to-r from-pink-600 via-rose-500 to-pink-600 px-8 py-4 text-base font-semibold text-white shadow-xl transition-all duration-300 hover:shadow-2xl hover:scale-105"
+                      >
                         Book Appointment Now
                       </button>
                       <button 

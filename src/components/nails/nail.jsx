@@ -543,7 +543,15 @@ export default function NailCouture() {
 
                 {/* Action Buttons */}
                 <div className="flex flex-wrap gap-4 pt-4 border-t border-gray-200">
-                  <button className="flex-1 md:flex-none rounded-full bg-[#C06C84] px-8 py-3 text-sm font-semibold uppercase tracking-[0.2em] text-white transition hover:bg-[#C06C84]/90 hover:scale-105">
+                  <button
+                    onClick={() => {
+                      if (typeof window !== "undefined") {
+                        const event = new CustomEvent("openBookAppointment", { detail: { service: "Nail Service" } });
+                        window.dispatchEvent(event);
+                      }
+                    }}
+                    className="flex-1 md:flex-none rounded-full bg-[#C06C84] px-8 py-3 text-sm font-semibold uppercase tracking-[0.2em] text-white transition hover:bg-[#C06C84]/90 hover:scale-105"
+                  >
                     Book Now
                   </button>
                   <button className="flex-1 md:flex-none rounded-full border-2 border-[#C06C84] px-8 py-3 text-sm font-semibold uppercase tracking-[0.2em] text-[#C06C84] transition hover:bg-[#C06C84] hover:text-white hover:scale-105">

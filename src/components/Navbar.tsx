@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const menuItems = [
   "Home",
@@ -105,6 +105,9 @@ export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
+  const [isSubmittingAppointment, setIsSubmittingAppointment] = useState(false);
+  const [appointmentMessage, setAppointmentMessage] = useState("");
+  const [showAppointmentSuccess, setShowAppointmentSuccess] = useState(false);
   const [appointmentForm, setAppointmentForm] = useState({
     name: "",
     email: "",
@@ -115,22 +118,53 @@ export default function Navbar() {
     message: "",
   });
 
-  const handleAppointmentSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleAppointmentSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Handle form submission - you can integrate with your backend or WhatsApp
-    const whatsappMessage = `Hello! I would like to book an appointment:\n\nName: ${appointmentForm.name}\nEmail: ${appointmentForm.email}\nPhone: ${appointmentForm.phone}\nService: ${appointmentForm.service}\nDate: ${appointmentForm.date}\nTime: ${appointmentForm.time}\nMessage: ${appointmentForm.message}`;
-    const whatsappUrl = `https://wa.me/919742232700?text=${encodeURIComponent(whatsappMessage)}`;
-    window.open(whatsappUrl, "_blank", "noopener,noreferrer");
-    setIsBookAppointmentOpen(false);
-    setAppointmentForm({
-      name: "",
-      email: "",
-      phone: "",
-      service: "",
-      date: "",
-      time: "",
-      message: "",
-    });
+    setIsSubmittingAppointment(true);
+    setAppointmentMessage("");
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: appointmentForm.name,
+          email: appointmentForm.email,
+          phone: appointmentForm.phone,
+          subject: `Appointment Booking - ${appointmentForm.service}`,
+          message: `Appointment Booking Request:\n\nService: ${appointmentForm.service}\nDate: ${appointmentForm.date}\nTime: ${appointmentForm.time}\n\nMessage: ${appointmentForm.message || "No additional message"}`,
+        }),
+      });
+
+      const data = await res.json();
+
+      if (data.success) {
+        setAppointmentForm({
+          name: "",
+          email: "",
+          phone: "",
+          service: "",
+          date: "",
+          time: "",
+          message: "",
+        });
+        setIsBookAppointmentOpen(false);
+        setShowAppointmentSuccess(true);
+        // Redirect to home page after 4 seconds
+        setTimeout(() => {
+          window.location.href = "/";
+        }, 4000);
+      } else {
+        setAppointmentMessage(`Error: ${data.error || "Failed to send appointment request. Please try again."}`);
+        setIsSubmittingAppointment(false);
+        setTimeout(() => setAppointmentMessage(""), 8000);
+      }
+    } catch (error) {
+      console.error("Appointment submission error:", error);
+      setAppointmentMessage("Something went wrong. Please try again later or contact us directly.");
+      setIsSubmittingAppointment(false);
+      setTimeout(() => setAppointmentMessage(""), 8000);
+    }
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -139,6 +173,39 @@ export default function Navbar() {
       [e.target.name]: e.target.value,
     });
   };
+
+  // Listen for global "openBookAppointment" event from anywhere on the site
+  useEffect(() => {
+    const handleOpenBookAppointment = (event: CustomEvent) => {
+      const serviceName = event.detail?.service || "";
+      if (serviceName) {
+        setAppointmentForm(prev => ({
+          ...prev,
+          service: serviceName,
+        }));
+      }
+      setIsBookAppointmentOpen(true);
+    };
+
+    window.addEventListener("openBookAppointment" as any, handleOpenBookAppointment as EventListener);
+    
+    return () => {
+      window.removeEventListener("openBookAppointment" as any, handleOpenBookAppointment as EventListener);
+    };
+  }, []);
+
+  // Expose function globally for direct calls
+  useEffect(() => {
+    (window as any).openBookAppointmentModal = (serviceName?: string) => {
+      if (serviceName) {
+        setAppointmentForm(prev => ({
+          ...prev,
+          service: serviceName,
+        }));
+      }
+      setIsBookAppointmentOpen(true);
+    };
+  }, []);
 
   // Search functionality
   const searchItems = [
@@ -181,39 +248,46 @@ export default function Navbar() {
   return (
     <header className="w-full border-b border-gray-200 bg-white">
       {/* Top Bar */}
-      <div className="w-full border-b border-gray-200 px-4 sm:px-6 md:px-12 lg:px-20 py-2 text-[11px] sm:text-xs md:text-sm text-gray-700">
-        <div className="flex flex-wrap items-center gap-2 sm:gap-4 md:gap-6">
-          {/* Phone block */}
-          <div className="flex items-center gap-1.5 sm:gap-2">
-            <Image
-              src="/icons/phone-red.svg"
-              alt="phone icon"
-              width={14}
-              height={14}
-              className="w-3 h-3 sm:w-4 sm:h-4"
-            />
-            <a
-              href="tel:18009156270"
-              className="flex items-center gap-1 sm:gap-1.5 text-gray-800 hover:text-red-500"
-            >
-              <span className="font-medium whitespace-nowrap">Contact:</span>
-              <span className="font-semibold whitespace-nowrap">1-800-915-6270</span>
-            </a>
+      <div className="w-full border-b border-gray-200 px-3 sm:px-6 md:px-12 lg:px-20 py-2 text-[10px] sm:text-xs md:text-sm text-gray-700">
+        <div className="flex items-center justify-between gap-2 sm:gap-4 md:gap-6">
+          {/* Left side - Contact and Work time on same line */}
+          <div className="flex items-center gap-2 sm:gap-4 md:gap-6 flex-1 min-w-0 overflow-hidden">
+            {/* Phone block */}
+            <div className="flex items-center gap-1 sm:gap-1.5 flex-shrink-0">
+              <Image
+                src="/icons/phone-red.svg"
+                alt="phone icon"
+                width={14}
+                height={14}
+                className="w-3 h-3 sm:w-4 sm:h-4 flex-shrink-0"
+              />
+              <a
+                href="tel:18009156270"
+                className="flex items-center gap-0.5 sm:gap-1.5 text-gray-800 hover:text-red-500 whitespace-nowrap"
+              >
+                <span className="font-medium hidden sm:inline">Contact:</span>
+                <span className="font-semibold text-[10px] sm:text-xs">1-800-915-6270</span>
+              </a>
+            </div>
+            {/* Separator */}
+            <div className="h-4 w-px bg-gray-300 flex-shrink-0"></div>
+            {/* Work time - Always visible, compact on mobile */}
+            <div className="flex items-center gap-1 sm:gap-2 flex-shrink-0">
+              <Image src="/icons/clock-red.svg" alt="clock icon" width={14} height={14} className="w-3 h-3 sm:w-4 sm:h-4 flex-shrink-0" />
+              <span className="font-medium hidden sm:inline text-[10px] sm:text-xs">Work time:</span>
+              <span className="font-semibold text-[10px] sm:text-xs whitespace-nowrap">9:00–18:00</span>
+            </div>
           </div>
-          <div className="hidden sm:flex items-center gap-2">
-            <Image src="/icons/clock-red.svg" alt="clock icon" width={16} height={16} />
-            <span className="font-medium">Work time:</span>
-            <span>9:00–18:00</span>
-          </div>
-          <div className="ml-auto flex items-center gap-2 sm:gap-3">
-            <Image src="/icons/cart.svg" width={18} height={18} alt="cart" className="sm:w-5 sm:h-5 cursor-pointer hover:opacity-70 transition" />
-            <Image src="/icons/user.svg" width={18} height={18} alt="user" className="sm:w-5 sm:h-5 cursor-pointer hover:opacity-70 transition" />
+          {/* Right side - Icons */}
+          <div className="flex items-center gap-1.5 sm:gap-3 flex-shrink-0">
+            <Image src="/icons/cart.svg" width={16} height={16} alt="cart" className="w-4 h-4 sm:w-5 sm:h-5 cursor-pointer hover:opacity-70 transition" />
+            <Image src="/icons/user.svg" width={16} height={16} alt="user" className="w-4 h-4 sm:w-5 sm:h-5 cursor-pointer hover:opacity-70 transition" />
             <button
               onClick={() => setIsSearchOpen(!isSearchOpen)}
-              className="relative"
+              className="relative flex-shrink-0"
               aria-label="Search"
             >
-              <Image src="/icons/search.svg" width={18} height={18} alt="search" className="sm:w-5 sm:h-5 cursor-pointer hover:opacity-70 transition" />
+              <Image src="/icons/search.svg" width={16} height={16} alt="search" className="w-4 h-4 sm:w-5 sm:h-5 cursor-pointer hover:opacity-70 transition" />
             </button>
           </div>
         </div>
@@ -691,16 +765,30 @@ export default function Navbar() {
                     />
                   </div>
                   
+                  {appointmentMessage && (
+                    <div className={`rounded-lg p-3 text-sm ${
+                      appointmentMessage.includes("Thank you") 
+                        ? "bg-green-50 border border-green-200 text-green-800" 
+                        : "bg-red-50 border border-red-200 text-red-800"
+                    }`}>
+                      {appointmentMessage}
+                    </div>
+                  )}
+                  
                   <div className="flex gap-3 pt-2">
                     <button
                       type="submit"
-                      className="flex-1 rounded-md bg-red-600 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-red-700"
+                      disabled={isSubmittingAppointment}
+                      className="flex-1 rounded-md bg-red-600 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-red-700 disabled:opacity-50 disabled:cursor-not-allowed"
                     >
-                      Book Now
+                      {isSubmittingAppointment ? "Sending..." : "Book Now"}
                     </button>
                     <button
                       type="button"
-                      onClick={() => setIsBookAppointmentOpen(false)}
+                      onClick={() => {
+                        setIsBookAppointmentOpen(false);
+                        setAppointmentMessage("");
+                      }}
                       className="px-4 py-2.5 text-sm font-medium text-gray-700 border border-gray-300 rounded-md hover:bg-gray-50 transition"
                     >
                       Cancel
@@ -1164,22 +1252,71 @@ export default function Navbar() {
                   />
                 </div>
                 
+                {appointmentMessage && (
+                  <div className={`rounded-lg p-3 text-xs sm:text-sm ${
+                    appointmentMessage.includes("Thank you") 
+                      ? "bg-green-50 border border-green-200 text-green-800" 
+                      : "bg-red-50 border border-red-200 text-red-800"
+                  }`}>
+                    {appointmentMessage}
+                  </div>
+                )}
+                
                 <div className="flex flex-col sm:flex-row gap-3 pt-2">
                   <button
                     type="submit"
-                    className="flex-1 rounded-md bg-red-600 px-4 sm:px-6 py-2.5 sm:py-3 text-xs sm:text-sm font-semibold text-white transition hover:bg-red-700"
+                    disabled={isSubmittingAppointment}
+                    className="flex-1 rounded-md bg-red-600 px-4 sm:px-6 py-2.5 sm:py-3 text-xs sm:text-sm font-semibold text-white transition hover:bg-red-700 disabled:opacity-50 disabled:cursor-not-allowed"
                   >
-                    Book Now
+                    {isSubmittingAppointment ? "Sending..." : "Book Now"}
                   </button>
                   <button
                     type="button"
-                    onClick={() => setIsBookAppointmentOpen(false)}
+                    onClick={() => {
+                      setIsBookAppointmentOpen(false);
+                      setAppointmentMessage("");
+                    }}
                     className="px-4 sm:px-6 py-2.5 sm:py-3 text-xs sm:text-sm font-medium text-gray-700 border border-gray-300 rounded-md hover:bg-gray-50 transition"
                   >
                     Cancel
                   </button>
                 </div>
               </form>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Appointment Success Modal */}
+      {showAppointmentSuccess && (
+        <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/60 backdrop-blur-sm animate-fadeIn">
+          <div className="relative bg-white rounded-3xl shadow-2xl max-w-md w-full mx-4 p-8 sm:p-10 text-center animate-zoomIn">
+            {/* Success Icon */}
+            <div className="mb-6 flex justify-center">
+              <div className="relative">
+                <div className="absolute inset-0 bg-green-100 rounded-full animate-ping opacity-75"></div>
+                <div className="relative flex h-20 w-20 sm:h-24 sm:w-24 items-center justify-center rounded-full bg-gradient-to-br from-green-400 to-green-600">
+                  <svg className="h-12 w-12 sm:h-14 sm:w-14 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+
+            {/* Success Message */}
+            <h2 className="text-2xl sm:text-3xl font-semibold text-[#1f1f2e] mb-3" style={{ fontFamily: "serif" }}>
+              Appointment Request Sent!
+            </h2>
+            <p className="text-base sm:text-lg text-gray-600 mb-6 leading-relaxed">
+              Thank you for booking with us. We've received your appointment request and will confirm your booking soon.
+            </p>
+
+            {/* Countdown */}
+            <div className="flex items-center justify-center gap-2 text-sm text-gray-500">
+              <svg className="h-4 w-4 animate-spin" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+              </svg>
+              <span>Redirecting to home page in a moment...</span>
             </div>
           </div>
         </div>

@@ -117,20 +117,31 @@ const serviceCategories = [
 
 export default function ServicesSection() {
   const [headingIndex, setHeadingIndex] = useState(0);
+  const [mounted, setMounted] = useState(false);
   const [activeService, setActiveService] = useState(null);
   const [cartMessage, setCartMessage] = useState("");
   const cartTimeoutRef = useRef(null);
 
-  const handleBookAppointment = (event, label = "Service") => {
-    event?.stopPropagation();
-    if (cartTimeoutRef.current) {
-      clearTimeout(cartTimeoutRef.current);
+  const openBookAppointment = (serviceName) => {
+    if (typeof window !== "undefined") {
+      const event = new CustomEvent("openBookAppointment", { detail: { service: serviceName || "" } });
+      window.dispatchEvent(event);
     }
-    setCartMessage(`${label} booked successfully`);
-    cartTimeoutRef.current = setTimeout(() => setCartMessage(""), 3000);
   };
 
+  const handleBookAppointment = (event, label = "Service") => {
+    event?.stopPropagation();
+    openBookAppointment(label);
+  };
+
+  // Ensure component is mounted before starting animations (prevents hydration mismatch)
   useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (!mounted) return;
+    
     const interval = setInterval(() => {
       setHeadingIndex((prev) => (prev + 1) % headingPhrases.length);
     }, 4000);
@@ -141,7 +152,7 @@ export default function ServicesSection() {
         clearTimeout(cartTimeoutRef.current);
       }
     };
-  }, []);
+  }, [mounted]);
 
   return (
     <section id="services" className="bg-white">
@@ -175,11 +186,11 @@ export default function ServicesSection() {
             style={{ fontFamily: "serif" }}
           >
             <span
-              key={headingIndex}
+              key={mounted ? headingIndex : 0}
               className="inline-block"
               style={{ animation: "fadeIn 1s ease forwards" }}
             >
-              {headingPhrases[headingIndex]}
+              {mounted ? headingPhrases[headingIndex] : headingPhrases[0]}
             </span>
           </h2>
           <div className="flex items-center justify-center gap-4">
@@ -258,7 +269,7 @@ export default function ServicesSection() {
                       className="pointer-events-auto rounded-full border border-white/80 bg-white/10 px-6 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-white backdrop-blur-sm transition-all hover:bg-white hover:text-black hover:border-white"
                       onClick={(e) => {
                         e.stopPropagation();
-                        setActiveService(category.id);
+                        openBookAppointment(category.title);
                       }}
                     >
                       Book Now
@@ -296,7 +307,7 @@ export default function ServicesSection() {
                       className="w-fit rounded-full border border-black/20 px-4 sm:px-5 py-1.5 sm:py-2 text-[10px] sm:text-xs font-semibold uppercase tracking-[0.3em] text-[#1f1f2e] transition-all hover:bg-black hover:text-white mt-3 sm:mt-4"
                       onClick={(e) => {
                         e.stopPropagation();
-                        setActiveService(category.id);
+                        openBookAppointment(category.title);
                       }}
                     >
                       Book Appointment
@@ -416,7 +427,10 @@ export default function ServicesSection() {
           </p>
           <button
             className="rounded-md bg-red-600 px-8 py-3 text-sm font-medium uppercase tracking-wide text-white transition-colors hover:bg-red-700"
-            onClick={(e) => handleBookAppointment(e, "Signature Service Bundle")}
+            onClick={(e) => {
+              e.preventDefault();
+              openBookAppointment("Signature Service Bundle");
+            }}
           >
             Book Appointment
           </button>

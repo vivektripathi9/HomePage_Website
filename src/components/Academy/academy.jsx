@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 
 const benefits = [
@@ -95,6 +95,17 @@ export default function AcademySection() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitMessage, setSubmitMessage] = useState("");
+  const [isEnrollModalOpen, setIsEnrollModalOpen] = useState(false);
+  const [enrollFormData, setEnrollFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    course: "",
+    experience: "",
+    message: "",
+  });
+  const [isSubmittingEnroll, setIsSubmittingEnroll] = useState(false);
+  const [showEnrollSuccess, setShowEnrollSuccess] = useState(false);
 
   const handleChange = (e) => {
     setFormData({
@@ -115,6 +126,69 @@ export default function AcademySection() {
     }, 1000);
   };
 
+  const handleEnrollChange = (e) => {
+    setEnrollFormData({
+      ...enrollFormData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleEnrollSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmittingEnroll(true);
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: enrollFormData.name,
+          email: enrollFormData.email,
+          phone: enrollFormData.phone,
+          subject: `Academy Enrollment - ${enrollFormData.course}`,
+          message: `Academy Enrollment Request:\n\nCourse Interest: ${enrollFormData.course}\nExperience Level: ${enrollFormData.experience}\n\nMessage: ${enrollFormData.message || "No additional message"}`,
+        }),
+      });
+
+      const data = await res.json();
+
+      if (data.success) {
+        setEnrollFormData({
+          name: "",
+          email: "",
+          phone: "",
+          course: "",
+          experience: "",
+          message: "",
+        });
+        setIsEnrollModalOpen(false);
+        setShowEnrollSuccess(true);
+        // Redirect to home page after 4 seconds
+        setTimeout(() => {
+          window.location.href = "/";
+        }, 4000);
+      } else {
+        alert(`Error: ${data.error || "Failed to submit enrollment. Please try again."}`);
+        setIsSubmittingEnroll(false);
+      }
+    } catch (error) {
+      console.error("Enrollment submission error:", error);
+      alert("Something went wrong. Please try again later or contact us directly.");
+      setIsSubmittingEnroll(false);
+    }
+  };
+
+  // Close modal on Escape key
+  useEffect(() => {
+    const handleEscape = (e) => {
+      if (e.key === "Escape" && isEnrollModalOpen) {
+        setIsEnrollModalOpen(false);
+      }
+    };
+    window.addEventListener("keydown", handleEscape);
+    return () => window.removeEventListener("keydown", handleEscape);
+  }, [isEnrollModalOpen]);
+
   return (
     <section className="bg-[#f7f7f7] text-[#1f1f2e]">
       {/* Hero Video Section */}
@@ -125,7 +199,7 @@ export default function AcademySection() {
           muted
           loop
           playsInline
-          className="h-[50vh] min-h-[400px] sm:min-h-[500px] w-full object-cover"
+          className="h-[40vh] min-h-[300px] sm:h-[50vh] sm:min-h-[400px] md:min-h-[500px] w-full object-cover"
         />
         <div className="absolute inset-0 bg-black/60" />
         <div className="absolute inset-0 flex flex-col items-center justify-center gap-6 px-4 sm:px-6 md:px-12 lg:px-20 text-center text-white">
@@ -149,15 +223,27 @@ export default function AcademySection() {
           <p className="text-base sm:text-lg md:text-xl leading-relaxed text-[#444] max-w-4xl mx-auto mb-8">
             Discover your beauty ambitions through specialized training, state-of-the-art facilities, and the unique Schwarzkopf Professional Connect platform in Southeast Asia. Become part of our dynamic community and transform your passion into a successful career. Sign up today to realize your full potential!
           </p>
-          <a
-            href="#enquire"
-            className="inline-flex items-center gap-2 rounded-lg bg-black px-8 py-3 text-sm sm:text-base font-semibold uppercase tracking-wide text-white transition-all hover:bg-black/80"
+          <button
+            onClick={() => {
+              const enquireSection = document.getElementById("enquire");
+              if (enquireSection) {
+                enquireSection.scrollIntoView({ behavior: "smooth", block: "start" });
+                // Small delay to ensure scroll happens, then open modal
+                setTimeout(() => {
+                  setIsEnrollModalOpen(true);
+                }, 500);
+              } else {
+                setIsEnrollModalOpen(true);
+              }
+            }}
+            className="group inline-flex items-center gap-2 rounded-lg bg-gradient-to-r from-purple-600 via-pink-600 to-red-600 px-8 py-3 text-sm sm:text-base font-semibold uppercase tracking-wide text-white transition-all duration-300 hover:from-purple-700 hover:via-pink-700 hover:to-red-700 hover:scale-105 hover:shadow-2xl transform"
           >
-            Enroll Now
-            <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <span className="relative z-10">Enroll Now</span>
+            <svg className="h-5 w-5 relative z-10 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
-          </a>
+            <span className="absolute inset-0 rounded-lg bg-gradient-to-r from-purple-600 via-pink-600 to-red-600 opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-300"></span>
+          </button>
         </div>
 
         {/* Why Choose Section */}
@@ -301,12 +387,17 @@ export default function AcademySection() {
                   +91 91485 42700
                 </a>
               </div>
-              <a
-                href="#enquire"
+              <button
+                onClick={() => {
+                  if (typeof window !== "undefined") {
+                    const event = new CustomEvent("openBookAppointment", { detail: { service: "Academy Enquiry" } });
+                    window.dispatchEvent(event);
+                  }
+                }}
                 className="inline-flex items-center gap-2 rounded-lg bg-white px-8 py-3 text-sm sm:text-base font-semibold uppercase tracking-wide text-black transition-all hover:bg-gray-100"
               >
                 BOOK NOW
-              </a>
+              </button>
             </div>
           </div>
         </div>
@@ -449,6 +540,226 @@ export default function AcademySection() {
           </form>
         </div>
       </div>
+
+      {/* Enrollment Modal */}
+      {isEnrollModalOpen && (
+        <div className="fixed inset-0 z-[9999] flex items-center justify-center p-3 sm:p-4 bg-black/70 backdrop-blur-md animate-fadeIn">
+          <div className="relative bg-gradient-to-br from-white via-purple-50/30 to-pink-50/30 rounded-3xl shadow-2xl max-w-2xl w-full mx-4 border border-purple-100/50 overflow-hidden animate-zoomIn">
+            {/* Decorative Background Elements */}
+            <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-purple-400/20 to-pink-400/20 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+            <div className="absolute bottom-0 left-0 w-64 h-64 bg-gradient-to-tr from-pink-400/20 to-red-400/20 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2"></div>
+            
+            {/* Close Button */}
+            <button
+              onClick={() => setIsEnrollModalOpen(false)}
+              className="absolute top-4 right-4 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-white/90 backdrop-blur-sm text-gray-600 transition-all hover:bg-white hover:scale-110 hover:rotate-90 shadow-lg"
+              aria-label="Close"
+            >
+              <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+
+            <div className="relative z-10 p-6 sm:p-8 md:p-10">
+              {/* Header */}
+              <div className="text-center mb-6 sm:mb-8">
+                <div className="inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-gradient-to-br from-purple-600 via-pink-600 to-red-600 mb-4 shadow-lg animate-zoomIn">
+                  <svg className="w-8 h-8 sm:w-10 sm:h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                  </svg>
+                </div>
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-[#1f1f2e] mb-2" style={{ fontFamily: "serif" }}>
+                  Enroll at SCENT Academy
+                </h2>
+                <p className="text-sm sm:text-base text-gray-600">
+                  Start your journey to becoming a beauty professional
+                </p>
+              </div>
+
+              {/* Form */}
+              <form onSubmit={handleEnrollSubmit} className="space-y-4 sm:space-y-5">
+                <div className="grid gap-4 sm:gap-5 sm:grid-cols-2">
+                  <div className="sm:col-span-2">
+                    <label htmlFor="enroll-name" className="block text-sm font-medium text-[#1f1f2e] mb-2">
+                      Full Name *
+                    </label>
+                    <input
+                      type="text"
+                      id="enroll-name"
+                      name="name"
+                      required
+                      value={enrollFormData.name}
+                      onChange={handleEnrollChange}
+                      className="w-full rounded-xl border-2 border-gray-200 bg-white px-4 py-3 text-[#1f1f2e] focus:border-purple-500 focus:outline-none focus:ring-2 focus:ring-purple-500/20 transition-all"
+                      placeholder="Enter your full name"
+                    />
+                  </div>
+                  
+                  <div>
+                    <label htmlFor="enroll-email" className="block text-sm font-medium text-[#1f1f2e] mb-2">
+                      Email Address *
+                    </label>
+                    <input
+                      type="email"
+                      id="enroll-email"
+                      name="email"
+                      required
+                      value={enrollFormData.email}
+                      onChange={handleEnrollChange}
+                      className="w-full rounded-xl border-2 border-gray-200 bg-white px-4 py-3 text-[#1f1f2e] focus:border-purple-500 focus:outline-none focus:ring-2 focus:ring-purple-500/20 transition-all"
+                      placeholder="your.email@example.com"
+                    />
+                  </div>
+                  
+                  <div>
+                    <label htmlFor="enroll-phone" className="block text-sm font-medium text-[#1f1f2e] mb-2">
+                      Phone Number *
+                    </label>
+                    <input
+                      type="tel"
+                      id="enroll-phone"
+                      name="phone"
+                      required
+                      value={enrollFormData.phone}
+                      onChange={handleEnrollChange}
+                      className="w-full rounded-xl border-2 border-gray-200 bg-white px-4 py-3 text-[#1f1f2e] focus:border-purple-500 focus:outline-none focus:ring-2 focus:ring-purple-500/20 transition-all"
+                      placeholder="+91 9876543210"
+                    />
+                  </div>
+                  
+                  <div>
+                    <label htmlFor="enroll-course" className="block text-sm font-medium text-[#1f1f2e] mb-2">
+                      Course Interest *
+                    </label>
+                    <select
+                      id="enroll-course"
+                      name="course"
+                      required
+                      value={enrollFormData.course}
+                      onChange={handleEnrollChange}
+                      className="w-full rounded-xl border-2 border-gray-200 bg-white px-4 py-3 text-[#1f1f2e] focus:border-purple-500 focus:outline-none focus:ring-2 focus:ring-purple-500/20 transition-all"
+                    >
+                      <option value="">Select a course</option>
+                      <option value="Hair Styling & Cutting">Hair Styling & Cutting</option>
+                      <option value="Hair Coloring">Hair Coloring</option>
+                      <option value="Beauty Treatments">Beauty Treatments</option>
+                      <option value="Makeup Artistry">Makeup Artistry</option>
+                      <option value="Nail Art">Nail Art</option>
+                      <option value="Skincare">Skincare</option>
+                      <option value="Complete Beauty Program">Complete Beauty Program</option>
+                    </select>
+                  </div>
+                  
+                  <div>
+                    <label htmlFor="enroll-experience" className="block text-sm font-medium text-[#1f1f2e] mb-2">
+                      Experience Level *
+                    </label>
+                    <select
+                      id="enroll-experience"
+                      name="experience"
+                      required
+                      value={enrollFormData.experience}
+                      onChange={handleEnrollChange}
+                      className="w-full rounded-xl border-2 border-gray-200 bg-white px-4 py-3 text-[#1f1f2e] focus:border-purple-500 focus:outline-none focus:ring-2 focus:ring-purple-500/20 transition-all"
+                    >
+                      <option value="">Select experience level</option>
+                      <option value="Beginner">Beginner</option>
+                      <option value="Intermediate">Intermediate</option>
+                      <option value="Advanced">Advanced</option>
+                      <option value="Professional">Professional</option>
+                    </select>
+                  </div>
+                  
+                  <div className="sm:col-span-2">
+                    <label htmlFor="enroll-message" className="block text-sm font-medium text-[#1f1f2e] mb-2">
+                      Additional Message
+                    </label>
+                    <textarea
+                      id="enroll-message"
+                      name="message"
+                      rows={4}
+                      value={enrollFormData.message}
+                      onChange={handleEnrollChange}
+                      className="w-full rounded-xl border-2 border-gray-200 bg-white px-4 py-3 text-[#1f1f2e] focus:border-purple-500 focus:outline-none focus:ring-2 focus:ring-purple-500/20 transition-all resize-none"
+                      placeholder="Tell us about your goals and aspirations..."
+                    />
+                  </div>
+                </div>
+                
+                <div className="flex flex-col sm:flex-row gap-3 pt-4">
+                  <button
+                    type="submit"
+                    disabled={isSubmittingEnroll}
+                    className="flex-1 group relative overflow-hidden rounded-xl bg-gradient-to-r from-purple-600 via-pink-600 to-red-600 px-6 py-4 text-sm sm:text-base font-semibold uppercase tracking-wide text-white transition-all duration-300 hover:from-purple-700 hover:via-pink-700 hover:to-red-700 hover:scale-105 hover:shadow-2xl disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
+                  >
+                    <span className="relative z-10 flex items-center justify-center gap-2">
+                      {isSubmittingEnroll ? (
+                        <>
+                          <svg className="animate-spin h-5 w-5" fill="none" viewBox="0 0 24 24">
+                            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                          </svg>
+                          Submitting...
+                        </>
+                      ) : (
+                        <>
+                          Submit Enrollment
+                          <svg className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                          </svg>
+                        </>
+                      )}
+                    </span>
+                    <span className="absolute inset-0 bg-gradient-to-r from-purple-700 via-pink-700 to-red-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setIsEnrollModalOpen(false)}
+                    className="px-6 py-4 text-sm sm:text-base font-medium text-gray-700 border-2 border-gray-300 rounded-xl hover:bg-gray-50 hover:border-gray-400 transition-all duration-300"
+                  >
+                    Cancel
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Enrollment Success Modal */}
+      {showEnrollSuccess && (
+        <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/60 backdrop-blur-sm animate-fadeIn">
+          <div className="relative bg-white rounded-3xl shadow-2xl max-w-md w-full mx-4 p-8 sm:p-10 text-center animate-zoomIn">
+            {/* Success Icon */}
+            <div className="mb-6 flex justify-center">
+              <div className="relative">
+                <div className="absolute inset-0 bg-gradient-to-br from-purple-100 to-pink-100 rounded-full animate-ping opacity-75"></div>
+                <div className="relative flex h-20 w-20 sm:h-24 sm:w-24 items-center justify-center rounded-full bg-gradient-to-br from-purple-500 via-pink-500 to-red-500">
+                  <svg className="h-12 w-12 sm:h-14 sm:w-14 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+
+            {/* Success Message */}
+            <h2 className="text-2xl sm:text-3xl font-semibold text-[#1f1f2e] mb-3" style={{ fontFamily: "serif" }}>
+              Enrollment Submitted!
+            </h2>
+            <p className="text-base sm:text-lg text-gray-600 mb-6 leading-relaxed">
+              Thank you for your interest in SCENT Academy. We've received your enrollment request and will contact you soon to discuss your journey with us.
+            </p>
+
+            {/* Countdown */}
+            <div className="flex items-center justify-center gap-2 text-sm text-gray-500">
+              <svg className="h-4 w-4 animate-spin" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+              </svg>
+              <span>Redirecting to home page in a moment...</span>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 }

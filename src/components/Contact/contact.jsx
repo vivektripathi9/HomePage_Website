@@ -71,6 +71,7 @@ export default function ContactSection() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitMessage, setSubmitMessage] = useState("");
+  const [showSuccessModal, setShowSuccessModal] = useState(false);
 
   const handleChange = (e) => {
     setFormData({
@@ -82,14 +83,35 @@ export default function ContactSection() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    // Simulate form submission
-    setTimeout(() => {
+    setSubmitMessage("");
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await res.json();
+
+      if (data.success) {
+        setFormData({ name: "", email: "", phone: "", subject: "", message: "" });
+        setShowSuccessModal(true);
+        // Redirect to home page after 4 seconds
+        setTimeout(() => {
+          window.location.href = "/";
+        }, 4000);
+      } else {
+        setSubmitMessage(`Error: ${data.error || "Failed to send message. Please try again."}`);
+        setIsSubmitting(false);
+        setTimeout(() => setSubmitMessage(""), 8000);
+      }
+    } catch (error) {
+      console.error("Form submission error:", error);
+      setSubmitMessage("Something went wrong. Please try again later or contact us directly.");
       setIsSubmitting(false);
-      setSubmitMessage("Thank you! We'll get back to you soon.");
-      setFormData({ name: "", email: "", phone: "", subject: "", message: "" });
-      setTimeout(() => setSubmitMessage(""), 5000);
-    }, 1000);
+      setTimeout(() => setSubmitMessage(""), 8000);
+    }
   };
 
   return (
@@ -360,6 +382,41 @@ export default function ContactSection() {
           </div>
         </div>
       </div>
+
+      {/* Success Modal */}
+      {showSuccessModal && (
+        <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/60 backdrop-blur-sm animate-fadeIn">
+          <div className="relative bg-white rounded-3xl shadow-2xl max-w-md w-full mx-4 p-8 sm:p-10 text-center animate-zoomIn">
+            {/* Success Icon */}
+            <div className="mb-6 flex justify-center">
+              <div className="relative">
+                <div className="absolute inset-0 bg-green-100 rounded-full animate-ping opacity-75"></div>
+                <div className="relative flex h-20 w-20 sm:h-24 sm:w-24 items-center justify-center rounded-full bg-gradient-to-br from-green-400 to-green-600">
+                  <svg className="h-12 w-12 sm:h-14 sm:w-14 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+
+            {/* Success Message */}
+            <h2 className="text-2xl sm:text-3xl font-semibold text-[#1f1f2e] mb-3" style={{ fontFamily: "serif" }}>
+              Message Sent Successfully!
+            </h2>
+            <p className="text-base sm:text-lg text-gray-600 mb-6 leading-relaxed">
+              Thank you for contacting us. We've received your message and will get back to you soon.
+            </p>
+
+            {/* Countdown */}
+            <div className="flex items-center justify-center gap-2 text-sm text-gray-500">
+              <svg className="h-4 w-4 animate-spin" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+              </svg>
+              <span>Redirecting to home page in a moment...</span>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 }

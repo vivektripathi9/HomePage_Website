@@ -159,13 +159,16 @@ export default function SalonMembershipsSection() {
   const [selectedForCompare, setSelectedForCompare] = useState([]);
   const cartTimeoutRef = useRef(null);
 
+  const openBookAppointment = (serviceName) => {
+    if (typeof window !== "undefined") {
+      const event = new CustomEvent("openBookAppointment", { detail: { service: serviceName || "" } });
+      window.dispatchEvent(event);
+    }
+  };
+
   const handleBookAppointment = (event, label = "Membership") => {
     event?.stopPropagation();
-    if (cartTimeoutRef.current) {
-      clearTimeout(cartTimeoutRef.current);
-    }
-    setCartMessage(`${label} booked successfully`);
-    cartTimeoutRef.current = setTimeout(() => setCartMessage(""), 3000);
+    openBookAppointment(label);
   };
 
   // Ensure component is mounted before starting animations (prevents hydration mismatch)

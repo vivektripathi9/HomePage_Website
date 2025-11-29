@@ -247,7 +247,15 @@ export default function MicrobladingExperience() {
                 <p className="text-base leading-relaxed text-[#555] mb-8 md:text-lg max-w-2xl mx-auto">
                   Experience the confidence that comes with expertly shaped brows and enjoy the convenience of a low-maintenance beauty routine.
                 </p>
-                <button className="rounded-full bg-gradient-to-r from-pink-600 via-rose-500 to-pink-600 px-12 py-5 text-base font-semibold text-white shadow-2xl transition-all duration-300 hover:shadow-[0_0_40px_rgba(236,72,153,0.4)] hover:scale-110 transform">
+                <button
+                  onClick={() => {
+                    if (typeof window !== "undefined") {
+                      const event = new CustomEvent("openBookAppointment", { detail: { service: "Microblading" } });
+                      window.dispatchEvent(event);
+                    }
+                  }}
+                  className="rounded-full bg-gradient-to-r from-pink-600 via-rose-500 to-pink-600 px-12 py-5 text-base font-semibold text-white shadow-2xl transition-all duration-300 hover:shadow-[0_0_40px_rgba(236,72,153,0.4)] hover:scale-110 transform"
+                >
                   Book Now
                 </button>
               </div>

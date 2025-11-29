@@ -137,12 +137,18 @@ export default function DetailsModal({
               {/* Premium CTA Section */}
               <div className="mt-8 sm:mt-12 pt-6 sm:pt-8 border-t border-gray-200">
                 <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 max-w-2xl mx-auto">
-                  <a
-                    href="/contact"
+                  <button
+                    onClick={() => {
+                      if (typeof window !== "undefined") {
+                        const event = new CustomEvent("openBookAppointment", { detail: { service: title } });
+                        window.dispatchEvent(event);
+                        onClose();
+                      }
+                    }}
                     className="flex-1 rounded-full bg-black px-6 sm:px-8 py-3 sm:py-4 text-xs sm:text-sm font-semibold uppercase tracking-[0.15em] sm:tracking-[0.2em] text-white text-center transition-all hover:bg-[#1a1a1a] hover:scale-105 shadow-lg"
                   >
                     Book Appointment
-                  </a>
+                  </button>
                   <button
                     onClick={onClose}
                     className="flex-1 rounded-full border-2 border-gray-300 bg-transparent px-6 sm:px-8 py-3 sm:py-4 text-xs sm:text-sm font-semibold uppercase tracking-[0.15em] sm:tracking-[0.2em] text-gray-700 transition-all hover:bg-gray-50 hover:border-gray-400"
@@ -239,12 +245,18 @@ export default function DetailsModal({
                 >
                   Close
                 </button>
-                <a
-                  href="/contact"
+                <button
+                  onClick={() => {
+                    if (typeof window !== "undefined") {
+                      const event = new CustomEvent("openBookAppointment", { detail: { service: title } });
+                      window.dispatchEvent(event);
+                      onClose();
+                    }
+                  }}
                   className="flex-1 rounded-md bg-red-600 px-4 sm:px-6 md:px-8 py-2.5 sm:py-3 text-xs sm:text-sm md:text-base font-semibold uppercase tracking-wide text-white text-center transition hover:bg-red-700"
                 >
                   Book Appointment
-                </a>
+                </button>
               </div>
             </div>
           </div>

@@ -326,7 +326,15 @@ export default function BridalExperience() {
                         </div>
                       </div>
                       <div className="mt-auto flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-3 pt-4 border-t border-pink-100">
-                        <button className="flex-1 rounded-full bg-gradient-to-r from-pink-500 to-amber-400 px-6 py-3 text-xs sm:text-sm font-semibold uppercase tracking-[0.3em] text-white shadow-lg transition-all hover:shadow-xl hover:scale-105">
+                        <button
+                          onClick={() => {
+                            if (typeof window !== "undefined") {
+                              const event = new CustomEvent("openBookAppointment", { detail: { service: activePackage?.title || "Bridal Package" } });
+                              window.dispatchEvent(event);
+                            }
+                          }}
+                          className="flex-1 rounded-full bg-gradient-to-r from-pink-500 to-amber-400 px-6 py-3 text-xs sm:text-sm font-semibold uppercase tracking-[0.3em] text-white shadow-lg transition-all hover:shadow-xl hover:scale-105"
+                        >
                           Book {activePackage.title}
                         </button>
                         <button className="flex-1 rounded-full border-2 border-pink-300 bg-gradient-to-r from-pink-500/10 to-amber-400/10 px-6 py-3 text-xs sm:text-sm font-semibold uppercase tracking-[0.3em] text-[#C06C84] transition-all hover:bg-gradient-to-r hover:from-pink-500 hover:to-amber-400 hover:text-white hover:border-pink-400">

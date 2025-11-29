@@ -345,7 +345,15 @@ export default function BeautyEssentialsExperience() {
 
                   {/* Booking Button */}
                   <div className="pt-4">
-                    <button className="w-full rounded-full bg-gradient-to-r from-pink-600 via-rose-500 to-pink-600 px-6 py-3 text-sm font-semibold text-white shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-105 transform">
+                    <button
+                      onClick={() => {
+                        if (typeof window !== "undefined") {
+                          const event = new CustomEvent("openBookAppointment", { detail: { service: `${activeArea.name} Treatment` } });
+                          window.dispatchEvent(event);
+                        }
+                      }}
+                      className="w-full rounded-full bg-gradient-to-r from-pink-600 via-rose-500 to-pink-600 px-6 py-3 text-sm font-semibold text-white shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-105 transform"
+                    >
                       Book {activeArea.name} Treatment
                     </button>
                   </div>

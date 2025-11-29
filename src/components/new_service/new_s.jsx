@@ -348,7 +348,15 @@ export default function NewServicesShowcase() {
 
                   {/* Action Buttons */}
                   <div className="flex flex-col gap-4 pt-4 border-t border-gray-200">
-                    <button className="w-full rounded-full bg-gradient-to-r from-pink-600 via-rose-500 to-pink-600 px-8 py-4 text-sm font-semibold uppercase tracking-wider text-white shadow-xl transition-all duration-300 hover:shadow-2xl hover:scale-105">
+                    <button
+                      onClick={() => {
+                        if (typeof window !== "undefined") {
+                          const event = new CustomEvent("openBookAppointment", { detail: { service: activeService?.title || "Beauty Treatment" } });
+                          window.dispatchEvent(event);
+                        }
+                      }}
+                      className="w-full rounded-full bg-gradient-to-r from-pink-600 via-rose-500 to-pink-600 px-8 py-4 text-sm font-semibold uppercase tracking-wider text-white shadow-xl transition-all duration-300 hover:shadow-2xl hover:scale-105"
+                    >
                       Book {activeService.title}
                     </button>
                     <button className="w-full rounded-full border-2 border-gray-300 bg-white px-8 py-4 text-sm font-semibold uppercase tracking-wider text-[#1f1f2e] transition-all duration-300 hover:border-pink-300 hover:bg-pink-50">
