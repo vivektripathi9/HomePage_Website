@@ -31,19 +31,19 @@ export default function FashionHero() {
               className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-light tracking-[0.15em] sm:tracking-[0.2em] md:tracking-[0.25em] text-white uppercase"
               style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', letterSpacing: "0.2em", fontWeight: 300 }}
             >
-              HAUTE COUTURE
+              SCENT SALON
             </h1>
             <h2 
               className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-light tracking-[0.1em] sm:tracking-[0.15em] md:tracking-[0.2em] text-white uppercase"
               style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', letterSpacing: "0.15em", fontWeight: 300 }}
             >
-              SPRING SUMMER 2026
+              BEAUTY REIMAGINED
             </h2>
             <h3 
               className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-light tracking-[0.1em] sm:tracking-[0.15em] text-white uppercase mt-2"
               style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', letterSpacing: "0.1em", fontWeight: 300 }}
             >
-              SHOW
+              SIGNATURE COLLECTION
             </h3>
           </div>
 
