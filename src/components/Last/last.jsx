@@ -37,11 +37,12 @@ export default function Footer() {
         {/* Column 1: Branding and Social Links */}
         <div className="space-y-3 sm:space-y-4 md:pr-6 lg:pr-10">
           <p
-            className={`${playfair.className} text-2xl sm:text-3xl font-normal tracking-[0.2em] sm:tracking-[0.3em] md:tracking-[0.4em] text-[#2E2E2E]`}
+            className="text-2xl sm:text-3xl font-light tracking-[0.2em] sm:tracking-[0.3em] md:tracking-[0.4em] text-[#2E2E2E] uppercase"
+            style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}
           >
             scent
           </p>
-          <p className="text-sm sm:text-[16px] font-light text-[#555] leading-relaxed">
+          <p className="text-sm sm:text-[16px] font-light text-[#555] leading-relaxed" style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}>
             Experience luxury, elegance, and confidence — every time you visit SCENT.
           </p>
           <div className="flex gap-2 sm:gap-3">
@@ -68,11 +69,11 @@ export default function Footer() {
 
         {/* Column 2: Quick Links */}
         <div className="md:px-4 lg:px-6">
-          <h3 className="mb-2 text-lg sm:text-[20px] font-bold text-[#2E2E2E] text-center md:text-left" style={{ fontFamily: "serif" }}>Quick Links</h3>
+          <h3 className="mb-2 text-lg sm:text-[20px] font-light text-[#2E2E2E] text-center md:text-left uppercase tracking-[0.05em]" style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}>Quick Links</h3>
           <span className="block h-px w-full bg-gray-300 mb-3 sm:mb-4" />
-          <ul className="space-y-1.5 sm:space-y-2 text-sm sm:text-[16px] font-normal text-[#555]">
+          <ul className="space-y-1.5 sm:space-y-2 text-sm sm:text-[16px] font-light text-[#555]" style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}>
             {quickLinks.map((link) => (
-              <li key={link} className="transition hover:text-[#2E2E2E] cursor-pointer">
+              <li key={link} className="transition hover:text-[#2E2E2E] cursor-pointer uppercase tracking-[0.05em]">
                 {link}
               </li>
             ))}
@@ -81,13 +82,13 @@ export default function Footer() {
 
         {/* Column 3: Recent Posts */}
         <div className="md:px-4 lg:px-6">
-          <h3 className="mb-2 text-lg sm:text-[20px] font-bold text-[#2E2E2E] text-center md:text-left" style={{ fontFamily: "serif" }}>Recent Posts</h3>
+          <h3 className="mb-2 text-lg sm:text-[20px] font-light text-[#2E2E2E] text-center md:text-left uppercase tracking-[0.05em]" style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}>Recent Posts</h3>
           <span className="block h-px w-full bg-gray-300 mb-3 sm:mb-4" />
           <ul className="space-y-3 sm:space-y-4">
             {recentPosts.map((post) => (
               <li key={post.title}>
-                <p className="text-sm sm:text-[16px] font-normal text-[#555] mb-1">{post.title}</p>
-                <p className="text-xs sm:text-[14px] font-normal text-[#777] flex items-center gap-1">
+                <p className="text-sm sm:text-[16px] font-light text-[#555] mb-1 uppercase tracking-[0.05em]" style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}>{post.title}</p>
+                <p className="text-xs sm:text-[14px] font-light text-[#777] flex items-center gap-1" style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}>
                   <svg
                     className="h-4 w-4"
                     fill="none"
@@ -110,16 +111,16 @@ export default function Footer() {
 
         {/* Column 4: Opening Hours */}
         <div className="flex flex-col text-left md:ml-auto md:items-end md:text-right md:pl-6 lg:pl-10">
-          <h3 className="mb-2 w-full text-lg sm:text-[20px] font-bold text-[#2E2E2E] text-center md:text-left" style={{ fontFamily: "serif" }}>
+          <h3 className="mb-2 w-full text-lg sm:text-[20px] font-light text-[#2E2E2E] text-center md:text-left uppercase tracking-[0.05em]" style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}>
             Opening Hours
           </h3>
           <span className="block h-px w-full bg-gray-300 mb-3 sm:mb-4" />
-          <p className="text-sm sm:text-[16px] font-normal text-[#555] mb-3 sm:mb-4 text-left">
+          <p className="text-sm sm:text-[16px] font-light text-[#555] mb-3 sm:mb-4 text-left" style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}>
             Lorem ipsum dolor sit amet, consect adipisicing elit, sed do eiusmod tempor inci-didunt.
           </p>
-          <ul className="space-y-1.5 sm:space-y-2 text-left text-xs sm:text-[12px] md:text-[11px] text-[#555]">
+          <ul className="space-y-1.5 sm:space-y-2 text-left text-xs sm:text-[12px] md:text-[11px] text-[#555] font-light" style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}>
             {hours.map((hour) => (
-              <li key={hour.day} className="font-normal">
+              <li key={hour.day}>
                 <span>{hour.day} : </span>
                 <span className="text-[#777]">{hour.time}</span>
               </li>
@@ -131,8 +132,8 @@ export default function Footer() {
       {/* Bottom Bar: Copyright and Payment Icons */}
       <div className="bg-White">
         <div className="mx-auto w-full max-w-7xl flex flex-col items-center justify-between gap-3 sm:gap-4 px-4 sm:px-6 md:px-12 lg:px-20 py-3 sm:py-4 text-xs sm:text-[14px] text-black sm:flex-row">
-          <p className="font-normal text-center sm:text-left">
-            Designed By <span className="font-semibold">Pinakkaa</span> © 2025
+          <p className="font-light text-center sm:text-left" style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}>
+            Designed By <span className="font-light">Pinakkaa</span> © 2025
           </p>
           <div className="flex gap-2 sm:gap-3 items-center">
             {["M", "VISA", "🍎", "💳"].map((icon, index) => (

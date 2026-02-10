@@ -203,7 +203,7 @@ export default function AcademySection() {
         />
         <div className="absolute inset-0 bg-black/60" />
         <div className="absolute inset-0 flex flex-col items-center justify-center gap-6 px-4 sm:px-6 md:px-12 lg:px-20 text-center text-white">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight" style={{ fontFamily: "serif" }}>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
             ScentLifestyle Academy
           </h1>
           <p className="max-w-3xl text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed text-white/90">
@@ -249,7 +249,7 @@ export default function AcademySection() {
         {/* Why Choose Section */}
         <div className="mb-12 sm:mb-16">
           <div className="text-center mb-8 sm:mb-12">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-[#1f1f2e] mb-4" style={{ fontFamily: "serif" }}>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-[#1f1f2e] mb-4" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
               Why Choose SCENTLifestyle Academy
             </h2>
             <div className="flex items-center justify-center gap-3 sm:gap-4 mb-6">
@@ -278,7 +278,7 @@ export default function AcademySection() {
                   
                   {/* Content Section */}
                   <div className={`flex-1 p-6 sm:p-8 md:p-10 ${isEven ? 'md:border-l-0 md:border-r' : 'md:border-l'} border-t md:border-t-0 border-gray-200`}>
-                    <h3 className="mb-4 text-xl sm:text-2xl md:text-3xl font-semibold text-[#1f1f2e]" style={{ fontFamily: "serif" }}>
+                    <h3 className="mb-4 text-xl sm:text-2xl md:text-3xl font-semibold text-[#1f1f2e]" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
                       {benefit.title}
                     </h3>
                     <div className={`h-1 w-16 ${isEven ? 'bg-black' : 'bg-black'} mb-4`} />
@@ -336,7 +336,7 @@ export default function AcademySection() {
           <div className="rounded-2xl border border-gray-200 bg-white p-6 sm:p-8 md:p-12 shadow-lg">
             <div className="grid gap-8 md:grid-cols-2 md:items-center">
               <div>
-                <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-[#1f1f2e] mb-6" style={{ fontFamily: "serif" }}>
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-[#1f1f2e] mb-6" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
                   Immerse yourself in professional hairstyling excellence
                 </h2>
                 <p className="text-base sm:text-lg leading-relaxed text-[#555] mb-4">
@@ -366,7 +366,7 @@ export default function AcademySection() {
             <div className="absolute bottom-0 right-0 h-64 w-64 rounded-full bg-white blur-3xl" />
           </div>
           <div className="relative z-10 text-center">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 tracking-wider" style={{ fontFamily: "serif" }}>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 tracking-wider" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
               SCENT
               <br />
               ACADEMY
@@ -420,7 +420,7 @@ export default function AcademySection() {
         <div className="mb-12 sm:mb-16 rounded-2xl border border-gray-200 bg-white p-6 sm:p-8 md:p-12 shadow-lg">
           <div className="grid gap-8 md:grid-cols-2 md:items-center">
             <div>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-[#1f1f2e] mb-6" style={{ fontFamily: "serif" }}>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-[#1f1f2e] mb-6" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
                 Experience a Glamorous Makeover at SCENT Academy!
               </h2>
               <p className="text-base sm:text-lg leading-relaxed text-[#555] mb-4">
@@ -451,7 +451,7 @@ export default function AcademySection() {
         {/* Enquiry Form Section */}
         <div id="enquire" className="rounded-2xl border border-gray-200 bg-white p-6 sm:p-8 md:p-12 shadow-lg">
           <div className="text-center mb-8">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-[#1f1f2e] mb-4" style={{ fontFamily: "serif" }}>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-[#1f1f2e] mb-4" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
               Enquire Now
             </h2>
             <p className="text-sm sm:text-base text-[#555]">
@@ -568,7 +568,7 @@ export default function AcademySection() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
                   </svg>
                 </div>
-                <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-[#1f1f2e] mb-2" style={{ fontFamily: "serif" }}>
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-[#1f1f2e] mb-2" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
                   Enroll at SCENT Academy
                 </h2>
                 <p className="text-sm sm:text-base text-gray-600">
@@ -743,7 +743,7 @@ export default function AcademySection() {
             </div>
 
             {/* Success Message */}
-            <h2 className="text-2xl sm:text-3xl font-semibold text-[#1f1f2e] mb-3" style={{ fontFamily: "serif" }}>
+            <h2 className="text-2xl sm:text-3xl font-semibold text-[#1f1f2e] mb-3" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
               Enrollment Submitted!
             </h2>
             <p className="text-base sm:text-lg text-gray-600 mb-6 leading-relaxed">

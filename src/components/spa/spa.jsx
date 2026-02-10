@@ -286,7 +286,7 @@ export default function SpaSection() {
           </div>
           <h1
             className="text-4xl font-semibold leading-tight drop-shadow-lg md:text-5xl"
-            style={{ fontFamily: "serif" }}
+            style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}
           >
             Spa & Massage Experiences by SCENT
           </h1>
@@ -303,13 +303,13 @@ export default function SpaSection() {
           <div className="mx-auto flex max-w-3xl flex-col gap-4">
             <p
               className="text-sm font-semibold uppercase tracking-[0.4em] text-[#C06C84]"
-              style={{ fontFamily: "serif" }}
+              style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}
             >
               Urban Escape
             </p>
             <h2
               className="text-2xl font-semibold text-[#1f1f2e] sm:text-[30px] leading-tight"
-              style={{ fontFamily: "serif" }}
+              style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}
             >
               Curated spa rituals for head, hands, feet, and full body reset.
             </h2>
@@ -437,7 +437,7 @@ export default function SpaSection() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
                 <div className="absolute bottom-6 left-6 right-6">
-                  <h2 className="text-3xl md:text-4xl font-semibold text-white mb-2" style={{ fontFamily: "serif" }}>
+                  <h2 className="text-3xl md:text-4xl font-semibold text-white mb-2" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
                     {selectedService.title}
                   </h2>
                   <p className="text-white/90 text-sm md:text-base">{selectedService.description}</p>
@@ -455,7 +455,7 @@ export default function SpaSection() {
 
                 {/* Benefits */}
                 <div>
-                  <h3 className="text-xl font-semibold text-[#1f1f2e] mb-4" style={{ fontFamily: "serif" }}>
+                  <h3 className="text-xl font-semibold text-[#1f1f2e] mb-4" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
                     Key Benefits
                   </h3>
                   <div className="grid gap-3 md:grid-cols-2">
@@ -473,7 +473,7 @@ export default function SpaSection() {
 
                 {/* Techniques */}
                 <div>
-                  <h3 className="text-xl font-semibold text-[#1f1f2e] mb-4" style={{ fontFamily: "serif" }}>
+                  <h3 className="text-xl font-semibold text-[#1f1f2e] mb-4" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
                     Techniques Used
                   </h3>
                   <div className="flex flex-wrap gap-3">

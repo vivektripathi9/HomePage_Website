@@ -105,7 +105,7 @@ export default function BeautyEssentialsExperience() {
             <p className="mb-4 inline-flex items-center gap-2 text-xs uppercase tracking-[0.5em] text-pink-300">
               <span className="text-pink-400 text-xl">❀</span> Beauty Essentials
             </p>
-            <h1 className="mb-6 text-5xl font-semibold leading-tight md:text-6xl lg:text-7xl" style={{ fontFamily: "serif" }}>
+            <h1 className="mb-6 text-5xl font-semibold leading-tight md:text-6xl lg:text-7xl" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
               Beauty Essentials
             </h1>
             <p className="mx-auto max-w-4xl text-lg leading-relaxed text-white/90 md:text-xl">
@@ -125,7 +125,7 @@ export default function BeautyEssentialsExperience() {
             <p className="mb-6 inline-flex items-center gap-2 text-sm uppercase tracking-[0.5em] text-pink-400 font-semibold">
               <span className="text-pink-500 text-2xl">❀</span> Premium Services
             </p>
-            <h2 className="text-4xl font-semibold text-[#1f1f2e] md:text-5xl lg:text-6xl mb-6" style={{ fontFamily: "serif" }}>
+            <h2 className="text-4xl font-semibold text-[#1f1f2e] md:text-5xl lg:text-6xl mb-6" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
               Our Services
             </h2>
             <p className="mx-auto max-w-3xl text-[#6f6f7a] text-lg md:text-xl leading-relaxed">
@@ -196,7 +196,7 @@ export default function BeautyEssentialsExperience() {
                   <div className="relative p-8 md:p-10">
                     <h3 className={`font-bold text-[#1f1f2e] mb-4 transition-all duration-300 ${
                       isActive ? "text-3xl" : "text-2xl group-hover:text-3xl"
-                    }`} style={{ fontFamily: "serif" }}>
+                    }`} style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
                       {area.name}
                     </h3>
                     <p className="text-base text-[#555] leading-relaxed line-clamp-3 mb-6 min-h-[72px]">
@@ -277,7 +277,7 @@ export default function BeautyEssentialsExperience() {
                     <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-pink-100 px-3 py-1 text-xs font-semibold text-pink-600">
                       <span>❀</span> {activeArea.name} Services
                     </div>
-                    <h3 className="text-3xl md:text-4xl font-semibold text-[#1f1f2e] mb-3" style={{ fontFamily: "serif" }}>
+                    <h3 className="text-3xl md:text-4xl font-semibold text-[#1f1f2e] mb-3" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
                       {activeArea.name} Care
                     </h3>
                     <p className="text-base leading-relaxed text-[#555] mb-5">

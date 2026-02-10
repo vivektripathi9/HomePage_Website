@@ -89,8 +89,8 @@ export default function LooksSection() {
                   />
                 </div>
               </div>
-              <h3 className="text-lg sm:text-xl font-semibold text-[#22223b]" style={{ fontFamily: "serif" }}>{service.title}</h3>
-              <p className="text-xs sm:text-sm leading-relaxed text-gray-500 text-center px-2">{service.description}</p>
+              <h3 className="text-lg sm:text-xl font-light text-[#22223b] uppercase tracking-[0.05em]" style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}>{service.title}</h3>
+              <p className="text-xs sm:text-sm leading-relaxed text-gray-500 text-center px-2 font-light" style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}>{service.description}</p>
               <span className="h-px w-full bg-gray-100" />
               <button
                 onClick={(e) => {
@@ -98,7 +98,8 @@ export default function LooksSection() {
                   e.stopPropagation();
                   openBookAppointment(service.title);
                 }}
-                className="w-full text-xs sm:text-sm font-semibold uppercase tracking-wide text-gray-800 transition hover:text-red-600 text-center"
+                className="w-full text-xs sm:text-sm font-light uppercase tracking-[0.1em] text-gray-800 transition hover:text-red-600 text-center"
+                style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}
               >
                 Book Now →
               </button>
@@ -107,7 +108,7 @@ export default function LooksSection() {
         </div>
 
         <div className="flex flex-col items-center gap-3 sm:gap-4 text-center">
-          <h3 className="text-2xl sm:text-3xl md:text-[42px] font-semibold leading-tight text-[#1f1f2e]" style={{ fontFamily: "serif" }}>
+          <h3 className="text-2xl sm:text-3xl md:text-[42px] font-light leading-tight text-[#1f1f2e] uppercase tracking-[0.1em]" style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}>
             Watch Beauty in Action
           </h3>
           <div className="flex items-center justify-center gap-3 sm:gap-4 text-gray-300">

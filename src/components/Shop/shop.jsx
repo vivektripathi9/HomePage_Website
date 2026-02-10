@@ -80,7 +80,7 @@ export default function ShopSection() {
         <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 md:px-12 lg:px-20 text-center">
           <h1
             className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light tracking-wide text-white mb-4"
-            style={{ fontFamily: "serif" }}
+            style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}
           >
             Best Hair Treatment Products
           </h1>
@@ -131,7 +131,7 @@ export default function ShopSection() {
 
               {/* Product Info */}
               <div className="flex-1 space-y-2">
-                <h3 className="text-sm sm:text-base font-semibold text-[#22223b] leading-tight" style={{ fontFamily: "serif" }}>
+                <h3 className="text-sm sm:text-base font-semibold text-[#22223b] leading-tight" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
                   {product.name}
                 </h3>
                 <p className="text-lg sm:text-xl font-bold text-red-600">

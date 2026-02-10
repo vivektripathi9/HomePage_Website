@@ -340,7 +340,7 @@ export default function NailCouture() {
             <span className="rounded-full border border-white/20 bg-white/10 px-4 py-1">Chrome</span>
             <span className="rounded-full border border-white/20 bg-white/10 px-4 py-1">Spa Rituals</span>
           </div>
-          <h1 className="text-4xl font-semibold leading-tight drop-shadow-lg md:text-5xl" style={{ fontFamily: "serif" }}>
+          <h1 className="text-4xl font-semibold leading-tight drop-shadow-lg md:text-5xl" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
             Nail Salon Menu by SCENT
           </h1>
           <p className="max-w-3xl text-base leading-relaxed text-white/90 md:text-lg">
@@ -360,12 +360,12 @@ export default function NailCouture() {
         {/* Highlight */}
         <div className="w-full rounded-[32px] border border-white/70 bg-gradient-to-r from-white/90 via-pink-50/70 to-purple-50/70 px-10 py-10 text-center shadow-[0px_30px_120px_rgba(255,182,193,0.25)] transition hover:-translate-y-1">
           <div className="mx-auto flex max-w-4xl flex-col gap-4">
-            <p className="text-sm font-semibold uppercase tracking-[0.4em] text-[#C06C84]" style={{ fontFamily: "serif" }}>
+            <p className="text-sm font-semibold uppercase tracking-[0.4em] text-[#C06C84]" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
               Bangalore Nail Flagship Menu
             </p>
             <h3
               className="text-2xl font-semibold text-[#1f1f2e] sm:text-[30px]"
-              style={{ fontFamily: "serif" }}
+              style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}
             >
               Six signature rituals covering every fingertip — from chrome couture to spa pedicures.
             </h3>
@@ -490,7 +490,7 @@ export default function NailCouture() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
                 <div className="absolute bottom-6 left-6 right-6">
-                  <h2 className="text-3xl md:text-4xl font-semibold text-white mb-2" style={{ fontFamily: "serif" }}>
+                  <h2 className="text-3xl md:text-4xl font-semibold text-white mb-2" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
                     {selectedItem.title}
                   </h2>
                   <p className="text-white/90 text-sm md:text-base">{selectedItem.description}</p>
@@ -508,7 +508,7 @@ export default function NailCouture() {
 
                 {/* Benefits */}
                 <div>
-                  <h3 className="text-xl font-semibold text-[#1f1f2e] mb-4" style={{ fontFamily: "serif" }}>
+                  <h3 className="text-xl font-semibold text-[#1f1f2e] mb-4" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
                     Key Benefits
                   </h3>
                   <div className="grid gap-3 md:grid-cols-2">
@@ -526,7 +526,7 @@ export default function NailCouture() {
 
                 {/* Includes */}
                 <div>
-                  <h3 className="text-xl font-semibold text-[#1f1f2e] mb-4" style={{ fontFamily: "serif" }}>
+                  <h3 className="text-xl font-semibold text-[#1f1f2e] mb-4" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
                     What's Included
                   </h3>
                   <div className="flex flex-wrap gap-3">

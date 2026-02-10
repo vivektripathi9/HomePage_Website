@@ -39,7 +39,7 @@ export default function BeautyHero() {
 
       <div className="grid md:grid-cols-2 gap-6">
         <div className="space-y-4">
-          <h3 className="text-xl font-semibold text-[#1f1f2e] border-b border-gray-200 pb-2" style={{ fontFamily: "serif" }}>
+          <h3 className="text-xl font-semibold text-[#1f1f2e] border-b border-gray-200 pb-2" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
             Hair Services
           </h3>
           <p className="text-sm text-gray-600 leading-relaxed mb-3">
@@ -70,7 +70,7 @@ export default function BeautyHero() {
         </div>
 
         <div className="space-y-4">
-          <h3 className="text-xl font-semibold text-[#1f1f2e] border-b border-gray-200 pb-2" style={{ fontFamily: "serif" }}>
+          <h3 className="text-xl font-semibold text-[#1f1f2e] border-b border-gray-200 pb-2" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
             Beauty Treatments
           </h3>
           <p className="text-sm text-gray-600 leading-relaxed mb-3">
@@ -101,7 +101,7 @@ export default function BeautyHero() {
         </div>
 
         <div className="space-y-4">
-          <h3 className="text-xl font-semibold text-[#1f1f2e] border-b border-gray-200 pb-2" style={{ fontFamily: "serif" }}>
+          <h3 className="text-xl font-semibold text-[#1f1f2e] border-b border-gray-200 pb-2" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
             Nail Services
           </h3>
           <p className="text-sm text-gray-600 leading-relaxed mb-3">
@@ -132,7 +132,7 @@ export default function BeautyHero() {
         </div>
 
         <div className="space-y-4">
-          <h3 className="text-xl font-semibold text-[#1f1f2e] border-b border-gray-200 pb-2" style={{ fontFamily: "serif" }}>
+          <h3 className="text-xl font-semibold text-[#1f1f2e] border-b border-gray-200 pb-2" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
             Makeup Services
           </h3>
           <p className="text-sm text-gray-600 leading-relaxed mb-3">
@@ -164,7 +164,7 @@ export default function BeautyHero() {
       </div>
 
       <div className="pt-6 border-t border-gray-200">
-        <h3 className="text-2xl font-semibold text-[#1f1f2e] mb-6" style={{ fontFamily: "serif" }}>
+        <h3 className="text-2xl font-semibold text-[#1f1f2e] mb-6" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
           Why Choose SCENT?
         </h3>
         <div className="grid md:grid-cols-2 gap-6">
@@ -282,7 +282,7 @@ export default function BeautyHero() {
         <div className={`order-2 space-y-4 sm:space-y-6 px-4 sm:px-6 md:px-12 lg:px-20 text-center md:order-none md:ml-4 lg:ml-12 md:text-left ${inter.className}`}>
           <h2
             className={`text-2xl sm:text-3xl md:text-4xl lg:text-[42px] font-semibold leading-tight text-white ${playfair.className}`}
-            style={{ fontFamily: "serif" }}
+            style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}
           >
             Beauty, Defined by You.
           </h2>

@@ -91,7 +91,7 @@ export default function BridalExperience() {
           </div>
           <h1 
             className="text-4xl md:text-6xl lg:text-7xl font-semibold leading-tight drop-shadow-2xl"
-            style={{ fontFamily: "serif" }}
+            style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}
           >
             Luxe Bridal Makeup,<br />
             <span className="text-pink-200">Styled for Every Ceremony</span>
@@ -139,7 +139,7 @@ export default function BridalExperience() {
             <h2 
               className="mt-4 text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-semibold text-[#1f1f2e] leading-tight transition-all duration-700 hover:scale-105" 
               style={{ 
-                fontFamily: "serif",
+                fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300,
                 animation: "fadeInUp 0.8s ease-out 0.4s forwards",
                 opacity: 0,
                 textShadow: "0 2px 20px rgba(240,144,174,0.2)",
@@ -189,7 +189,7 @@ export default function BridalExperience() {
                         <span className="text-amber-300 text-2xl">❀</span>
                         <p
                           className="pointer-events-auto cursor-pointer text-base tracking-[0.4em] uppercase text-pink-100 transition-all hover:scale-110 hover:text-white font-semibold"
-                          style={{ fontFamily: "serif" }}
+                          style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}
                           onClick={(e) => {
                             e.stopPropagation();
                             setActiveService(pkg.id);
@@ -229,7 +229,7 @@ export default function BridalExperience() {
                     <div className="flex items-center justify-between border-b border-pink-100 pb-4">
                       <h3
                         className="text-2xl font-semibold text-[#1f1f2e]"
-                        style={{ fontFamily: "serif" }}
+                        style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}
                       >
                         {pkg.title}
                       </h3>
@@ -288,7 +288,7 @@ export default function BridalExperience() {
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
                       <div className="absolute bottom-4 left-4 text-white">
-                        <p className="text-sm uppercase tracking-[0.4em]" style={{ fontFamily: "serif" }}>
+                        <p className="text-sm uppercase tracking-[0.4em]" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
                           {activePackage.title}
                         </p>
                         <p className="text-xs text-white/80">Couture bridal experience</p>
@@ -296,7 +296,7 @@ export default function BridalExperience() {
                     </div>
                     <div className="flex w-full flex-col gap-4 px-6 py-6 md:w-1/2 md:overflow-y-auto md:max-h-[90vh]">
                       <div className="flex flex-col gap-3">
-                        <h3 className="text-2xl md:text-3xl font-semibold text-[#1f1f2e]" style={{ fontFamily: "serif" }}>
+                        <h3 className="text-2xl md:text-3xl font-semibold text-[#1f1f2e]" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
                           {activePackage.title}
                         </h3>
                         <p className="text-sm leading-relaxed text-gray-600">{activePackage.description}</p>
@@ -362,7 +362,7 @@ export default function BridalExperience() {
               <p className="text-base uppercase tracking-[0.5em] text-[#C06C84] font-semibold">Add-On Rituals</p>
               <span className="text-amber-400 text-2xl">❀</span>
             </div>
-            <h3 className="text-4xl md:text-5xl font-semibold text-[#1f1f2e]" style={{ fontFamily: "serif" }}>
+            <h3 className="text-4xl md:text-5xl font-semibold text-[#1f1f2e]" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
               Tailor the Journey with<br />
               <span className="bg-gradient-to-r from-[#C06C84] to-[#d87a9a] bg-clip-text text-transparent">Bespoke Extras</span>
             </h3>
@@ -386,7 +386,7 @@ export default function BridalExperience() {
                 <span className="text-amber-400 text-xl">❀</span>
                 <p className="text-sm uppercase tracking-[0.4em] text-[#C06C84] font-semibold">Concierge</p>
               </div>
-              <h4 className="text-3xl font-semibold text-[#1f1f2e]" style={{ fontFamily: "serif" }}>
+              <h4 className="text-3xl font-semibold text-[#1f1f2e]" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
                 Book a Bridal<br />Consultation
               </h4>
               <p className="text-sm text-gray-600">

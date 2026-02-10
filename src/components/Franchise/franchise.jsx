@@ -98,7 +98,7 @@ export default function FranchiseSection() {
         />
         <div className="absolute inset-0 bg-black/60" />
         <div className="absolute inset-0 flex flex-col items-center justify-center gap-6 px-4 sm:px-6 md:px-12 lg:px-20 text-center text-white">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight" style={{ fontFamily: "serif" }}>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
             Unlock the Opportunity
           </h1>
           <p className="max-w-4xl text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed text-white/90">
@@ -123,7 +123,7 @@ export default function FranchiseSection() {
         {/* Why Choose Section */}
         <div className="mb-12 sm:mb-16">
           <div className="text-center mb-8 sm:mb-12">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-[#1f1f2e] mb-4" style={{ fontFamily: "serif" }}>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-[#1f1f2e] mb-4" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
               Why Choose a Salon Franchise in Bangalore?
             </h2>
             <div className="flex items-center justify-center gap-3 sm:gap-4 mb-6">
@@ -140,7 +140,7 @@ export default function FranchiseSection() {
         {/* Contact Form Section */}
         <div className="mb-12 sm:mb-16 grid gap-8 md:grid-cols-2">
           <div className="order-2 md:order-1">
-            <h3 className="text-2xl sm:text-3xl font-semibold text-[#1f1f2e] mb-6" style={{ fontFamily: "serif" }}>
+            <h3 className="text-2xl sm:text-3xl font-semibold text-[#1f1f2e] mb-6" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
               Get in Touch
             </h3>
             <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
@@ -217,7 +217,7 @@ export default function FranchiseSection() {
           </div>
 
           <div className="order-1 md:order-2 rounded-2xl bg-gradient-to-br from-gray-50 to-white border border-gray-200 p-6 sm:p-8 shadow-lg">
-            <h3 className="text-2xl sm:text-3xl font-semibold text-[#1f1f2e] mb-6" style={{ fontFamily: "serif" }}>
+            <h3 className="text-2xl sm:text-3xl font-semibold text-[#1f1f2e] mb-6" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
               Contact Information
             </h3>
             <div className="space-y-6">
@@ -254,7 +254,7 @@ export default function FranchiseSection() {
         {/* SCENT Advantage Section */}
         <div className="mb-12 sm:mb-16">
           <div className="text-center mb-8 sm:mb-12">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-[#1f1f2e] mb-4" style={{ fontFamily: "serif" }}>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-[#1f1f2e] mb-4" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
               The SCENT Advantage for Your Salon Franchise in Bangalore
             </h2>
             <div className="flex items-center justify-center gap-3 sm:gap-4 mb-6">
@@ -281,7 +281,7 @@ export default function FranchiseSection() {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                       </svg>
                     </div>
-                    <h3 className="text-xl sm:text-2xl font-semibold text-[#1f1f2e]" style={{ fontFamily: "serif" }}>
+                    <h3 className="text-xl sm:text-2xl font-semibold text-[#1f1f2e]" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
                       {advantage.title}
                     </h3>
                   </div>
@@ -297,7 +297,7 @@ export default function FranchiseSection() {
         {/* Steps Section */}
         <div className="mb-12 sm:mb-16">
           <div className="text-center mb-8 sm:mb-12">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-[#1f1f2e] mb-4" style={{ fontFamily: "serif" }}>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-[#1f1f2e] mb-4" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
               Steps to Open Your Salon Franchise in Bangalore with SCENT
             </h2>
             <div className="flex items-center justify-center gap-3 sm:gap-4 mb-6">
@@ -320,7 +320,7 @@ export default function FranchiseSection() {
                   {step.number}
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-xl sm:text-2xl font-semibold text-[#1f1f2e] mb-3" style={{ fontFamily: "serif" }}>
+                  <h3 className="text-xl sm:text-2xl font-semibold text-[#1f1f2e] mb-3" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
                     {step.title}
                   </h3>
                   <p className="text-sm sm:text-base leading-relaxed text-[#555]">
@@ -335,7 +335,7 @@ export default function FranchiseSection() {
         {/* Success Stories Section */}
         <div className="mb-12 sm:mb-16 rounded-3xl bg-gradient-to-br from-black via-[#1a1a1a] to-black p-8 sm:p-12 md:p-16 text-white">
           <div className="text-center mb-8">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold mb-4" style={{ fontFamily: "serif" }}>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold mb-4" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
               Success Stories from Our Salon Franchise in Bangalore
             </h2>
             <div className="flex items-center justify-center gap-3 sm:gap-4 mb-6">
@@ -352,7 +352,7 @@ export default function FranchiseSection() {
         {/* What Makes SCENT Best Section */}
         <div className="mb-12 sm:mb-16">
           <div className="text-center mb-8 sm:mb-12">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-[#1f1f2e] mb-4" style={{ fontFamily: "serif" }}>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-[#1f1f2e] mb-4" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
               What Makes SCENT the Best Choice for Your Salon Franchise in Bangalore?
             </h2>
             <div className="flex items-center justify-center gap-3 sm:gap-4 mb-6">
@@ -373,7 +373,7 @@ export default function FranchiseSection() {
 
         {/* Profitable Opportunity Section */}
         <div className="mb-12 sm:mb-16 rounded-2xl border-l-4 border-black bg-gradient-to-r from-gray-50 to-white p-6 sm:p-8 md:p-10">
-          <h3 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-[#1f1f2e] mb-4" style={{ fontFamily: "serif" }}>
+          <h3 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-[#1f1f2e] mb-4" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
             A Profitable Business Opportunity Awaits
           </h3>
           <p className="text-base sm:text-lg leading-relaxed text-[#555]">
@@ -388,7 +388,7 @@ export default function FranchiseSection() {
             <div className="absolute bottom-0 right-0 h-64 w-64 rounded-full bg-white blur-3xl" />
           </div>
           <div className="relative z-10">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6" style={{ fontFamily: "serif" }}>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
               How to Get Started
             </h2>
             <p className="text-base sm:text-lg md:text-xl leading-relaxed text-white/90 max-w-3xl mx-auto mb-8">

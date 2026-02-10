@@ -64,8 +64,8 @@ Experience the difference of personalized beauty care. Book your appointment tod
 
       <div className="relative mx-auto flex w-full max-w-6xl flex-col items-center gap-4 sm:gap-6 md:gap-8 lg:gap-12 px-4 sm:px-6 md:px-12 text-center">
         <h2
-          className={`${playfair.className} text-2xl sm:text-3xl font-semibold text-[#2A2A35] md:text-[42px] lg:text-5xl leading-tight`}
-          style={{ fontFamily: "serif" }}
+          className="text-2xl sm:text-3xl font-light text-[#2A2A35] md:text-[42px] lg:text-5xl leading-tight uppercase tracking-[0.1em]"
+          style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}
         >
           Our Story, Your Statement
         </h2>
@@ -74,22 +74,22 @@ Experience the difference of personalized beauty care. Book your appointment tod
           <span className="text-pink-400 text-xl sm:text-2xl">❀</span>
           <span className="h-px w-12 sm:w-16 bg-black" />
         </div>
-        <p className={`${lato.className} max-w-3xl text-sm sm:text-base md:text-[15px] lg:text-lg text-[#6f6f7a] leading-relaxed px-2 sm:px-4`}>
+        <p className="max-w-3xl text-sm sm:text-base md:text-[15px] lg:text-lg text-[#6f6f7a] leading-relaxed px-2 sm:px-4 font-light" style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}>
           We craft experiences where beauty meets intention. Every detail is designed to celebrate
           individuality, balance, and confidence — because true elegance is effortless.
         </p>
 
         <div className="mt-4 sm:mt-6 md:mt-8 w-full border border-[#ececec] bg-white shadow-[0_30px_70px_rgba(0,0,0,0.08)]">
           <div className="grid gap-4 sm:gap-6 md:gap-8 lg:gap-12 p-4 sm:p-6 md:p-8 lg:p-10 md:grid-cols-[1.2fr_0.8fr] md:items-center">
-            <div className={`${lato.className} space-y-4 sm:space-y-6 text-left text-[#5c5c66]`}>
-              <h3 className={`${playfair.className} text-xl sm:text-2xl md:text-3xl font-semibold text-[#1f1f2e]`} style={{ fontFamily: "serif" }}>
+            <div className="space-y-4 sm:space-y-6 text-left text-[#5c5c66] font-light" style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}>
+              <h3 className="text-xl sm:text-2xl md:text-3xl font-light text-[#1f1f2e] uppercase tracking-[0.05em]" style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}>
                 Welcome to <span className="text-black">scent</span>
               </h3>
-              <p className="text-xs sm:text-sm md:text-base leading-relaxed">
+              <p className="text-xs sm:text-sm md:text-base leading-relaxed font-light" style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}>
                 Where elegance meets attitude. SCENT is more than beauty — it's a statement, a
                 feeling, and an experience crafted exclusively for you.
               </p>
-              <p className="text-xs sm:text-sm md:text-base leading-relaxed">
+              <p className="text-xs sm:text-sm md:text-base leading-relaxed font-light" style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}>
                 There are many variations of passages of Lorem Ipsum available, but the majority have
                 suffered alteration in some form by injected humour or randomised words which don&apos;t
                 look even slightly believable. If you are going to use a passage of Lorem Ipsum, you
@@ -97,7 +97,8 @@ Experience the difference of personalized beauty care. Book your appointment tod
               </p>
               <button
                 onClick={() => setIsModalOpen(true)}
-                className="mt-2 sm:mt-4 rounded-md bg-black px-6 sm:px-8 py-2.5 sm:py-3 text-xs sm:text-sm font-semibold uppercase tracking-wide text-white transition hover:bg-black/80"
+                className="mt-2 sm:mt-4 rounded-md bg-black px-6 sm:px-8 py-2.5 sm:py-3 text-xs sm:text-sm font-light uppercase tracking-[0.1em] text-white transition hover:bg-black/80"
+                style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}
               >
                 Read more
               </button>

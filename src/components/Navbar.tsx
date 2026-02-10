@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 
 const menuItems = [
   "Home",
-  "Service",
+  "Services",
   "Salon Memberships",
   "Shops",
   "Franchise",
@@ -108,6 +108,7 @@ export default function Navbar() {
   const [isSubmittingAppointment, setIsSubmittingAppointment] = useState(false);
   const [appointmentMessage, setAppointmentMessage] = useState("");
   const [showAppointmentSuccess, setShowAppointmentSuccess] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const [appointmentForm, setAppointmentForm] = useState({
     name: "",
     email: "",
@@ -117,6 +118,17 @@ export default function Navbar() {
     time: "",
     message: "",
   });
+
+  // Handle scroll to hide navbar text
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      setIsScrolled(scrollPosition > 50);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const handleAppointmentSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -178,13 +190,12 @@ export default function Navbar() {
   useEffect(() => {
     const handleOpenBookAppointment = (event: CustomEvent) => {
       const serviceName = event.detail?.service || "";
+      
+      // Navigate to book-now page with service name in sessionStorage
       if (serviceName) {
-        setAppointmentForm(prev => ({
-          ...prev,
-          service: serviceName,
-        }));
+        sessionStorage.setItem("bookNowService", serviceName);
       }
-      setIsBookAppointmentOpen(true);
+      window.location.href = "/book-now";
     };
 
     window.addEventListener("openBookAppointment" as any, handleOpenBookAppointment as EventListener);
@@ -246,72 +257,342 @@ export default function Navbar() {
   };
 
   return (
-    <header className="w-full border-b border-gray-200 bg-white">
-      {/* Top Bar */}
-      <div className="w-full border-b border-gray-200 px-3 sm:px-6 md:px-12 lg:px-20 py-2 text-[10px] sm:text-xs md:text-sm text-gray-700">
-        <div className="flex items-center justify-between gap-2 sm:gap-4 md:gap-6">
-          {/* Left side - Contact and Work time on same line */}
-          <div className="flex items-center gap-2 sm:gap-4 md:gap-6 flex-1 min-w-0 overflow-hidden">
-            {/* Phone block */}
-            <div className="flex items-center gap-1 sm:gap-1.5 flex-shrink-0">
-              <Image
-                src="/icons/phone-red.svg"
-                alt="phone icon"
-                width={14}
-                height={14}
-                className="w-3 h-3 sm:w-4 sm:h-4 flex-shrink-0"
-              />
-              <a
-                href="tel:18009156270"
-                className="flex items-center gap-0.5 sm:gap-1.5 text-gray-800 hover:text-red-500 whitespace-nowrap"
-              >
-                <span className="font-medium hidden sm:inline">Contact:</span>
-                <span className="font-semibold text-[10px] sm:text-xs">1-800-915-6270</span>
-              </a>
-            </div>
-            {/* Separator */}
-            <div className="h-4 w-px bg-gray-300 flex-shrink-0"></div>
-            {/* Work time - Always visible, compact on mobile */}
-            <div className="flex items-center gap-1 sm:gap-2 flex-shrink-0">
-              <Image src="/icons/clock-red.svg" alt="clock icon" width={14} height={14} className="w-3 h-3 sm:w-4 sm:h-4 flex-shrink-0" />
-              <span className="font-medium hidden sm:inline text-[10px] sm:text-xs">Work time:</span>
-              <span className="font-semibold text-[10px] sm:text-xs whitespace-nowrap">9:00–18:00</span>
-            </div>
-          </div>
-          {/* Right side - Icons */}
-          <div className="flex items-center gap-1.5 sm:gap-3 flex-shrink-0">
-            <Image src="/icons/cart.svg" width={16} height={16} alt="cart" className="w-4 h-4 sm:w-5 sm:h-5 cursor-pointer hover:opacity-70 transition" />
-            <Image src="/icons/user.svg" width={16} height={16} alt="user" className="w-4 h-4 sm:w-5 sm:h-5 cursor-pointer hover:opacity-70 transition" />
+    <>
+    <header className="w-full bg-white/95 backdrop-blur-sm fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out border-b border-gray-200/50">
+      {/* Top Bar - Luxury Style */}
+      <div className="w-full px-4 sm:px-6 md:px-12 lg:px-20 py-2.5 sm:py-3">
+        <div className="flex items-center justify-between">
+          {/* Left spacer for centering */}
+          <div className="w-16 sm:w-20 md:w-24"></div>
+          
+          {/* Centered Logo */}
+          <a 
+            href="/" 
+            className="flex-1 flex justify-center group"
+          >
+            <h1 
+              className={`text-xl sm:text-2xl md:text-3xl lg:text-3xl font-light tracking-[0.25em] sm:tracking-[0.3em] md:tracking-[0.35em] transition-all duration-300 group-hover:opacity-60 uppercase`}
+              style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', letterSpacing: "0.3em", fontWeight: 300 }}
+            >
+              SCENT
+            </h1>
+          </a>
+
+          {/* Right Icons */}
+          <div className="flex items-center gap-2.5 sm:gap-3 md:gap-4 w-16 sm:w-20 md:w-24 justify-end">
+            {/* Search Icon */}
             <button
               onClick={() => setIsSearchOpen(!isSearchOpen)}
-              className="relative flex-shrink-0"
+              className="relative flex-shrink-0 p-1.5 hover:opacity-50 transition-all duration-300 ease-in-out"
               aria-label="Search"
             >
-              <Image src="/icons/search.svg" width={16} height={16} alt="search" className="w-4 h-4 sm:w-5 sm:h-5 cursor-pointer hover:opacity-70 transition" />
+              <svg className="w-4 h-4 sm:w-4.5 sm:h-4.5 md:w-5 md:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+              </svg>
             </button>
-          </div>
-        </div>
-      </div>
+            
+            {/* User/Account Icon */}
+                    <button
+              onClick={() => {}}
+              className="relative flex-shrink-0 p-1.5 hover:opacity-50 transition-all duration-300 ease-in-out"
+              aria-label="Account"
+                    >
+              <svg className="w-4 h-4 sm:w-4.5 sm:h-4.5 md:w-5 md:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                      </svg>
+                    </button>
+            
+            {/* Favorites/Star Icon */}
+                <button
+              onClick={() => {}}
+              className="relative flex-shrink-0 p-1.5 hover:opacity-50 transition-all duration-300 ease-in-out"
+              aria-label="Favorites"
+                >
+              <svg className="w-4 h-4 sm:w-4.5 sm:h-4.5 md:w-5 md:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+              </svg>
+                </button>
+            
+            {/* Shopping Bag/Cart Icon */}
+                      <button
+              onClick={() => {}}
+              className="relative flex-shrink-0 p-1.5 hover:opacity-50 transition-all duration-300 ease-in-out"
+              aria-label="Shopping Cart"
+            >
+              <svg className="w-4 h-4 sm:w-4.5 sm:h-4.5 md:w-5 md:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+              </svg>
+                      </button>
+                  </div>
+                </div>
+            </div>
 
+      {/* Navigation Menu - Hidden on scroll */}
+      <nav 
+        className={`w-full border-t border-gray-200/50 transition-all duration-500 ease-in-out mb-0 pb-0 ${
+          isScrolled ? 'opacity-0 h-0 overflow-hidden' : 'opacity-100 h-auto'
+        }`}
+      >
+        <div className="px-4 sm:px-6 md:px-12 lg:px-20 pt-2 sm:pt-2.5 pb-0">
+          <ul className="flex items-center justify-center gap-3 sm:gap-4 md:gap-5 lg:gap-6 xl:gap-7 flex-wrap m-0 pb-0">
+            {menuItems.map((item) => (
+              <li
+                key={item}
+                className="relative cursor-pointer transition-all duration-300 ease-in-out group m-0"
+                onMouseEnter={() => {
+                  if (item === "Services") setIsServiceOpen(true);
+                  if (item === "Franchise") setIsFranchiseOpen(true);
+                  if (item === "Shops") setIsShopOpen(true);
+                  if (item === "Contact") setIsContactOpen(true);
+                }}
+                onMouseLeave={() => {
+                  if (item === "Services") setIsServiceOpen(false);
+                  if (item === "Franchise") setIsFranchiseOpen(false);
+                  if (item === "Shops") setIsShopOpen(false);
+                  if (item === "Contact") setIsContactOpen(false);
+                }}
+              >
+                {item === "Services" ? (
+                  <a href="/new-service" onClick={() => setIsServiceOpen(false)} className="text-[10px] sm:text-xs md:text-xs lg:text-sm uppercase tracking-[0.15em] font-light text-gray-800 hover:text-gray-500 transition-all duration-300 ease-in-out relative leading-none inline-block align-middle" style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}>
+                    {item}
+                    <span className="absolute bottom-0 left-0 w-0 h-px bg-gray-400 transition-all duration-300 ease-in-out group-hover:w-full"></span>
+                  </a>
+                ) : item === "Home" ? (
+                  <a href="/" className="text-[10px] sm:text-xs md:text-xs lg:text-sm uppercase tracking-[0.15em] font-light text-gray-800 hover:text-gray-500 transition-all duration-300 ease-in-out relative leading-none inline-block align-middle" style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}>
+                    {item}
+                    <span className="absolute bottom-0 left-0 w-0 h-px bg-gray-400 transition-all duration-300 ease-in-out group-hover:w-full"></span>
+                  </a>
+                ) : item === "Salon Memberships" ? (
+                  <a href="/salon-memberships" className="text-[10px] sm:text-xs md:text-xs lg:text-sm uppercase tracking-[0.15em] font-light text-gray-800 hover:text-gray-500 transition-all duration-300 ease-in-out relative leading-none inline-block align-middle" style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}>
+                    {item}
+                    <span className="absolute bottom-0 left-0 w-0 h-px bg-gray-400 transition-all duration-300 ease-in-out group-hover:w-full"></span>
+                  </a>
+                ) : item === "Shops" ? (
+                  <a href="/shops" onClick={() => setIsShopOpen(false)} className="text-[10px] sm:text-xs md:text-xs lg:text-sm uppercase tracking-[0.15em] font-light text-gray-800 hover:text-gray-500 transition-all duration-300 ease-in-out relative leading-none inline-block align-middle" style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}>
+                    {item}
+                    <span className="absolute bottom-0 left-0 w-0 h-px bg-gray-400 transition-all duration-300 ease-in-out group-hover:w-full"></span>
+                  </a>
+                ) : item === "Franchise" ? (
+                  <a href="/franchise" onClick={() => setIsFranchiseOpen(false)} className="text-[10px] sm:text-xs md:text-xs lg:text-sm uppercase tracking-[0.15em] font-light text-gray-800 hover:text-gray-500 transition-all duration-300 ease-in-out relative leading-none inline-block align-middle" style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}>
+                    {item}
+                    <span className="absolute bottom-0 left-0 w-0 h-px bg-gray-400 transition-all duration-300 ease-in-out group-hover:w-full"></span>
+                  </a>
+                ) : item === "Academy" ? (
+                  <a href="/academy" className="text-[10px] sm:text-xs md:text-xs lg:text-sm uppercase tracking-[0.15em] font-light text-gray-800 hover:text-gray-500 transition-all duration-300 ease-in-out relative leading-none inline-block align-middle" style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}>
+                    {item}
+                    <span className="absolute bottom-0 left-0 w-0 h-px bg-gray-400 transition-all duration-300 ease-in-out group-hover:w-full"></span>
+                  </a>
+                ) : item === "Contact" ? (
+                  <a href="/contact" onClick={() => setIsContactOpen(false)} className="text-[10px] sm:text-xs md:text-xs lg:text-sm uppercase tracking-[0.15em] font-light text-gray-800 hover:text-gray-500 transition-all duration-300 ease-in-out relative leading-none inline-block align-middle" style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}>
+                    {item}
+                    <span className="absolute bottom-0 left-0 w-0 h-px bg-gray-400 transition-all duration-300 ease-in-out group-hover:w-full"></span>
+                  </a>
+                ) : (
+                  <span className="text-[10px] sm:text-xs md:text-xs lg:text-sm uppercase tracking-[0.15em] font-light text-gray-800" style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}>
+                    {item}
+                  </span>
+                )}
+                
+                {/* Dropdown Menus */}
+                {item === "Services" && isServiceOpen && (
+                  <>
+                    <div 
+                      className="absolute left-0 top-full z-50 h-1 w-56"
+                      onMouseEnter={() => setIsServiceOpen(true)}
+                      onMouseLeave={() => setIsServiceOpen(false)}
+                    />
+                    <div 
+                      className="absolute left-0 top-full z-50 mt-2 w-56 bg-white border border-gray-200 shadow-lg rounded-sm py-3"
+                      onMouseEnter={() => setIsServiceOpen(true)}
+                      onMouseLeave={() => setIsServiceOpen(false)}
+                    >
+                      {services.map((service) => (
+                        <a
+                          key={service.name}
+                          href={service.href}
+                          className="block px-5 py-2.5 text-sm text-[#1f1f2e] transition-all duration-200 hover:bg-gray-50 font-light"
+                          style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}
+                          onClick={() => setIsServiceOpen(false)}
+                        >
+                          {service.name}
+                        </a>
+                      ))}
+                    </div>
+                  </>
+                )}
+                {item === "Franchise" && isFranchiseOpen && (
+                  <>
+                    <div 
+                      className="absolute left-0 top-full z-50 h-1 w-56"
+                      onMouseEnter={() => setIsFranchiseOpen(true)}
+                      onMouseLeave={() => setIsFranchiseOpen(false)}
+                    />
+                    <div 
+                      className="absolute left-0 top-full z-50 mt-2 w-56 bg-white border border-gray-200 shadow-lg rounded-sm py-3"
+                      onMouseEnter={() => setIsFranchiseOpen(true)}
+                      onMouseLeave={() => setIsFranchiseOpen(false)}
+                    >
+                      {franchiseItems.slice(0, 3).map((franchiseItem) => (
+                        <a
+                          key={franchiseItem.name}
+                          href={franchiseItem.href}
+                          className="block px-5 py-2.5 text-sm text-[#1f1f2e] transition-all duration-200 hover:bg-gray-50 font-light"
+                          style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}
+                          onClick={() => setIsFranchiseOpen(false)}
+                        >
+                          {franchiseItem.name}
+                        </a>
+                      ))}
+                      <div className="px-4 pt-3 mt-2 border-t border-gray-200">
+                        <a
+                          href="/franchise"
+                          className="block w-full text-center bg-[#1f1f2e] px-5 py-2.5 text-xs font-light text-white transition-all duration-200 hover:bg-[#2a2a35] uppercase tracking-[0.15em] rounded-sm"
+                          style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}
+                          onClick={() => setIsFranchiseOpen(false)}
+                        >
+                          Learn More
+                        </a>
+                      </div>
+                    </div>
+                  </>
+                )}
+                {item === "Shops" && isShopOpen && (
+                  <>
+                    <div 
+                      className="absolute left-0 top-full z-50 h-1 w-64"
+                      onMouseEnter={() => setIsShopOpen(true)}
+                      onMouseLeave={() => setIsShopOpen(false)}
+                    />
+                    <div 
+                      className="absolute left-0 top-full z-50 mt-2 w-64 bg-white border border-gray-200 shadow-lg rounded-sm py-3"
+                      onMouseEnter={() => setIsShopOpen(true)}
+                      onMouseLeave={() => setIsShopOpen(false)}
+                    >
+                      {shopCategories.map((category) => (
+                        <div key={category.name} className="px-5 py-2.5 border-b border-gray-200 last:border-0">
+                          <a
+                            href="/shops"
+                            className="block text-sm font-light text-[#1f1f2e] hover:text-gray-600 transition-all duration-200"
+                            style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}
+                            onClick={() => setIsShopOpen(false)}
+                          >
+                            {category.name}
+                          </a>
+                          <p className="text-xs text-gray-500 mt-1 font-light" style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}>{category.products.length} products</p>
+                        </div>
+                      ))}
+                      <div className="px-4 pt-3 mt-2 border-t border-gray-200">
+                        <a
+                          href="/shops"
+                          className="block w-full text-center bg-[#1f1f2e] px-5 py-2.5 text-xs font-light text-white transition-all duration-200 hover:bg-[#2a2a35] uppercase tracking-[0.15em] rounded-sm"
+                          style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}
+                          onClick={() => setIsShopOpen(false)}
+                        >
+                          View All Products
+                        </a>
+                      </div>
+                    </div>
+                  </>
+                )}
+                {item === "Contact" && isContactOpen && (
+                  <>
+                    <div 
+                      className="absolute right-0 top-full z-50 h-1 w-56"
+                      onMouseEnter={() => setIsContactOpen(true)}
+                      onMouseLeave={() => setIsContactOpen(false)}
+                    />
+                    <div 
+                      className="absolute right-0 top-full z-50 mt-2 w-56 bg-white border border-gray-200 shadow-lg rounded-sm py-3"
+                      onMouseEnter={() => setIsContactOpen(true)}
+                      onMouseLeave={() => setIsContactOpen(false)}
+                    >
+                      {contactItems.slice(0, 3).map((contactItem) => (
+                        <a
+                          key={contactItem.name}
+                          href={contactItem.href}
+                          target={contactItem.href.startsWith("http") ? "_blank" : "_self"}
+                          rel={contactItem.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                          className="flex items-center gap-3 px-5 py-2.5 text-sm text-[#1f1f2e] transition-all duration-200 hover:bg-gray-50"
+                          onClick={() => setIsContactOpen(false)}
+                        >
+                          <div className="flex-shrink-0">
+                            {contactItem.icon === "phone" && (
+                              <svg className="h-4 w-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                              </svg>
+                            )}
+                            {contactItem.icon === "email" && (
+                              <svg className="h-4 w-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                              </svg>
+                            )}
+                            {contactItem.icon === "location" && (
+                              <svg className="h-4 w-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                              </svg>
+                            )}
+                            {contactItem.icon === "clock" && (
+                              <svg className="h-4 w-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                              </svg>
+                            )}
+                          </div>
+                          <div className="flex-1 min-w-0">
+                            <p className="text-xs font-light text-gray-500 uppercase tracking-[0.05em]" style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}>{contactItem.name}</p>
+                            <p className="text-sm text-[#1f1f2e] truncate font-light" style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}>{contactItem.value}</p>
+                          </div>
+                        </a>
+                      ))}
+                      <div className="px-4 pt-3 mt-2 border-t border-gray-200">
+                        <a
+                          href="/contact"
+                          className="block w-full text-center bg-[#1f1f2e] px-5 py-2.5 text-xs font-light text-white transition-all duration-200 hover:bg-[#2a2a35] uppercase tracking-[0.15em] rounded-sm"
+                          style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}
+                          onClick={() => setIsContactOpen(false)}
+                        >
+                          View Full Contact Page
+                        </a>
+                      </div>
+                    </div>
+                  </>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+        </nav>
+
+      {/* Mobile Menu Button */}
+          <button
+        onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+        className="lg:hidden absolute top-2.5 right-3 sm:right-4 flex flex-col gap-1 p-1.5 z-50 hover:opacity-50 transition-all duration-300"
+        aria-label="Toggle menu"
+          >
+        <span className={`block h-px w-5 bg-gray-800 transition-all duration-300 ${isMobileMenuOpen ? 'rotate-45 translate-y-1.5' : ''}`} />
+        <span className={`block h-px w-5 bg-gray-800 transition-all duration-300 ${isMobileMenuOpen ? 'opacity-0' : ''}`} />
+        <span className={`block h-px w-5 bg-gray-800 transition-all duration-300 ${isMobileMenuOpen ? '-rotate-45 -translate-y-1.5' : ''}`} />
+          </button>
+          
       {/* Search Dropdown */}
       {isSearchOpen && (
-        <>
-          <div
+            <>
+              <div
             className="fixed inset-0 z-40 bg-black/20 backdrop-blur-sm"
             onClick={() => {
               setIsSearchOpen(false);
               setSearchQuery("");
             }}
-          />
-          <div className="fixed top-20 left-1/2 -translate-x-1/2 z-50 w-full max-w-2xl mx-4 sm:mx-auto">
+              />
+          <div className="fixed top-16 sm:top-20 md:top-24 left-1/2 -translate-x-1/2 z-50 w-full max-w-2xl mx-4 sm:mx-auto">
             <div className="bg-white rounded-lg shadow-2xl border border-gray-200 overflow-hidden">
               <form onSubmit={handleSearchSubmit} className="flex items-center border-b border-gray-200">
                 <div className="flex-1 flex items-center px-4 sm:px-6">
                   <svg className="h-5 w-5 text-gray-400 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                   </svg>
-                  <input
-                    type="text"
+                    <input
+                      type="text"
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                     placeholder="Search for services, products, or pages..."
@@ -330,7 +611,7 @@ export default function Navbar() {
                       </svg>
                     </button>
                   )}
-                </div>
+                  </div>
                 <button
                   type="submit"
                   className="px-4 sm:px-6 py-4 bg-red-600 text-white hover:bg-red-700 transition-colors font-medium text-sm sm:text-base"
@@ -352,13 +633,13 @@ export default function Navbar() {
                             setSearchQuery("");
                           }}
                           className="flex items-center justify-between px-4 py-3 hover:bg-gray-50 transition-colors group"
-                        >
+                    >
                           <div className="flex-1">
                             <p className="text-sm sm:text-base font-medium text-gray-900 group-hover:text-red-600 transition-colors">
                               {result.name}
                             </p>
                             <p className="text-xs text-gray-500 mt-0.5">{result.category}</p>
-                          </div>
+                  </div>
                           <svg className="h-5 w-5 text-gray-400 group-hover:text-red-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                           </svg>
@@ -374,466 +655,61 @@ export default function Navbar() {
                       <p className="text-xs text-gray-400 mt-1">Try searching for services, products, or pages</p>
                     </div>
                   )}
-                </div>
-              )}
-              
+                    </div>
+                  )}
+                  
               {!searchQuery.trim() && (
                 <div className="p-6">
-                  <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-3">Popular Searches</p>
+                  <p className="text-xs font-light text-gray-500 uppercase tracking-[0.1em] mb-3" style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}>Popular Searches</p>
                   <div className="flex flex-wrap gap-2">
                     {["Hair Services", "Beauty Treatments", "Salon Memberships", "Franchise", "Academy", "Shops"].map((item, index) => (
-                      <button
+                    <button
                         key={index}
-                        onClick={() => {
+                      onClick={() => {
                           const searchItem = searchItems.find((s) => s.name === item);
                           if (searchItem) {
                             window.location.href = searchItem.href;
                             setIsSearchOpen(false);
                             setSearchQuery("");
                           }
-                        }}
+                      }}
                         className="px-3 py-1.5 text-xs sm:text-sm bg-gray-100 hover:bg-red-600 hover:text-white text-gray-700 rounded-full transition-colors"
-                      >
+                    >
                         {item}
-                      </button>
+                    </button>
                     ))}
                   </div>
-                </div>
-              )}
-            </div>
-          </div>
+              </div>
+          )}
+        </div>
+      </div>
         </>
       )}
 
-      {/* Main Navigation */}
-      <div className="flex w-full items-center justify-between px-4 sm:px-6 md:px-12 lg:px-20 py-3 sm:py-4">
-        <a href="/" className="text-xl sm:text-2xl md:text-3xl font-light tracking-[0.2em] sm:tracking-[0.3em] md:tracking-[0.4em] transition-opacity hover:opacity-80" style={{ fontFamily: "serif" }}>
-          scent
-        </a>
-
-        {/* Desktop Navigation */}
-        <nav className="hidden lg:block ml-auto">
-          <ul className="flex items-center gap-6 xl:gap-8 text-sm xl:text-[15px] text-gray-700">
-            {menuItems.map((item) => (
-              <li
-                key={item}
-                className={`relative cursor-pointer transition-colors hover:text-red-500 ${
-                  item === "Contact" ? "font-medium text-red-600" : ""
-                }`}
-                onMouseEnter={() => {
-                  if (item === "Service") setIsServiceOpen(true);
-                  if (item === "Franchise") setIsFranchiseOpen(true);
-                  if (item === "Shops") setIsShopOpen(true);
-                  if (item === "Contact") setIsContactOpen(true);
-                }}
-                onMouseLeave={() => {
-                  if (item === "Service") setIsServiceOpen(false);
-                  if (item === "Franchise") setIsFranchiseOpen(false);
-                  if (item === "Shops") setIsShopOpen(false);
-                  if (item === "Contact") setIsContactOpen(false);
-                }}
-              >
-                {item === "Service" ? (
-                  <a href="/new-service" onClick={() => setIsServiceOpen(false)}>
-                    {item}
-                  </a>
-                ) : item === "Home" ? (
-                  <a href="/">{item}</a>
-                ) : item === "Salon Memberships" ? (
-                  <a href="/salon-memberships">{item}</a>
-                ) : item === "Shops" ? (
-                  <a href="/shops" onClick={() => setIsShopOpen(false)}>
-                    {item}
-                  </a>
-                ) : item === "Franchise" ? (
-                  <a href="/franchise" onClick={() => setIsFranchiseOpen(false)}>
-                    {item}
-                  </a>
-                ) : item === "Academy" ? (
-                  <a href="/academy">{item}</a>
-                ) : item === "Contact" ? (
-                  <a href="/contact" onClick={() => setIsContactOpen(false)}>
-                    {item}
-                  </a>
-                ) : (
-                  item
-                )}
-                {item === "Service" && isServiceOpen && (
-                  <>
-                    <div 
-                      className="absolute left-0 top-full z-50 h-2 w-56"
-                      onMouseEnter={() => setIsServiceOpen(true)}
-                      onMouseLeave={() => setIsServiceOpen(false)}
-                    />
-                    <div 
-                      className="absolute left-0 top-full z-50 mt-2 w-56 rounded-md bg-white shadow-lg border border-gray-200 py-2"
-                      onMouseEnter={() => setIsServiceOpen(true)}
-                      onMouseLeave={() => setIsServiceOpen(false)}
-                    >
-                      {services.map((service) => (
-                        <a
-                          key={service.name}
-                          href={service.href}
-                          className="block px-4 py-2 text-sm text-gray-700 transition-colors hover:bg-gray-50 hover:text-red-500"
-                          onClick={() => setIsServiceOpen(false)}
-                        >
-                          {service.name}
-                        </a>
-                      ))}
-                    </div>
-                  </>
-                )}
-                {item === "Franchise" && isFranchiseOpen && (
-                  <>
-                    <div 
-                      className="absolute left-0 top-full z-50 h-2 w-56"
-                      onMouseEnter={() => setIsFranchiseOpen(true)}
-                      onMouseLeave={() => setIsFranchiseOpen(false)}
-                    />
-                    <div 
-                      className="absolute left-0 top-full z-50 mt-2 w-56 rounded-md bg-white shadow-lg border border-gray-200 py-2"
-                      onMouseEnter={() => setIsFranchiseOpen(true)}
-                      onMouseLeave={() => setIsFranchiseOpen(false)}
-                    >
-                      {franchiseItems.slice(0, 3).map((franchiseItem) => (
-                        <a
-                          key={franchiseItem.name}
-                          href={franchiseItem.href}
-                          className="block px-4 py-2 text-sm text-gray-700 transition-colors hover:bg-gray-50 hover:text-red-500"
-                          onClick={() => setIsFranchiseOpen(false)}
-                        >
-                          {franchiseItem.name}
-                        </a>
-                      ))}
-                      <div className="px-4 py-2 mt-1 border-t border-gray-100">
-                        <a
-                          href="/franchise"
-                          className="block w-full text-center rounded-md bg-red-600 px-4 py-2 text-xs font-semibold text-white transition-colors hover:bg-red-700"
-                          onClick={() => setIsFranchiseOpen(false)}
-                        >
-                          Learn More
-                        </a>
-                      </div>
-                    </div>
-                  </>
-                )}
-                {item === "Shops" && isShopOpen && (
-                  <>
-                    <div 
-                      className="absolute left-0 top-full z-50 h-2 w-64"
-                      onMouseEnter={() => setIsShopOpen(true)}
-                      onMouseLeave={() => setIsShopOpen(false)}
-                    />
-                    <div 
-                      className="absolute left-0 top-full z-50 mt-2 w-64 rounded-md bg-white shadow-lg border border-gray-200 py-3"
-                      onMouseEnter={() => setIsShopOpen(true)}
-                      onMouseLeave={() => setIsShopOpen(false)}
-                    >
-                      {shopCategories.map((category) => (
-                        <div key={category.name} className="px-4 py-2 border-b border-gray-100 last:border-0">
-                          <a
-                            href="/shops"
-                            className="block text-sm font-semibold text-gray-800 hover:text-red-600 transition-colors"
-                            onClick={() => setIsShopOpen(false)}
-                          >
-                            {category.name}
-                          </a>
-                          <p className="text-xs text-gray-500 mt-1">{category.products.length} products</p>
-                        </div>
-                      ))}
-                      <div className="px-4 pt-2 mt-2 border-t border-gray-100">
-                        <a
-                          href="/shops"
-                          className="block w-full text-center rounded-md bg-red-600 px-4 py-2 text-xs font-semibold text-white transition-colors hover:bg-red-700"
-                          onClick={() => setIsShopOpen(false)}
-                        >
-                          View All Products
-                        </a>
-                      </div>
-                    </div>
-                  </>
-                )}
-                {item === "Contact" && isContactOpen && (
-                  <>
-                    <div 
-                      className="absolute right-0 top-full z-50 h-2 w-56"
-                      onMouseEnter={() => setIsContactOpen(true)}
-                      onMouseLeave={() => setIsContactOpen(false)}
-                    />
-                    <div 
-                      className="absolute right-0 top-full z-50 mt-2 w-56 rounded-md bg-white shadow-lg border border-gray-200 py-2"
-                      onMouseEnter={() => setIsContactOpen(true)}
-                      onMouseLeave={() => setIsContactOpen(false)}
-                    >
-                      {contactItems.slice(0, 3).map((contactItem) => (
-                        <a
-                          key={contactItem.name}
-                          href={contactItem.href}
-                          target={contactItem.href.startsWith("http") ? "_blank" : "_self"}
-                          rel={contactItem.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                          className="flex items-center gap-3 px-4 py-2 text-sm text-gray-700 transition-colors hover:text-red-500 hover:bg-gray-50"
-                          onClick={() => setIsContactOpen(false)}
-                        >
-                          <div className="flex-shrink-0">
-                            {contactItem.icon === "phone" && (
-                              <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                              </svg>
-                            )}
-                            {contactItem.icon === "email" && (
-                              <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                              </svg>
-                            )}
-                            {contactItem.icon === "location" && (
-                              <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                              </svg>
-                            )}
-                            {contactItem.icon === "clock" && (
-                              <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                              </svg>
-                            )}
-                          </div>
-                          <div className="flex-1 min-w-0">
-                            <p className="text-xs font-medium text-gray-500">{contactItem.name}</p>
-                            <p className="text-xs text-gray-700 truncate">{contactItem.value}</p>
-                          </div>
-                        </a>
-                      ))}
-                      <div className="px-4 pt-2 mt-2 border-t border-gray-100">
-                        <a
-                          href="/contact"
-                          className="block w-full text-center rounded-md bg-red-600 px-4 py-2 text-xs font-semibold text-white transition-colors hover:bg-red-700"
-                          onClick={() => setIsContactOpen(false)}
-                        >
-                          View Full Contact Page
-                        </a>
-                      </div>
-                    </div>
-                  </>
-                )}
-              </li>
-            ))}
-          </ul>
-        </nav>
-
-        {/* Desktop Book Button */}
-        <div className="hidden lg:flex items-center gap-4 ml-4 relative">
-          <button
-            onClick={() => setIsBookAppointmentOpen(!isBookAppointmentOpen)}
-            className="rounded-md bg-red-600 px-4 xl:px-5 py-2 text-xs xl:text-sm font-medium text-white transition hover:bg-red-700"
-          >
-            Book Appointment
-          </button>
-          
-          {/* Book Appointment Dropdown (Desktop Only) */}
-          {isBookAppointmentOpen && (
-            <>
-              <div
-                className="fixed inset-0 z-40 hidden lg:block"
-                onClick={() => setIsBookAppointmentOpen(false)}
-              />
-              <div className="absolute right-0 top-full z-50 mt-2 w-96 max-w-[calc(100vw-2rem)] rounded-md bg-white shadow-2xl border border-gray-200 py-6 px-6 hidden lg:block">
-                <div className="mb-4">
-                  <h3 className="text-lg font-semibold text-[#1f1f2e] mb-1" style={{ fontFamily: "serif" }}>
-                    Book Your Appointment
-                  </h3>
-                  <p className="text-xs text-gray-600">
-                    Fill in your details and we'll confirm your booking
-                  </p>
-                </div>
-                
-                <form onSubmit={handleAppointmentSubmit} className="space-y-4">
-                  <div>
-                    <label htmlFor="name" className="block text-xs font-medium text-gray-700 mb-1">
-                      Full Name *
-                    </label>
-                    <input
-                      type="text"
-                      id="name"
-                      name="name"
-                      required
-                      value={appointmentForm.name}
-                      onChange={handleInputChange}
-                      className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-red-500 focus:outline-none focus:ring-1 focus:ring-red-500"
-                      placeholder="Enter your name"
-                    />
-                  </div>
-                  
-                  <div>
-                    <label htmlFor="email" className="block text-xs font-medium text-gray-700 mb-1">
-                      Email *
-                    </label>
-                    <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      required
-                      value={appointmentForm.email}
-                      onChange={handleInputChange}
-                      className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-red-500 focus:outline-none focus:ring-1 focus:ring-red-500"
-                      placeholder="your.email@example.com"
-                    />
-                  </div>
-                  
-                  <div>
-                    <label htmlFor="phone" className="block text-xs font-medium text-gray-700 mb-1">
-                      Phone Number *
-                    </label>
-                    <input
-                      type="tel"
-                      id="phone"
-                      name="phone"
-                      required
-                      value={appointmentForm.phone}
-                      onChange={handleInputChange}
-                      className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-red-500 focus:outline-none focus:ring-1 focus:ring-red-500"
-                      placeholder="+91 9876543210"
-                    />
-                  </div>
-                  
-                  <div>
-                    <label htmlFor="service" className="block text-xs font-medium text-gray-700 mb-1">
-                      Service *
-                    </label>
-                    <select
-                      id="service"
-                      name="service"
-                      required
-                      value={appointmentForm.service}
-                      onChange={handleInputChange}
-                      className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-red-500 focus:outline-none focus:ring-1 focus:ring-red-500"
-                    >
-                      <option value="">Select a service</option>
-                      <option value="Hair Services">Hair Services</option>
-                      <option value="Beauty Treatments">Beauty Treatments</option>
-                      <option value="Nail Services">Nail Services</option>
-                      <option value="Skincare">Skincare</option>
-                      <option value="Makeup">Makeup</option>
-                      <option value="Massage Therapy">Massage Therapy</option>
-                    </select>
-                  </div>
-                  
-                  <div className="grid grid-cols-2 gap-3">
-                    <div>
-                      <label htmlFor="date" className="block text-xs font-medium text-gray-700 mb-1">
-                        Preferred Date *
-                      </label>
-                      <input
-                        type="date"
-                        id="date"
-                        name="date"
-                        required
-                        value={appointmentForm.date}
-                        onChange={handleInputChange}
-                        min={new Date().toISOString().split('T')[0]}
-                        className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-red-500 focus:outline-none focus:ring-1 focus:ring-red-500"
-                      />
-                    </div>
-                    
-                    <div>
-                      <label htmlFor="time" className="block text-xs font-medium text-gray-700 mb-1">
-                        Preferred Time *
-                      </label>
-                      <input
-                        type="time"
-                        id="time"
-                        name="time"
-                        required
-                        value={appointmentForm.time}
-                        onChange={handleInputChange}
-                        className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-red-500 focus:outline-none focus:ring-1 focus:ring-red-500"
-                      />
-                    </div>
-                  </div>
-                  
-                  <div>
-                    <label htmlFor="message" className="block text-xs font-medium text-gray-700 mb-1">
-                      Additional Message
-                    </label>
-                    <textarea
-                      id="message"
-                      name="message"
-                      rows={3}
-                      value={appointmentForm.message}
-                      onChange={handleInputChange}
-                      className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-red-500 focus:outline-none focus:ring-1 focus:ring-red-500"
-                      placeholder="Any special requests or notes..."
-                    />
-                  </div>
-                  
-                  {appointmentMessage && (
-                    <div className={`rounded-lg p-3 text-sm ${
-                      appointmentMessage.includes("Thank you") 
-                        ? "bg-green-50 border border-green-200 text-green-800" 
-                        : "bg-red-50 border border-red-200 text-red-800"
-                    }`}>
-                      {appointmentMessage}
-                    </div>
-                  )}
-                  
-                  <div className="flex gap-3 pt-2">
-                    <button
-                      type="submit"
-                      disabled={isSubmittingAppointment}
-                      className="flex-1 rounded-md bg-red-600 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-red-700 disabled:opacity-50 disabled:cursor-not-allowed"
-                    >
-                      {isSubmittingAppointment ? "Sending..." : "Book Now"}
-                    </button>
-                    <button
-                      type="button"
-                      onClick={() => {
-                        setIsBookAppointmentOpen(false);
-                        setAppointmentMessage("");
-                      }}
-                      className="px-4 py-2.5 text-sm font-medium text-gray-700 border border-gray-300 rounded-md hover:bg-gray-50 transition"
-                    >
-                      Cancel
-                    </button>
-                  </div>
-                </form>
-              </div>
-            </>
-          )}
-        </div>
-
-        {/* Mobile Menu Button */}
-        <button
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          className="lg:hidden ml-auto flex flex-col gap-1.5 p-2"
-          aria-label="Toggle menu"
-        >
-          <span className={`block h-0.5 w-6 bg-gray-700 transition-all ${isMobileMenuOpen ? 'rotate-45 translate-y-2' : ''}`} />
-          <span className={`block h-0.5 w-6 bg-gray-700 transition-all ${isMobileMenuOpen ? 'opacity-0' : ''}`} />
-          <span className={`block h-0.5 w-6 bg-gray-700 transition-all ${isMobileMenuOpen ? '-rotate-45 -translate-y-2' : ''}`} />
-        </button>
-      </div>
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="lg:hidden border-t border-gray-200 bg-white">
-          <nav className="px-4 py-4">
-            <ul className="space-y-3">
+        <div className="lg:hidden border-t border-gray-200/50 bg-white/98 backdrop-blur-sm fixed top-full left-0 right-0 z-50 max-h-[calc(100vh-200px)] overflow-y-auto">
+          <nav className="px-4 py-3">
+            <ul className="space-y-2">
               {menuItems.map((item) => (
                 <li key={item}>
-                  {item === "Service" ? (
+                  {item === "Services" ? (
                     <div>
                       <button
                         onClick={() => setIsServiceOpen(!isServiceOpen)}
-                        className="w-full text-left py-2 text-base text-gray-700 transition-colors hover:text-red-500"
+                        className="w-full text-left py-1.5 text-xs uppercase tracking-[0.1em] font-light text-gray-800 transition-all duration-200 hover:text-gray-500"
+                        style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}
                       >
                         {item} {isServiceOpen ? '−' : '+'}
                       </button>
                       {isServiceOpen && (
-                        <ul className="pl-4 mt-2 space-y-2 border-l-2 border-gray-200">
+                        <ul className="pl-4 mt-1.5 space-y-1 border-l border-gray-200/50">
                           {services.map((service) => (
                             <li key={service.name}>
                               <a
                                 href={service.href}
-                                className="block py-2 text-sm text-gray-600 transition-colors hover:text-red-500"
+                                className="block py-1.5 text-xs text-gray-600 transition-all duration-200 hover:text-gray-900 hover:pl-2"
                                 onClick={() => {
                                   setIsServiceOpen(false);
                                   setIsMobileMenuOpen(false);
@@ -850,14 +726,15 @@ export default function Navbar() {
                     <div>
                       <button
                         onClick={() => setIsFranchiseOpen(!isFranchiseOpen)}
-                        className="w-full text-left py-2 text-base text-gray-700 transition-colors hover:text-red-500"
+                        className="w-full text-left py-1.5 text-xs uppercase tracking-[0.1em] font-light text-gray-800 transition-all duration-200 hover:text-gray-500"
+                        style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}
                       >
                         {item} {isFranchiseOpen ? '−' : '+'}
                       </button>
                       {isFranchiseOpen && (
                         <div className="pl-4 mt-2 space-y-2 border-l-2 border-gray-200">
                           <div className="pb-2 mb-2 border-b border-gray-200">
-                            <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Franchise Opportunity</p>
+                            <p className="text-xs font-light text-gray-500 uppercase tracking-[0.1em] mb-1" style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}>Franchise Opportunity</p>
                             <p className="text-xs text-gray-600 leading-relaxed">
                               Start your own salon franchise in Bangalore with SCENT
                             </p>
@@ -918,14 +795,14 @@ export default function Navbar() {
                       {isShopOpen && (
                         <div className="pl-4 mt-2 space-y-3 border-l-2 border-gray-200">
                           <div className="pb-2 mb-2 border-b border-gray-200">
-                            <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Best Hair Treatment Products</p>
+                            <p className="text-xs font-light text-gray-500 uppercase tracking-[0.1em] mb-1" style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}>Best Hair Treatment Products</p>
                             <p className="text-xs text-gray-600 leading-relaxed">
                               Premium hair care products from trusted brands
                             </p>
                           </div>
                           {shopCategories.map((category) => (
                             <div key={category.name} className="space-y-2">
-                              <h4 className="text-sm font-semibold text-gray-800">
+                              <h4 className="text-sm font-light text-gray-800 uppercase tracking-[0.05em]" style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}>
                                 {category.name}
                               </h4>
                               <ul className="space-y-1">
@@ -968,7 +845,7 @@ export default function Navbar() {
                   ) : item === "Home" ? (
                     <a
                       href="/"
-                      className="block py-2 text-base text-gray-700 transition-colors hover:text-red-500"
+                      className="block py-1.5 text-xs uppercase tracking-[0.1em] font-light text-gray-800 transition-all duration-200 hover:text-gray-500"
                       onClick={() => setIsMobileMenuOpen(false)}
                     >
                       {item}
@@ -976,7 +853,7 @@ export default function Navbar() {
                   ) : item === "Salon Memberships" ? (
                     <a
                       href="/salon-memberships"
-                      className="block py-2 text-base text-gray-700 transition-colors hover:text-red-500"
+                      className="block py-1.5 text-xs uppercase tracking-[0.1em] font-light text-gray-800 transition-all duration-200 hover:text-gray-500"
                       onClick={() => setIsMobileMenuOpen(false)}
                     >
                       {item}
@@ -984,7 +861,7 @@ export default function Navbar() {
                   ) : item === "Franchise" ? (
                     <a
                       href="/franchise"
-                      className="block py-2 text-base text-gray-700 transition-colors hover:text-red-500"
+                      className="block py-1.5 text-xs uppercase tracking-[0.1em] font-light text-gray-800 transition-all duration-200 hover:text-gray-500"
                       onClick={() => setIsMobileMenuOpen(false)}
                     >
                       {item}
@@ -992,7 +869,7 @@ export default function Navbar() {
                   ) : item === "Academy" ? (
                     <a
                       href="/academy"
-                      className="block py-2 text-base text-gray-700 transition-colors hover:text-red-500"
+                      className="block py-1.5 text-xs uppercase tracking-[0.1em] font-light text-gray-800 transition-all duration-200 hover:text-gray-500"
                       onClick={() => setIsMobileMenuOpen(false)}
                     >
                       {item}
@@ -1001,14 +878,15 @@ export default function Navbar() {
                     <div>
                       <button
                         onClick={() => setIsContactOpen(!isContactOpen)}
-                        className="w-full text-left py-2 text-base text-gray-700 font-medium text-red-600 transition-colors hover:text-red-500"
+                        className="w-full text-left py-1.5 text-xs uppercase tracking-[0.1em] font-light text-gray-800 transition-all duration-200 hover:text-gray-500"
+                        style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}
                       >
                         {item} {isContactOpen ? '−' : '+'}
                       </button>
                       {isContactOpen && (
                         <div className="pl-4 mt-2 space-y-2 border-l-2 border-gray-200">
                           <div className="pb-2 mb-2 border-b border-gray-200">
-                            <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Get In Touch</p>
+                            <p className="text-xs font-light text-gray-500 uppercase tracking-[0.1em] mb-1" style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}>Get In Touch</p>
                             <p className="text-xs text-gray-600 leading-relaxed">
                               Reach out to us for inquiries and appointments
                             </p>
@@ -1097,10 +975,11 @@ export default function Navbar() {
               ))}
             </ul>
             <button
-              className="mt-4 w-full rounded-md bg-red-600 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-red-700"
+              className="mt-3 w-full bg-gray-900 px-5 py-2 text-xs uppercase tracking-[0.15em] font-light text-white transition-all duration-300 hover:bg-gray-800"
+              style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}
               onClick={() => {
-                setIsBookAppointmentOpen(true);
                 setIsMobileMenuOpen(false);
+                window.location.href = "/book-now";
               }}
             >
               Book Appointment
@@ -1125,7 +1004,7 @@ export default function Navbar() {
             
             <div className="p-4 sm:p-6">
               <div className="mb-4 sm:mb-6">
-                <h3 className="text-xl sm:text-2xl font-semibold text-[#1f1f2e] mb-2" style={{ fontFamily: "serif" }}>
+                  <h3 className="text-xl sm:text-2xl font-light text-[#1f1f2e] mb-2 uppercase tracking-[0.1em]" style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}>
                   Book Your Appointment
                 </h3>
                 <p className="text-xs sm:text-sm text-gray-600">
@@ -1304,7 +1183,7 @@ export default function Navbar() {
             </div>
 
             {/* Success Message */}
-            <h2 className="text-2xl sm:text-3xl font-semibold text-[#1f1f2e] mb-3" style={{ fontFamily: "serif" }}>
+            <h2 className="text-2xl sm:text-3xl font-light text-[#1f1f2e] mb-3 uppercase tracking-[0.1em]" style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}>
               Appointment Request Sent!
             </h2>
             <p className="text-base sm:text-lg text-gray-600 mb-6 leading-relaxed">
@@ -1322,6 +1201,9 @@ export default function Navbar() {
         </div>
       )}
     </header>
+    {/* Spacer for fixed navbar - adjusts height based on scroll state */}
+    <div className={`transition-all duration-500 ease-in-out ${isScrolled ? 'h-14 sm:h-16 md:h-18' : 'h-20 sm:h-24 md:h-28 lg:h-32'}`}></div>
+    </>
   );
 }
 

@@ -227,7 +227,7 @@ export default function SalonMembershipsSection() {
         />
         <div className="absolute inset-0 bg-black/70" />
         <div className="absolute inset-0 flex flex-col items-start justify-center gap-4 px-4 sm:px-10 py-12 text-white md:px-20 lg:px-32">
-          <h1 className="text-3xl sm:text-4xl font-semibold leading-tight md:text-5xl lg:text-6xl" style={{ fontFamily: "serif" }}>
+          <h1 className="text-3xl sm:text-4xl font-semibold leading-tight md:text-5xl lg:text-6xl" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
             Salon Memberships
           </h1>
           <p className="max-w-3xl text-sm sm:text-base leading-relaxed text-white/90 md:text-lg lg:text-xl">
@@ -242,7 +242,7 @@ export default function SalonMembershipsSection() {
         <div className="flex flex-col items-center gap-3 sm:gap-4 text-center">
           <h2
             className="text-2xl sm:text-3xl md:text-4xl font-semibold leading-tight text-[#1f1f2e] lg:text-[56px]"
-            style={{ fontFamily: "serif" }}
+            style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}
           >
             <span
               key={mounted ? headingIndex : 0}
@@ -267,7 +267,7 @@ export default function SalonMembershipsSection() {
           <div className="mb-6 sm:mb-8 text-center">
             <h2
               className="mb-3 sm:mb-4 text-2xl sm:text-3xl font-semibold text-[#1f1f2e] md:text-4xl lg:text-5xl"
-              style={{ fontFamily: "serif" }}
+              style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}
             >
               Membership
             </h2>
@@ -299,7 +299,7 @@ export default function SalonMembershipsSection() {
                       </svg>
                     </div>
                     <div className="flex-1">
-                      <h3 className="mb-2 text-xl sm:text-2xl font-semibold text-[#1f1f2e]" style={{ fontFamily: "serif" }}>
+                      <h3 className="mb-2 text-xl sm:text-2xl font-semibold text-[#1f1f2e]" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
                         Priority Booking
                       </h3>
                       <div className="mb-3 h-0.5 w-12 bg-black/20" />
@@ -322,7 +322,7 @@ export default function SalonMembershipsSection() {
                       </svg>
                     </div>
                     <div className="flex-1">
-                      <h3 className="mb-2 text-xl sm:text-2xl font-semibold text-[#1f1f2e]" style={{ fontFamily: "serif" }}>
+                      <h3 className="mb-2 text-xl sm:text-2xl font-semibold text-[#1f1f2e]" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
                         Special Discounts
                       </h3>
                       <div className="mb-3 h-0.5 w-12 bg-black/20" />
@@ -345,7 +345,7 @@ export default function SalonMembershipsSection() {
                       </svg>
                     </div>
                     <div className="flex-1">
-                      <h3 className="mb-2 text-xl sm:text-2xl font-semibold text-[#1f1f2e]" style={{ fontFamily: "serif" }}>
+                      <h3 className="mb-2 text-xl sm:text-2xl font-semibold text-[#1f1f2e]" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
                         Exclusive Events
                       </h3>
                       <div className="mb-3 h-0.5 w-12 bg-black/20" />
@@ -368,7 +368,7 @@ export default function SalonMembershipsSection() {
                       </svg>
                     </div>
                     <div className="flex-1">
-                      <h3 className="mb-2 text-xl sm:text-2xl font-semibold text-[#1f1f2e]" style={{ fontFamily: "serif" }}>
+                      <h3 className="mb-2 text-xl sm:text-2xl font-semibold text-[#1f1f2e]" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
                         Easy Sign Up
                       </h3>
                       <div className="mb-3 h-0.5 w-12 bg-black/20" />
@@ -407,7 +407,7 @@ export default function SalonMembershipsSection() {
                 </div>
                 
                 {/* Main Text */}
-                <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight text-white" style={{ fontFamily: "serif" }}>
+                <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight text-white" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
                   Experience the difference of being a{" "}
                   <span className="relative inline-block">
                     <span className="relative z-10 text-white">SCENT</span>
@@ -478,12 +478,12 @@ export default function SalonMembershipsSection() {
 
         {/* Membership Highlight */}
         <div className="w-full rounded-2xl sm:rounded-[28px] border border-gray-200 bg-white px-6 sm:px-10 py-6 sm:py-8 text-center shadow-lg transition-all duration-500 hover:-translate-y-1">
-          <p className="text-xs sm:text-sm font-semibold uppercase tracking-[0.3em] sm:tracking-[0.4em] text-[#C06C84]" style={{ fontFamily: "serif" }}>
+          <p className="text-xs sm:text-sm font-semibold uppercase tracking-[0.3em] sm:tracking-[0.4em] text-[#C06C84]" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
             Exclusive Membership Benefits
           </p>
           <h3
             className="mt-2 sm:mt-3 text-xl sm:text-2xl font-semibold text-[#1f1f2e] md:text-[30px] transition-all duration-700 ease-out hover:scale-[1.02]"
-            style={{ fontFamily: "serif" }}
+            style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}
           >
             Six exclusive membership tiers — from Silver to Platinum luxury.
           </h3>
@@ -563,7 +563,7 @@ export default function SalonMembershipsSection() {
                   <div className="pointer-events-none absolute inset-0 flex flex-col items-center justify-center gap-3 px-6 text-center text-white opacity-0 transition-opacity duration-500 group-hover:opacity-100">
                     <p 
                       className="pointer-events-auto cursor-pointer text-sm tracking-[0.3em] uppercase text-pink-100 transition-all hover:scale-110 hover:text-white" 
-                      style={{ fontFamily: "serif" }}
+                      style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}
                       onClick={(e) => {
                         e.stopPropagation();
                         setActiveMembership(plan.id);
@@ -599,7 +599,7 @@ export default function SalonMembershipsSection() {
                   <div className="flex items-center justify-between">
                     <h3
                       className="text-lg sm:text-xl font-semibold text-[#1f1f2e]"
-                      style={{ fontFamily: "serif" }}
+                      style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}
                     >
                       {plan.title}
                     </h3>
@@ -679,7 +679,7 @@ export default function SalonMembershipsSection() {
         {/* Comparison View */}
         {compareMode && selectedForCompare.length > 0 && (
           <div className="w-full rounded-[28px] border border-gray-200 bg-white p-8 shadow-lg">
-            <h3 className="mb-6 text-2xl font-semibold text-[#1f1f2e]" style={{ fontFamily: "serif" }}>
+            <h3 className="mb-6 text-2xl font-semibold text-[#1f1f2e]" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
               Compare Plans
             </h3>
             <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
@@ -743,7 +743,7 @@ export default function SalonMembershipsSection() {
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent" />
                       <div className="absolute bottom-4 left-4 text-white">
-                        <p className="text-sm uppercase tracking-[0.4em]" style={{ fontFamily: "serif" }}>
+                        <p className="text-sm uppercase tracking-[0.4em]" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
                           {activePlan.title}
                         </p>
                         <p className="text-xs text-white/80">Exclusive membership benefits</p>
@@ -752,7 +752,7 @@ export default function SalonMembershipsSection() {
                     <div className="flex w-full flex-col gap-5 px-8 py-10 md:w-1/2">
                       <div className="flex flex-col gap-3">
                         <div className="flex items-baseline gap-2">
-                          <h3 className="text-3xl font-semibold text-[#1f1f2e]" style={{ fontFamily: "serif" }}>
+                          <h3 className="text-3xl font-semibold text-[#1f1f2e]" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
                             {activePlan.title} Membership
                           </h3>
                           {activePlan.popular && (
@@ -830,7 +830,7 @@ export default function SalonMembershipsSection() {
           </div>
           <h3 
             className="text-xl sm:text-2xl font-semibold text-[#1f1f2e] md:text-3xl"
-            style={{ fontFamily: "serif" }}
+            style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}
           >
             Ready to Join SCENT Membership?
           </h3>

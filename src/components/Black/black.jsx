@@ -36,8 +36,8 @@ export default function BlackStats() {
                   priority
                 />
                 <div className="flex flex-col text-left">
-                  <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-light tracking-wide">{stat.value}</p>
-                  <p className="text-[9px] sm:text-[10px] md:text-xs font-medium text-gray-400">{stat.title}</p>
+                  <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-light tracking-wide" style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}>{stat.value}</p>
+                  <p className="text-[9px] sm:text-[10px] md:text-xs font-light text-gray-400 uppercase tracking-[0.05em]" style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}>{stat.title}</p>
                 </div>
               </div>
               {index < stats.length - 1 && <div className="h-6 sm:h-8 md:h-12 w-full sm:w-[1px] bg-white/30" aria-hidden="true" />}

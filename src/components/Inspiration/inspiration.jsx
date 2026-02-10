@@ -114,7 +114,7 @@ export default function InspirationSection() {
           </div>
 
           <div>
-            <h3 className="text-xl font-semibold text-[#1f1f2e] mb-3" style={{ fontFamily: "serif" }}>
+            <h3 className="text-xl font-light text-[#1f1f2e] mb-3 uppercase tracking-[0.05em]" style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}>
               Special Holiday Services
             </h3>
             <ul className="space-y-2 list-disc list-inside text-gray-700">
@@ -127,7 +127,7 @@ export default function InspirationSection() {
           </div>
 
           <div>
-            <h3 className="text-xl font-semibold text-[#1f1f2e] mb-3" style={{ fontFamily: "serif" }}>
+            <h3 className="text-xl font-light text-[#1f1f2e] mb-3 uppercase tracking-[0.05em]" style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}>
               Holiday Beauty Tips
             </h3>
             <ul className="space-y-2 list-disc list-inside text-gray-700">
@@ -159,7 +159,7 @@ export default function InspirationSection() {
           </div>
 
           <div>
-            <h3 className="text-xl font-semibold text-[#1f1f2e] mb-3" style={{ fontFamily: "serif" }}>
+            <h3 className="text-xl font-light text-[#1f1f2e] mb-3 uppercase tracking-[0.05em]" style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}>
               Trending Looks This Season
             </h3>
             <ul className="space-y-3 list-none text-gray-700">
@@ -182,7 +182,7 @@ export default function InspirationSection() {
           </div>
 
           <div>
-            <h3 className="text-xl font-semibold text-[#1f1f2e] mb-3" style={{ fontFamily: "serif" }}>
+            <h3 className="text-xl font-light text-[#1f1f2e] mb-3 uppercase tracking-[0.05em]" style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}>
               Expert Tips for Trying New Trends
             </h3>
             <ul className="space-y-2 list-disc list-inside text-gray-700">
@@ -215,7 +215,7 @@ export default function InspirationSection() {
           </div>
 
           <div>
-            <h3 className="text-xl font-semibold text-[#1f1f2e] mb-3" style={{ fontFamily: "serif" }}>
+            <h3 className="text-xl font-light text-[#1f1f2e] mb-3 uppercase tracking-[0.05em]" style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}>
               Featured Brands at SCENT Salon
             </h3>
             <ul className="space-y-4 list-none text-gray-700">
@@ -238,7 +238,7 @@ export default function InspirationSection() {
           </div>
 
           <div>
-            <h3 className="text-xl font-semibold text-[#1f1f2e] mb-3" style={{ fontFamily: "serif" }}>
+            <h3 className="text-xl font-light text-[#1f1f2e] mb-3 uppercase tracking-[0.05em]" style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}>
               Why We Choose These Brands
             </h3>
             <ul className="space-y-2 list-disc list-inside text-gray-700">
@@ -270,7 +270,7 @@ export default function InspirationSection() {
           </div>
 
           <div>
-            <h3 className="text-xl font-semibold text-[#1f1f2e] mb-3" style={{ fontFamily: "serif" }}>
+            <h3 className="text-xl font-light text-[#1f1f2e] mb-3 uppercase tracking-[0.05em]" style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}>
               Essential Beauty Tips
             </h3>
             <ul className="space-y-3 list-none text-gray-700">
@@ -293,7 +293,7 @@ export default function InspirationSection() {
           </div>
 
           <div>
-            <h3 className="text-xl font-semibold text-[#1f1f2e] mb-3" style={{ fontFamily: "serif" }}>
+            <h3 className="text-xl font-light text-[#1f1f2e] mb-3 uppercase tracking-[0.05em]" style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}>
               Additional Pro Tips
             </h3>
             <ul className="space-y-2 list-disc list-inside text-gray-700">
@@ -321,8 +321,8 @@ export default function InspirationSection() {
       <div className="mx-auto w-full max-w-7xl flex flex-col gap-8 sm:gap-12 px-4 sm:px-6 md:px-12 lg:px-20">
         <div className="flex flex-col items-center gap-3 sm:gap-4 text-center">
           <h2
-            className="text-2xl sm:text-3xl md:text-[42px] font-semibold leading-tight text-[#2E2E2E]"
-            style={{ fontFamily: "serif" }}
+            className="text-2xl sm:text-3xl md:text-[42px] font-light leading-tight text-[#2E2E2E] uppercase tracking-[0.1em]"
+            style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}
           >
             Insights & Inspiration
           </h2>
@@ -331,7 +331,7 @@ export default function InspirationSection() {
             <span className="text-pink-400 text-lg sm:text-xl">❀</span>
             <span className="h-px w-10 sm:w-12 bg-black" />
           </div>
-          <p className="max-w-3xl text-xs sm:text-sm md:text-base text-[#555] px-2">
+          <p className="max-w-3xl text-xs sm:text-sm md:text-base text-[#555] px-2 font-light" style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}>
             Explore tips, trends, and stories that elevate your beauty and lifestyle.
           </p>
         </div>
@@ -400,11 +400,12 @@ export default function InspirationSection() {
                     {featured.comments}
                   </span>
                 </div>
-                <h3 className="text-lg sm:text-xl font-bold text-[#2E2E2E]" style={{ fontFamily: "serif" }}>{featured.title}</h3>
-                <p className="text-xs sm:text-sm text-[#555] leading-relaxed">{featured.excerpt}</p>
+                <h3 className="text-lg sm:text-xl font-light text-[#2E2E2E] uppercase tracking-[0.05em]" style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}>{featured.title}</h3>
+                <p className="text-xs sm:text-sm text-[#555] leading-relaxed font-light" style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}>{featured.excerpt}</p>
                 <button
                   onClick={() => handleReadMore(featured)}
-                  className="mt-2 sm:mt-4 border border-[#2E2E2E] bg-transparent px-4 sm:px-6 py-1.5 sm:py-2 text-xs sm:text-sm font-medium text-[#2E2E2E] transition hover:bg-[#2E2E2E] hover:text-white"
+                  className="mt-2 sm:mt-4 border border-[#2E2E2E] bg-transparent px-4 sm:px-6 py-1.5 sm:py-2 text-xs sm:text-sm font-light uppercase tracking-[0.1em] text-[#2E2E2E] transition hover:bg-[#2E2E2E] hover:text-white"
+                  style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}
                 >
                   Read more
                 </button>
@@ -461,10 +462,11 @@ export default function InspirationSection() {
                       {post.date}
                     </span>
                   </div>
-                  <h4 className="text-sm sm:text-base font-semibold text-[#2E2E2E]" style={{ fontFamily: "serif" }}>{post.title}</h4>
+                  <h4 className="text-sm sm:text-base font-light text-[#2E2E2E] uppercase tracking-[0.05em]" style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}>{post.title}</h4>
                   <button
                     onClick={() => handleReadMore(post)}
-                    className="w-max border border-[#2E2E2E] bg-transparent px-3 sm:px-5 py-1.5 sm:py-2 text-[10px] sm:text-xs font-medium text-[#2E2E2E] transition hover:bg-[#2E2E2E] hover:text-white"
+                    className="w-max border border-[#2E2E2E] bg-transparent px-3 sm:px-5 py-1.5 sm:py-2 text-[10px] sm:text-xs font-light uppercase tracking-[0.1em] text-[#2E2E2E] transition hover:bg-[#2E2E2E] hover:text-white"
+                    style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}
                   >
                     Read more
                   </button>

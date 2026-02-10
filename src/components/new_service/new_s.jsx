@@ -118,29 +118,29 @@ export default function NewServicesShowcase() {
         {/* Hero Content */}
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="relative z-10 mx-auto max-w-7xl px-6 md:px-12 text-center">
-            <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-white/10 backdrop-blur-md px-6 py-2.5 text-xs font-semibold uppercase tracking-[0.5em] text-white border border-white/20">
+            <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-white/10 backdrop-blur-md px-6 py-2.5 text-xs font-light uppercase tracking-[0.5em] text-white border border-white/20" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
               <span className="text-pink-300 text-xl">❀</span> Luxe Curation
             </div>
-            <h1 className="mb-6 text-4xl font-semibold leading-tight text-white md:text-5xl lg:text-7xl" style={{ fontFamily: "serif" }}>
+            <h1 className="mb-6 text-4xl font-light leading-tight text-white md:text-5xl lg:text-7xl" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
               Salon Services, Reimagined
               <span className="block mt-3 text-pink-300">for the Modern Muse</span>
             </h1>
-            <p className="mx-auto mb-8 max-w-3xl text-lg leading-relaxed text-white/90 md:text-xl">
+            <p className="mx-auto mb-8 max-w-3xl text-lg leading-relaxed text-white/90 md:text-xl font-light" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
               Bridal couture, spa journeys, brow artistry, and technology-led facials gathered
               into one opulent experience. Discover our curated collection of premium services.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <div className="rounded-full bg-white/10 backdrop-blur-md border border-white/20 px-6 py-3">
-                <p className="text-sm font-semibold text-white">8 Studios</p>
-                <p className="text-xs text-white/70">Premium Locations</p>
+              <div className="rounded-full bg-white/10 backdrop-blur-md border border-white/20 px-6 py-3" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif' }}>
+                <p className="text-sm font-light text-white" style={{ fontWeight: 300 }}>8 Studios</p>
+                <p className="text-xs text-white/70 font-light" style={{ fontWeight: 300 }}>Premium Locations</p>
               </div>
-              <div className="rounded-full bg-white/10 backdrop-blur-md border border-white/20 px-6 py-3">
-                <p className="text-sm font-semibold text-white">40+ Artists</p>
-                <p className="text-xs text-white/70">Expert Professionals</p>
+              <div className="rounded-full bg-white/10 backdrop-blur-md border border-white/20 px-6 py-3" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif' }}>
+                <p className="text-sm font-light text-white" style={{ fontWeight: 300 }}>40+ Artists</p>
+                <p className="text-xs text-white/70 font-light" style={{ fontWeight: 300 }}>Expert Professionals</p>
               </div>
-              <div className="rounded-full bg-white/10 backdrop-blur-md border border-white/20 px-6 py-3">
-                <p className="text-sm font-semibold text-white">200+ Services</p>
-                <p className="text-xs text-white/70">Comprehensive Menu</p>
+              <div className="rounded-full bg-white/10 backdrop-blur-md border border-white/20 px-6 py-3" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif' }}>
+                <p className="text-sm font-light text-white" style={{ fontWeight: 300 }}>200+ Services</p>
+                <p className="text-xs text-white/70 font-light" style={{ fontWeight: 300 }}>Comprehensive Menu</p>
               </div>
             </div>
           </div>
@@ -158,14 +158,14 @@ export default function NewServicesShowcase() {
         <div className="relative mx-auto w-full max-w-7xl px-6 md:px-12 lg:px-20">
           {/* Section Header */}
           <div className="mb-16 text-center">
-            <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-pink-100 px-5 py-2 text-xs font-semibold text-pink-600 shadow-lg">
+            <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-pink-100 px-5 py-2 text-xs font-light text-pink-600 shadow-lg" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
               <span className="text-pink-500 text-lg">❀</span> Our Services
             </div>
-            <h2 className="mb-4 text-4xl font-semibold leading-tight text-[#1f1f2e] md:text-5xl lg:text-6xl" style={{ fontFamily: "serif" }}>
+            <h2 className="mb-4 text-4xl font-light leading-tight text-[#1f1f2e] md:text-5xl lg:text-6xl" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
               Discover Excellence
             </h2>
             <div className="mx-auto w-24 h-px bg-gradient-to-r from-transparent via-pink-300 to-transparent mb-6" />
-            <p className="mx-auto max-w-2xl text-base leading-relaxed text-[#666] md:text-lg">
+            <p className="mx-auto max-w-2xl text-base leading-relaxed text-[#666] md:text-lg font-light" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
               Explore our comprehensive range of premium beauty and wellness services, each crafted to perfection
             </p>
           </div>
@@ -222,7 +222,7 @@ export default function NewServicesShowcase() {
                       {/* Elegant Number Badge */}
                       <div className="absolute top-6 left-6">
                         <div className="flex items-center justify-center w-14 h-14 rounded-full bg-white/95 backdrop-blur-md border-2 border-white/50 shadow-xl">
-                          <span className="text-lg font-bold text-[#1f1f2e]" style={{ fontFamily: "serif" }}>
+                          <span className="text-lg font-light text-[#1f1f2e]" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
                             {String(idx + 1).padStart(2, '0')}
                           </span>
                         </div>
@@ -230,10 +230,10 @@ export default function NewServicesShowcase() {
 
                       {/* Service Title Overlay */}
                       <div className="absolute bottom-6 left-6 right-6">
-                        <h3 className="text-2xl font-semibold text-white mb-1 group-hover:text-pink-200 transition-colors duration-300" style={{ fontFamily: "serif" }}>
+                        <h3 className="text-2xl font-light text-white mb-1 group-hover:text-pink-200 transition-colors duration-300" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
                           {service.title}
                         </h3>
-                        <p className="text-sm text-white/90">{service.subtitle}</p>
+                        <p className="text-sm text-white/90 font-light" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>{service.subtitle}</p>
                       </div>
                     </div>
 
@@ -241,7 +241,7 @@ export default function NewServicesShowcase() {
                     <div className="relative z-20 p-8 bg-white rounded-b-[36px]">
                       <div className="space-y-5">
                         {/* Description */}
-                        <p className="text-sm leading-relaxed text-[#666] line-clamp-2">
+                        <p className="text-sm leading-relaxed text-[#666] line-clamp-2 font-light" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
                           {service.description}
                         </p>
 
@@ -250,14 +250,14 @@ export default function NewServicesShowcase() {
                           {service.highlights.map((highlight, i) => (
                             <div key={i} className="flex items-center gap-3 text-xs text-[#555]">
                               <div className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-pink-400" />
-                              <span className="font-medium">{highlight}</span>
+                              <span className="font-light" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>{highlight}</span>
                             </div>
                           ))}
                         </div>
 
                         {/* CTA */}
                         <div className="flex items-center justify-between pt-4 border-t border-gray-100">
-                          <span className="text-sm font-semibold text-pink-600 uppercase tracking-wider">
+                          <span className="text-sm font-light text-pink-600 uppercase tracking-wider" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
                             Learn More
                           </span>
                           <div className="flex items-center justify-center w-10 h-10 rounded-full bg-pink-50 border-2 border-pink-100 group-hover:bg-pink-100 group-hover:border-pink-200 transition-all duration-300">
@@ -300,7 +300,7 @@ export default function NewServicesShowcase() {
                     <div className="rounded-2xl bg-white/90 backdrop-blur-md px-6 py-4 shadow-xl border border-white/20">
                       <div className="flex items-center gap-3">
                         <span className="text-pink-500 text-2xl">❀</span>
-                        <p className="text-sm font-semibold uppercase tracking-[0.4em] text-[#1f1f2e]">
+                        <p className="text-sm font-light uppercase tracking-[0.4em] text-[#1f1f2e]" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
                           {activeService.title}
                         </p>
                       </div>
@@ -312,22 +312,22 @@ export default function NewServicesShowcase() {
                 <div className="flex flex-col justify-between gap-8 rounded-[32px] border-2 border-gray-100 bg-white/90 p-8 shadow-xl backdrop-blur-sm">
                   <div className="space-y-6">
                     <div>
-                      <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-pink-100 px-4 py-1.5 text-xs font-semibold text-pink-600">
+                      <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-pink-100 px-4 py-1.5 text-xs font-light text-pink-600" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
                         <span className="text-pink-500">❀</span> Premium Service
                       </div>
                       <h2
-                        className="text-3xl font-semibold text-[#1f1f2e] mb-4 md:text-4xl"
-                        style={{ fontFamily: "serif" }}
+                        className="text-3xl font-light text-[#1f1f2e] mb-4 md:text-4xl"
+                        style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}
                       >
                         {activeService.subtitle}
                       </h2>
-                      <p className="text-base leading-relaxed text-[#555] md:text-lg">
+                      <p className="text-base leading-relaxed text-[#555] md:text-lg font-light" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
                         {activeService.description}
                       </p>
                     </div>
 
                     <div className="space-y-4 pt-4 border-t border-gray-200">
-                      <p className="text-xs font-bold uppercase tracking-[0.4em] text-[#1f1f2e]">
+                      <p className="text-xs font-light uppercase tracking-[0.4em] text-[#1f1f2e]" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
                         Signature Touches
                       </p>
                       <div className="space-y-3">
@@ -339,7 +339,7 @@ export default function NewServicesShowcase() {
                             <div className="flex-shrink-0 mt-1">
                               <div className="w-2 h-2 rounded-full bg-pink-500" />
                             </div>
-                            <p className="text-sm leading-relaxed text-[#444] font-medium">{item}</p>
+                            <p className="text-sm leading-relaxed text-[#444] font-light" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>{item}</p>
                           </div>
                         ))}
                       </div>
@@ -355,11 +355,12 @@ export default function NewServicesShowcase() {
                           window.dispatchEvent(event);
                         }
                       }}
-                      className="w-full rounded-full bg-gradient-to-r from-pink-600 via-rose-500 to-pink-600 px-8 py-4 text-sm font-semibold uppercase tracking-wider text-white shadow-xl transition-all duration-300 hover:shadow-2xl hover:scale-105"
+                      className="w-full rounded-full bg-gradient-to-r from-pink-600 via-rose-500 to-pink-600 px-8 py-4 text-sm font-light uppercase tracking-wider text-white shadow-xl transition-all duration-300 hover:shadow-2xl hover:scale-105"
+                      style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}
                     >
                       Book {activeService.title}
                     </button>
-                    <button className="w-full rounded-full border-2 border-gray-300 bg-white px-8 py-4 text-sm font-semibold uppercase tracking-wider text-[#1f1f2e] transition-all duration-300 hover:border-pink-300 hover:bg-pink-50">
+                    <button className="w-full rounded-full border-2 border-gray-300 bg-white px-8 py-4 text-sm font-light uppercase tracking-wider text-[#1f1f2e] transition-all duration-300 hover:border-pink-300 hover:bg-pink-50" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
                       Download Menu
                     </button>
                   </div>

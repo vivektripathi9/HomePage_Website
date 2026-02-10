@@ -164,7 +164,7 @@ export default function FacialExperience() {
             <p className="mb-4 inline-flex items-center gap-2 text-xs uppercase tracking-[0.5em] text-pink-300">
               <span className="text-pink-400 text-xl">❀</span> Facial Services
             </p>
-            <h1 className="mb-6 text-5xl font-semibold leading-tight md:text-6xl lg:text-7xl" style={{ fontFamily: "serif" }}>
+            <h1 className="mb-6 text-5xl font-semibold leading-tight md:text-6xl lg:text-7xl" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
               Facial Services
             </h1>
             <p className="mx-auto max-w-3xl text-lg leading-relaxed text-white/90 md:text-xl">
@@ -182,7 +182,7 @@ export default function FacialExperience() {
             <p className="mb-4 inline-flex items-center gap-2 text-xs uppercase tracking-[0.5em] text-pink-400">
               <span className="text-pink-500 text-xl">❀</span> Premium Services
             </p>
-            <h2 className="mb-4 text-3xl font-semibold text-[#1f1f2e] md:text-4xl lg:text-5xl" style={{ fontFamily: "serif" }}>
+            <h2 className="mb-4 text-3xl font-semibold text-[#1f1f2e] md:text-4xl lg:text-5xl" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
               Main Facial Services
             </h2>
             <p className="mx-auto max-w-2xl text-[#6f6f7a] text-base md:text-lg">
@@ -211,7 +211,7 @@ export default function FacialExperience() {
                     <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-pink-100 px-4 py-1.5 text-xs font-semibold text-pink-600">
                       <span>✨</span> Premium Treatment
                     </div>
-                    <h3 className="mb-3 text-3xl font-semibold text-[#1f1f2e] md:text-4xl" style={{ fontFamily: "serif" }}>
+                    <h3 className="mb-3 text-3xl font-semibold text-[#1f1f2e] md:text-4xl" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
                       {service.title}
                     </h3>
                     <p className="text-lg text-gray-500">{service.tagline}</p>
@@ -252,7 +252,7 @@ export default function FacialExperience() {
             <p className="mb-4 inline-flex items-center gap-2 text-xs uppercase tracking-[0.5em] text-pink-400">
               <span className="text-pink-500 text-xl">❀</span> Additional Services
             </p>
-            <h2 className="mb-4 text-3xl font-semibold text-[#1f1f2e] md:text-4xl lg:text-5xl" style={{ fontFamily: "serif" }}>
+            <h2 className="mb-4 text-3xl font-semibold text-[#1f1f2e] md:text-4xl lg:text-5xl" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
               More Facial Treatments
             </h2>
             <p className="mx-auto max-w-2xl text-[#6f6f7a] text-base md:text-lg">
@@ -370,7 +370,7 @@ export default function FacialExperience() {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent" />
                     <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
-                      <h2 className="text-3xl md:text-4xl font-bold mb-2" style={{ fontFamily: "serif" }}>
+                      <h2 className="text-3xl md:text-4xl font-bold mb-2" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
                         {selectedService.title}
                       </h2>
                       <p className="text-lg text-white/90">{selectedService.tagline}</p>
@@ -380,7 +380,7 @@ export default function FacialExperience() {
                   {/* Details Section */}
                   <div className="p-8 md:p-12">
                     <div className="mb-8">
-                      <h3 className="text-2xl font-semibold text-[#1f1f2e] mb-4" style={{ fontFamily: "serif" }}>
+                      <h3 className="text-2xl font-semibold text-[#1f1f2e] mb-4" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
                         About This Treatment
                       </h3>
                       <p className="text-base leading-relaxed text-[#555]">
@@ -389,7 +389,7 @@ export default function FacialExperience() {
                     </div>
 
                     <div className="mb-8">
-                      <h3 className="text-2xl font-semibold text-[#1f1f2e] mb-6" style={{ fontFamily: "serif" }}>
+                      <h3 className="text-2xl font-semibold text-[#1f1f2e] mb-6" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
                         What's Included
                       </h3>
                       <div className="grid gap-4 md:grid-cols-2">
@@ -440,7 +440,7 @@ export default function FacialExperience() {
               <p className="mb-4 inline-flex items-center gap-2 text-xs uppercase tracking-[0.5em] text-pink-400">
                 <span className="text-pink-500 text-xl">❀</span> Complete Collection
               </p>
-              <h2 className="mb-4 text-3xl font-semibold text-[#1f1f2e] md:text-4xl lg:text-5xl" style={{ fontFamily: "serif" }}>
+              <h2 className="mb-4 text-3xl font-semibold text-[#1f1f2e] md:text-4xl lg:text-5xl" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
                 All Facial Services
               </h2>
               <p className="mx-auto max-w-2xl text-[#6f6f7a] text-base md:text-lg">
