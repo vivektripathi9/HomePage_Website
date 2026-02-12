@@ -36,12 +36,16 @@ export default function Footer() {
       <div className="mx-auto w-full max-w-7xl grid grid-cols-1 gap-8 sm:gap-12 md:gap-16 px-4 sm:px-6 md:px-12 lg:px-20 py-8 sm:py-12 md:py-16 md:grid-cols-2 lg:grid-cols-4">
         {/* Column 1: Branding and Social Links */}
         <div className="space-y-3 sm:space-y-4 md:pr-6 lg:pr-10">
-          <p
-            className="text-2xl sm:text-3xl font-light tracking-[0.2em] sm:tracking-[0.3em] md:tracking-[0.4em] text-[#2E2E2E] uppercase"
-            style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}
-          >
-            scent
-          </p>
+          <div className="flex items-center">
+            <Image
+              src="/Asset 2.png"
+              alt="Scent logo"
+              width={160}
+              height={32}
+              className="h-6 sm:h-7 md:h-8 w-auto object-contain"
+              priority
+            />
+          </div>
           <p className="text-sm sm:text-[16px] font-light text-[#555] leading-relaxed" style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}>
             Experience luxury, elegance, and confidence — every time you visit SCENT.
           </p>

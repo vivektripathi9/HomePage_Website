@@ -52,16 +52,6 @@ Experience the difference of personalized beauty care. Book your appointment tod
 
   return (
     <section className="relative overflow-hidden py-12 sm:py-16 md:py-20 lg:py-24">
-      <div className="absolute inset-0">
-        <Image
-          src="/z1.png"
-          alt="Background"
-          fill
-          className="object-contain object-left opacity-60"
-          priority
-        />
-      </div>
-
       <div className="relative mx-auto flex w-full max-w-6xl flex-col items-center gap-4 sm:gap-6 md:gap-8 lg:gap-12 px-4 sm:px-6 md:px-12 text-center">
         <h2
           className="text-2xl sm:text-3xl font-light text-[#2A2A35] md:text-[42px] lg:text-5xl leading-tight uppercase tracking-[0.1em]"

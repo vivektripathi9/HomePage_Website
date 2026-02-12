@@ -1,10 +1,10 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 export default function FashionHero() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const router = useRouter();
 
   return (
     <section className="relative w-screen aspect-[1920/600] overflow-hidden" style={{ width: '100vw', maxWidth: 'none' }}>
@@ -49,11 +49,11 @@ export default function FashionHero() {
 
           {/* Button */}
           <button
-            onClick={() => setIsModalOpen(true)}
+            onClick={() => router.push("/book-now")}
             className="mt-4 sm:mt-6 md:mt-8 bg-white px-8 sm:px-10 md:px-12 py-3 sm:py-3.5 md:py-4 text-xs sm:text-sm md:text-base font-light uppercase tracking-[0.1em] text-black transition-all duration-300 hover:bg-gray-100 hover:scale-105"
             style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', letterSpacing: "0.1em", fontWeight: 300 }}
           >
-            SEE MORE
+            Book appointment
           </button>
         </div>
       </div>

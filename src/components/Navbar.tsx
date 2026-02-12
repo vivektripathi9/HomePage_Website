@@ -268,14 +268,16 @@ export default function Navbar() {
           {/* Centered Logo */}
           <a 
             href="/" 
-            className="flex-1 flex justify-center group"
+            className="flex-1 flex justify-center items-center group"
           >
-            <h1 
-              className={`text-xl sm:text-2xl md:text-3xl lg:text-3xl font-light tracking-[0.25em] sm:tracking-[0.3em] md:tracking-[0.35em] transition-all duration-300 group-hover:opacity-60 uppercase`}
-              style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', letterSpacing: "0.3em", fontWeight: 300 }}
-            >
-              SCENT
-            </h1>
+            <Image
+              src="/Asset 1.png"
+              alt="Scent logo"
+              width={160}
+              height={32}
+              className="h-5 sm:h-6 md:h-7 w-auto object-contain transition-opacity duration-300 group-hover:opacity-60"
+              priority
+            />
           </a>
 
           {/* Right Icons */}
