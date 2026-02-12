@@ -7,7 +7,10 @@ export default function FashionHero() {
   const router = useRouter();
 
   return (
-    <section className="relative w-screen aspect-[1920/600] overflow-hidden" style={{ width: '100vw', maxWidth: 'none' }}>
+    <section
+      className="relative w-full overflow-hidden lg:aspect-[1920/600]"
+      style={{ width: "100%", maxWidth: "none" }}
+    >
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image
@@ -23,7 +26,7 @@ export default function FashionHero() {
       </div>
 
       {/* Content Overlay */}
-      <div className="relative z-10 flex h-full w-full items-center justify-center">
+      <div className="relative z-10 flex h-full min-h-[260px] sm:min-h-[320px] md:min-h-[380px] w-full items-center justify-center">
         <div className="flex flex-col items-center justify-center gap-6 sm:gap-8 text-center px-4 sm:px-6 md:px-12">
           {/* Main Text */}
           <div className="flex flex-col gap-2 sm:gap-3 md:gap-4">

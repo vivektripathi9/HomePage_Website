@@ -324,14 +324,25 @@ export default function Navbar() {
               <svg className="w-4 h-4 sm:w-4.5 sm:h-4.5 md:w-5 md:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
               </svg>
-                      </button>
-                  </div>
-                </div>
-            </div>
+              </button>
+
+            {/* Mobile Menu Button */}
+            <button
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="lg:hidden flex flex-col gap-1 p-1.5 z-50 hover:opacity-50 transition-all duration-300"
+              aria-label="Toggle menu"
+            >
+              <span className={`block h-px w-5 bg-gray-800 transition-all duration-300 ${isMobileMenuOpen ? 'rotate-45 translate-y-1.5' : ''}`} />
+              <span className={`block h-px w-5 bg-gray-800 transition-all duration-300 ${isMobileMenuOpen ? 'opacity-0' : ''}`} />
+              <span className={`block h-px w-5 bg-gray-800 transition-all duration-300 ${isMobileMenuOpen ? '-rotate-45 -translate-y-1.5' : ''}`} />
+            </button>
+          </div>
+        </div>
+      </div>
 
       {/* Navigation Menu - Hidden on scroll */}
       <nav 
-        className={`w-full border-t border-gray-200/50 transition-all duration-500 ease-in-out mb-0 pb-0 ${
+        className={`hidden lg:block w-full border-t border-gray-200/50 transition-all duration-500 ease-in-out mb-0 pb-0 ${
           isScrolled ? 'opacity-0 h-0 overflow-hidden' : 'opacity-100 h-auto'
         }`}
       >
@@ -565,17 +576,6 @@ export default function Navbar() {
         </div>
         </nav>
 
-      {/* Mobile Menu Button */}
-          <button
-        onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-        className="lg:hidden absolute top-2.5 right-3 sm:right-4 flex flex-col gap-1 p-1.5 z-50 hover:opacity-50 transition-all duration-300"
-        aria-label="Toggle menu"
-          >
-        <span className={`block h-px w-5 bg-gray-800 transition-all duration-300 ${isMobileMenuOpen ? 'rotate-45 translate-y-1.5' : ''}`} />
-        <span className={`block h-px w-5 bg-gray-800 transition-all duration-300 ${isMobileMenuOpen ? 'opacity-0' : ''}`} />
-        <span className={`block h-px w-5 bg-gray-800 transition-all duration-300 ${isMobileMenuOpen ? '-rotate-45 -translate-y-1.5' : ''}`} />
-          </button>
-          
       {/* Search Dropdown */}
       {isSearchOpen && (
             <>

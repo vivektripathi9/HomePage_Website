@@ -8,7 +8,10 @@ export default function CocoSection() {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
-    <section className="relative w-screen aspect-[2048/662] overflow-hidden bg-white" style={{ width: '100vw', maxWidth: 'none' }}>
+    <section
+      className="relative w-full overflow-hidden bg-white lg:aspect-[2048/662]"
+      style={{ width: "100%", maxWidth: "none" }}
+    >
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image
@@ -24,7 +27,7 @@ export default function CocoSection() {
       </div>
 
       {/* Button positioned bottom right */}
-      <div className="relative z-10 flex h-full w-full items-end justify-end">
+      <div className="relative z-10 flex h-full min-h-[220px] sm:min-h-[260px] md:min-h-[320px] w-full items-end justify-end">
         <div className="pb-6 pr-6 sm:pb-8 sm:pr-8 md:pb-10 md:pr-10">
           {/* Book Appointment Button */}
           <button
