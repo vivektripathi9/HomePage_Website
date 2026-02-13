@@ -277,6 +277,8 @@ button, a, input[type="button"], input[type="submit"] {
 }
 
 /* Mobile-specific fix for card flip - ONLY affects mobile (max-width: 768px) */
+/* Strategy: Completely disable 3D transforms on mobile (they are broken on */
+/* mobile WebKit/Safari/Chrome). Use opacity + z-index swap instead. */
 @media (max-width: 768px) {
   /* Card wrapper - center and constrain width */
   #memberships .grid > div {
@@ -285,50 +287,63 @@ button, a, input[type="button"], input[type="submit"] {
     margin: 0 auto !important;
   }
 
-  /* Card container layout fixes */
+  /* Container: kill ALL 3D — flat rendering, no rotation */
   .membership-card-flip-container {
     width: 100% !important;
     max-width: 100% !important;
     margin: 0 !important;
     border-radius: 24px !important;
     overflow: hidden !important;
+    transform-style: flat !important;
+    -webkit-transform-style: flat !important;
+    transform: none !important;
+    -webkit-transform: none !important;
+    transition: none !important;
+    -webkit-transition: none !important;
   }
 
-  /* Parent container for card */
-  .membership-card-flip-container {
-    transform-style: preserve-3d !important;
-    -webkit-transform-style: preserve-3d !important;
-    backface-visibility: hidden !important;
-    -webkit-backface-visibility: hidden !important;
-  }
-
-  /* Front card - ensure proper rendering */
+  /* Front card: visible by default, stacked on top */
   .membership-card-front {
-    backface-visibility: hidden !important;
-    -webkit-backface-visibility: hidden !important;
-    transform: rotateY(0deg) !important;
-    -webkit-transform: rotateY(0deg) !important;
-    transform-style: preserve-3d !important;
-    -webkit-transform-style: preserve-3d !important;
+    backface-visibility: visible !important;
+    -webkit-backface-visibility: visible !important;
+    transform: none !important;
+    -webkit-transform: none !important;
     width: 100% !important;
     height: 100% !important;
     border-radius: 24px !important;
     overflow: hidden !important;
+    opacity: 1 !important;
+    z-index: 2 !important;
+    transition: opacity 0.35s ease !important;
+    -webkit-transition: opacity 0.35s ease !important;
   }
 
-  /* Back card - fix mirrored/upside-down issue */
+  /* Back card: hidden by default, underneath */
   .membership-card-back {
-    backface-visibility: hidden !important;
-    -webkit-backface-visibility: hidden !important;
-    transform: rotateY(180deg) !important;
-    -webkit-transform: rotateY(180deg) !important;
-    transform-style: preserve-3d !important;
-    -webkit-transform-style: preserve-3d !important;
+    backface-visibility: visible !important;
+    -webkit-backface-visibility: visible !important;
+    transform: none !important;
+    -webkit-transform: none !important;
     width: 100% !important;
     height: 100% !important;
     border-radius: 24px !important;
     overflow: hidden !important;
     padding: 16px 12px !important;
+    opacity: 0 !important;
+    z-index: 1 !important;
+    transition: opacity 0.35s ease !important;
+    -webkit-transition: opacity 0.35s ease !important;
+  }
+
+  /* When flipped: swap — hide front, show back */
+  .membership-card-flip-container.is-flipped .membership-card-front {
+    opacity: 0 !important;
+    z-index: 1 !important;
+  }
+
+  .membership-card-flip-container.is-flipped .membership-card-back {
+    opacity: 1 !important;
+    z-index: 2 !important;
   }
 
   /* Reduce spacing and font sizes on mobile to fit content without scroll */
@@ -348,38 +363,22 @@ button, a, input[type="button"], input[type="submit"] {
     margin-top: 8px !important;
   }
 
-  /* Fix mirrored back card on mobile when flipped */
-  /* When parent rotates 180deg, back card (at 180deg relative) appears at 0deg world but mirrored */
-  /* Solution: Keep back at 180deg relative, but flip content with scaleX(-1) then reverse on children */
-  .membership-card-flip-container.is-flipped .membership-card-back {
-    transform: rotateY(180deg) scaleX(-1) !important;
-    -webkit-transform: rotateY(180deg) scaleX(-1) !important;
-  }
-
-  /* Reverse the horizontal flip on all direct children to make content readable */
-  .membership-card-flip-container.is-flipped .membership-card-back > * {
-    transform: scaleX(-1) !important;
-    -webkit-transform: scaleX(-1) !important;
-  }
-
-  /* Remove scrollbars on mobile - hide overflow */
+  /* Remove scrollbars on mobile */
   .membership-card-back .mobile-no-scroll,
   .membership-card-back .overflow-y-auto {
     overflow: hidden !important;
     overflow-y: hidden !important;
-    -webkit-overflow-scrolling: none !important;
   }
 
-  /* Hide scrollbars completely on mobile */
   .membership-card-back,
   .membership-card-back * {
-    scrollbar-width: none !important; /* Firefox */
-    -ms-overflow-style: none !important; /* IE and Edge */
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
   }
 
   .membership-card-back::-webkit-scrollbar,
   .membership-card-back *::-webkit-scrollbar {
-    display: none !important; /* Chrome, Safari, Opera */
+    display: none !important;
     width: 0 !important;
     height: 0 !important;
   }
@@ -394,18 +393,9 @@ button, a, input[type="button"], input[type="submit"] {
   }
 
   /* Ensure proper aspect ratio on mobile */
-  [style*="aspect-ratio"] {
+  #memberships [style*="aspect-ratio"] {
     aspect-ratio: 1.9 / 1 !important;
     min-height: 200px !important;
-  }
-
-  /* Hardware acceleration for smooth animation */
-  .membership-card-flip-container,
-  .membership-card-front,
-  .membership-card-back {
-    will-change: transform !important;
-    -webkit-transform: translateZ(0) !important;
-    transform: translateZ(0) !important;
   }
 }
 
