@@ -266,7 +266,7 @@ export default function Navbar() {
           <div className="w-16 sm:w-20 md:w-24"></div>
           
           {/* Centered Logo */}
-          <a 
+              <a
             href="/" 
             className="flex-1 flex justify-center items-center group"
           >
@@ -323,11 +323,11 @@ export default function Navbar() {
             >
               <svg className="w-4 h-4 sm:w-4.5 sm:h-4.5 md:w-5 md:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
-              </svg>
+                          </svg>
               </button>
 
             {/* Mobile Menu Button */}
-            <button
+                      <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="lg:hidden flex flex-col gap-1 p-1.5 z-50 hover:opacity-50 transition-all duration-300"
               aria-label="Toggle menu"
@@ -335,10 +335,10 @@ export default function Navbar() {
               <span className={`block h-px w-5 bg-gray-800 transition-all duration-300 ${isMobileMenuOpen ? 'rotate-45 translate-y-1.5' : ''}`} />
               <span className={`block h-px w-5 bg-gray-800 transition-all duration-300 ${isMobileMenuOpen ? 'opacity-0' : ''}`} />
               <span className={`block h-px w-5 bg-gray-800 transition-all duration-300 ${isMobileMenuOpen ? '-rotate-45 -translate-y-1.5' : ''}`} />
-            </button>
-          </div>
-        </div>
-      </div>
+                      </button>
+                  </div>
+                </div>
+            </div>
 
       {/* Navigation Menu - Hidden on scroll */}
       <nav 

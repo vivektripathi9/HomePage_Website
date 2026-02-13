@@ -257,3 +257,206 @@ button, a, input[type="button"], input[type="submit"] {
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
 }
+
+/* 3D Card Flip Effect */
+.perspective-1000 {
+  perspective: 1000px;
+  -webkit-perspective: 1000px;
+}
+
+/* Ensure smooth 3D transforms */
+[style*="transform-style"] {
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+}
+
+/* Backface visibility for card flip */
+[style*="backface-visibility"] {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+/* Mobile-specific fix for card flip - ONLY affects mobile (max-width: 768px) */
+@media (max-width: 768px) {
+  /* Card wrapper - center and constrain width */
+  #memberships .grid > div {
+    width: 100% !important;
+    max-width: 360px !important;
+    margin: 0 auto !important;
+  }
+
+  /* Card container layout fixes */
+  .membership-card-flip-container {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    border-radius: 24px !important;
+    overflow: hidden !important;
+  }
+
+  /* Parent container for card */
+  .membership-card-flip-container {
+    transform-style: preserve-3d !important;
+    -webkit-transform-style: preserve-3d !important;
+    backface-visibility: hidden !important;
+    -webkit-backface-visibility: hidden !important;
+  }
+
+  /* Front card - ensure proper rendering */
+  .membership-card-front {
+    backface-visibility: hidden !important;
+    -webkit-backface-visibility: hidden !important;
+    transform: rotateY(0deg) !important;
+    -webkit-transform: rotateY(0deg) !important;
+    transform-style: preserve-3d !important;
+    -webkit-transform-style: preserve-3d !important;
+    width: 100% !important;
+    height: 100% !important;
+    border-radius: 24px !important;
+    overflow: hidden !important;
+  }
+
+  /* Back card - fix mirrored/upside-down issue */
+  .membership-card-back {
+    backface-visibility: hidden !important;
+    -webkit-backface-visibility: hidden !important;
+    transform: rotateY(180deg) !important;
+    -webkit-transform: rotateY(180deg) !important;
+    transform-style: preserve-3d !important;
+    -webkit-transform-style: preserve-3d !important;
+    width: 100% !important;
+    height: 100% !important;
+    border-radius: 24px !important;
+    overflow: hidden !important;
+    padding: 16px 12px !important;
+  }
+
+  /* Reduce spacing and font sizes on mobile to fit content without scroll */
+  .membership-card-back h3 {
+    font-size: 14px !important;
+    margin-bottom: 10px !important;
+  }
+
+  .membership-card-back .space-y-2 > * {
+    margin-top: 0.25rem !important;
+    margin-bottom: 0.25rem !important;
+  }
+
+  .membership-card-back p {
+    font-size: 8px !important;
+    line-height: 1.3 !important;
+    margin-top: 8px !important;
+  }
+
+  /* Fix mirrored back card on mobile when flipped */
+  /* When parent rotates 180deg, back card (at 180deg relative) appears at 0deg world but mirrored */
+  /* Solution: Keep back at 180deg relative, but flip content with scaleX(-1) then reverse on children */
+  .membership-card-flip-container.is-flipped .membership-card-back {
+    transform: rotateY(180deg) scaleX(-1) !important;
+    -webkit-transform: rotateY(180deg) scaleX(-1) !important;
+  }
+
+  /* Reverse the horizontal flip on all direct children to make content readable */
+  .membership-card-flip-container.is-flipped .membership-card-back > * {
+    transform: scaleX(-1) !important;
+    -webkit-transform: scaleX(-1) !important;
+  }
+
+  /* Remove scrollbars on mobile - hide overflow */
+  .membership-card-back .mobile-no-scroll,
+  .membership-card-back .overflow-y-auto {
+    overflow: hidden !important;
+    overflow-y: hidden !important;
+    -webkit-overflow-scrolling: none !important;
+  }
+
+  /* Hide scrollbars completely on mobile */
+  .membership-card-back,
+  .membership-card-back * {
+    scrollbar-width: none !important; /* Firefox */
+    -ms-overflow-style: none !important; /* IE and Edge */
+  }
+
+  .membership-card-back::-webkit-scrollbar,
+  .membership-card-back *::-webkit-scrollbar {
+    display: none !important; /* Chrome, Safari, Opera */
+    width: 0 !important;
+    height: 0 !important;
+  }
+
+  /* Button styling for mobile */
+  .membership-card-back .luxury-cta-button {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 16px !important;
+    text-align: center !important;
+    margin: 0 auto !important;
+  }
+
+  /* Ensure proper aspect ratio on mobile */
+  [style*="aspect-ratio"] {
+    aspect-ratio: 1.9 / 1 !important;
+    min-height: 200px !important;
+  }
+
+  /* Hardware acceleration for smooth animation */
+  .membership-card-flip-container,
+  .membership-card-front,
+  .membership-card-back {
+    will-change: transform !important;
+    -webkit-transform: translateZ(0) !important;
+    transform: translateZ(0) !important;
+  }
+}
+
+/* Tablet and Desktop padding */
+@media (min-width: 641px) {
+  .membership-card-back {
+    padding: 16px 12px !important;
+  }
+}
+
+/* Membership Card Responsive Sizing */
+.membership-card-container {
+  height: 180px; /* Mobile default */
+}
+
+@media (min-width: 640px) {
+  .membership-card-container {
+    height: 200px; /* Tablet */
+  }
+}
+
+@media (min-width: 1024px) {
+  .membership-card-container {
+    height: 240px; /* Desktop */
+  }
+}
+
+/* Membership Card Padding */
+.membership-card-padding {
+  padding: 24px 32px; /* Mobile: Top/Bottom 24px, Left/Right 32px */
+}
+
+@media (min-width: 640px) {
+  .membership-card-padding {
+    padding: 28px 36px; /* Tablet: Top/Bottom 28px, Left/Right 36px */
+  }
+}
+
+@media (min-width: 1024px) {
+  .membership-card-padding {
+    padding: 30px 40px; /* Desktop: Top/Bottom 30px, Left/Right 40px */
+  }
+}
+
+/* Membership Card Grid Spacing */
+.membership-card-grid {
+  gap: 40px 24px; /* Mobile: Vertical 40px, Horizontal 24px */
+}
+
+@media (min-width: 640px) {
+  .membership-card-grid {
+    gap: 56px 32px; /* Tablet/Desktop: Vertical 56px (more gap between rows), Horizontal 32px */
+  }
+}
