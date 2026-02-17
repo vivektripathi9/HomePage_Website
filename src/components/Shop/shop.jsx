@@ -80,7 +80,7 @@ export default function ShopSection() {
         <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 md:px-12 lg:px-20 text-center">
           <h1
             className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light tracking-wide text-white mb-4"
-            style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}
+            style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300 }}
           >
             Best Hair Treatment Products
           </h1>
@@ -131,7 +131,7 @@ export default function ShopSection() {
 
               {/* Product Info */}
               <div className="flex-1 space-y-2">
-                <h3 className="text-sm sm:text-base font-semibold text-[#22223b] leading-tight" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
+                <h3 className="text-sm sm:text-base font-semibold text-[#22223b] leading-tight" style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300 }}>
                   {product.name}
                 </h3>
                 <p className="text-lg sm:text-xl font-bold text-red-600">
@@ -142,7 +142,7 @@ export default function ShopSection() {
               {/* Buy Button */}
               <button
                 onClick={() => handleBuy(product.name)}
-                className="mt-4 w-full rounded-md bg-black px-4 sm:px-6 py-2.5 sm:py-3 text-xs sm:text-sm font-semibold uppercase tracking-wide text-white transition-all hover:bg-red-600 hover:scale-105"
+                className="mt-4 w-full rounded-md bg-black px-4 sm:px-6 py-2.5 sm:py-3 text-sm sm:text-sm font-semibold uppercase tracking-wide text-white transition-all hover:bg-red-600 hover:scale-105"
               >
                 Buy
               </button>
@@ -155,7 +155,7 @@ export default function ShopSection() {
           <p className="text-sm sm:text-base text-gray-600 mb-4">
             Showing {currentCategory.products.length} products from {currentCategory.name}
           </p>
-          <div className="flex items-center justify-center gap-3 sm:gap-4">
+          <div className="decorative-flower-divider flex items-center justify-center gap-3 sm:gap-4">
             <span className="h-px w-10 sm:w-12 bg-black" />
             <span className="text-pink-400 text-lg sm:text-xl">❀</span>
             <span className="h-px w-10 sm:w-12 bg-black" />

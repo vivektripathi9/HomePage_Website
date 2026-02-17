@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import { useState, useEffect, useRef } from "react";
-import PowerTeam from "../Thepower/thepower";
 import WhyScent from "../why/why";
 
 const serviceAreas = [
@@ -10,7 +9,7 @@ const serviceAreas = [
     id: "face",
     name: "Face",
     shortDescription: "Comprehensive facial treatments for radiant, youthful skin.",
-    description: "Our face treatments are designed to rejuvenate and enhance your natural beauty. We offer comprehensive facial treatments including professional waxing services, advanced detanning techniques, and cutting-edge anti-aging solutions. Our expert therapists use premium products and state-of-the-art equipment to deliver exceptional results. Whether you're looking to remove unwanted hair, brighten your complexion, or reduce signs of aging, our face treatments are tailored to meet your unique needs.",
+    description: "our face treatments are designed to rejuvenate and enhance your natural beauty. We offer comprehensive facial treatments including professional waxing services, advanced detanning techniques, and cutting-edge anti-aging solutions. Our expert therapists use premium products and state-of-the-art equipment to deliver exceptional results. Whether you're looking to remove unwanted hair, brighten your complexion, or reduce signs of aging, our face treatments are tailored to meet your unique needs.",
     services: [
       { name: "Facial Waxing", description: "Professional hair removal using premium wax for smooth, hair-free skin" },
       { name: "Face Detanning", description: "Advanced treatments to remove tan and restore your natural skin tone" },
@@ -26,7 +25,7 @@ const serviceAreas = [
     id: "arms",
     name: "Arms",
     shortDescription: "Complete arm care services for smooth, glowing arms.",
-    description: "Transform your arms with our comprehensive care services. Our arm treatments include professional hair removal, advanced detanning, and skin rejuvenation therapies. We use gentle yet effective techniques to ensure your arms are silky smooth and beautifully radiant. Our treatments are perfect for special occasions or regular maintenance, leaving you with confidence in every gesture.",
+    description: "transform your arms with our comprehensive care services. Our arm treatments include professional hair removal, advanced detanning, and skin rejuvenation therapies. We use gentle yet effective techniques to ensure your arms are silky smooth and beautifully radiant. Our treatments are perfect for special occasions or regular maintenance, leaving you with confidence in every gesture.",
     services: [
       { name: "Arm Waxing", description: "Complete arm hair removal for silky smooth skin" },
       { name: "Arm Detanning", description: "Remove tan and even out skin tone on your arms" },
@@ -42,7 +41,7 @@ const serviceAreas = [
     id: "legs",
     name: "Legs",
     shortDescription: "Professional leg treatments for silky smooth skin.",
-    description: "Achieve beautifully smooth and radiant legs with our professional treatment services. Our leg care includes comprehensive waxing services, advanced detanning treatments, and specialized skin polishing techniques. We also offer cellulite reduction and intensive hydration therapies to keep your legs looking and feeling their absolute best. Perfect for summer or year-round confidence.",
+    description: "achieve beautifully smooth and radiant legs with our professional treatment services. Our leg care includes comprehensive waxing services, advanced detanning treatments, and specialized skin polishing techniques. We also offer cellulite reduction and intensive hydration therapies to keep your legs looking and feeling their absolute best. Perfect for summer or year-round confidence.",
     services: [
       { name: "Leg Waxing", description: "Full leg hair removal for smooth, touchable skin" },
       { name: "Leg Detanning", description: "Remove tan lines and achieve even skin tone" },
@@ -58,7 +57,7 @@ const serviceAreas = [
     id: "neck",
     name: "Neck",
     shortDescription: "Specialized neck care treatments for youthful radiance.",
-    description: "Give your neck the attention it deserves with our specialized care treatments. Our neck services focus on reducing signs of aging, improving skin texture, and enhancing natural radiance. We offer professional waxing, advanced detanning, and targeted anti-aging treatments including firming therapy and brightening care. Our neck treatments help you maintain a youthful, elegant appearance.",
+    description: "give your neck the attention it deserves with our specialized care treatments. Our neck services focus on reducing signs of aging, improving skin texture, and enhancing natural radiance. We offer professional waxing, advanced detanning, and targeted anti-aging treatments including firming therapy and brightening care. Our neck treatments help you maintain a youthful, elegant appearance.",
     services: [
       { name: "Neck Waxing", description: "Gentle hair removal for a clean, smooth neckline" },
       { name: "Neck Detanning", description: "Remove tan and restore natural neck skin tone" },
@@ -98,20 +97,6 @@ export default function BeautyEssentialsExperience() {
             muted
             playsInline
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-black/30" />
-        </div>
-        <div className="relative z-10 flex h-full items-center justify-center">
-          <div className="mx-auto max-w-7xl px-6 text-center text-white md:px-12">
-            <p className="mb-4 inline-flex items-center gap-2 text-xs uppercase tracking-[0.5em] text-pink-300">
-              <span className="text-pink-400 text-xl">❀</span> Beauty Essentials
-            </p>
-            <h1 className="mb-6 text-5xl font-semibold leading-tight md:text-6xl lg:text-7xl" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
-              Beauty Essentials
-            </h1>
-            <p className="mx-auto max-w-4xl text-lg leading-relaxed text-white/90 md:text-xl">
-              Discover a wide array of services offered by SCENT, including our exclusive Bikini & Brazilian waxing services using peel-off wax or our soothing cartridge wax. Enhance your skin's radiance with our luxurious detanning treatments and indulge in our meticulously crafted anti-aging regimens featuring mesotherapy and other rejuvenating techniques.
-            </p>
-          </div>
         </div>
       </section>
 
@@ -125,7 +110,7 @@ export default function BeautyEssentialsExperience() {
             <p className="mb-6 inline-flex items-center gap-2 text-sm uppercase tracking-[0.5em] text-pink-400 font-semibold">
               <span className="text-pink-500 text-2xl">❀</span> Premium Services
             </p>
-            <h2 className="text-4xl font-semibold text-[#1f1f2e] md:text-5xl lg:text-6xl mb-6" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
+            <h2 className="text-4xl font-semibold text-[#1f1f2e] md:text-5xl lg:text-6xl mb-6" style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300 }}>
               Our Services
             </h2>
             <p className="mx-auto max-w-3xl text-[#6f6f7a] text-lg md:text-xl leading-relaxed">
@@ -196,7 +181,7 @@ export default function BeautyEssentialsExperience() {
                   <div className="relative p-8 md:p-10">
                     <h3 className={`font-bold text-[#1f1f2e] mb-4 transition-all duration-300 ${
                       isActive ? "text-3xl" : "text-2xl group-hover:text-3xl"
-                    }`} style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
+                    }`} style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300 }}>
                       {area.name}
                     </h3>
                     <p className="text-base text-[#555] leading-relaxed line-clamp-3 mb-6 min-h-[72px]">
@@ -277,7 +262,7 @@ export default function BeautyEssentialsExperience() {
                     <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-pink-100 px-3 py-1 text-xs font-semibold text-pink-600">
                       <span>❀</span> {activeArea.name} Services
                     </div>
-                    <h3 className="text-3xl md:text-4xl font-semibold text-[#1f1f2e] mb-3" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
+                    <h3 className="text-3xl md:text-4xl font-semibold text-[#1f1f2e] mb-3" style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300 }}>
                       {activeArea.name} Care
                     </h3>
                     <p className="text-base leading-relaxed text-[#555] mb-5">
@@ -365,7 +350,6 @@ export default function BeautyEssentialsExperience() {
       </section>
 
       <WhyScent />
-      <PowerTeam />
       
       {/* Add CSS animations */}
       <style jsx global>{`

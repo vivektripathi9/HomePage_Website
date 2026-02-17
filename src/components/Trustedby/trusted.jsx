@@ -49,8 +49,8 @@ export default function TrustedBy() {
   return (
     <section className="bg-white py-8 sm:py-12">
       <div className="flex w-full flex-col items-center gap-6 sm:gap-8 px-4 sm:px-6 md:px-12 lg:px-20">
-        <h2 className="text-2xl sm:text-3xl md:text-[42px] font-light leading-tight text-[#1f1f2e] uppercase tracking-[0.1em]" style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}>Trusted by the Best</h2>
-        <div className="flex items-center justify-center gap-3 sm:gap-4 text-center text-gray-300">
+        <h2 className="text-2xl sm:text-3xl md:text-[42px] font-light leading-tight text-[#1f1f2e] tracking-[0.1em]" style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300, textTransform: 'none' }}>Trusted by the best</h2>
+        <div className="decorative-flower-divider flex items-center justify-center gap-3 sm:gap-4 text-center text-gray-300">
           <span className="h-px w-10 sm:w-12 bg-black" />
           <span className="text-pink-400 text-lg sm:text-xl">❀</span>
           <span className="h-px w-10 sm:w-12 bg-black" />

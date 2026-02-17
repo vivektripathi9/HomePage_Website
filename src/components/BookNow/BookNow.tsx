@@ -98,7 +98,7 @@ export default function BookNowSection() {
         <div className="mb-8 sm:mb-10 text-center">
           <h2 
             className="text-3xl sm:text-4xl md:text-5xl font-light text-[#1f1f2e] mb-3 uppercase tracking-[0.05em]"
-            style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}
+            style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300 }}
           >
             Book Your Appointment
           </h2>
@@ -107,7 +107,7 @@ export default function BookNowSection() {
             <span className="text-pink-400 text-lg sm:text-xl">❀</span>
             <span className="h-px w-10 sm:w-12 bg-[#1f1f2e]" />
           </div>
-          <p className="text-sm sm:text-base text-gray-600 font-light max-w-2xl mx-auto" style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}>
+          <p className="text-sm sm:text-base text-gray-600 font-light max-w-2xl mx-auto" style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300 }}>
             Fill in your details and we'll confirm your booking
           </p>
         </div>

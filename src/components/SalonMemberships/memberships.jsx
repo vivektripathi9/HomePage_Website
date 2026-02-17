@@ -11,7 +11,7 @@ const membershipPlans = [
     load: "₹160,000",
     extraBenefits: "₹60,000",
     validity: "3 YEARS",
-    description: "The ultimate luxury membership for our most valued clients. Enjoy maximum benefits with the highest credit load and extended validity period.",
+    description: "the ultimate luxury membership for our most valued clients. Enjoy maximum benefits with the highest credit load and extended validity period.",
     image: "/Platinum Gift Card - SCENT.png",
   },
   {
@@ -21,7 +21,7 @@ const membershipPlans = [
     load: "₹110,000",
     extraBenefits: "₹35,000",
     validity: "2 YEARS",
-    description: "Premium membership tier offering exceptional value with substantial credit load and extended benefits for dedicated beauty enthusiasts.",
+    description: "premium membership tier offering exceptional value with substantial credit load and extended benefits for dedicated beauty enthusiasts.",
     image: "/Sapphire Gift Card - SCENT.png",
   },
   {
@@ -31,7 +31,7 @@ const membershipPlans = [
     load: "₹75,000",
     extraBenefits: "₹25,000",
     validity: "2 YEARS",
-    description: "A prestigious membership plan designed for regular clients who seek premium services with excellent value and extended validity.",
+    description: "a prestigious membership plan designed for regular clients who seek premium services with excellent value and extended validity.",
     image: "/Diamond Gift Card - SCENT.png",
   },
   {
@@ -41,7 +41,7 @@ const membershipPlans = [
     load: "₹45,000",
     extraBenefits: "₹15,000",
     validity: "1 YEAR",
-    description: "Perfect for frequent visitors who want to enjoy premium services with great savings and exclusive benefits throughout the year.",
+    description: "perfect for frequent visitors who want to enjoy premium services with great savings and exclusive benefits throughout the year.",
     image: "/Gold Gift Card - SCENT.png",
   },
   {
@@ -51,7 +51,7 @@ const membershipPlans = [
     load: "₹27,000",
     extraBenefits: "₹7,000",
     validity: "1 YEAR",
-    description: "An ideal membership for regular clients who visit the salon frequently and want to maximize their savings with added benefits.",
+    description: "an ideal membership for regular clients who visit the salon frequently and want to maximize their savings with added benefits.",
     image: "/Ruby Gift Card - SCENT.png",
   },
   {
@@ -61,7 +61,7 @@ const membershipPlans = [
     load: "₹11,000",
     extraBenefits: "₹1,000",
     validity: "1 YEAR",
-    description: "A great starting point for new members who want to experience our premium services with added benefits and savings.",
+    description: "a great starting point for new members who want to experience our premium services with added benefits and savings.",
     image: "/Silver Gift Card - SCENT.png",
   },
 ];
@@ -138,11 +138,11 @@ export default function SalonMembershipsSection() {
         <div className="mb-16 text-center">
           <h2
             className="mb-4 text-3xl font-light uppercase tracking-[0.2em] text-[#1a1a1a] sm:text-4xl md:text-5xl lg:text-6xl"
-            style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}
+            style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300 }}
           >
             Membership Plans
           </h2>
-          <div className="mx-auto flex items-center justify-center gap-3">
+          <div className="decorative-flower-divider mx-auto flex items-center justify-center gap-3">
             <span className="h-px w-12 bg-[#1a1a1a]/30 sm:w-16" />
             <span className="text-pink-400 text-lg sm:text-xl">❀</span>
             <span className="h-px w-12 bg-[#1a1a1a]/30 sm:w-16" />
@@ -150,7 +150,7 @@ export default function SalonMembershipsSection() {
         </div>
 
         {/* Membership Cards - Luxury Flip Design */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 md:gap-12" style={{ width: "100%" }}>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12" style={{ width: "100%" }}>
           {membershipPlans.map((plan) => {
             const isFlipped = flippedCards.has(plan.id);
             const cardColors = getCardColors(plan.id);
@@ -239,7 +239,7 @@ export default function SalonMembershipsSection() {
                   >
                     <div className="flex-1 flex flex-col justify-between overflow-hidden">
                       {/* Top Section */}
-                      <div className="overflow-y-auto flex-1 min-h-0 mobile-no-scroll">
+                      <div className="overflow-hidden flex-1 min-h-0">
                         {/* Title */}
                         <h3
                           className="text-base sm:text-lg md:text-xl"
@@ -249,7 +249,7 @@ export default function SalonMembershipsSection() {
                             fontWeight: 700,
                             color: cardColors.textColor,
                             marginBottom: "12px",
-                            fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif',
+                            fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif',
                           }}
                         >
                           {plan.title} MEMBERSHIP
@@ -261,10 +261,10 @@ export default function SalonMembershipsSection() {
                   <div className="flex items-center justify-between">
                             <span
                               style={{
-                                fontSize: "8px",
+                                fontSize: "12px",
                                 letterSpacing: "0.18em",
                                 color: cardColors.labelColor,
-                                fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif',
+                                fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif',
                                 fontWeight: 300,
                               }}
                             >
@@ -272,10 +272,10 @@ export default function SalonMembershipsSection() {
                             </span>
                             <span
                               style={{
-                                fontSize: "13px",
+                                fontSize: "14px",
                                 fontWeight: 500,
                                 color: cardColors.textColor,
-                                fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif',
+                                fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif',
                               }}
                             >
                               {plan.pay}
@@ -294,10 +294,10 @@ export default function SalonMembershipsSection() {
                           <div className="flex items-center justify-between">
                             <span
                               style={{
-                                fontSize: "8px",
+                                fontSize: "12px",
                                 letterSpacing: "0.18em",
                                 color: cardColors.labelColor,
-                                fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif',
+                                fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif',
                                 fontWeight: 300,
                               }}
                             >
@@ -305,10 +305,10 @@ export default function SalonMembershipsSection() {
                             </span>
                             <span
                               style={{
-                                fontSize: "13px",
+                                fontSize: "14px",
                                 fontWeight: 500,
                                 color: cardColors.textColor,
-                                fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif',
+                                fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif',
                               }}
                             >
                               {plan.load}
@@ -327,10 +327,10 @@ export default function SalonMembershipsSection() {
                           <div className="flex items-center justify-between">
                             <span
                               style={{
-                                fontSize: "8px",
+                                fontSize: "12px",
                                 letterSpacing: "0.18em",
                                 color: cardColors.labelColor,
-                                fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif',
+                                fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif',
                                 fontWeight: 300,
                               }}
                             >
@@ -338,10 +338,10 @@ export default function SalonMembershipsSection() {
                             </span>
                             <span
                               style={{
-                                fontSize: "13px",
+                                fontSize: "14px",
                                 fontWeight: 500,
                                 color: cardColors.textColor,
-                                fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif',
+                                fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif',
                               }}
                             >
                               {plan.extraBenefits}
@@ -360,10 +360,10 @@ export default function SalonMembershipsSection() {
                           <div className="flex items-center justify-between">
                             <span
                               style={{
-                                fontSize: "8px",
+                                fontSize: "12px",
                                 letterSpacing: "0.18em",
                                 color: cardColors.labelColor,
-                                fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif',
+                                fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif',
                                 fontWeight: 300,
                               }}
                             >
@@ -371,10 +371,10 @@ export default function SalonMembershipsSection() {
                             </span>
                             <span
                               style={{
-                                fontSize: "13px",
+                                fontSize: "14px",
                                 fontWeight: 500,
                                 color: cardColors.textColor,
-                                fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif',
+                                fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif',
                               }}
                             >
                               {plan.validity}
@@ -384,13 +384,11 @@ export default function SalonMembershipsSection() {
 
                         {/* Description */}
                         <p
-                          className="mt-3"
+                          className="description-main mt-3 !text-left"
                           style={{
-                            fontSize: "9px",
+                            fontSize: "12px",
                             lineHeight: "1.4",
                             color: cardColors.labelColor,
-                            fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif',
-                            fontWeight: 300,
                           }}
                         >
                           {plan.description}
@@ -405,18 +403,18 @@ export default function SalonMembershipsSection() {
                             e.stopPropagation();
                             openBookAppointment(`${plan.title} Membership`);
                           }}
-                          className="luxury-cta-button text-[7px] sm:text-[8px]"
+                          className="luxury-cta-button text-xs sm:text-sm"
                           style={{
                             height: "32px",
                             borderRadius: "999px",
                             border: `1px solid ${cardColors.accentColor}`,
                             background: "transparent",
                             letterSpacing: "0.15em",
-                            fontSize: "7px",
+                            fontSize: "12px",
                             fontWeight: 300,
                             color: cardColors.textColor,
                             cursor: "pointer",
-                            fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif',
+                            fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif',
                             textTransform: "uppercase",
                             transition: "all 0.35s ease",
                             padding: "0 12px",
@@ -437,7 +435,7 @@ export default function SalonMembershipsSection() {
                             e.currentTarget.style.color = cardColors.textColor;
                           }}
                         >
-                          BOOK APPOINTMENT
+                          BOOK NOW
                         </button>
                       </div>
                     </div>

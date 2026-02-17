@@ -258,7 +258,7 @@ export default function Navbar() {
 
   return (
     <>
-    <header className="w-full bg-white/95 backdrop-blur-sm fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out border-b border-gray-200/50">
+    <header className="w-full bg-white/95 backdrop-blur-sm fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out">
       {/* Top Bar - Luxury Style */}
       <div className="w-full px-4 sm:px-6 md:px-12 lg:px-20 py-2.5 sm:py-3">
         <div className="flex items-center justify-between">
@@ -273,10 +273,11 @@ export default function Navbar() {
             <Image
               src="/Asset 1.png"
               alt="Scent logo"
-              width={160}
-              height={32}
-              className="h-5 sm:h-6 md:h-7 w-auto object-contain transition-opacity duration-300 group-hover:opacity-60"
+              width={220}
+              height={44}
+              className="h-6 sm:h-8 md:h-10 w-auto object-contain transition-opacity duration-300 group-hover:opacity-60"
               priority
+              sizes="(max-width: 640px) 120px, (max-width: 768px) 160px, 220px"
             />
           </a>
 
@@ -342,7 +343,7 @@ export default function Navbar() {
 
       {/* Navigation Menu - Hidden on scroll */}
       <nav 
-        className={`hidden lg:block w-full border-t border-gray-200/50 transition-all duration-500 ease-in-out mb-0 pb-0 ${
+        className={`hidden lg:block w-full transition-all duration-500 ease-in-out mb-0 pb-0 ${
           isScrolled ? 'opacity-0 h-0 overflow-hidden' : 'opacity-100 h-auto'
         }`}
       >
@@ -366,42 +367,42 @@ export default function Navbar() {
                 }}
               >
                 {item === "Services" ? (
-                  <a href="/new-service" onClick={() => setIsServiceOpen(false)} className="text-[10px] sm:text-xs md:text-xs lg:text-sm uppercase tracking-[0.15em] font-light text-gray-800 hover:text-gray-500 transition-all duration-300 ease-in-out relative leading-none inline-block align-middle" style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}>
+                  <a href="/new-service" onClick={() => setIsServiceOpen(false)} className="text-xs sm:text-xs md:text-sm lg:text-sm uppercase tracking-[0.15em] font-medium text-black hover:text-gray-800 transition-all duration-300 ease-in-out relative leading-none inline-block align-middle" style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 500 }}>
                     {item}
                     <span className="absolute bottom-0 left-0 w-0 h-px bg-gray-400 transition-all duration-300 ease-in-out group-hover:w-full"></span>
                   </a>
                 ) : item === "Home" ? (
-                  <a href="/" className="text-[10px] sm:text-xs md:text-xs lg:text-sm uppercase tracking-[0.15em] font-light text-gray-800 hover:text-gray-500 transition-all duration-300 ease-in-out relative leading-none inline-block align-middle" style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}>
+                  <a href="/" className="text-xs sm:text-xs md:text-sm lg:text-sm uppercase tracking-[0.15em] font-medium text-black hover:text-gray-800 transition-all duration-300 ease-in-out relative leading-none inline-block align-middle" style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 500 }}>
                     {item}
                     <span className="absolute bottom-0 left-0 w-0 h-px bg-gray-400 transition-all duration-300 ease-in-out group-hover:w-full"></span>
                   </a>
                 ) : item === "Salon Memberships" ? (
-                  <a href="/salon-memberships" className="text-[10px] sm:text-xs md:text-xs lg:text-sm uppercase tracking-[0.15em] font-light text-gray-800 hover:text-gray-500 transition-all duration-300 ease-in-out relative leading-none inline-block align-middle" style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}>
+                  <a href="/salon-memberships" className="text-xs sm:text-xs md:text-sm lg:text-sm uppercase tracking-[0.15em] font-medium text-black hover:text-gray-800 transition-all duration-300 ease-in-out relative leading-none inline-block align-middle" style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 500 }}>
                     {item}
                     <span className="absolute bottom-0 left-0 w-0 h-px bg-gray-400 transition-all duration-300 ease-in-out group-hover:w-full"></span>
                   </a>
                 ) : item === "Shops" ? (
-                  <a href="/shops" onClick={() => setIsShopOpen(false)} className="text-[10px] sm:text-xs md:text-xs lg:text-sm uppercase tracking-[0.15em] font-light text-gray-800 hover:text-gray-500 transition-all duration-300 ease-in-out relative leading-none inline-block align-middle" style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}>
+                  <a href="/shops" onClick={() => setIsShopOpen(false)} className="text-xs sm:text-xs md:text-sm lg:text-sm uppercase tracking-[0.15em] font-medium text-black hover:text-gray-800 transition-all duration-300 ease-in-out relative leading-none inline-block align-middle" style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 500 }}>
                     {item}
                     <span className="absolute bottom-0 left-0 w-0 h-px bg-gray-400 transition-all duration-300 ease-in-out group-hover:w-full"></span>
                   </a>
                 ) : item === "Franchise" ? (
-                  <a href="/franchise" onClick={() => setIsFranchiseOpen(false)} className="text-[10px] sm:text-xs md:text-xs lg:text-sm uppercase tracking-[0.15em] font-light text-gray-800 hover:text-gray-500 transition-all duration-300 ease-in-out relative leading-none inline-block align-middle" style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}>
+                  <a href="/franchise" onClick={() => setIsFranchiseOpen(false)} className="text-xs sm:text-xs md:text-sm lg:text-sm uppercase tracking-[0.15em] font-medium text-black hover:text-gray-800 transition-all duration-300 ease-in-out relative leading-none inline-block align-middle" style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 500 }}>
                     {item}
                     <span className="absolute bottom-0 left-0 w-0 h-px bg-gray-400 transition-all duration-300 ease-in-out group-hover:w-full"></span>
                   </a>
                 ) : item === "Academy" ? (
-                  <a href="/academy" className="text-[10px] sm:text-xs md:text-xs lg:text-sm uppercase tracking-[0.15em] font-light text-gray-800 hover:text-gray-500 transition-all duration-300 ease-in-out relative leading-none inline-block align-middle" style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}>
+                  <a href="/academy" className="text-xs sm:text-xs md:text-sm lg:text-sm uppercase tracking-[0.15em] font-medium text-black hover:text-gray-800 transition-all duration-300 ease-in-out relative leading-none inline-block align-middle" style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 500 }}>
                     {item}
                     <span className="absolute bottom-0 left-0 w-0 h-px bg-gray-400 transition-all duration-300 ease-in-out group-hover:w-full"></span>
                   </a>
                 ) : item === "Contact" ? (
-                  <a href="/contact" onClick={() => setIsContactOpen(false)} className="text-[10px] sm:text-xs md:text-xs lg:text-sm uppercase tracking-[0.15em] font-light text-gray-800 hover:text-gray-500 transition-all duration-300 ease-in-out relative leading-none inline-block align-middle" style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}>
+                  <a href="/contact" onClick={() => setIsContactOpen(false)} className="text-xs sm:text-xs md:text-sm lg:text-sm uppercase tracking-[0.15em] font-medium text-black hover:text-gray-800 transition-all duration-300 ease-in-out relative leading-none inline-block align-middle" style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 500 }}>
                     {item}
                     <span className="absolute bottom-0 left-0 w-0 h-px bg-gray-400 transition-all duration-300 ease-in-out group-hover:w-full"></span>
                   </a>
                 ) : (
-                  <span className="text-[10px] sm:text-xs md:text-xs lg:text-sm uppercase tracking-[0.15em] font-light text-gray-800" style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}>
+                  <span className="text-xs sm:text-xs md:text-sm lg:text-sm uppercase tracking-[0.15em] font-medium text-black" style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 500 }}>
                     {item}
                   </span>
                 )}
@@ -424,7 +425,7 @@ export default function Navbar() {
                           key={service.name}
                           href={service.href}
                           className="block px-5 py-2.5 text-sm text-[#1f1f2e] transition-all duration-200 hover:bg-gray-50 font-light"
-                          style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}
+                          style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300 }}
                           onClick={() => setIsServiceOpen(false)}
                         >
                           {service.name}
@@ -450,17 +451,17 @@ export default function Navbar() {
                           key={franchiseItem.name}
                           href={franchiseItem.href}
                           className="block px-5 py-2.5 text-sm text-[#1f1f2e] transition-all duration-200 hover:bg-gray-50 font-light"
-                          style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}
+                          style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300 }}
                           onClick={() => setIsFranchiseOpen(false)}
                         >
                           {franchiseItem.name}
                         </a>
                       ))}
-                      <div className="px-4 pt-3 mt-2 border-t border-gray-200">
+                      <div className="px-4 pt-3 mt-2">
                         <a
                           href="/franchise"
                           className="block w-full text-center bg-[#1f1f2e] px-5 py-2.5 text-xs font-light text-white transition-all duration-200 hover:bg-[#2a2a35] uppercase tracking-[0.15em] rounded-sm"
-                          style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}
+                          style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300 }}
                           onClick={() => setIsFranchiseOpen(false)}
                         >
                           Learn More
@@ -482,23 +483,23 @@ export default function Navbar() {
                       onMouseLeave={() => setIsShopOpen(false)}
                     >
                       {shopCategories.map((category) => (
-                        <div key={category.name} className="px-5 py-2.5 border-b border-gray-200 last:border-0">
+                        <div key={category.name} className="px-5 py-2.5 last:border-0">
                           <a
                             href="/shops"
                             className="block text-sm font-light text-[#1f1f2e] hover:text-gray-600 transition-all duration-200"
-                            style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}
+                            style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300 }}
                             onClick={() => setIsShopOpen(false)}
                           >
                             {category.name}
                           </a>
-                          <p className="text-xs text-gray-500 mt-1 font-light" style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}>{category.products.length} products</p>
+                          <p className="text-xs text-gray-500 mt-1 font-light" style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300 }}>{category.products.length} products</p>
                         </div>
                       ))}
-                      <div className="px-4 pt-3 mt-2 border-t border-gray-200">
+                      <div className="px-4 pt-3 mt-2">
                         <a
                           href="/shops"
                           className="block w-full text-center bg-[#1f1f2e] px-5 py-2.5 text-xs font-light text-white transition-all duration-200 hover:bg-[#2a2a35] uppercase tracking-[0.15em] rounded-sm"
-                          style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}
+                          style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300 }}
                           onClick={() => setIsShopOpen(false)}
                         >
                           View All Products
@@ -552,16 +553,16 @@ export default function Navbar() {
                             )}
                           </div>
                           <div className="flex-1 min-w-0">
-                            <p className="text-xs font-light text-gray-500 uppercase tracking-[0.05em]" style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}>{contactItem.name}</p>
-                            <p className="text-sm text-[#1f1f2e] truncate font-light" style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}>{contactItem.value}</p>
+                            <p className="text-xs font-light text-gray-500 uppercase tracking-[0.05em]" style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300 }}>{contactItem.name}</p>
+                            <p className="text-sm text-[#1f1f2e] truncate font-light" style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300 }}>{contactItem.value}</p>
                           </div>
                         </a>
                       ))}
-                      <div className="px-4 pt-3 mt-2 border-t border-gray-200">
+                      <div className="px-4 pt-3 mt-2">
                         <a
                           href="/contact"
                           className="block w-full text-center bg-[#1f1f2e] px-5 py-2.5 text-xs font-light text-white transition-all duration-200 hover:bg-[#2a2a35] uppercase tracking-[0.15em] rounded-sm"
-                          style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}
+                          style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300 }}
                           onClick={() => setIsContactOpen(false)}
                         >
                           View Full Contact Page
@@ -588,7 +589,7 @@ export default function Navbar() {
               />
           <div className="fixed top-16 sm:top-20 md:top-24 left-1/2 -translate-x-1/2 z-50 w-full max-w-2xl mx-4 sm:mx-auto">
             <div className="bg-white rounded-lg shadow-2xl border border-gray-200 overflow-hidden">
-              <form onSubmit={handleSearchSubmit} className="flex items-center border-b border-gray-200">
+              <form onSubmit={handleSearchSubmit} className="flex items-center">
                 <div className="flex-1 flex items-center px-4 sm:px-6">
                   <svg className="h-5 w-5 text-gray-400 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
@@ -662,7 +663,7 @@ export default function Navbar() {
                   
               {!searchQuery.trim() && (
                 <div className="p-6">
-                  <p className="text-xs font-light text-gray-500 uppercase tracking-[0.1em] mb-3" style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}>Popular Searches</p>
+                  <p className="text-xs font-light text-gray-500 uppercase tracking-[0.1em] mb-3" style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300 }}>Popular Searches</p>
                   <div className="flex flex-wrap gap-2">
                     {["Hair Services", "Beauty Treatments", "Salon Memberships", "Franchise", "Academy", "Shops"].map((item, index) => (
                     <button
@@ -691,7 +692,7 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="lg:hidden border-t border-gray-200/50 bg-white/98 backdrop-blur-sm fixed top-full left-0 right-0 z-50 max-h-[calc(100vh-200px)] overflow-y-auto">
+        <div className="lg:hidden bg-white/98 backdrop-blur-sm fixed top-full left-0 right-0 z-50 max-h-[calc(100vh-200px)] overflow-y-auto">
           <nav className="px-4 py-3">
             <ul className="space-y-2">
               {menuItems.map((item) => (
@@ -700,13 +701,13 @@ export default function Navbar() {
                     <div>
                       <button
                         onClick={() => setIsServiceOpen(!isServiceOpen)}
-                        className="w-full text-left py-1.5 text-xs uppercase tracking-[0.1em] font-light text-gray-800 transition-all duration-200 hover:text-gray-500"
-                        style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}
+                        className="w-full text-left py-1.5 text-xs uppercase tracking-[0.1em] font-medium text-black transition-all duration-200 hover:text-gray-700"
+                        style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 500 }}
                       >
                         {item} {isServiceOpen ? '−' : '+'}
                       </button>
                       {isServiceOpen && (
-                        <ul className="pl-4 mt-1.5 space-y-1 border-l border-gray-200/50">
+                        <ul className="pl-4 mt-1.5 space-y-1">
                           {services.map((service) => (
                             <li key={service.name}>
                               <a
@@ -728,15 +729,15 @@ export default function Navbar() {
                     <div>
                       <button
                         onClick={() => setIsFranchiseOpen(!isFranchiseOpen)}
-                        className="w-full text-left py-1.5 text-xs uppercase tracking-[0.1em] font-light text-gray-800 transition-all duration-200 hover:text-gray-500"
-                        style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}
+                        className="w-full text-left py-1.5 text-xs uppercase tracking-[0.1em] font-medium text-black transition-all duration-200 hover:text-gray-700"
+                        style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 500 }}
                       >
                         {item} {isFranchiseOpen ? '−' : '+'}
                       </button>
                       {isFranchiseOpen && (
-                        <div className="pl-4 mt-2 space-y-2 border-l-2 border-gray-200">
-                          <div className="pb-2 mb-2 border-b border-gray-200">
-                            <p className="text-xs font-light text-gray-500 uppercase tracking-[0.1em] mb-1" style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}>Franchise Opportunity</p>
+                        <div className="pl-4 mt-2 space-y-2">
+                          <div className="pb-2 mb-2">
+                            <p className="text-xs font-light text-gray-500 uppercase tracking-[0.1em] mb-1" style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300 }}>Franchise Opportunity</p>
                             <p className="text-xs text-gray-600 leading-relaxed">
                               Start your own salon franchise in Bangalore with SCENT
                             </p>
@@ -757,7 +758,7 @@ export default function Navbar() {
                               </li>
                             ))}
                           </ul>
-                          <div className="pt-2 mt-2 border-t border-gray-200 space-y-2">
+                          <div className="pt-2 mt-2 space-y-2">
                             <a
                               href="/franchise"
                               className="block w-full text-center rounded-md bg-red-600 px-4 py-2 text-xs font-semibold text-white transition-colors hover:bg-red-700"
@@ -795,16 +796,16 @@ export default function Navbar() {
                         {item} {isShopOpen ? '−' : '+'}
                       </button>
                       {isShopOpen && (
-                        <div className="pl-4 mt-2 space-y-3 border-l-2 border-gray-200">
-                          <div className="pb-2 mb-2 border-b border-gray-200">
-                            <p className="text-xs font-light text-gray-500 uppercase tracking-[0.1em] mb-1" style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}>Best Hair Treatment Products</p>
+                        <div className="pl-4 mt-2 space-y-3">
+                          <div className="pb-2 mb-2">
+                            <p className="text-xs font-light text-gray-500 uppercase tracking-[0.1em] mb-1" style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300 }}>Best Hair Treatment Products</p>
                             <p className="text-xs text-gray-600 leading-relaxed">
                               Premium hair care products from trusted brands
                             </p>
                           </div>
                           {shopCategories.map((category) => (
                             <div key={category.name} className="space-y-2">
-                              <h4 className="text-sm font-light text-gray-800 uppercase tracking-[0.05em]" style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}>
+                              <h4 className="text-sm font-light text-gray-800 uppercase tracking-[0.05em]" style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300 }}>
                                 {category.name}
                               </h4>
                               <ul className="space-y-1">
@@ -829,7 +830,7 @@ export default function Navbar() {
                               )}
                             </div>
                           ))}
-                          <div className="pt-2 mt-2 border-t border-gray-200">
+                          <div className="pt-2 mt-2">
                             <a
                               href="/shops"
                               className="block w-full text-center rounded-md bg-red-600 px-4 py-2 text-xs font-semibold text-white transition-colors hover:bg-red-700"
@@ -847,7 +848,7 @@ export default function Navbar() {
                   ) : item === "Home" ? (
                     <a
                       href="/"
-                      className="block py-1.5 text-xs uppercase tracking-[0.1em] font-light text-gray-800 transition-all duration-200 hover:text-gray-500"
+                      className="block py-1.5 text-xs uppercase tracking-[0.1em] font-medium text-black transition-all duration-200 hover:text-gray-700"
                       onClick={() => setIsMobileMenuOpen(false)}
                     >
                       {item}
@@ -855,7 +856,7 @@ export default function Navbar() {
                   ) : item === "Salon Memberships" ? (
                     <a
                       href="/salon-memberships"
-                      className="block py-1.5 text-xs uppercase tracking-[0.1em] font-light text-gray-800 transition-all duration-200 hover:text-gray-500"
+                      className="block py-1.5 text-xs uppercase tracking-[0.1em] font-medium text-black transition-all duration-200 hover:text-gray-700"
                       onClick={() => setIsMobileMenuOpen(false)}
                     >
                       {item}
@@ -863,7 +864,7 @@ export default function Navbar() {
                   ) : item === "Franchise" ? (
                     <a
                       href="/franchise"
-                      className="block py-1.5 text-xs uppercase tracking-[0.1em] font-light text-gray-800 transition-all duration-200 hover:text-gray-500"
+                      className="block py-1.5 text-xs uppercase tracking-[0.1em] font-medium text-black transition-all duration-200 hover:text-gray-700"
                       onClick={() => setIsMobileMenuOpen(false)}
                     >
                       {item}
@@ -871,7 +872,7 @@ export default function Navbar() {
                   ) : item === "Academy" ? (
                     <a
                       href="/academy"
-                      className="block py-1.5 text-xs uppercase tracking-[0.1em] font-light text-gray-800 transition-all duration-200 hover:text-gray-500"
+                      className="block py-1.5 text-xs uppercase tracking-[0.1em] font-medium text-black transition-all duration-200 hover:text-gray-700"
                       onClick={() => setIsMobileMenuOpen(false)}
                     >
                       {item}
@@ -880,15 +881,15 @@ export default function Navbar() {
                     <div>
                       <button
                         onClick={() => setIsContactOpen(!isContactOpen)}
-                        className="w-full text-left py-1.5 text-xs uppercase tracking-[0.1em] font-light text-gray-800 transition-all duration-200 hover:text-gray-500"
-                        style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}
+                        className="w-full text-left py-1.5 text-xs uppercase tracking-[0.1em] font-medium text-black transition-all duration-200 hover:text-gray-700"
+                        style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 500 }}
                       >
                         {item} {isContactOpen ? '−' : '+'}
                       </button>
                       {isContactOpen && (
-                        <div className="pl-4 mt-2 space-y-2 border-l-2 border-gray-200">
-                          <div className="pb-2 mb-2 border-b border-gray-200">
-                            <p className="text-xs font-light text-gray-500 uppercase tracking-[0.1em] mb-1" style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}>Get In Touch</p>
+                        <div className="pl-4 mt-2 space-y-2">
+                          <div className="pb-2 mb-2">
+                            <p className="text-xs font-light text-gray-500 uppercase tracking-[0.1em] mb-1" style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300 }}>Get In Touch</p>
                             <p className="text-xs text-gray-600 leading-relaxed">
                               Reach out to us for inquiries and appointments
                             </p>
@@ -936,7 +937,7 @@ export default function Navbar() {
                               </a>
                             ))}
                           </div>
-                          <div className="pt-2 mt-2 border-t border-gray-200 space-y-2">
+                          <div className="pt-2 mt-2 space-y-2">
                             <div className="flex items-center gap-2">
                               <span className="text-xs font-medium text-gray-500">Follow Us:</span>
                               <div className="flex gap-2">
@@ -977,8 +978,8 @@ export default function Navbar() {
               ))}
             </ul>
             <button
-              className="mt-3 w-full bg-gray-900 px-5 py-2 text-xs uppercase tracking-[0.15em] font-light text-white transition-all duration-300 hover:bg-gray-800"
-              style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}
+              className="mt-3 w-full bg-gray-900 px-5 py-2 text-xs uppercase tracking-[0.15em] font-medium text-white transition-all duration-300 hover:bg-gray-800"
+              style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 500 }}
               onClick={() => {
                 setIsMobileMenuOpen(false);
                 window.location.href = "/book-now";
@@ -1006,7 +1007,7 @@ export default function Navbar() {
             
             <div className="p-4 sm:p-6">
               <div className="mb-4 sm:mb-6">
-                  <h3 className="text-xl sm:text-2xl font-light text-[#1f1f2e] mb-2 uppercase tracking-[0.1em]" style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}>
+                  <h3 className="text-xl sm:text-2xl font-light text-[#1f1f2e] mb-2 uppercase tracking-[0.1em]" style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300 }}>
                   Book Your Appointment
                 </h3>
                 <p className="text-xs sm:text-sm text-gray-600">
@@ -1185,7 +1186,7 @@ export default function Navbar() {
             </div>
 
             {/* Success Message */}
-            <h2 className="text-2xl sm:text-3xl font-light text-[#1f1f2e] mb-3 uppercase tracking-[0.1em]" style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}>
+            <h2 className="text-2xl sm:text-3xl font-light text-[#1f1f2e] mb-3 uppercase tracking-[0.1em]" style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300 }}>
               Appointment Request Sent!
             </h2>
             <p className="text-base sm:text-lg text-gray-600 mb-6 leading-relaxed">
@@ -1208,4 +1209,7 @@ export default function Navbar() {
     </>
   );
 }
+
+
+
 

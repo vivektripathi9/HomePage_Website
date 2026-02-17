@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import { useState } from "react";
-import PowerTeam from "../Thepower/thepower";
 import WhyScent from "../why/why";
 
 const bridalPackages = [
@@ -10,7 +9,7 @@ const bridalPackages = [
     id: "sangeet",
     title: "Sangeet Glow-Up",
     description:
-      "Airbrush finish with playful shimmer, grip-proof lashes, and dance-proof hair styling designed for high-energy celebrations.",
+      "airbrush finish with playful shimmer, grip-proof lashes, and dance-proof hair styling designed for high-energy celebrations.",
     image: "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=80",
     services: [
       { name: "Glass-skin prep facial", price: "₹3,500" },
@@ -25,7 +24,7 @@ const bridalPackages = [
     id: "wedding",
     title: "Main Phera Ritual",
     description:
-      "Couture bridal look inspired by your lehenga palette, jewellery, and ceremony lighting. Includes veil setting and tear-resistant touch-ups.",
+      "couture bridal look inspired by your lehenga palette, jewellery, and ceremony lighting. Includes veil setting and tear-resistant touch-ups.",
     image: "/br1.jpg",
     services: [
       { name: "Luxury skin therapy + cryo depuff", price: "₹5,500" },
@@ -40,7 +39,7 @@ const bridalPackages = [
     id: "reception",
     title: "Reception Red Carpet",
     description:
-      "Modern glam inspired by celebrity after-party looks—think glass eyeliner, glossy lips, and sleek blowouts.",
+      "modern glam inspired by celebrity after-party looks—think glass eyeliner, glossy lips, and sleek blowouts.",
     image: "/br2.jpg",
     services: [
       { name: "Radiance revive facial shot", price: "₹3,500" },
@@ -80,33 +79,8 @@ export default function BridalExperience() {
           muted
           loop
           playsInline
-          className="h-[80vh] min-h-[600px] w-full object-cover opacity-90"
+          className="h-[80vh] min-h-[600px] w-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/30" />
-        <div className="absolute inset-0 flex flex-col justify-center gap-6 px-8 text-white md:px-16 lg:px-32 relative z-10">
-          <div className="flex items-center gap-3 mb-2">
-            <span className="text-pink-300 text-2xl">❀</span>
-            <p className="text-sm uppercase tracking-[0.6em] text-pink-200 font-light">Bridal Atelier</p>
-            <span className="text-pink-300 text-2xl">❀</span>
-          </div>
-          <h1 
-            className="text-4xl md:text-6xl lg:text-7xl font-semibold leading-tight drop-shadow-2xl"
-            style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}
-          >
-            Luxe Bridal Makeup,<br />
-            <span className="text-pink-200">Styled for Every Ceremony</span>
-          </h1>
-          <p className="max-w-3xl text-lg leading-relaxed text-white/90 md:text-xl mt-4">
-            From pheras at dawn to after-parties post-midnight, SCENT&apos;s bridal specialists craft
-            iconic looks that feel lightweight, photogenic, and perfectly you. Access our couture menu,
-            skin bootcamps, and on-location touch-up squads.
-          </p>
-          <div className="flex flex-wrap gap-4 mt-6">
-            <span className="rounded-full border-2 border-pink-300/50 bg-pink-500/20 backdrop-blur-sm px-6 py-3 text-sm uppercase tracking-[0.3em] text-white shadow-lg">Airbrush + HD</span>
-            <span className="rounded-full border-2 border-pink-300/50 bg-pink-500/20 backdrop-blur-sm px-6 py-3 text-sm uppercase tracking-[0.3em] text-white shadow-lg">Dupatta Draping</span>
-            <span className="rounded-full border-2 border-pink-300/50 bg-pink-500/20 backdrop-blur-sm px-6 py-3 text-sm uppercase tracking-[0.3em] text-white shadow-lg">Travel Concierge</span>
-          </div>
-        </div>
       </div>
 
       <div className="mx-auto flex w-full flex-col gap-0 px-6 md:px-12 lg:px-20 relative z-10">
@@ -139,7 +113,7 @@ export default function BridalExperience() {
             <h2 
               className="mt-4 text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-semibold text-[#1f1f2e] leading-tight transition-all duration-700 hover:scale-105" 
               style={{ 
-                fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300,
+                fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300,
                 animation: "fadeInUp 0.8s ease-out 0.4s forwards",
                 opacity: 0,
                 textShadow: "0 2px 20px rgba(240,144,174,0.2)",
@@ -189,7 +163,7 @@ export default function BridalExperience() {
                         <span className="text-amber-300 text-2xl">❀</span>
                         <p
                           className="pointer-events-auto cursor-pointer text-base tracking-[0.4em] uppercase text-pink-100 transition-all hover:scale-110 hover:text-white font-semibold"
-                          style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}
+                          style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300 }}
                           onClick={(e) => {
                             e.stopPropagation();
                             setActiveService(pkg.id);
@@ -229,7 +203,7 @@ export default function BridalExperience() {
                     <div className="flex items-center justify-between border-b border-pink-100 pb-4">
                       <h3
                         className="text-2xl font-semibold text-[#1f1f2e]"
-                        style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}
+                        style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300 }}
                       >
                         {pkg.title}
                       </h3>
@@ -288,7 +262,7 @@ export default function BridalExperience() {
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
                       <div className="absolute bottom-4 left-4 text-white">
-                        <p className="text-sm uppercase tracking-[0.4em]" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
+                        <p className="text-sm uppercase tracking-[0.4em]" style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300 }}>
                           {activePackage.title}
                         </p>
                         <p className="text-xs text-white/80">Couture bridal experience</p>
@@ -296,7 +270,7 @@ export default function BridalExperience() {
                     </div>
                     <div className="flex w-full flex-col gap-4 px-6 py-6 md:w-1/2 md:overflow-y-auto md:max-h-[90vh]">
                       <div className="flex flex-col gap-3">
-                        <h3 className="text-2xl md:text-3xl font-semibold text-[#1f1f2e]" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
+                        <h3 className="text-2xl md:text-3xl font-semibold text-[#1f1f2e]" style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300 }}>
                           {activePackage.title}
                         </h3>
                         <p className="text-sm leading-relaxed text-gray-600">{activePackage.description}</p>
@@ -362,7 +336,7 @@ export default function BridalExperience() {
               <p className="text-base uppercase tracking-[0.5em] text-[#C06C84] font-semibold">Add-On Rituals</p>
               <span className="text-amber-400 text-2xl">❀</span>
             </div>
-            <h3 className="text-4xl md:text-5xl font-semibold text-[#1f1f2e]" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
+            <h3 className="text-4xl md:text-5xl font-semibold text-[#1f1f2e]" style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300 }}>
               Tailor the Journey with<br />
               <span className="bg-gradient-to-r from-[#C06C84] to-[#d87a9a] bg-clip-text text-transparent">Bespoke Extras</span>
             </h3>
@@ -386,7 +360,7 @@ export default function BridalExperience() {
                 <span className="text-amber-400 text-xl">❀</span>
                 <p className="text-sm uppercase tracking-[0.4em] text-[#C06C84] font-semibold">Concierge</p>
               </div>
-              <h4 className="text-3xl font-semibold text-[#1f1f2e]" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
+              <h4 className="text-3xl font-semibold text-[#1f1f2e]" style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300 }}>
                 Book a Bridal<br />Consultation
               </h4>
               <p className="text-sm text-gray-600">
@@ -409,7 +383,6 @@ export default function BridalExperience() {
         </div>
       </div>
       <WhyScent />
-      <PowerTeam />
     </section>
   );
 }

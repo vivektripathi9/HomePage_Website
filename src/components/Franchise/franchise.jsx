@@ -10,15 +10,15 @@ const advantages = [
   },
   {
     title: "Comprehensive Training",
-    description: "We provide extensive training programs for you and your staff, ensuring that your Salon Franchise in Bangalore operates smoothly and meets our high standards. From hair styling and skincare techniques to customer service and management, we cover it all.",
+    description: "we provide extensive training programs for you and your staff, ensuring that your Salon Franchise in Bangalore operates smoothly and meets our high standards. From hair styling and skincare techniques to customer service and management, we cover it all.",
   },
   {
     title: "Marketing and Promotional Support",
-    description: "Our marketing team will help you create buzz around your new Salon Franchise in Bangalore through strategic campaigns, social media promotions, and local events. This ensures a steady stream of customers eager to experience SCENT's renowned services.",
+    description: "our marketing team will help you create buzz around your new Salon Franchise in Bangalore through strategic campaigns, social media promotions, and local events. This ensures a steady stream of customers eager to experience SCENT's renowned services.",
   },
   {
     title: "Proven Business Model",
-    description: "With years of experience in the industry, we have developed a successful business model that reduces risk and increases profitability. When you choose a Salon Franchise in Bangalore with SCENT, you're leveraging a proven formula that works.",
+    description: "with years of experience in the industry, we have developed a successful business model that reduces risk and increases profitability. When you choose a Salon Franchise in Bangalore with SCENT, you're leveraging a proven formula that works.",
   },
   {
     title: "Exclusive Access to Premium Products",
@@ -30,27 +30,27 @@ const steps = [
   {
     number: "1",
     title: "Initial Consultation",
-    description: "Our team will discuss your goals, budget, and location preferences to determine the best strategy for your salon franchise.",
+    description: "our team will discuss your goals, budget, and location preferences to determine the best strategy for your salon franchise.",
   },
   {
     number: "2",
     title: "Franchise Agreement",
-    description: "Once the terms are agreed upon, we will sign a franchise agreement that outlines your responsibilities, the support you will receive, and other key details.",
+    description: "once the terms are agreed upon, we will sign a franchise agreement that outlines your responsibilities, the support you will receive, and other key details.",
   },
   {
     number: "3",
     title: "Site Selection and Setup",
-    description: "Our experts will help you choose the ideal location for your Salon Franchise in Bangalore, ensuring maximum visibility and foot traffic. We will also assist with the interior design, layout, and equipment setup to create a space that reflects the SCENT brand.",
+    description: "our experts will help you choose the ideal location for your Salon Franchise in Bangalore, ensuring maximum visibility and foot traffic. We will also assist with the interior design, layout, and equipment setup to create a space that reflects the SCENT brand.",
   },
   {
     number: "4",
     title: "Training and Staffing",
-    description: "Comprehensive training will be provided for you and your staff, covering all aspects of salon management, customer service, and beauty treatments.",
+    description: "comprehensive training will be provided for you and your staff, covering all aspects of salon management, customer service, and beauty treatments.",
   },
   {
     number: "5",
     title: "Grand Opening",
-    description: "We will support you with a grand opening event to create buzz and attract your first clients. From there, you will have ongoing support from our marketing, operations, and training teams.",
+    description: "we will support you with a grand opening event to create buzz and attract your first clients. From there, you will have ongoing support from our marketing, operations, and training teams.",
   },
 ];
 
@@ -96,20 +96,6 @@ export default function FranchiseSection() {
           playsInline
           className="h-[60vh] min-h-[500px] sm:min-h-[600px] w-full object-cover"
         />
-        <div className="absolute inset-0 bg-black/60" />
-        <div className="absolute inset-0 flex flex-col items-center justify-center gap-6 px-4 sm:px-6 md:px-12 lg:px-20 text-center text-white">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
-            Unlock the Opportunity
-          </h1>
-          <p className="max-w-4xl text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed text-white/90">
-            Start Your Own Salon Franchise in Bangalore with SCENT
-          </p>
-          <div className="flex items-center justify-center gap-3 sm:gap-4 mt-4">
-            <span className="h-px w-12 sm:w-20 bg-white/50" />
-            <span className="text-pink-400 text-lg sm:text-xl">❀</span>
-            <span className="h-px w-12 sm:w-20 bg-white/50" />
-          </div>
-        </div>
       </div>
 
       <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 md:px-12 lg:px-20 py-12 sm:py-16 md:py-20">
@@ -123,7 +109,7 @@ export default function FranchiseSection() {
         {/* Why Choose Section */}
         <div className="mb-12 sm:mb-16">
           <div className="text-center mb-8 sm:mb-12">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-[#1f1f2e] mb-4" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-[#1f1f2e] mb-4" style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300 }}>
               Why Choose a Salon Franchise in Bangalore?
             </h2>
             <div className="flex items-center justify-center gap-3 sm:gap-4 mb-6">
@@ -140,7 +126,7 @@ export default function FranchiseSection() {
         {/* Contact Form Section */}
         <div className="mb-12 sm:mb-16 grid gap-8 md:grid-cols-2">
           <div className="order-2 md:order-1">
-            <h3 className="text-2xl sm:text-3xl font-semibold text-[#1f1f2e] mb-6" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
+            <h3 className="text-2xl sm:text-3xl font-semibold text-[#1f1f2e] mb-6" style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300 }}>
               Get in Touch
             </h3>
             <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
@@ -217,7 +203,7 @@ export default function FranchiseSection() {
           </div>
 
           <div className="order-1 md:order-2 rounded-2xl bg-gradient-to-br from-gray-50 to-white border border-gray-200 p-6 sm:p-8 shadow-lg">
-            <h3 className="text-2xl sm:text-3xl font-semibold text-[#1f1f2e] mb-6" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
+            <h3 className="text-2xl sm:text-3xl font-semibold text-[#1f1f2e] mb-6" style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300 }}>
               Contact Information
             </h3>
             <div className="space-y-6">
@@ -254,7 +240,7 @@ export default function FranchiseSection() {
         {/* SCENT Advantage Section */}
         <div className="mb-12 sm:mb-16">
           <div className="text-center mb-8 sm:mb-12">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-[#1f1f2e] mb-4" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-[#1f1f2e] mb-4" style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300 }}>
               The SCENT Advantage for Your Salon Franchise in Bangalore
             </h2>
             <div className="flex items-center justify-center gap-3 sm:gap-4 mb-6">
@@ -281,7 +267,7 @@ export default function FranchiseSection() {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                       </svg>
                     </div>
-                    <h3 className="text-xl sm:text-2xl font-semibold text-[#1f1f2e]" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
+                    <h3 className="text-xl sm:text-2xl font-semibold text-[#1f1f2e]" style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300 }}>
                       {advantage.title}
                     </h3>
                   </div>
@@ -297,7 +283,7 @@ export default function FranchiseSection() {
         {/* Steps Section */}
         <div className="mb-12 sm:mb-16">
           <div className="text-center mb-8 sm:mb-12">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-[#1f1f2e] mb-4" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-[#1f1f2e] mb-4" style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300 }}>
               Steps to Open Your Salon Franchise in Bangalore with SCENT
             </h2>
             <div className="flex items-center justify-center gap-3 sm:gap-4 mb-6">
@@ -320,7 +306,7 @@ export default function FranchiseSection() {
                   {step.number}
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-xl sm:text-2xl font-semibold text-[#1f1f2e] mb-3" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
+                  <h3 className="text-xl sm:text-2xl font-semibold text-[#1f1f2e] mb-3" style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300 }}>
                     {step.title}
                   </h3>
                   <p className="text-sm sm:text-base leading-relaxed text-[#555]">
@@ -335,7 +321,7 @@ export default function FranchiseSection() {
         {/* Success Stories Section */}
         <div className="mb-12 sm:mb-16 rounded-3xl bg-gradient-to-br from-black via-[#1a1a1a] to-black p-8 sm:p-12 md:p-16 text-white">
           <div className="text-center mb-8">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold mb-4" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold mb-4" style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300 }}>
               Success Stories from Our Salon Franchise in Bangalore
             </h2>
             <div className="flex items-center justify-center gap-3 sm:gap-4 mb-6">
@@ -352,7 +338,7 @@ export default function FranchiseSection() {
         {/* What Makes SCENT Best Section */}
         <div className="mb-12 sm:mb-16">
           <div className="text-center mb-8 sm:mb-12">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-[#1f1f2e] mb-4" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-[#1f1f2e] mb-4" style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300 }}>
               What Makes SCENT the Best Choice for Your Salon Franchise in Bangalore?
             </h2>
             <div className="flex items-center justify-center gap-3 sm:gap-4 mb-6">
@@ -373,7 +359,7 @@ export default function FranchiseSection() {
 
         {/* Profitable Opportunity Section */}
         <div className="mb-12 sm:mb-16 rounded-2xl border-l-4 border-black bg-gradient-to-r from-gray-50 to-white p-6 sm:p-8 md:p-10">
-          <h3 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-[#1f1f2e] mb-4" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
+          <h3 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-[#1f1f2e] mb-4" style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300 }}>
             A Profitable Business Opportunity Awaits
           </h3>
           <p className="text-base sm:text-lg leading-relaxed text-[#555]">
@@ -388,7 +374,7 @@ export default function FranchiseSection() {
             <div className="absolute bottom-0 right-0 h-64 w-64 rounded-full bg-white blur-3xl" />
           </div>
           <div className="relative z-10">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6" style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300 }}>
               How to Get Started
             </h2>
             <p className="text-base sm:text-lg md:text-xl leading-relaxed text-white/90 max-w-3xl mx-auto mb-8">

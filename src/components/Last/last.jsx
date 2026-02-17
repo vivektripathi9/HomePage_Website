@@ -1,15 +1,4 @@
 import Image from "next/image";
-import { Playfair_Display, Lato } from "next/font/google";
-
-const playfair = Playfair_Display({
-  weight: ["400", "500", "600"],
-  subsets: ["latin"],
-});
-
-const lato = Lato({
-  subsets: ["latin"],
-  weight: ["300", "400", "700"],
-});
 
 const quickLinks = ["About Us", "Service", "Product", "Blog", "Team", "Faqs"];
 const recentPosts = [
@@ -32,7 +21,7 @@ const socialIcons = [
 
 export default function Footer() {
   return (
-    <footer className={`${lato.className} bg-white text-sm sm:text-[16px] text-[#555]`}>
+    <footer className="bg-white text-sm sm:text-[16px] text-black" style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300 }}>
       <div className="mx-auto w-full max-w-7xl grid grid-cols-1 gap-8 sm:gap-12 md:gap-16 px-4 sm:px-6 md:px-12 lg:px-20 py-8 sm:py-12 md:py-16 md:grid-cols-2 lg:grid-cols-4">
         {/* Column 1: Branding and Social Links */}
         <div className="space-y-3 sm:space-y-4 md:pr-6 lg:pr-10">
@@ -46,7 +35,7 @@ export default function Footer() {
               priority
             />
           </div>
-          <p className="text-sm sm:text-[16px] font-light text-[#555] leading-relaxed" style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}>
+          <p className="description-main !text-left">
             Experience luxury, elegance, and confidence — every time you visit SCENT.
           </p>
           <div className="flex gap-2 sm:gap-3">
@@ -73,9 +62,9 @@ export default function Footer() {
 
         {/* Column 2: Quick Links */}
         <div className="md:px-4 lg:px-6">
-          <h3 className="mb-2 text-lg sm:text-[20px] font-light text-[#2E2E2E] text-center md:text-left uppercase tracking-[0.05em]" style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}>Quick Links</h3>
+          <h3 className="mb-2 text-lg sm:text-[20px] font-light text-[#2E2E2E] text-center md:text-left uppercase tracking-[0.05em]" style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300 }}>Quick Links</h3>
           <span className="block h-px w-full bg-gray-300 mb-3 sm:mb-4" />
-          <ul className="space-y-1.5 sm:space-y-2 text-sm sm:text-[16px] font-light text-[#555]" style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}>
+          <ul className="space-y-1.5 sm:space-y-2 text-sm sm:text-[16px] font-light text-black" style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300 }}>
             {quickLinks.map((link) => (
               <li key={link} className="transition hover:text-[#2E2E2E] cursor-pointer uppercase tracking-[0.05em]">
                 {link}
@@ -86,13 +75,13 @@ export default function Footer() {
 
         {/* Column 3: Recent Posts */}
         <div className="md:px-4 lg:px-6">
-          <h3 className="mb-2 text-lg sm:text-[20px] font-light text-[#2E2E2E] text-center md:text-left uppercase tracking-[0.05em]" style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}>Recent Posts</h3>
+          <h3 className="mb-2 text-lg sm:text-[20px] font-light text-[#2E2E2E] text-center md:text-left uppercase tracking-[0.05em]" style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300 }}>Recent Posts</h3>
           <span className="block h-px w-full bg-gray-300 mb-3 sm:mb-4" />
           <ul className="space-y-3 sm:space-y-4">
             {recentPosts.map((post) => (
               <li key={post.title}>
-                <p className="text-sm sm:text-[16px] font-light text-[#555] mb-1 uppercase tracking-[0.05em]" style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}>{post.title}</p>
-                <p className="text-xs sm:text-[14px] font-light text-[#777] flex items-center gap-1" style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}>
+                <p className="description-main !text-left mb-1 uppercase tracking-[0.05em]" style={{ fontSize: "16px" }}>{post.title}</p>
+                <p className="text-xs sm:text-[14px] font-light text-black flex items-center gap-1" style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300 }}>
                   <svg
                     className="h-4 w-4"
                     fill="none"
@@ -115,18 +104,18 @@ export default function Footer() {
 
         {/* Column 4: Opening Hours */}
         <div className="flex flex-col text-left md:ml-auto md:items-end md:text-right md:pl-6 lg:pl-10">
-          <h3 className="mb-2 w-full text-lg sm:text-[20px] font-light text-[#2E2E2E] text-center md:text-left uppercase tracking-[0.05em]" style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}>
+          <h3 className="mb-2 w-full text-lg sm:text-[20px] font-light text-[#2E2E2E] text-center md:text-left uppercase tracking-[0.05em]" style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300 }}>
             Opening Hours
           </h3>
           <span className="block h-px w-full bg-gray-300 mb-3 sm:mb-4" />
-          <p className="text-sm sm:text-[16px] font-light text-[#555] mb-3 sm:mb-4 text-left" style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}>
+          <p className="description-main !text-left mb-3 sm:mb-4">
             Lorem ipsum dolor sit amet, consect adipisicing elit, sed do eiusmod tempor inci-didunt.
           </p>
-          <ul className="space-y-1.5 sm:space-y-2 text-left text-xs sm:text-[12px] md:text-[11px] text-[#555] font-light" style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}>
+          <ul className="space-y-1.5 sm:space-y-2 text-left text-xs sm:text-xs md:text-xs text-black font-light" style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300 }}>
             {hours.map((hour) => (
               <li key={hour.day}>
                 <span>{hour.day} : </span>
-                <span className="text-[#777]">{hour.time}</span>
+                <span className="text-black">{hour.time}</span>
               </li>
             ))}
           </ul>
@@ -136,7 +125,7 @@ export default function Footer() {
       {/* Bottom Bar: Copyright and Payment Icons */}
       <div className="bg-White">
         <div className="mx-auto w-full max-w-7xl flex flex-col items-center justify-between gap-3 sm:gap-4 px-4 sm:px-6 md:px-12 lg:px-20 py-3 sm:py-4 text-xs sm:text-[14px] text-black sm:flex-row">
-          <p className="font-light text-center sm:text-left" style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}>
+          <p className="font-light text-center sm:text-left" style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300 }}>
             Designed By <span className="font-light">Pinakkaa</span> © 2025
           </p>
           <div className="flex gap-2 sm:gap-3 items-center">

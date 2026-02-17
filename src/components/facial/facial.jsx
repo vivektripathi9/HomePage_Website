@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import { useState, useEffect, useRef } from "react";
-import PowerTeam from "../Thepower/thepower";
 import WhyScent from "../why/why";
 
 const serviceChapters = [
@@ -11,7 +10,7 @@ const serviceChapters = [
     title: "Organic Cleanup Facial",
     tagline: "Natural deep cleansing for radiant skin.",
     description:
-      "A gentle yet effective facial using organic ingredients to deeply cleanse and purify your skin. Removes impurities while maintaining your skin's natural balance.",
+      "a gentle yet effective facial using organic ingredients to deeply cleanse and purify your skin. Removes impurities while maintaining your skin's natural balance.",
     image: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1200&q=80",
     services: ["Organic ingredients", "Deep cleansing", "Natural balance", "Gentle exfoliation"],
   },
@@ -20,7 +19,7 @@ const serviceChapters = [
     title: "Snow White Facial",
     tagline: "Brighten and lighten for a porcelain glow.",
     description:
-      "A specialized brightening treatment designed to lighten skin tone and reduce pigmentation. Achieve a fairer, more even complexion with this luxurious facial.",
+      "a specialized brightening treatment designed to lighten skin tone and reduce pigmentation. Achieve a fairer, more even complexion with this luxurious facial.",
     image: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1200&q=80",
     services: ["Skin lightening", "Pigmentation reduction", "Brightening", "Even tone"],
   },
@@ -29,7 +28,7 @@ const serviceChapters = [
     title: "Dead Sea Mineral Facial",
     tagline: "Mineral-rich therapy for rejuvenated skin.",
     description:
-      "Harness the power of Dead Sea minerals to detoxify and rejuvenate your skin. Rich in magnesium, calcium, and potassium for ultimate skin health.",
+      "harness the power of Dead Sea minerals to detoxify and rejuvenate your skin. Rich in magnesium, calcium, and potassium for ultimate skin health.",
     image: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1200&q=80",
     services: ["Mineral therapy", "Detoxification", "Rejuvenation", "Nutrient infusion"],
   },
@@ -38,7 +37,7 @@ const serviceChapters = [
     title: "Chocolate Mint Facial",
     tagline: "Indulgent treatment with antioxidant benefits.",
     description:
-      "A luxurious combination of chocolate and mint that provides deep hydration and antioxidant protection. Soothes and nourishes your skin while you relax.",
+      "a luxurious combination of chocolate and mint that provides deep hydration and antioxidant protection. Soothes and nourishes your skin while you relax.",
     image: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1200&q=80",
     services: ["Antioxidant protection", "Deep hydration", "Soothing", "Nourishing"],
   },
@@ -47,7 +46,7 @@ const serviceChapters = [
     title: "White Secret",
     tagline: "Reveal your brightest, most radiant skin.",
     description:
-      "An advanced whitening treatment that targets dark spots and uneven skin tone. Reveal your skin's natural brightness with this secret formula.",
+      "an advanced whitening treatment that targets dark spots and uneven skin tone. Reveal your skin's natural brightness with this secret formula.",
     image: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1200&q=80",
     services: ["Advanced whitening", "Dark spot reduction", "Radiance boost", "Even complexion"],
   },
@@ -56,7 +55,7 @@ const serviceChapters = [
     title: "Acne Cure Facial",
     tagline: "Targeted treatment for clear, blemish-free skin.",
     description:
-      "A specialized facial designed to treat acne and prevent future breakouts. Deep cleansing, extraction, and healing treatments for clear, healthy skin.",
+      "a specialized facial designed to treat acne and prevent future breakouts. Deep cleansing, extraction, and healing treatments for clear, healthy skin.",
     image: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1200&q=80",
     services: ["Acne treatment", "Deep cleansing", "Extraction", "Healing therapy"],
   },
@@ -65,7 +64,7 @@ const serviceChapters = [
     title: "Diamond Glow Facial",
     tagline: "Luxurious exfoliation for diamond-bright skin.",
     description:
-      "Experience the ultimate in facial exfoliation with diamond-tip technology. Removes dead skin cells and reveals a radiant, glowing complexion.",
+      "experience the ultimate in facial exfoliation with diamond-tip technology. Removes dead skin cells and reveals a radiant, glowing complexion.",
     image: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1200&q=80",
     services: ["Diamond exfoliation", "Deep cleansing", "Radiance", "Smooth texture"],
   },
@@ -74,7 +73,7 @@ const serviceChapters = [
     title: "Anti Ageing Facial",
     tagline: "Turn back time with advanced anti-aging therapy.",
     description:
-      "Combat signs of aging with this comprehensive treatment. Stimulates collagen production, reduces fine lines, and restores youthful elasticity.",
+      "combat signs of aging with this comprehensive treatment. Stimulates collagen production, reduces fine lines, and restores youthful elasticity.",
     image: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1200&q=80",
     services: ["Collagen boost", "Fine line reduction", "Firmness", "Youthful glow"],
   },
@@ -83,7 +82,7 @@ const serviceChapters = [
     title: "Gold Facial",
     tagline: "Luxury treatment with 24K gold benefits.",
     description:
-      "Indulge in the ultimate luxury facial infused with 24K gold particles. Anti-inflammatory and anti-aging properties for radiant, youthful skin.",
+      "indulge in the ultimate luxury facial infused with 24K gold particles. Anti-inflammatory and anti-aging properties for radiant, youthful skin.",
     image: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1200&q=80",
     services: ["24K gold infusion", "Anti-aging", "Luxury treatment", "Radiance"],
   },
@@ -92,7 +91,7 @@ const serviceChapters = [
     title: "Eye Protection Facial",
     tagline: "Specialized care for delicate eye area.",
     description:
-      "Targeted treatment for the delicate eye area to reduce dark circles, puffiness, and fine lines. Restore brightness and youthfulness to your eyes.",
+      "targeted treatment for the delicate eye area to reduce dark circles, puffiness, and fine lines. Restore brightness and youthfulness to your eyes.",
     image: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1200&q=80",
     services: ["Dark circle reduction", "Puffiness relief", "Fine line treatment", "Brightening"],
   },
@@ -101,7 +100,7 @@ const serviceChapters = [
     title: "Hydra Lifting Ocean Miracle",
     tagline: "Deep hydration with lifting benefits.",
     description:
-      "Experience the miracle of ocean-based ingredients combined with advanced hydrating technology. Lifts and firms while providing intense moisture.",
+      "experience the miracle of ocean-based ingredients combined with advanced hydrating technology. Lifts and firms while providing intense moisture.",
     image: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1200&q=80",
     services: ["Deep hydration", "Lifting effect", "Firming", "Ocean minerals"],
   },
@@ -110,7 +109,7 @@ const serviceChapters = [
     title: "Luminous Lightening Facial",
     tagline: "Illuminate your natural radiance.",
     description:
-      "A comprehensive lightening treatment that brightens your complexion and reduces pigmentation. Achieve a luminous, even-toned appearance.",
+      "a comprehensive lightening treatment that brightens your complexion and reduces pigmentation. Achieve a luminous, even-toned appearance.",
     image: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1200&q=80",
     services: ["Skin lightening", "Pigmentation reduction", "Brightening", "Even tone"],
   },
@@ -119,7 +118,7 @@ const serviceChapters = [
     title: "Brazilian Skin Lightening",
     tagline: "Treatment for intimate areas, no more darkness.",
     description:
-      "Specialized treatment for intimate areas to reduce darkness and achieve even skin tone. Safe, effective, and designed for sensitive areas. When doing this regularly, maintain beautiful, even-toned skin.",
+      "specialized treatment for intimate areas to reduce darkness and achieve even skin tone. Safe, effective, and designed for sensitive areas. When doing this regularly, maintain beautiful, even-toned skin.",
     image: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1200&q=80",
     services: ["Intimate area treatment", "Darkness reduction", "Even skin tone", "Safe & effective"],
   },
@@ -157,21 +156,6 @@ export default function FacialExperience() {
             muted
             playsInline
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-black/30" />
-        </div>
-        <div className="relative z-10 flex h-full items-center justify-center">
-          <div className="mx-auto max-w-7xl px-6 text-center text-white md:px-12">
-            <p className="mb-4 inline-flex items-center gap-2 text-xs uppercase tracking-[0.5em] text-pink-300">
-              <span className="text-pink-400 text-xl">❀</span> Facial Services
-            </p>
-            <h1 className="mb-6 text-5xl font-semibold leading-tight md:text-6xl lg:text-7xl" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
-              Facial Services
-            </h1>
-            <p className="mx-auto max-w-3xl text-lg leading-relaxed text-white/90 md:text-xl">
-              If you are seeking to revitalize and achieve a more youthful appearance for your face, consider exploring SCENT. 
-              By indulging in their mood-enhancing and skin-soothing treatment, you can fulfill your desire for a glowing complexion.
-            </p>
-          </div>
         </div>
       </section>
 
@@ -182,7 +166,7 @@ export default function FacialExperience() {
             <p className="mb-4 inline-flex items-center gap-2 text-xs uppercase tracking-[0.5em] text-pink-400">
               <span className="text-pink-500 text-xl">❀</span> Premium Services
             </p>
-            <h2 className="mb-4 text-3xl font-semibold text-[#1f1f2e] md:text-4xl lg:text-5xl" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
+            <h2 className="mb-4 text-3xl font-semibold text-[#1f1f2e] md:text-4xl lg:text-5xl" style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300 }}>
               Main Facial Services
             </h2>
             <p className="mx-auto max-w-2xl text-[#6f6f7a] text-base md:text-lg">
@@ -211,7 +195,7 @@ export default function FacialExperience() {
                     <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-pink-100 px-4 py-1.5 text-xs font-semibold text-pink-600">
                       <span>✨</span> Premium Treatment
                     </div>
-                    <h3 className="mb-3 text-3xl font-semibold text-[#1f1f2e] md:text-4xl" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
+                    <h3 className="mb-3 text-3xl font-semibold text-[#1f1f2e] md:text-4xl" style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300 }}>
                       {service.title}
                     </h3>
                     <p className="text-lg text-gray-500">{service.tagline}</p>
@@ -252,7 +236,7 @@ export default function FacialExperience() {
             <p className="mb-4 inline-flex items-center gap-2 text-xs uppercase tracking-[0.5em] text-pink-400">
               <span className="text-pink-500 text-xl">❀</span> Additional Services
             </p>
-            <h2 className="mb-4 text-3xl font-semibold text-[#1f1f2e] md:text-4xl lg:text-5xl" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
+            <h2 className="mb-4 text-3xl font-semibold text-[#1f1f2e] md:text-4xl lg:text-5xl" style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300 }}>
               More Facial Treatments
             </h2>
             <p className="mx-auto max-w-2xl text-[#6f6f7a] text-base md:text-lg">
@@ -370,7 +354,7 @@ export default function FacialExperience() {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent" />
                     <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
-                      <h2 className="text-3xl md:text-4xl font-bold mb-2" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
+                      <h2 className="text-3xl md:text-4xl font-bold mb-2" style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300 }}>
                         {selectedService.title}
                       </h2>
                       <p className="text-lg text-white/90">{selectedService.tagline}</p>
@@ -380,7 +364,7 @@ export default function FacialExperience() {
                   {/* Details Section */}
                   <div className="p-8 md:p-12">
                     <div className="mb-8">
-                      <h3 className="text-2xl font-semibold text-[#1f1f2e] mb-4" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
+                      <h3 className="text-2xl font-semibold text-[#1f1f2e] mb-4" style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300 }}>
                         About This Treatment
                       </h3>
                       <p className="text-base leading-relaxed text-[#555]">
@@ -389,7 +373,7 @@ export default function FacialExperience() {
                     </div>
 
                     <div className="mb-8">
-                      <h3 className="text-2xl font-semibold text-[#1f1f2e] mb-6" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
+                      <h3 className="text-2xl font-semibold text-[#1f1f2e] mb-6" style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300 }}>
                         What's Included
                       </h3>
                       <div className="grid gap-4 md:grid-cols-2">
@@ -440,7 +424,7 @@ export default function FacialExperience() {
               <p className="mb-4 inline-flex items-center gap-2 text-xs uppercase tracking-[0.5em] text-pink-400">
                 <span className="text-pink-500 text-xl">❀</span> Complete Collection
               </p>
-              <h2 className="mb-4 text-3xl font-semibold text-[#1f1f2e] md:text-4xl lg:text-5xl" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
+              <h2 className="mb-4 text-3xl font-semibold text-[#1f1f2e] md:text-4xl lg:text-5xl" style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300 }}>
                 All Facial Services
               </h2>
               <p className="mx-auto max-w-2xl text-[#6f6f7a] text-base md:text-lg">
@@ -505,7 +489,6 @@ export default function FacialExperience() {
       )}
 
       <WhyScent />
-      <PowerTeam />
       
       {/* Add CSS animations and masonry styles */}
       <style jsx global>{`

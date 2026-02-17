@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 
 const WHATSAPP_NUMBER = "+919742232700";
-const GREETING_MESSAGE = "🌸Hello from SCENT Salon!🌸\n\nPamper yourself with our exclusive beauty & wellness services! ✨\nFrom glow-enhancing facials to luxurious hair & spa treatments, we've got everything to make you shine. Book your appointment today and indulge in a little self-care! 💆‍♀💖\n\n📍 Visit us or call us at  +91 9742232700 to book now! 🌸";
+const GREETING_MESSAGE = "🌸Hello from Scent Salon!🌸\n\nPamper yourself with our exclusive beauty & wellness services! ✨\nFrom glow-enhancing facials to luxurious hair & spa treatments, we've got everything to make you shine. Book your appointment today and indulge in a little self-care! 💆‍♀💖\n\n📍 Visit us or call us at  +91 9742232700 to book now! 🌸";
 
 export default function WhatsAppChat() {
   const [isOpen, setIsOpen] = useState(false);
@@ -160,7 +160,7 @@ export default function WhatsAppChat() {
               </div>
               <div>
                 <h3 className="text-sm font-semibold text-white sm:text-base">
-                  SCENT Salon
+                  Scent Salon
                 </h3>
                 <p className="text-xs text-white/90 sm:text-sm">
                   Usually replies instantly

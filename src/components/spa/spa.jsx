@@ -3,13 +3,12 @@
 import Image from "next/image";
 import { useRef, useState } from "react";
 import WhyScent from "../why/why";
-import PowerTeam from "../Thepower/thepower";
 
 const spaServices = [
   {
     title: "Head Massage",
     description:
-      "Relieve tension, improve circulation, and calm the nervous system with focused pressure and rhythmic strokes across the scalp, neck, and shoulders.",
+      "relieve tension, improve circulation, and calm the nervous system with focused pressure and rhythmic strokes across the scalp, neck, and shoulders.",
     image: "/m (1).jpg",
     duration: "30-45 minutes",
     benefits: [
@@ -24,7 +23,7 @@ const spaServices = [
   {
     title: "Foot Massage",
     description:
-      "Target pressure points in the feet to ease fatigue, boost circulation, and restore balance after long days on the move.",
+      "target pressure points in the feet to ease fatigue, boost circulation, and restore balance after long days on the move.",
     image: "/m (2).jpg",
     duration: "45 minutes",
     benefits: [
@@ -39,7 +38,7 @@ const spaServices = [
   {
     title: "Thai Reflexology",
     description:
-      "A traditional technique that stimulates mapped reflex points on the feet to support overall organ health, energy flow, and deep relaxation.",
+      "a traditional technique that stimulates mapped reflex points on the feet to support overall organ health, energy flow, and deep relaxation.",
     image: "/m (3).jpg",
     duration: "60 minutes",
     benefits: [
@@ -54,7 +53,7 @@ const spaServices = [
   {
     title: "Back Massage",
     description:
-      "Focused work on the upper, mid, and lower back to release knots, ease stiffness, and melt desk-related stress.",
+      "focused work on the upper, mid, and lower back to release knots, ease stiffness, and melt desk-related stress.",
     image: "/m (4).jpg",
     duration: "45-60 minutes",
     benefits: [
@@ -69,7 +68,7 @@ const spaServices = [
   {
     title: "Aroma Massage",
     description:
-      "A gentle full-body massage paired with therapeutic essential oils chosen to uplift, calm, or rebalance your mood.",
+      "a gentle full-body massage paired with therapeutic essential oils chosen to uplift, calm, or rebalance your mood.",
     image: "/m (5).jpg",
     duration: "60-90 minutes",
     benefits: [
@@ -84,7 +83,7 @@ const spaServices = [
   {
     title: "Thai Massage",
     description:
-      "A mat-based, clothes-on treatment combining passive stretches, acupressure, and assisted yoga-like movements to open joints and energise the body.",
+      "a mat-based, clothes-on treatment combining passive stretches, acupressure, and assisted yoga-like movements to open joints and energise the body.",
     image: "/m (6).jpg",
     duration: "60-90 minutes",
     benefits: [
@@ -99,7 +98,7 @@ const spaServices = [
   {
     title: "Deep Tissue Massage",
     description:
-      "Intensive work into deeper muscle layers to address chronic tightness, sports strain, and long-held tension patterns.",
+      "intensive work into deeper muscle layers to address chronic tightness, sports strain, and long-held tension patterns.",
     image: "/m (7).jpg",
     duration: "60-90 minutes",
     benefits: [
@@ -114,7 +113,7 @@ const spaServices = [
   {
     title: "Sportz Massage",
     description:
-      "Performance-focused massage for athletes and active clients, blending stretching, trigger-point work, and muscle flushing to aid recovery.",
+      "performance-focused massage for athletes and active clients, blending stretching, trigger-point work, and muscle flushing to aid recovery.",
     image: "/m (8).jpg",
     duration: "60-90 minutes",
     benefits: [
@@ -129,7 +128,7 @@ const spaServices = [
   {
     title: "Balinese Massage",
     description:
-      "A rhythmic, oil-based ritual combining long strokes, kneading, and gentle acupressure inspired by traditional Balinese spa culture.",
+      "a rhythmic, oil-based ritual combining long strokes, kneading, and gentle acupressure inspired by traditional Balinese spa culture.",
     image: "/m (9).jpg",
     duration: "60-90 minutes",
     benefits: [
@@ -142,9 +141,9 @@ const spaServices = [
     techniques: ["Long flowing strokes", "Kneading", "Acupressure", "Traditional oils"],
   },
   {
-    title: "Scent Signature Massage",
+    title: "Scent signature massage",
     description:
-      "Our bespoke hero treatment that blends aromatherapy, warm compresses, and mixed techniques tailored to your mood, stress level, and lifestyle.",
+      "our bespoke hero treatment that blends aromatherapy, warm compresses, and mixed techniques tailored to your mood, stress level, and lifestyle.",
     image: "/m (10).jpg",
     duration: "90 minutes",
     benefits: [
@@ -159,7 +158,7 @@ const spaServices = [
   {
     title: "Stone Therapy",
     description:
-      "Heated basalt stones glide across muscles to release deep tension while grounding the nervous system into a meditative calm.",
+      "heated basalt stones glide across muscles to release deep tension while grounding the nervous system into a meditative calm.",
     image: "/m (11).jpg",
     duration: "75-90 minutes",
     benefits: [
@@ -174,7 +173,7 @@ const spaServices = [
   {
     title: "Body Polish",
     description:
-      "A creamy exfoliating treatment that buffs away dullness using fine grains and nourishing oils, leaving skin luminous and silky.",
+      "a creamy exfoliating treatment that buffs away dullness using fine grains and nourishing oils, leaving skin luminous and silky.",
     image: "/m (12).jpg",
     duration: "60 minutes",
     benefits: [
@@ -189,7 +188,7 @@ const spaServices = [
   {
     title: "Body Scrub",
     description:
-      "Intensive, texture-focused exfoliation that deeply cleanses pores, smooths rough areas, and preps skin perfectly for hydration rituals.",
+      "intensive, texture-focused exfoliation that deeply cleanses pores, smooths rough areas, and preps skin perfectly for hydration rituals.",
     image: "/m (13).jpg",
     duration: "60-75 minutes",
     benefits: [
@@ -261,7 +260,7 @@ export default function SpaSection() {
         }
       `}</style>
       <section id="spa-services" className="bg-gradient-to-b from-pink-50/40 to-purple-50/40">
-      {/* Full-width hero video */}
+      {/* Hero video */}
       <div className="relative w-full overflow-hidden">
         <video
           src="/massage.mp4"
@@ -271,30 +270,6 @@ export default function SpaSection() {
           playsInline
           className="h-[60vh] min-h-[420px] w-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/60" />
-        <div className="absolute inset-0 flex flex-col justify-center gap-4 px-8 text-white md:px-20 lg:px-32">
-          <div className="flex flex-wrap gap-3 text-xs uppercase tracking-[0.5em] text-pink-200/90">
-            <span className="rounded-full border border-white/20 bg-white/10 px-4 py-1">
-              Spa Rituals
-            </span>
-            <span className="rounded-full border border-white/20 bg-white/10 px-4 py-1">
-              Massage
-            </span>
-            <span className="rounded-full border border-white/20 bg-white/10 px-4 py-1">
-              Body Care
-            </span>
-          </div>
-          <h1
-            className="text-4xl font-semibold leading-tight drop-shadow-lg md:text-5xl"
-            style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}
-          >
-            Spa & Massage Experiences by SCENT
-          </h1>
-          <p className="max-w-3xl text-base leading-relaxed text-white/90 md:text-lg">
-            From reflexology and deep tissue work to warm candle rituals and stone therapy, our spa
-            menu is designed to help you decompress, realign, and glow from within.
-          </p>
-        </div>
       </div>
 
       <div className="mx-auto flex w-full flex-col gap-10 px-6 py-16 md:px-12 lg:px-20">
@@ -303,13 +278,13 @@ export default function SpaSection() {
           <div className="mx-auto flex max-w-3xl flex-col gap-4">
             <p
               className="text-sm font-semibold uppercase tracking-[0.4em] text-[#C06C84]"
-              style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}
+              style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300 }}
             >
               Urban Escape
             </p>
             <h2
               className="text-2xl font-semibold text-[#1f1f2e] sm:text-[30px] leading-tight"
-              style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}
+              style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300 }}
             >
               Curated spa rituals for head, hands, feet, and full body reset.
             </h2>
@@ -437,7 +412,7 @@ export default function SpaSection() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
                 <div className="absolute bottom-6 left-6 right-6">
-                  <h2 className="text-3xl md:text-4xl font-semibold text-white mb-2" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
+                  <h2 className="text-3xl md:text-4xl font-semibold text-white mb-2" style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300 }}>
                     {selectedService.title}
                   </h2>
                   <p className="text-white/90 text-sm md:text-base">{selectedService.description}</p>
@@ -455,7 +430,7 @@ export default function SpaSection() {
 
                 {/* Benefits */}
                 <div>
-                  <h3 className="text-xl font-semibold text-[#1f1f2e] mb-4" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
+                  <h3 className="text-xl font-semibold text-[#1f1f2e] mb-4" style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300 }}>
                     Key Benefits
                   </h3>
                   <div className="grid gap-3 md:grid-cols-2">
@@ -473,7 +448,7 @@ export default function SpaSection() {
 
                 {/* Techniques */}
                 <div>
-                  <h3 className="text-xl font-semibold text-[#1f1f2e] mb-4" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
+                  <h3 className="text-xl font-semibold text-[#1f1f2e] mb-4" style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300 }}>
                     Techniques Used
                   </h3>
                   <div className="flex flex-wrap gap-3">
@@ -511,7 +486,6 @@ export default function SpaSection() {
         )}
 
         <WhyScent />
-        <PowerTeam />
       </div>
     </section>
     </>

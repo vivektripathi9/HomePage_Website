@@ -2,20 +2,7 @@
 
 import Image from "next/image";
 import { useState } from "react";
-import { Inter, Playfair_Display } from "next/font/google";
 import DetailsModal from "@/components/Modal/DetailsModal";
-
-const inter = Inter({
-  weight: ["300", "400", "500", "600"],
-  subsets: ["latin"],
-  variable: "--font-inter",
-});
-
-const playfair = Playfair_Display({
-  weight: ["600", "700"],
-  subsets: ["latin"],
-  variable: "--font-playfair",
-});
 
 const socials = [
   { label: "Facebook", href: "https://www.facebook.com/ScentSalonSpas/", icon: "/x1.png" },
@@ -39,7 +26,7 @@ export default function BeautyHero() {
 
       <div className="grid md:grid-cols-2 gap-6">
         <div className="space-y-4">
-          <h3 className="text-xl font-semibold text-[#1f1f2e] border-b border-gray-200 pb-2" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
+          <h3 className="text-xl font-semibold text-[#1f1f2e] border-b border-gray-200 pb-2" style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300 }}>
             Hair Services
           </h3>
           <p className="text-sm text-gray-600 leading-relaxed mb-3">
@@ -70,7 +57,7 @@ export default function BeautyHero() {
         </div>
 
         <div className="space-y-4">
-          <h3 className="text-xl font-semibold text-[#1f1f2e] border-b border-gray-200 pb-2" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
+          <h3 className="text-xl font-semibold text-[#1f1f2e] border-b border-gray-200 pb-2" style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300 }}>
             Beauty Treatments
           </h3>
           <p className="text-sm text-gray-600 leading-relaxed mb-3">
@@ -101,7 +88,7 @@ export default function BeautyHero() {
         </div>
 
         <div className="space-y-4">
-          <h3 className="text-xl font-semibold text-[#1f1f2e] border-b border-gray-200 pb-2" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
+          <h3 className="text-xl font-semibold text-[#1f1f2e] border-b border-gray-200 pb-2" style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300 }}>
             Nail Services
           </h3>
           <p className="text-sm text-gray-600 leading-relaxed mb-3">
@@ -132,7 +119,7 @@ export default function BeautyHero() {
         </div>
 
         <div className="space-y-4">
-          <h3 className="text-xl font-semibold text-[#1f1f2e] border-b border-gray-200 pb-2" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
+          <h3 className="text-xl font-semibold text-[#1f1f2e] border-b border-gray-200 pb-2" style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300 }}>
             Makeup Services
           </h3>
           <p className="text-sm text-gray-600 leading-relaxed mb-3">
@@ -164,7 +151,7 @@ export default function BeautyHero() {
       </div>
 
       <div className="pt-6 border-t border-gray-200">
-        <h3 className="text-2xl font-semibold text-[#1f1f2e] mb-6" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
+        <h3 className="text-2xl font-semibold text-[#1f1f2e] mb-6" style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300 }}>
           Why Choose SCENT?
         </h3>
         <div className="grid md:grid-cols-2 gap-6">
@@ -214,7 +201,7 @@ export default function BeautyHero() {
   );
 
   return (
-    <section className={`relative w-full overflow-hidden py-12 sm:py-16 md:py-20 min-h-[500px] sm:min-h-[600px] md:min-h-[700px] lg:min-h-[800px] ${inter.variable} ${playfair.variable}`}>
+    <section className="relative w-full overflow-hidden py-12 sm:py-16 md:py-20 min-h-[500px] sm:min-h-[600px] md:min-h-[700px] lg:min-h-[800px]" style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300 }}>
       {/* Background Video */}
       <div className="absolute inset-0 z-0">
         <video
@@ -279,10 +266,10 @@ export default function BeautyHero() {
         </div>
 
         {/* CENTER: Heading, Paragraph, Button */}
-        <div className={`order-2 space-y-4 sm:space-y-6 px-4 sm:px-6 md:px-12 lg:px-20 text-center md:order-none md:ml-4 lg:ml-12 md:text-left ${inter.className}`}>
+        <div className="order-2 space-y-4 sm:space-y-6 px-4 sm:px-6 md:px-12 lg:px-20 text-center md:order-none md:ml-4 lg:ml-12 md:text-left">
           <h2
-            className={`text-2xl sm:text-3xl md:text-4xl lg:text-[42px] font-semibold leading-tight text-white ${playfair.className}`}
-            style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-[42px] font-semibold leading-tight text-white"
+            style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300 }}
           >
             Beauty, Defined by You.
           </h2>
@@ -291,7 +278,7 @@ export default function BeautyHero() {
           </p>
           <button
             onClick={() => setIsModalOpen(true)}
-            className={`mt-2 sm:mt-4 rounded-md bg-white px-6 sm:px-8 py-2.5 sm:py-3 text-xs sm:text-sm font-medium uppercase tracking-wide text-black transition-opacity hover:opacity-90 ${inter.className}`}
+            className="mt-2 sm:mt-4 rounded-md bg-white px-6 sm:px-8 py-2.5 sm:py-3 text-xs sm:text-sm font-medium uppercase tracking-wide text-black transition-opacity hover:opacity-90"
             style={{ fontWeight: 400 }}
           >
             KNOW MORE

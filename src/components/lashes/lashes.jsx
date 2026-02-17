@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import { useEffect, useRef } from "react";
-import PowerTeam from "../Thepower/thepower";
 import WhyScent from "../why/why";
 
 export default function LashesExperience() {
@@ -30,21 +29,6 @@ export default function LashesExperience() {
             muted
             playsInline
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-black/30" />
-        </div>
-        <div className="relative z-10 flex h-full items-center justify-center">
-          <div className="mx-auto max-w-7xl px-6 text-center text-white md:px-12">
-            <p className="mb-4 inline-flex items-center gap-2 text-xs uppercase tracking-[0.5em] text-pink-300">
-              <span className="text-pink-400 text-xl">❀</span> Luxury Lashes
-            </p>
-            <h1 className="mb-6 text-5xl font-semibold leading-tight md:text-6xl lg:text-7xl" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
-              Luxury Lashes
-            </h1>
-            <p className="mx-auto max-w-3xl text-lg leading-relaxed text-white/90 md:text-xl">
-              Volume fans, classics, and keratin lifts for expressive eyes. From subtle lifts to Hollywood drama, 
-              our lash stylists customise curl, thickness, and mapping to complement your eye shape.
-            </p>
-          </div>
         </div>
       </section>
 
@@ -70,7 +54,7 @@ export default function LashesExperience() {
                 <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-pink-100 px-4 py-1.5 text-xs font-semibold text-pink-600">
                   <span>✨</span> Bangalore's Leading Destination
                 </div>
-                <h2 className="text-3xl font-semibold leading-tight text-[#1f1f2e] md:text-4xl lg:text-5xl mb-4" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
+                <h2 className="text-3xl font-semibold leading-tight text-[#1f1f2e] md:text-4xl lg:text-5xl mb-4" style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300 }}>
                   SCENT - Bangalore's Leading Destination for Eyelash Extensions
                 </h2>
                 <p className="text-base leading-relaxed text-[#555] md:text-lg">
@@ -80,7 +64,7 @@ export default function LashesExperience() {
 
               <div className="space-y-6 rounded-2xl border border-pink-100 bg-white/50 p-6 md:p-8">
                 <div>
-                  <h3 className="text-2xl font-semibold text-[#1f1f2e] mb-4" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
+                  <h3 className="text-2xl font-semibold text-[#1f1f2e] mb-4" style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300 }}>
                     What are Eyelash Extensions?
                   </h3>
                   <p className="text-base leading-relaxed text-[#555] mb-4">
@@ -128,7 +112,7 @@ export default function LashesExperience() {
             <div className="space-y-6">
               <div className="rounded-3xl border-2 border-pink-200 bg-gradient-to-br from-[#fef9fb] to-white p-8 md:p-10 shadow-xl">
                 <div className="mb-6">
-                  <h3 className="text-2xl font-semibold text-[#1f1f2e] mb-4" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
+                  <h3 className="text-2xl font-semibold text-[#1f1f2e] mb-4" style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300 }}>
                     The SCENT Experience: Eye Lash Extensions in Bangalore
                   </h3>
                   <p className="text-base leading-relaxed text-[#555] mb-6">
@@ -198,7 +182,7 @@ export default function LashesExperience() {
           <div className="text-center mb-12 md:mb-16">
             <div className="inline-block mb-4">
               <div className="h-px w-16 bg-white/30 mx-auto mb-4" />
-              <h2 className="text-3xl font-semibold text-white md:text-4xl lg:text-5xl" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
+              <h2 className="text-3xl font-semibold text-white md:text-4xl lg:text-5xl" style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300 }}>
                 Why Choose SCENT?
               </h2>
               <div className="h-px w-16 bg-white/30 mx-auto mt-4" />
@@ -209,27 +193,27 @@ export default function LashesExperience() {
             {[
               {
                 title: "Renowned Wellness Center",
-                description: "A trusted name in beauty and wellness with years of excellence",
+                description: "a trusted name in beauty and wellness with years of excellence",
               },
               {
                 title: "Exceptional Services",
-                description: "Premium eyelash extension services tailored to your unique style",
+                description: "premium eyelash extension services tailored to your unique style",
               },
               {
                 title: "Diverse Styles",
-                description: "Caters to all preferences from subtle to dramatic transformations",
+                description: "caters to all preferences from subtle to dramatic transformations",
               },
               {
                 title: "Expert Professionals",
-                description: "Expertly trained technicians with years of experience",
+                description: "expertly trained technicians with years of experience",
               },
               {
                 title: "Premium Materials",
-                description: "High-quality materials and advanced techniques for lasting results",
+                description: "high-quality materials and advanced techniques for lasting results",
               },
               {
                 title: "Luxury Experience",
-                description: "Indulge in a pampering session in our elegant, tranquil salon",
+                description: "indulge in a pampering session in our elegant, tranquil salon",
               },
             ].map((item, idx) => (
               <div
@@ -246,7 +230,7 @@ export default function LashesExperience() {
                   <div className="mb-3">
                     <div className="w-12 h-px bg-white/40 mb-3 group-hover:w-16 transition-all duration-500" />
                   </div>
-                  <h3 className="text-lg font-semibold text-white mb-2" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
+                  <h3 className="text-lg font-semibold text-white mb-2" style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300 }}>
                     {item.title}
                   </h3>
                   <p className="text-sm leading-relaxed text-white/70 group-hover:text-white/90 transition-colors duration-300">
@@ -263,7 +247,6 @@ export default function LashesExperience() {
       </section>
 
       <WhyScent />
-      <PowerTeam />
       
       {/* CSS Animations */}
       <style jsx global>{`

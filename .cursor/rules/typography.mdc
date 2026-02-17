@@ -1,0 +1,36 @@
+---
+alwaysApply: true
+---
+# Typography Scale — Luxury Brand Standard
+
+All font sizes across the website MUST follow this hierarchy. These values mirror the typographic scale used by luxury brand sites (e.g., Chanel) for readability and visual hierarchy.
+
+## Heading Sizes
+
+| Level | Usage | Mobile | Desktop |
+|-------|-------|--------|---------|
+| H1 | Hero / Primary headings | 36px | 48px |
+| H2 | Secondary headings | 28px | 36px |
+| H3 | Sub-section headings | 24px | 30px |
+| H4 | Section titles / labels | 20px | 24px |
+
+## Body Text Sizes
+
+| Usage | Size |
+|-------|------|
+| Paragraph / body text | 16px – 18px |
+| Small text / secondary captions | 14px – 16px |
+| Fine print / disclaimers | 12px – 14px |
+
+## Navigation / UI Elements| Usage | Size |
+|-------|------|
+| Nav links (mobile) | 14px – 16px |
+| Nav links (desktop) | 16px – 18px |
+| Buttons / CTAs | 14px – 16px |
+| Labels / tags | 12px – 14px |## Rules
+
+1. **Never** use font sizes smaller than 12px anywhere on the site.
+2. Headings must use the scale above — do not use arbitrary sizes like 8px, 9px, 7px for visible text.
+3. Use responsive sizing: smaller values for mobile (< 768px), larger values for desktop.
+4. Prefer `rem` or `px` units. Tailwind classes like `text-sm`, `text-base`, `text-lg`, etc. are acceptable.
+5. The font family remains `"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif` unless otherwise specified.

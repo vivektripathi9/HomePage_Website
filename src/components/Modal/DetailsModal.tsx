@@ -107,11 +107,11 @@ export default function DetailsModal({
                   </div>
                   <h2
                     className="text-2xl sm:text-3xl md:text-4xl font-light tracking-[0.1em] mb-2 uppercase"
-                    style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}
+                    style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300 }}
                   >
                     {title}
                   </h2>
-                  <p className="text-sm sm:text-base text-white/80 max-w-xl mx-auto font-light" style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}>
+                  <p className="text-sm sm:text-base text-white/80 max-w-xl mx-auto font-light" style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300 }}>
                     Where elegance meets expertise, and beauty becomes an experience
                   </p>
                 </div>
@@ -122,13 +122,13 @@ export default function DetailsModal({
             <div className="p-4 sm:p-6 md:p-8 lg:p-12 overflow-y-auto max-h-[65vh] sm:max-h-[70vh]">
               <div className="max-w-5xl mx-auto">
                 {typeof content === "string" ? (
-                  <div className="text-sm sm:text-base md:text-lg whitespace-pre-wrap space-y-4 sm:space-y-6 text-gray-700 leading-relaxed font-light" style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}>
+                  <div className="text-sm sm:text-base md:text-lg whitespace-pre-wrap space-y-4 sm:space-y-6 text-gray-700 leading-relaxed font-light" style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300 }}>
                     {content.split('\n\n').map((paragraph, index) => (
                       <p key={index} className="mb-4 sm:mb-6">{paragraph}</p>
                     ))}
                   </div>
                 ) : (
-                  <div className="space-y-4 sm:space-y-6 font-light" style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}>
+                  <div className="space-y-4 sm:space-y-6 font-light" style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300 }}>
                     {content}
                   </div>
                 )}
@@ -146,14 +146,14 @@ export default function DetailsModal({
                       }
                     }}
                     className="flex-1 rounded-full bg-black px-6 sm:px-8 py-3 sm:py-4 text-xs sm:text-sm font-light uppercase tracking-[0.15em] sm:tracking-[0.2em] text-white text-center transition-all hover:bg-[#1a1a1a] hover:scale-105 shadow-lg"
-                    style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}
+                    style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300 }}
                   >
                     Book Appointment
                   </button>
                   <button
                     onClick={onClose}
                     className="flex-1 rounded-full border-2 border-gray-300 bg-transparent px-6 sm:px-8 py-3 sm:py-4 text-xs sm:text-sm font-light uppercase tracking-[0.15em] sm:tracking-[0.2em] text-gray-700 transition-all hover:bg-gray-50 hover:border-gray-400"
-                    style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}
+                    style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300 }}
                   >
                     Close
                   </button>
@@ -183,12 +183,12 @@ export default function DetailsModal({
               <div className="mb-3 sm:mb-4 pb-3 sm:pb-4 border-b border-gray-200">
                 <h2
                   className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-light text-[#1f1f2e] mb-2 sm:mb-3 uppercase tracking-[0.05em]"
-                  style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}
+                  style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300 }}
                 >
                   {title}
                 </h2>
                 {type === "blog" && (
-                  <div className="flex items-center gap-4 text-xs sm:text-sm text-gray-500 font-light" style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}>
+                  <div className="flex items-center gap-4 text-xs sm:text-sm text-gray-500 font-light" style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300 }}>
                     <span className="flex items-center gap-1">
                       <svg
                         className="h-4 w-4"
@@ -225,7 +225,7 @@ export default function DetailsModal({
                 )}
               </div>
 
-              <div className="prose prose-sm sm:prose-base max-w-none text-gray-700 leading-relaxed font-light" style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}>
+              <div className="prose prose-sm sm:prose-base max-w-none text-gray-700 leading-relaxed font-light" style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300 }}>
                 {typeof content === "string" ? (
                   <div className="text-sm sm:text-base md:text-lg whitespace-pre-wrap space-y-4">
                     {content.split('\n\n').map((paragraph, index) => (
@@ -244,7 +244,7 @@ export default function DetailsModal({
                 <button
                   onClick={onClose}
                   className="flex-1 rounded-md border-2 border-gray-300 bg-transparent px-4 sm:px-6 md:px-8 py-2.5 sm:py-3 text-xs sm:text-sm md:text-base font-light uppercase tracking-[0.1em] text-gray-700 transition hover:bg-gray-100 hover:border-gray-400"
-                  style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}
+                  style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300 }}
                 >
                   Close
                 </button>
@@ -257,7 +257,7 @@ export default function DetailsModal({
                     }
                   }}
                   className="flex-1 rounded-md bg-red-600 px-4 sm:px-6 md:px-8 py-2.5 sm:py-3 text-xs sm:text-sm md:text-base font-light uppercase tracking-[0.1em] text-white text-center transition hover:bg-red-700"
-                  style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}
+                  style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300 }}
                 >
                   Book Appointment
                 </button>

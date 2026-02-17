@@ -60,16 +60,8 @@ export default function LooksSection() {
               className="relative flex flex-col items-center gap-4 sm:gap-5 rounded-2xl sm:rounded-[28px] border border-gray-100 bg-white px-4 sm:px-6 py-6 sm:py-10 shadow-[0px_25px_70px_rgba(0,0,0,0.05)] transition-all duration-500 hover:-translate-y-2 hover:shadow-[0px_35px_90px_rgba(0,0,0,0.12)] cursor-pointer"
             >
               <div className="relative flex h-28 w-28 sm:h-36 sm:w-36 items-center justify-center">
-                <div className="h-24 w-24 sm:h-32 sm:w-32 overflow-hidden rounded-full">
-                  <Image
-                    src={service.image}
-                    alt={service.title}
-                    fill
-                    sizes="(max-width: 640px) 96px, (max-width: 768px) 128px, 200px"
-                    className="object-cover"
-                    loading="lazy"
-                    quality={85}
-                  />
+                <div className="h-24 w-24 sm:h-32 sm:w-32 overflow-hidden rounded-full bg-gray-100">
+                  {/* Image placeholder - upload images later */}
                 </div>
                 <div
                   className={`absolute -bottom-4 sm:-bottom-5 left-1/2 h-12 w-12 sm:h-16 sm:w-16 -translate-x-1/2 overflow-hidden rounded-full shadow-lg ${
@@ -89,8 +81,8 @@ export default function LooksSection() {
                   />
                 </div>
               </div>
-              <h3 className="text-lg sm:text-xl font-light text-[#22223b] uppercase tracking-[0.05em]" style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}>{service.title}</h3>
-              <p className="text-xs sm:text-sm leading-relaxed text-gray-500 text-center px-2 font-light" style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}>{service.description}</p>
+              <h3 className="text-lg sm:text-xl font-light text-[#22223b] tracking-[0.05em]" style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300, textTransform: 'none' }}>{service.title}</h3>
+              <p className="description-main px-2">{service.description}</p>
               <span className="h-px w-full bg-gray-100" />
               <button
                 onClick={(e) => {
@@ -98,20 +90,20 @@ export default function LooksSection() {
                   e.stopPropagation();
                   openBookAppointment(service.title);
                 }}
-                className="w-full text-xs sm:text-sm font-light uppercase tracking-[0.1em] text-gray-800 transition hover:text-red-600 text-center"
-                style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}
+                className="w-full text-sm sm:text-sm font-light tracking-[0.1em] text-gray-800 transition hover:text-red-600 text-center"
+                style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300, textTransform: 'none' }}
               >
-                Book Now →
+                Book now →
               </button>
             </Link>
           ))}
         </div>
 
         <div className="flex flex-col items-center gap-3 sm:gap-4 text-center">
-          <h3 className="text-2xl sm:text-3xl md:text-[42px] font-light leading-tight text-[#1f1f2e] uppercase tracking-[0.1em]" style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}>
-            Watch Beauty in Action
+          <h3 className="text-2xl sm:text-3xl md:text-[42px] font-light leading-tight text-[#1f1f2e] tracking-[0.1em]" style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300, textTransform: 'none' }}>
+            Watch beauty in action
           </h3>
-          <div className="flex items-center justify-center gap-3 sm:gap-4 text-gray-300">
+          <div className="decorative-flower-divider flex items-center justify-center gap-3 sm:gap-4 text-gray-300">
             <span className="h-px w-10 sm:w-12 bg-black" />
             <span className="text-pink-400 text-lg sm:text-xl">❀</span>
             <span className="h-px w-10 sm:w-12 bg-black" />

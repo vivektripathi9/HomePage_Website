@@ -30,17 +30,17 @@ export default function PowerTeam() {
     <section className="bg-white py-8 sm:py-12 md:py-16 lg:py-20">
       <div className="flex w-full flex-col items-center gap-6 sm:gap-8 md:gap-10 px-4 sm:px-6 md:px-12 lg:px-20 text-center">
         <h2
-          className="text-2xl sm:text-3xl md:text-[42px] lg:text-5xl font-light leading-tight text-[#2E2E2E] uppercase tracking-[0.1em]"
-          style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}
+          className="text-2xl sm:text-3xl md:text-[42px] lg:text-5xl font-light leading-tight text-[#2E2E2E] tracking-[0.1em]"
+          style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300, textTransform: 'none' }}
         >
-          The Power Behind the Look
+          The power behind the look
         </h2>
-        <div className="flex items-center justify-center gap-3 sm:gap-4 mt-2 mb-2">
+        <div className="decorative-flower-divider flex items-center justify-center gap-3 sm:gap-4 mt-2 mb-2">
           <span className="h-px w-10 sm:w-12 bg-black" />
           <span className="text-pink-400 text-lg sm:text-xl">❀</span>
           <span className="h-px w-10 sm:w-12 bg-black" />
         </div>
-        <p className="max-w-3xl text-xs sm:text-sm md:text-base leading-relaxed mt-4 px-4 text-[#555] font-light" style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}>
+        <p className="description-main max-w-3xl mt-4 px-4">
           Bold, fearless, and unmatched in skill — our team creates transformations that turn heads and break norms.
         </p>
 
@@ -59,8 +59,8 @@ export default function PowerTeam() {
                 />
               </div>
               <div className="space-y-1">
-                <p className="text-base sm:text-lg font-light text-[#2E2E2E] uppercase tracking-[0.05em]" style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}>{member.name}</p>
-                <p className="text-xs sm:text-sm font-light text-[#777] uppercase tracking-[0.05em]" style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}>{member.role}</p>
+                <p className="text-base sm:text-lg font-light text-[#2E2E2E] tracking-[0.05em]" style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300, textTransform: 'none' }}>{member.name}</p>
+                <p className="description-main tracking-[0.05em]" style={{ fontSize: "14px", textTransform: 'none' }}>{member.role}</p>
               </div>
             </div>
           ))}

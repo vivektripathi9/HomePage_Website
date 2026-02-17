@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import { useEffect, useRef } from "react";
-import PowerTeam from "../Thepower/thepower";
 import WhyScent from "../why/why";
 
 export default function MicrobladingExperience() {
@@ -30,20 +29,6 @@ export default function MicrobladingExperience() {
             muted
             playsInline
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-black/30" />
-        </div>
-        <div className="relative z-10 flex h-full items-center justify-center">
-          <div className="mx-auto max-w-7xl px-6 text-center text-white md:px-12">
-            <p className="mb-4 inline-flex items-center gap-2 text-xs uppercase tracking-[0.5em] text-pink-300">
-              <span className="text-pink-400 text-xl">❀</span> Permanent Makeup
-            </p>
-            <h1 className="mb-6 text-5xl font-semibold leading-tight md:text-6xl lg:text-7xl" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
-              Eyebrow Microblading
-            </h1>
-            <p className="mx-auto max-w-3xl text-lg leading-relaxed text-white/90 md:text-xl">
-              A semi-permanent solution for perfectly shaped and fuller eyebrows. Our skilled technicians use precise, hair-like strokes to create a natural look that lasts up to two years. Achieve your ideal brow shape with minimal maintenance and wake up every day with flawless brows.
-            </p>
-          </div>
         </div>
       </section>
 
@@ -59,7 +44,7 @@ export default function MicrobladingExperience() {
             <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-pink-100 px-5 py-2 text-xs font-semibold text-pink-600 shadow-lg">
               <span className="text-pink-500 text-lg">❀</span> Professional Microblading Services
             </div>
-            <h2 className="text-4xl font-semibold leading-tight text-[#1f1f2e] md:text-5xl lg:text-6xl mb-6" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
+            <h2 className="text-4xl font-semibold leading-tight text-[#1f1f2e] md:text-5xl lg:text-6xl mb-6" style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300 }}>
               Eyebrow Microblading in Bangalore
             </h2>
             <div className="mx-auto w-24 h-px bg-gradient-to-r from-transparent via-pink-300 to-transparent" />
@@ -107,7 +92,7 @@ export default function MicrobladingExperience() {
                 <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-white/20 backdrop-blur-md px-4 py-2 text-xs font-semibold text-white border border-white/30">
                   <span className="text-pink-300 text-lg">❀</span> Professional Treatment
                 </div>
-                <h2 className="text-3xl font-semibold text-white md:text-4xl lg:text-5xl mb-4" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
+                <h2 className="text-3xl font-semibold text-white md:text-4xl lg:text-5xl mb-4" style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300 }}>
                   Expert Precision & Care
                 </h2>
                 <p className="text-base leading-relaxed text-white/90 md:text-lg max-w-2xl mx-auto">
@@ -128,7 +113,7 @@ export default function MicrobladingExperience() {
             <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-pink-100 px-4 py-1.5 text-xs font-semibold text-pink-600">
               <span className="text-pink-500 text-lg">❀</span> Key Features
             </div>
-            <h2 className="text-3xl font-semibold text-[#1f1f2e] md:text-4xl lg:text-5xl mb-4" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
+            <h2 className="text-3xl font-semibold text-[#1f1f2e] md:text-4xl lg:text-5xl mb-4" style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300 }}>
               Why Choose Our Microblading
             </h2>
             <p className="mx-auto max-w-2xl text-[#6f6f7a] text-base md:text-lg">
@@ -141,32 +126,32 @@ export default function MicrobladingExperience() {
             {[
               {
                 title: "Natural Hair-Like Strokes",
-                description: "Precise, fine strokes that mimic natural brow hair for a realistic appearance that blends seamlessly with your existing brows.",
+                description: "precise, fine strokes that mimic natural brow hair for a realistic appearance that blends seamlessly with your existing brows.",
                 icon: "Precision",
               },
               {
                 title: "Long-Lasting Results",
-                description: "Semi-permanent solution that lasts up to two years with proper care, giving you beautiful brows for an extended period.",
+                description: "semi-permanent solution that lasts up to two years with proper care, giving you beautiful brows for an extended period.",
                 icon: "Durability",
               },
               {
                 title: "Minimal Maintenance",
-                description: "Wake up every day with flawless brows, no daily makeup needed. Save time and enjoy effortless beauty every morning.",
+                description: "wake up every day with flawless brows, no daily makeup needed. Save time and enjoy effortless beauty every morning.",
                 icon: "Convenience",
               },
               {
                 title: "Expert Technicians",
-                description: "Our skilled professionals are trained in the latest microblading techniques, ensuring safe and beautiful results every time.",
+                description: "our skilled professionals are trained in the latest microblading techniques, ensuring safe and beautiful results every time.",
                 icon: "Expertise",
               },
               {
                 title: "Customized Design",
-                description: "Each treatment is tailored to your unique facial features and personal style, creating brows that perfectly complement your look.",
+                description: "each treatment is tailored to your unique facial features and personal style, creating brows that perfectly complement your look.",
                 icon: "Personalization",
               },
               {
                 title: "Premium Materials",
-                description: "We use only the highest quality pigments and tools to ensure safe, long-lasting, and beautiful results.",
+                description: "we use only the highest quality pigments and tools to ensure safe, long-lasting, and beautiful results.",
                 icon: "Quality",
               },
             ].map((feature, idx) => (
@@ -197,7 +182,7 @@ export default function MicrobladingExperience() {
                     <div className="absolute inset-0 rounded-full border-2 border-pink-200 group-hover:border-pink-400 transition-colors duration-300" />
                     {/* Inner Circle */}
                     <div className="relative w-16 h-16 rounded-full bg-white border-2 border-pink-100 flex items-center justify-center shadow-lg group-hover:shadow-xl group-hover:scale-110 transition-all duration-500">
-                      <span className="text-2xl font-bold text-[#1f1f2e] group-hover:text-pink-600 transition-colors duration-300" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
+                      <span className="text-2xl font-bold text-[#1f1f2e] group-hover:text-pink-600 transition-colors duration-300" style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300 }}>
                         {idx + 1}
                       </span>
                     </div>
@@ -205,7 +190,7 @@ export default function MicrobladingExperience() {
                     <div className="absolute -top-1 -right-1 w-3 h-3 rounded-full bg-pink-400 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   </div>
                   
-                  <h3 className="text-2xl font-semibold text-[#1f1f2e] mb-4 group-hover:text-pink-600 transition-colors duration-300" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
+                  <h3 className="text-2xl font-semibold text-[#1f1f2e] mb-4 group-hover:text-pink-600 transition-colors duration-300" style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300 }}>
                     {feature.title}
                   </h3>
                   
@@ -241,7 +226,7 @@ export default function MicrobladingExperience() {
                 <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-pink-100 px-5 py-2 text-xs font-semibold text-pink-600 shadow-lg">
                   <span className="text-pink-500 text-lg">❀</span> Book Your Appointment
                 </div>
-                <h3 className="text-3xl font-semibold text-[#1f1f2e] mb-5 md:text-4xl" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
+                <h3 className="text-3xl font-semibold text-[#1f1f2e] mb-5 md:text-4xl" style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300 }}>
                   Ready to Transform Your Brows?
                 </h3>
                 <p className="text-base leading-relaxed text-[#555] mb-8 md:text-lg max-w-2xl mx-auto">
@@ -265,7 +250,6 @@ export default function MicrobladingExperience() {
       </section>
 
       <WhyScent />
-      <PowerTeam />
       
       {/* CSS Animations */}
       <style jsx global>{`

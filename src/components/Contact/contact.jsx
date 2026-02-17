@@ -119,7 +119,7 @@ export default function ContactSection() {
       {/* Hero Section - Simplified */}
       <div className="relative w-full bg-gradient-to-br from-black via-[#1a1a1a] to-black py-16 sm:py-20 md:py-24">
         <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 md:px-12 lg:px-20 text-center text-white">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light tracking-wide mb-4" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light tracking-wide mb-4" style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300 }}>
             Get in Touch
           </h1>
           <p className="max-w-2xl mx-auto text-base sm:text-lg md:text-xl leading-relaxed text-white/80">
@@ -144,7 +144,7 @@ export default function ContactSection() {
                   {info.icon}
                 </div>
                 <div className="flex-1 min-w-0">
-                  <h3 className="text-xs sm:text-sm font-semibold text-[#1f1f2e] mb-1" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
+                  <h3 className="text-xs sm:text-sm font-semibold text-[#1f1f2e] mb-1" style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300 }}>
                     {info.title}
                   </h3>
                   <p className="text-xs sm:text-sm text-[#555] leading-tight break-words">{info.content}</p>
@@ -158,7 +158,7 @@ export default function ContactSection() {
         <div className="grid gap-6 sm:gap-8 lg:grid-cols-2 mb-8 sm:mb-12 md:mb-16">
           {/* Contact Form - Left Column */}
           <div className="bg-white rounded-2xl border border-gray-200 p-6 sm:p-8 md:p-10 shadow-sm">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-[#1f1f2e] mb-2" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-[#1f1f2e] mb-2" style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300 }}>
               Send Us a Message
             </h2>
             <p className="text-sm sm:text-base text-[#555] mb-6 sm:mb-8">
@@ -267,7 +267,7 @@ export default function ContactSection() {
           <div className="space-y-6 sm:space-y-8">
             {/* Quick Contact */}
             <div className="bg-gradient-to-br from-black to-[#1a1a1a] rounded-2xl border border-gray-200 p-6 sm:p-8 text-white shadow-sm">
-              <h3 className="text-xl sm:text-2xl font-semibold mb-3" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
+              <h3 className="text-xl sm:text-2xl font-semibold mb-3" style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300 }}>
                 Need Immediate Assistance?
               </h3>
               <p className="text-sm text-white/80 mb-6 leading-relaxed">
@@ -286,7 +286,7 @@ export default function ContactSection() {
 
             {/* Opening Hours */}
             <div className="bg-white rounded-2xl border border-gray-200 p-6 sm:p-8 shadow-sm">
-              <h3 className="text-xl sm:text-2xl font-semibold text-[#1f1f2e] mb-6" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
+              <h3 className="text-xl sm:text-2xl font-semibold text-[#1f1f2e] mb-6" style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300 }}>
                 Opening Hours
               </h3>
               <div className="space-y-3">
@@ -301,7 +301,7 @@ export default function ContactSection() {
 
             {/* Social Media */}
             <div className="bg-white rounded-2xl border border-gray-200 p-6 sm:p-8 shadow-sm">
-              <h3 className="text-xl sm:text-2xl font-semibold text-[#1f1f2e] mb-6" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
+              <h3 className="text-xl sm:text-2xl font-semibold text-[#1f1f2e] mb-6" style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300 }}>
                 Follow Us
               </h3>
               <div className="flex flex-wrap gap-3 sm:gap-4">
@@ -331,7 +331,7 @@ export default function ContactSection() {
         {/* Map Section - Full Width */}
         <div className="bg-white rounded-2xl border border-gray-200 p-4 sm:p-6 md:p-8 lg:p-10 shadow-sm mb-8 sm:mb-12 md:mb-16">
           <div className="mb-6 sm:mb-8">
-            <h3 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-[#1f1f2e] mb-4" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
+            <h3 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-[#1f1f2e] mb-4" style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300 }}>
               Find Us
             </h3>
             <div className="mb-6">
@@ -400,7 +400,7 @@ export default function ContactSection() {
             </div>
 
             {/* Success Message */}
-            <h2 className="text-2xl sm:text-3xl font-semibold text-[#1f1f2e] mb-3" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
+            <h2 className="text-2xl sm:text-3xl font-semibold text-[#1f1f2e] mb-3" style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300 }}>
               Message Sent Successfully!
             </h2>
             <p className="text-base sm:text-lg text-gray-600 mb-6 leading-relaxed">

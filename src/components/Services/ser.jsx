@@ -4,10 +4,10 @@ import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
 const headingPhrases = [
-  "Hair Salon Services in Bangalore",
-  "Premium Haircuts & Colour in Bangalore",
-  "Expert Stylists Crafting Iconic Looks",
-  "Hair Salon Services in Bangalore",
+  "Hair salon services in Bangalore",
+  "Premium haircuts & colour in Bangalore",
+  "Expert stylists crafting iconic looks",
+  "Hair salon services in Bangalore",
 ];
 
 const serviceCategories = [
@@ -155,7 +155,7 @@ export default function ServicesSection() {
   }, [mounted]);
 
   return (
-    <section id="services" className="bg-white" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
+    <section id="services" className="bg-white" style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300 }}>
       {/* Hero Video Full Width */}
       <div className="relative w-full overflow-hidden">
         <video
@@ -166,16 +166,6 @@ export default function ServicesSection() {
           playsInline
           className="h-[60vh] min-h-[480px] w-full object-cover"
         />
-        <div className="absolute inset-0 bg-black/60" />
-        <div className="absolute inset-0 flex flex-col items-start justify-center gap-4 px-10 py-12 text-white md:px-20 lg:px-32">
-          <h1 className="text-4xl font-light leading-tight md:text-5xl lg:text-6xl" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
-            Hair Services
-          </h1>
-          <p className="max-w-3xl text-base leading-relaxed text-white/90 md:text-lg lg:text-xl font-light" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
-            Visit SCENT Hair Salon for top-notch haircuts, hair coloring, hair spa, and hair smoothening
-            services performed by expert stylists trained by Sassoon. Your journey to fabulous hair starts here!
-          </p>
-        </div>
       </div>
 
       <div className="flex w-full flex-col items-center gap-8 px-20 py-12">
@@ -183,7 +173,7 @@ export default function ServicesSection() {
         <div className="flex flex-col items-center gap-4 text-center">
           <h2
             className="text-4xl font-light leading-tight text-[#2A2A35] sm:text-[56px]"
-            style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}
+            style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300 }}
           >
             <span
               key={mounted ? headingIndex : 0}
@@ -193,28 +183,28 @@ export default function ServicesSection() {
               {mounted ? headingPhrases[headingIndex] : headingPhrases[0]}
             </span>
           </h2>
-          <div className="flex items-center justify-center gap-4">
+          <div className="decorative-flower-divider flex items-center justify-center gap-4">
             <span className="h-px w-16 bg-black" />
             <span className="text-pink-400 text-xl">❀</span>
             <span className="h-px w-16 bg-black" />
           </div>
-          <p className="max-w-3xl text-base leading-relaxed text-[#555] sm:text-lg font-light" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
+          <p className="max-w-3xl text-base leading-relaxed text-[#555] sm:text-lg font-light" style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300 }}>
             Discover our comprehensive range of beauty and wellness services, each designed to help you look and feel your absolute best.
           </p>
         </div>
 
         {/* Bangalore Highlight */}
         <div className="w-full rounded-[28px] border border-gray-100 bg-white px-10 py-8 text-center shadow-[0px_25px_70px_rgba(0,0,0,0.05)]">
-          <p className="text-sm font-light uppercase tracking-[0.4em] text-[#C06C84]" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
-            Bangalore Flagship Menu
+          <p className="text-sm font-light tracking-[0.4em] text-[#C06C84]" style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300, textTransform: 'none' }}>
+            Bangalore flagship menu
           </p>
           <h3
             className="mt-3 text-2xl font-light text-[#1f1f2e] sm:text-[30px] transition-all duration-700 ease-out hover:scale-[1.02] hover:text-[#C06C84]"
-            style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}
+            style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300 }}
           >
             Six signature rituals covering every strand — from cuts to mustache finesse.
           </h3>
-          <p className="mt-4 text-base leading-relaxed text-[#555] sm:text-lg font-light" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
+          <p className="mt-4 text-base leading-relaxed text-[#555] sm:text-lg font-light" style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300 }}>
             Choose your lane: haircuts, highlights, spa rituals, intensive treatments, beard styling, or mustache design.
             Each service is crafted by Sassoon-trained stylists for flawless results.
           </p>
@@ -248,7 +238,7 @@ export default function ServicesSection() {
                   <div className="pointer-events-none absolute inset-0 flex flex-col items-center justify-center gap-3 px-6 text-center text-white opacity-0 transition-opacity duration-500 group-hover:opacity-100">
                     <p 
                       className="pointer-events-auto cursor-pointer text-sm tracking-[0.3em] uppercase text-pink-100 transition-all hover:scale-110 hover:text-white" 
-                      style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}
+                      style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300 }}
                       onClick={(e) => {
                         e.stopPropagation();
                         setActiveService(category.id);
@@ -258,7 +248,7 @@ export default function ServicesSection() {
                     </p>
                     <p 
                       className="pointer-events-auto cursor-pointer text-xs leading-relaxed text-white/80 transition-all hover:text-white font-light"
-                      style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}
+                      style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300 }}
                       onClick={(e) => {
                         e.stopPropagation();
                         setActiveService(category.id);
@@ -268,7 +258,7 @@ export default function ServicesSection() {
                     </p>
                     <button
                       className="pointer-events-auto rounded-full border border-white/80 bg-white/10 px-6 py-2 text-xs font-light uppercase tracking-[0.3em] text-white backdrop-blur-sm transition-all hover:bg-white hover:text-black hover:border-white"
-                      style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}
+                      style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300 }}
                       onClick={(e) => {
                         e.stopPropagation();
                         openBookAppointment(category.title);
@@ -284,11 +274,11 @@ export default function ServicesSection() {
                   <div className="flex items-center justify-between">
                     <h3
                       className="text-lg sm:text-xl font-semibold text-[#22223b]"
-                      style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}
+                      style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300 }}
                     >
                       {category.title}
                     </h3>
-                    <span className="text-[10px] sm:text-xs uppercase tracking-[0.3em] text-gray-400 font-light" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
+                    <span className="text-xs sm:text-sm uppercase tracking-[0.3em] text-gray-400 font-light" style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300 }}>
                       {isActive ? "Hide" : "View"}
                     </span>
                   </div>
@@ -297,17 +287,17 @@ export default function ServicesSection() {
                       isActive ? "max-h-[400px] sm:max-h-[450px] md:max-h-[500px] opacity-100" : "max-h-0 opacity-0"
                     } overflow-y-auto`}
                   >
-                    <p className="leading-relaxed font-light text-xs sm:text-sm" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>{category.description}</p>
+                    <p className="leading-relaxed font-light text-xs sm:text-sm" style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300 }}>{category.description}</p>
                     {category.detailedDescription && (
                       <div className="pt-2 border-t border-gray-200">
-                        <p className="leading-relaxed text-[10px] sm:text-xs text-gray-600 mt-2 line-clamp-6 sm:line-clamp-none font-light" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
+                        <p className="leading-relaxed text-xs sm:text-sm text-gray-600 mt-2 line-clamp-6 sm:line-clamp-none font-light" style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300 }}>
                           {category.detailedDescription}
                         </p>
                       </div>
                     )}
                     <button
-                      className="w-fit rounded-full border border-black/20 px-4 sm:px-5 py-1.5 sm:py-2 text-[10px] sm:text-xs font-light uppercase tracking-[0.3em] text-[#1f1f2e] transition-all hover:bg-black hover:text-white mt-3 sm:mt-4"
-                      style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}
+                      className="w-fit rounded-full border border-black/20 px-4 sm:px-5 py-1.5 sm:py-2 text-xs sm:text-sm font-light uppercase tracking-[0.3em] text-[#1f1f2e] transition-all hover:bg-black hover:text-white mt-3 sm:mt-4"
+                      style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300 }}
                       onClick={(e) => {
                         e.stopPropagation();
                         openBookAppointment(category.title);
@@ -349,7 +339,7 @@ export default function ServicesSection() {
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
                       <div className="absolute bottom-4 left-4 text-white">
-                        <p className="text-sm uppercase tracking-[0.4em]" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
+                        <p className="text-sm uppercase tracking-[0.4em]" style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300 }}>
                           {activeCategory.title}
                         </p>
                         <p className="text-xs text-white/80">Tailored rituals for every mood</p>
@@ -357,20 +347,20 @@ export default function ServicesSection() {
                     </div>
                     <div className="flex w-full flex-col gap-4 sm:gap-5 px-4 sm:px-6 md:px-8 py-6 sm:py-8 md:py-10 md:w-1/2 max-h-[85vh] overflow-y-auto">
                       <div className="flex flex-col gap-3">
-                        <h3 className="text-2xl sm:text-3xl font-light text-[#1f1f2e]" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
+                        <h3 className="text-2xl sm:text-3xl font-light text-[#1f1f2e]" style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300 }}>
                           {activeCategory.title}
                         </h3>
-                        <p className="text-sm sm:text-base leading-relaxed text-gray-700 font-light" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>{activeCategory.description}</p>
+                        <p className="text-sm sm:text-base leading-relaxed text-gray-700 font-light" style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300 }}>{activeCategory.description}</p>
                         {activeCategory.detailedDescription && (
                           <div className="pt-3 border-t border-gray-200">
-                            <p className="text-xs sm:text-sm leading-relaxed text-gray-600 mt-2 font-light" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
+                            <p className="text-xs sm:text-sm leading-relaxed text-gray-600 mt-2 font-light" style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300 }}>
                               {activeCategory.detailedDescription}
                             </p>
                           </div>
                         )}
                       </div>
                       <div className="space-y-3">
-                        <p className="text-xs uppercase tracking-[0.3em] text-gray-400 font-light" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
+                        <p className="text-xs uppercase tracking-[0.3em] text-gray-400 font-light" style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300 }}>
                           Service Menu
                         </p>
                         <div className="grid grid-cols-1 gap-2">
@@ -379,11 +369,11 @@ export default function ServicesSection() {
                               key={name}
                               className="flex flex-col rounded-2xl border border-gray-100 px-4 py-3 text-left sm:flex-row sm:items-center sm:justify-between"
                             >
-                              <div className="flex items-center gap-2 text-sm text-gray-700 font-light" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
+                              <div className="flex items-center gap-2 text-sm text-gray-700 font-light" style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300 }}>
                                 <span className="text-pink-400">❀</span>
                                 {name}
                               </div>
-                              <span className="mt-2 text-sm font-light text-[#1f1f2e] sm:mt-0" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
+                              <span className="mt-2 text-sm font-light text-[#1f1f2e] sm:mt-0" style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300 }}>
                                 {price}
                               </span>
                             </div>
@@ -393,14 +383,14 @@ export default function ServicesSection() {
                       <div className="mt-auto flex flex-wrap gap-3">
                         <button
                           className="rounded-full bg-black px-8 py-3 text-xs font-light uppercase tracking-[0.3em] text-white transition hover:bg-black/80"
-                          style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}
+                          style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300 }}
                           onClick={(e) => handleBookAppointment(e, activeCategory.title)}
                         >
                           Book Appointment
                         </button>
                         <button
                           className="rounded-full border border-black px-8 py-3 text-xs font-light uppercase tracking-[0.3em] text-[#1f1f2e] transition hover:bg-black hover:text-white"
-                          style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}
+                          style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300 }}
                           onClick={() => setActiveService(null)}
                         >
                           Close
@@ -416,23 +406,23 @@ export default function ServicesSection() {
 
         {/* Bottom CTA Section */}
         <div className="mt-12 flex flex-col items-center gap-6 text-center">
-          <div className="flex items-center justify-center gap-4">
+          <div className="decorative-flower-divider flex items-center justify-center gap-4">
             <span className="h-px w-12 bg-black" />
             <span className="text-pink-400 text-xl">❀</span>
             <span className="h-px w-12 bg-black" />
           </div>
           <h3 
             className="text-2xl font-light text-[#1f1f2e] sm:text-3xl"
-            style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}
+            style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300 }}
           >
             Ready to Transform Your Look?
           </h3>
-          <p className="max-w-2xl text-base text-gray-600 font-light" style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}>
+          <p className="max-w-2xl text-base text-gray-600 font-light" style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300 }}>
             Reserve your ritual now and arrive to a stylist who already knows what you need.
           </p>
           <button
             className="rounded-md bg-red-600 px-8 py-3 text-sm font-light uppercase tracking-wide text-white transition-colors hover:bg-red-700"
-            style={{ fontFamily: 'var(--font-montserrat-light), "Montserrat", sans-serif', fontWeight: 300 }}
+            style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300 }}
             onClick={(e) => {
               e.preventDefault();
               openBookAppointment("Signature Service Bundle");
