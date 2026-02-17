@@ -367,42 +367,42 @@ export default function Navbar() {
                 }}
               >
                 {item === "Services" ? (
-                  <a href="/new-service" onClick={() => setIsServiceOpen(false)} className="text-xs sm:text-xs md:text-sm lg:text-sm uppercase tracking-[0.15em] font-medium text-black hover:text-gray-800 transition-all duration-300 ease-in-out relative leading-none inline-block align-middle" style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 500 }}>
+                  <a href="/new-service" onClick={() => setIsServiceOpen(false)} className="text-xs sm:text-xs md:text-sm lg:text-sm uppercase tracking-[0.15em] font-semibold text-black hover:text-gray-800 transition-all duration-300 ease-in-out relative leading-none inline-block align-middle" style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 600 }}>
                     {item}
                     <span className="absolute bottom-0 left-0 w-0 h-px bg-gray-400 transition-all duration-300 ease-in-out group-hover:w-full"></span>
                   </a>
                 ) : item === "Home" ? (
-                  <a href="/" className="text-xs sm:text-xs md:text-sm lg:text-sm uppercase tracking-[0.15em] font-medium text-black hover:text-gray-800 transition-all duration-300 ease-in-out relative leading-none inline-block align-middle" style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 500 }}>
+                  <a href="/" className="text-xs sm:text-xs md:text-sm lg:text-sm uppercase tracking-[0.15em] font-semibold text-black hover:text-gray-800 transition-all duration-300 ease-in-out relative leading-none inline-block align-middle" style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 600 }}>
                     {item}
                     <span className="absolute bottom-0 left-0 w-0 h-px bg-gray-400 transition-all duration-300 ease-in-out group-hover:w-full"></span>
                   </a>
                 ) : item === "Salon Memberships" ? (
-                  <a href="/salon-memberships" className="text-xs sm:text-xs md:text-sm lg:text-sm uppercase tracking-[0.15em] font-medium text-black hover:text-gray-800 transition-all duration-300 ease-in-out relative leading-none inline-block align-middle" style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 500 }}>
+                  <a href="/salon-memberships" className="text-xs sm:text-xs md:text-sm lg:text-sm uppercase tracking-[0.15em] font-semibold text-black hover:text-gray-800 transition-all duration-300 ease-in-out relative leading-none inline-block align-middle" style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 600 }}>
                     {item}
                     <span className="absolute bottom-0 left-0 w-0 h-px bg-gray-400 transition-all duration-300 ease-in-out group-hover:w-full"></span>
                   </a>
                 ) : item === "Shops" ? (
-                  <a href="/shops" onClick={() => setIsShopOpen(false)} className="text-xs sm:text-xs md:text-sm lg:text-sm uppercase tracking-[0.15em] font-medium text-black hover:text-gray-800 transition-all duration-300 ease-in-out relative leading-none inline-block align-middle" style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 500 }}>
+                  <a href="/shops" onClick={() => setIsShopOpen(false)} className="text-xs sm:text-xs md:text-sm lg:text-sm uppercase tracking-[0.15em] font-semibold text-black hover:text-gray-800 transition-all duration-300 ease-in-out relative leading-none inline-block align-middle" style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 600 }}>
                     {item}
                     <span className="absolute bottom-0 left-0 w-0 h-px bg-gray-400 transition-all duration-300 ease-in-out group-hover:w-full"></span>
                   </a>
                 ) : item === "Franchise" ? (
-                  <a href="/franchise" onClick={() => setIsFranchiseOpen(false)} className="text-xs sm:text-xs md:text-sm lg:text-sm uppercase tracking-[0.15em] font-medium text-black hover:text-gray-800 transition-all duration-300 ease-in-out relative leading-none inline-block align-middle" style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 500 }}>
+                  <a href="/franchise" onClick={() => setIsFranchiseOpen(false)} className="text-xs sm:text-xs md:text-sm lg:text-sm uppercase tracking-[0.15em] font-semibold text-black hover:text-gray-800 transition-all duration-300 ease-in-out relative leading-none inline-block align-middle" style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 600 }}>
                     {item}
                     <span className="absolute bottom-0 left-0 w-0 h-px bg-gray-400 transition-all duration-300 ease-in-out group-hover:w-full"></span>
                   </a>
                 ) : item === "Academy" ? (
-                  <a href="/academy" className="text-xs sm:text-xs md:text-sm lg:text-sm uppercase tracking-[0.15em] font-medium text-black hover:text-gray-800 transition-all duration-300 ease-in-out relative leading-none inline-block align-middle" style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 500 }}>
+                  <a href="/academy" className="text-xs sm:text-xs md:text-sm lg:text-sm uppercase tracking-[0.15em] font-semibold text-black hover:text-gray-800 transition-all duration-300 ease-in-out relative leading-none inline-block align-middle" style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 600 }}>
                     {item}
                     <span className="absolute bottom-0 left-0 w-0 h-px bg-gray-400 transition-all duration-300 ease-in-out group-hover:w-full"></span>
                   </a>
                 ) : item === "Contact" ? (
-                  <a href="/contact" onClick={() => setIsContactOpen(false)} className="text-xs sm:text-xs md:text-sm lg:text-sm uppercase tracking-[0.15em] font-medium text-black hover:text-gray-800 transition-all duration-300 ease-in-out relative leading-none inline-block align-middle" style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 500 }}>
+                  <a href="/contact" onClick={() => setIsContactOpen(false)} className="text-xs sm:text-xs md:text-sm lg:text-sm uppercase tracking-[0.15em] font-semibold text-black hover:text-gray-800 transition-all duration-300 ease-in-out relative leading-none inline-block align-middle" style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 600 }}>
                     {item}
                     <span className="absolute bottom-0 left-0 w-0 h-px bg-gray-400 transition-all duration-300 ease-in-out group-hover:w-full"></span>
                   </a>
                 ) : (
-                  <span className="text-xs sm:text-xs md:text-sm lg:text-sm uppercase tracking-[0.15em] font-medium text-black" style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 500 }}>
+                  <span className="text-xs sm:text-xs md:text-sm lg:text-sm uppercase tracking-[0.15em] font-semibold text-black" style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 600 }}>
                     {item}
                   </span>
                 )}
@@ -701,8 +701,8 @@ export default function Navbar() {
                     <div>
                       <button
                         onClick={() => setIsServiceOpen(!isServiceOpen)}
-                        className="w-full text-left py-1.5 text-xs uppercase tracking-[0.1em] font-medium text-black transition-all duration-200 hover:text-gray-700"
-                        style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 500 }}
+                        className="w-full text-left py-1.5 text-xs uppercase tracking-[0.1em] font-semibold text-black transition-all duration-200 hover:text-gray-700"
+                        style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 600 }}
                       >
                         {item} {isServiceOpen ? '−' : '+'}
                       </button>
@@ -729,8 +729,8 @@ export default function Navbar() {
                     <div>
                       <button
                         onClick={() => setIsFranchiseOpen(!isFranchiseOpen)}
-                        className="w-full text-left py-1.5 text-xs uppercase tracking-[0.1em] font-medium text-black transition-all duration-200 hover:text-gray-700"
-                        style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 500 }}
+                        className="w-full text-left py-1.5 text-xs uppercase tracking-[0.1em] font-semibold text-black transition-all duration-200 hover:text-gray-700"
+                        style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 600 }}
                       >
                         {item} {isFranchiseOpen ? '−' : '+'}
                       </button>
@@ -848,7 +848,7 @@ export default function Navbar() {
                   ) : item === "Home" ? (
                     <a
                       href="/"
-                      className="block py-1.5 text-xs uppercase tracking-[0.1em] font-medium text-black transition-all duration-200 hover:text-gray-700"
+                      className="block py-1.5 text-xs uppercase tracking-[0.1em] font-semibold text-black transition-all duration-200 hover:text-gray-700"
                       onClick={() => setIsMobileMenuOpen(false)}
                     >
                       {item}
@@ -856,7 +856,7 @@ export default function Navbar() {
                   ) : item === "Salon Memberships" ? (
                     <a
                       href="/salon-memberships"
-                      className="block py-1.5 text-xs uppercase tracking-[0.1em] font-medium text-black transition-all duration-200 hover:text-gray-700"
+                      className="block py-1.5 text-xs uppercase tracking-[0.1em] font-semibold text-black transition-all duration-200 hover:text-gray-700"
                       onClick={() => setIsMobileMenuOpen(false)}
                     >
                       {item}
@@ -864,7 +864,7 @@ export default function Navbar() {
                   ) : item === "Franchise" ? (
                     <a
                       href="/franchise"
-                      className="block py-1.5 text-xs uppercase tracking-[0.1em] font-medium text-black transition-all duration-200 hover:text-gray-700"
+                      className="block py-1.5 text-xs uppercase tracking-[0.1em] font-semibold text-black transition-all duration-200 hover:text-gray-700"
                       onClick={() => setIsMobileMenuOpen(false)}
                     >
                       {item}
@@ -872,7 +872,7 @@ export default function Navbar() {
                   ) : item === "Academy" ? (
                     <a
                       href="/academy"
-                      className="block py-1.5 text-xs uppercase tracking-[0.1em] font-medium text-black transition-all duration-200 hover:text-gray-700"
+                      className="block py-1.5 text-xs uppercase tracking-[0.1em] font-semibold text-black transition-all duration-200 hover:text-gray-700"
                       onClick={() => setIsMobileMenuOpen(false)}
                     >
                       {item}
@@ -881,8 +881,8 @@ export default function Navbar() {
                     <div>
                       <button
                         onClick={() => setIsContactOpen(!isContactOpen)}
-                        className="w-full text-left py-1.5 text-xs uppercase tracking-[0.1em] font-medium text-black transition-all duration-200 hover:text-gray-700"
-                        style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 500 }}
+                        className="w-full text-left py-1.5 text-xs uppercase tracking-[0.1em] font-semibold text-black transition-all duration-200 hover:text-gray-700"
+                        style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 600 }}
                       >
                         {item} {isContactOpen ? '−' : '+'}
                       </button>
@@ -978,8 +978,8 @@ export default function Navbar() {
               ))}
             </ul>
             <button
-              className="mt-3 w-full bg-gray-900 px-5 py-2 text-xs uppercase tracking-[0.15em] font-medium text-white transition-all duration-300 hover:bg-gray-800"
-              style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 500 }}
+              className="mt-3 w-full bg-gray-900 px-5 py-2 text-xs uppercase tracking-[0.15em] font-semibold text-white transition-all duration-300 hover:bg-gray-800"
+              style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 600 }}
               onClick={() => {
                 setIsMobileMenuOpen(false);
                 window.location.href = "/book-now";
