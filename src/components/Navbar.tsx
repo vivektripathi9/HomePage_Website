@@ -1,0 +1,1211 @@
+"use client";
+
+import Image from "next/image";
+import { useState, useEffect } from "react";
+
+const menuItems = [
+  "Home",
+  "Services",
+  "Salon Memberships",
+  "Shops",
+  "Franchise",
+  "Academy",
+  "Contact",
+];
+
+const services = [
+  { name: "Hair Services", href: "/services" },
+  { name: "Beauty Treatments", href: "/new-service" },
+  { name: "Nail Services", href: "/nails" },
+  { name: "Skincare", href: "/new-service" },
+  { name: "Makeup", href: "/bridal" },
+  { name: "Massage Therapy", href: "/spa" },
+];
+
+const franchiseItems = [
+  { name: "Why Choose SCENT", href: "/franchise#why-choose" },
+  { name: "The SCENT Advantage", href: "/franchise#advantage" },
+  { name: "Steps to Get Started", href: "/franchise#steps" },
+  { name: "Success Stories", href: "/franchise#success" },
+  { name: "Contact Franchise Team", href: "/franchise#contact" },
+];
+
+const shopCategories = [
+  {
+    name: "Beauty Garage",
+    products: [
+      { name: "Shea Butter Retention Treatment Hair Oil 50ml", price: "₹1,950" },
+      { name: "Shea Butter Retention Treatment Hair butter 250ml", price: "₹2,220" },
+      { name: "Shea Butter Retention Treatment Shampoo 300ml", price: "₹1,500" },
+      { name: "K9 Botoplexx Conditioner 300ml", price: "₹1,500" },
+      { name: "K9 Botoplexx Shampoo 300ml", price: "₹1,500" },
+      { name: "K9 Botoplexx Retention Masque 300ml", price: "₹2,040" },
+      { name: "K9 Frizz Dismiss Hair Oil with Morocco Argan 50ml", price: "₹1,140" },
+      { name: "Botoliss Acidic Bonding Concentrate Shampoo 300ml", price: "₹1,860" },
+      { name: "Botoliss Acidic Bonding Concentrate Hair Mask 200ml", price: "₹1,860" },
+      { name: "Botoliss Smooth sheild Hair Serum 50ml", price: "₹1,950" },
+      { name: "Botoliss Gloss Like Glass Shine Spray 30ml", price: "₹1,500" },
+      { name: "Scalp Sense Hydra Soothe for Dry Scalp Shampoo 200ml", price: "₹1,320" },
+      { name: "Scalp Sense Oil Out Shampoo 200ml", price: "₹1,320" },
+      { name: "Scalp Sense Dandruff Defense Shampoo 200ml", price: "₹1,590" },
+      { name: "Scalp Sense Hairfall Defense Shampoo 200ml", price: "₹1,590" },
+      { name: "Scalp Sense Hair & Scalp Conditioner 200ml", price: "₹1,320" },
+      { name: "Scalp Sense Leave In Treatment 60ml", price: "₹2,400" },
+    ],
+  },
+  {
+    name: "Olaplex",
+    products: [
+      { name: "Repair and Protect", price: "View Price" },
+      { name: "Hydration Supreme", price: "View Price" },
+      { name: "Bond Smoother", price: "View Price" },
+    ],
+  },
+  {
+    name: "Schwarzkopf",
+    products: [
+      { name: "Colour Freeze Shampoo", price: "View Price" },
+      { name: "Colour Freeze Wax", price: "View Price" },
+      { name: "Mess Up", price: "View Price" },
+      { name: "THRILL", price: "View Price" },
+      { name: "Session Label-The Flexible", price: "View Price" },
+      { name: "Session Label-The Strong", price: "View Price" },
+      { name: "Fiber Clinix Fortifying Shampoo", price: "View Price" },
+      { name: "Fiber Clinix Hydrating Shampoo", price: "View Price" },
+      { name: "Fiber Clinix Tame Shampoo", price: "View Price" },
+      { name: "Fiber Clinix Tame Treatment", price: "View Price" },
+      { name: "Fiber Clinix Vibrancy Shampoo", price: "View Price" },
+      { name: "Fiber Clinix Vibrancy Treatment", price: "View Price" },
+      { name: "Moisture Kick Spray Conditioner", price: "View Price" },
+      { name: "Flewax", price: "View Price" },
+      { name: "Grip", price: "View Price" },
+      { name: "Goodbye Yellow", price: "View Price" },
+      { name: "Frizz Away Smoothing Oil", price: "View Price" },
+      { name: "Root Activating Shampoo", price: "View Price" },
+      { name: "Anti Dandruff Shampoo", price: "View Price" },
+      { name: "Bounty Balm", price: "View Price" },
+      { name: "Repair Rescue Sealed Ends", price: "View Price" },
+    ],
+  },
+];
+
+const contactItems = [
+  { name: "Phone", value: "+91 9742232700", href: "tel:+919742232700", icon: "phone" },
+  { name: "Email", value: "info@scentlifestyle.com", href: "mailto:info@scentlifestyle.com", icon: "email" },
+  { name: "Location", value: "Lavelle Road, Bengaluru", href: "https://www.google.com/maps/search/?api=1&query=Scent+Salon+Lavelle+Road+Bengaluru", icon: "location" },
+  { name: "Hours", value: "Mon-Sat: 9:00 AM - 6:00 PM", href: "/contact#hours", icon: "clock" },
+];
+
+export default function Navbar() {
+  const [isServiceOpen, setIsServiceOpen] = useState(false);
+  const [isFranchiseOpen, setIsFranchiseOpen] = useState(false);
+  const [isShopOpen, setIsShopOpen] = useState(false);
+  const [isContactOpen, setIsContactOpen] = useState(false);
+  const [isBookAppointmentOpen, setIsBookAppointmentOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [isSubmittingAppointment, setIsSubmittingAppointment] = useState(false);
+  const [appointmentMessage, setAppointmentMessage] = useState("");
+  const [showAppointmentSuccess, setShowAppointmentSuccess] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [appointmentForm, setAppointmentForm] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    service: "",
+    date: "",
+    time: "",
+    message: "",
+  });
+
+  // Handle scroll to hide navbar text
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      setIsScrolled(scrollPosition > 50);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const handleAppointmentSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSubmittingAppointment(true);
+    setAppointmentMessage("");
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: appointmentForm.name,
+          email: appointmentForm.email,
+          phone: appointmentForm.phone,
+          subject: `Appointment Booking - ${appointmentForm.service}`,
+          message: `Appointment Booking Request:\n\nService: ${appointmentForm.service}\nDate: ${appointmentForm.date}\nTime: ${appointmentForm.time}\n\nMessage: ${appointmentForm.message || "No additional message"}`,
+        }),
+      });
+
+      const data = await res.json();
+
+      if (data.success) {
+        setAppointmentForm({
+          name: "",
+          email: "",
+          phone: "",
+          service: "",
+          date: "",
+          time: "",
+          message: "",
+        });
+        setIsBookAppointmentOpen(false);
+        setShowAppointmentSuccess(true);
+        // Redirect to home page after 4 seconds
+        setTimeout(() => {
+          window.location.href = "/";
+        }, 4000);
+      } else {
+        setAppointmentMessage(`Error: ${data.error || "Failed to send appointment request. Please try again."}`);
+        setIsSubmittingAppointment(false);
+        setTimeout(() => setAppointmentMessage(""), 8000);
+      }
+    } catch (error) {
+      console.error("Appointment submission error:", error);
+      setAppointmentMessage("Something went wrong. Please try again later or contact us directly.");
+      setIsSubmittingAppointment(false);
+      setTimeout(() => setAppointmentMessage(""), 8000);
+    }
+  };
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    setAppointmentForm({
+      ...appointmentForm,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  // Listen for global "openBookAppointment" event from anywhere on the site
+  useEffect(() => {
+    const handleOpenBookAppointment = (event: CustomEvent) => {
+      const serviceName = event.detail?.service || "";
+      
+      // Navigate to book-now page with service name in sessionStorage
+      if (serviceName) {
+        sessionStorage.setItem("bookNowService", serviceName);
+      }
+      window.location.href = "/book-now";
+    };
+
+    window.addEventListener("openBookAppointment" as any, handleOpenBookAppointment as EventListener);
+    
+    return () => {
+      window.removeEventListener("openBookAppointment" as any, handleOpenBookAppointment as EventListener);
+    };
+  }, []);
+
+  // Expose function globally for direct calls
+  useEffect(() => {
+    (window as any).openBookAppointmentModal = (serviceName?: string) => {
+      if (serviceName) {
+        setAppointmentForm(prev => ({
+          ...prev,
+          service: serviceName,
+        }));
+      }
+      setIsBookAppointmentOpen(true);
+    };
+  }, []);
+
+  // Search functionality
+  const searchItems = [
+    { name: "Hair Services", href: "/services", category: "Service" },
+    { name: "Beauty Treatments", href: "/new-service", category: "Service" },
+    { name: "Nail Services", href: "/nails", category: "Service" },
+    { name: "Skincare", href: "/new-service", category: "Service" },
+    { name: "Makeup", href: "/bridal", category: "Service" },
+    { name: "Massage Therapy", href: "/spa", category: "Service" },
+    { name: "Salon Memberships", href: "/salon-memberships", category: "Page" },
+    { name: "Franchise", href: "/franchise", category: "Page" },
+    { name: "Academy", href: "/academy", category: "Page" },
+    { name: "Contact", href: "/contact", category: "Page" },
+    { name: "Shops", href: "/shops", category: "Page" },
+    { name: "Haircut & Styling", href: "/services", category: "Service" },
+    { name: "Hair Coloring", href: "/services", category: "Service" },
+    { name: "Hair Treatment", href: "/services", category: "Service" },
+    { name: "Beard Styling", href: "/services", category: "Service" },
+    { name: "Facial Care", href: "/new-service", category: "Service" },
+    { name: "Olaplex", href: "/shops", category: "Product" },
+    { name: "Schwarzkopf", href: "/shops", category: "Product" },
+    { name: "Beauty Garage", href: "/shops", category: "Product" },
+  ];
+
+  const filteredResults = searchQuery.trim()
+    ? searchItems.filter((item) =>
+        item.name.toLowerCase().includes(searchQuery.toLowerCase())
+      )
+    : [];
+
+  const handleSearchSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (filteredResults.length > 0) {
+      window.location.href = filteredResults[0].href;
+      setIsSearchOpen(false);
+      setSearchQuery("");
+    }
+  };
+
+  return (
+    <>
+    <header className="w-full bg-white/95 backdrop-blur-sm fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out border-b border-gray-200/50">
+      {/* Top Bar - Luxury Style */}
+      <div className="w-full px-4 sm:px-6 md:px-12 lg:px-20 py-2.5 sm:py-3">
+        <div className="flex items-center justify-between">
+          {/* Left spacer for centering */}
+          <div className="w-16 sm:w-20 md:w-24"></div>
+          
+          {/* Centered Logo */}
+              <a
+            href="/" 
+            className="flex-1 flex justify-center items-center group"
+          >
+            <Image
+              src="/Asset 1.png"
+              alt="Scent logo"
+              width={160}
+              height={32}
+              className="h-5 sm:h-6 md:h-7 w-auto object-contain transition-opacity duration-300 group-hover:opacity-60"
+              priority
+            />
+          </a>
+
+          {/* Right Icons */}
+          <div className="flex items-center gap-2.5 sm:gap-3 md:gap-4 w-16 sm:w-20 md:w-24 justify-end">
+            {/* Search Icon */}
+            <button
+              onClick={() => setIsSearchOpen(!isSearchOpen)}
+              className="relative flex-shrink-0 p-1.5 hover:opacity-50 transition-all duration-300 ease-in-out"
+              aria-label="Search"
+            >
+              <svg className="w-4 h-4 sm:w-4.5 sm:h-4.5 md:w-5 md:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+              </svg>
+            </button>
+            
+            {/* User/Account Icon */}
+                    <button
+              onClick={() => {}}
+              className="relative flex-shrink-0 p-1.5 hover:opacity-50 transition-all duration-300 ease-in-out"
+              aria-label="Account"
+                    >
+              <svg className="w-4 h-4 sm:w-4.5 sm:h-4.5 md:w-5 md:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                      </svg>
+                    </button>
+            
+            {/* Favorites/Star Icon */}
+                <button
+              onClick={() => {}}
+              className="relative flex-shrink-0 p-1.5 hover:opacity-50 transition-all duration-300 ease-in-out"
+              aria-label="Favorites"
+                >
+              <svg className="w-4 h-4 sm:w-4.5 sm:h-4.5 md:w-5 md:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+              </svg>
+                </button>
+            
+            {/* Shopping Bag/Cart Icon */}
+                      <button
+              onClick={() => {}}
+              className="relative flex-shrink-0 p-1.5 hover:opacity-50 transition-all duration-300 ease-in-out"
+              aria-label="Shopping Cart"
+            >
+              <svg className="w-4 h-4 sm:w-4.5 sm:h-4.5 md:w-5 md:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+                          </svg>
+              </button>
+
+            {/* Mobile Menu Button */}
+                      <button
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="lg:hidden flex flex-col gap-1 p-1.5 z-50 hover:opacity-50 transition-all duration-300"
+              aria-label="Toggle menu"
+            >
+              <span className={`block h-px w-5 bg-gray-800 transition-all duration-300 ${isMobileMenuOpen ? 'rotate-45 translate-y-1.5' : ''}`} />
+              <span className={`block h-px w-5 bg-gray-800 transition-all duration-300 ${isMobileMenuOpen ? 'opacity-0' : ''}`} />
+              <span className={`block h-px w-5 bg-gray-800 transition-all duration-300 ${isMobileMenuOpen ? '-rotate-45 -translate-y-1.5' : ''}`} />
+                      </button>
+                  </div>
+                </div>
+            </div>
+
+      {/* Navigation Menu - Hidden on scroll */}
+      <nav 
+        className={`hidden lg:block w-full border-t border-gray-200/50 transition-all duration-500 ease-in-out mb-0 pb-0 ${
+          isScrolled ? 'opacity-0 h-0 overflow-hidden' : 'opacity-100 h-auto'
+        }`}
+      >
+        <div className="px-4 sm:px-6 md:px-12 lg:px-20 pt-2 sm:pt-2.5 pb-0">
+          <ul className="flex items-center justify-center gap-3 sm:gap-4 md:gap-5 lg:gap-6 xl:gap-7 flex-wrap m-0 pb-0">
+            {menuItems.map((item) => (
+              <li
+                key={item}
+                className="relative cursor-pointer transition-all duration-300 ease-in-out group m-0"
+                onMouseEnter={() => {
+                  if (item === "Services") setIsServiceOpen(true);
+                  if (item === "Franchise") setIsFranchiseOpen(true);
+                  if (item === "Shops") setIsShopOpen(true);
+                  if (item === "Contact") setIsContactOpen(true);
+                }}
+                onMouseLeave={() => {
+                  if (item === "Services") setIsServiceOpen(false);
+                  if (item === "Franchise") setIsFranchiseOpen(false);
+                  if (item === "Shops") setIsShopOpen(false);
+                  if (item === "Contact") setIsContactOpen(false);
+                }}
+              >
+                {item === "Services" ? (
+                  <a href="/new-service" onClick={() => setIsServiceOpen(false)} className="text-[10px] sm:text-xs md:text-xs lg:text-sm uppercase tracking-[0.15em] font-light text-gray-800 hover:text-gray-500 transition-all duration-300 ease-in-out relative leading-none inline-block align-middle" style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}>
+                    {item}
+                    <span className="absolute bottom-0 left-0 w-0 h-px bg-gray-400 transition-all duration-300 ease-in-out group-hover:w-full"></span>
+                  </a>
+                ) : item === "Home" ? (
+                  <a href="/" className="text-[10px] sm:text-xs md:text-xs lg:text-sm uppercase tracking-[0.15em] font-light text-gray-800 hover:text-gray-500 transition-all duration-300 ease-in-out relative leading-none inline-block align-middle" style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}>
+                    {item}
+                    <span className="absolute bottom-0 left-0 w-0 h-px bg-gray-400 transition-all duration-300 ease-in-out group-hover:w-full"></span>
+                  </a>
+                ) : item === "Salon Memberships" ? (
+                  <a href="/salon-memberships" className="text-[10px] sm:text-xs md:text-xs lg:text-sm uppercase tracking-[0.15em] font-light text-gray-800 hover:text-gray-500 transition-all duration-300 ease-in-out relative leading-none inline-block align-middle" style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}>
+                    {item}
+                    <span className="absolute bottom-0 left-0 w-0 h-px bg-gray-400 transition-all duration-300 ease-in-out group-hover:w-full"></span>
+                  </a>
+                ) : item === "Shops" ? (
+                  <a href="/shops" onClick={() => setIsShopOpen(false)} className="text-[10px] sm:text-xs md:text-xs lg:text-sm uppercase tracking-[0.15em] font-light text-gray-800 hover:text-gray-500 transition-all duration-300 ease-in-out relative leading-none inline-block align-middle" style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}>
+                    {item}
+                    <span className="absolute bottom-0 left-0 w-0 h-px bg-gray-400 transition-all duration-300 ease-in-out group-hover:w-full"></span>
+                  </a>
+                ) : item === "Franchise" ? (
+                  <a href="/franchise" onClick={() => setIsFranchiseOpen(false)} className="text-[10px] sm:text-xs md:text-xs lg:text-sm uppercase tracking-[0.15em] font-light text-gray-800 hover:text-gray-500 transition-all duration-300 ease-in-out relative leading-none inline-block align-middle" style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}>
+                    {item}
+                    <span className="absolute bottom-0 left-0 w-0 h-px bg-gray-400 transition-all duration-300 ease-in-out group-hover:w-full"></span>
+                  </a>
+                ) : item === "Academy" ? (
+                  <a href="/academy" className="text-[10px] sm:text-xs md:text-xs lg:text-sm uppercase tracking-[0.15em] font-light text-gray-800 hover:text-gray-500 transition-all duration-300 ease-in-out relative leading-none inline-block align-middle" style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}>
+                    {item}
+                    <span className="absolute bottom-0 left-0 w-0 h-px bg-gray-400 transition-all duration-300 ease-in-out group-hover:w-full"></span>
+                  </a>
+                ) : item === "Contact" ? (
+                  <a href="/contact" onClick={() => setIsContactOpen(false)} className="text-[10px] sm:text-xs md:text-xs lg:text-sm uppercase tracking-[0.15em] font-light text-gray-800 hover:text-gray-500 transition-all duration-300 ease-in-out relative leading-none inline-block align-middle" style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}>
+                    {item}
+                    <span className="absolute bottom-0 left-0 w-0 h-px bg-gray-400 transition-all duration-300 ease-in-out group-hover:w-full"></span>
+                  </a>
+                ) : (
+                  <span className="text-[10px] sm:text-xs md:text-xs lg:text-sm uppercase tracking-[0.15em] font-light text-gray-800" style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}>
+                    {item}
+                  </span>
+                )}
+                
+                {/* Dropdown Menus */}
+                {item === "Services" && isServiceOpen && (
+                  <>
+                    <div 
+                      className="absolute left-0 top-full z-50 h-1 w-56"
+                      onMouseEnter={() => setIsServiceOpen(true)}
+                      onMouseLeave={() => setIsServiceOpen(false)}
+                    />
+                    <div 
+                      className="absolute left-0 top-full z-50 mt-2 w-56 bg-white border border-gray-200 shadow-lg rounded-sm py-3"
+                      onMouseEnter={() => setIsServiceOpen(true)}
+                      onMouseLeave={() => setIsServiceOpen(false)}
+                    >
+                      {services.map((service) => (
+                        <a
+                          key={service.name}
+                          href={service.href}
+                          className="block px-5 py-2.5 text-sm text-[#1f1f2e] transition-all duration-200 hover:bg-gray-50 font-light"
+                          style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}
+                          onClick={() => setIsServiceOpen(false)}
+                        >
+                          {service.name}
+                        </a>
+                      ))}
+                    </div>
+                  </>
+                )}
+                {item === "Franchise" && isFranchiseOpen && (
+                  <>
+                    <div 
+                      className="absolute left-0 top-full z-50 h-1 w-56"
+                      onMouseEnter={() => setIsFranchiseOpen(true)}
+                      onMouseLeave={() => setIsFranchiseOpen(false)}
+                    />
+                    <div 
+                      className="absolute left-0 top-full z-50 mt-2 w-56 bg-white border border-gray-200 shadow-lg rounded-sm py-3"
+                      onMouseEnter={() => setIsFranchiseOpen(true)}
+                      onMouseLeave={() => setIsFranchiseOpen(false)}
+                    >
+                      {franchiseItems.slice(0, 3).map((franchiseItem) => (
+                        <a
+                          key={franchiseItem.name}
+                          href={franchiseItem.href}
+                          className="block px-5 py-2.5 text-sm text-[#1f1f2e] transition-all duration-200 hover:bg-gray-50 font-light"
+                          style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}
+                          onClick={() => setIsFranchiseOpen(false)}
+                        >
+                          {franchiseItem.name}
+                        </a>
+                      ))}
+                      <div className="px-4 pt-3 mt-2 border-t border-gray-200">
+                        <a
+                          href="/franchise"
+                          className="block w-full text-center bg-[#1f1f2e] px-5 py-2.5 text-xs font-light text-white transition-all duration-200 hover:bg-[#2a2a35] uppercase tracking-[0.15em] rounded-sm"
+                          style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}
+                          onClick={() => setIsFranchiseOpen(false)}
+                        >
+                          Learn More
+                        </a>
+                      </div>
+                    </div>
+                  </>
+                )}
+                {item === "Shops" && isShopOpen && (
+                  <>
+                    <div 
+                      className="absolute left-0 top-full z-50 h-1 w-64"
+                      onMouseEnter={() => setIsShopOpen(true)}
+                      onMouseLeave={() => setIsShopOpen(false)}
+                    />
+                    <div 
+                      className="absolute left-0 top-full z-50 mt-2 w-64 bg-white border border-gray-200 shadow-lg rounded-sm py-3"
+                      onMouseEnter={() => setIsShopOpen(true)}
+                      onMouseLeave={() => setIsShopOpen(false)}
+                    >
+                      {shopCategories.map((category) => (
+                        <div key={category.name} className="px-5 py-2.5 border-b border-gray-200 last:border-0">
+                          <a
+                            href="/shops"
+                            className="block text-sm font-light text-[#1f1f2e] hover:text-gray-600 transition-all duration-200"
+                            style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}
+                            onClick={() => setIsShopOpen(false)}
+                          >
+                            {category.name}
+                          </a>
+                          <p className="text-xs text-gray-500 mt-1 font-light" style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}>{category.products.length} products</p>
+                        </div>
+                      ))}
+                      <div className="px-4 pt-3 mt-2 border-t border-gray-200">
+                        <a
+                          href="/shops"
+                          className="block w-full text-center bg-[#1f1f2e] px-5 py-2.5 text-xs font-light text-white transition-all duration-200 hover:bg-[#2a2a35] uppercase tracking-[0.15em] rounded-sm"
+                          style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}
+                          onClick={() => setIsShopOpen(false)}
+                        >
+                          View All Products
+                        </a>
+                      </div>
+                    </div>
+                  </>
+                )}
+                {item === "Contact" && isContactOpen && (
+                  <>
+                    <div 
+                      className="absolute right-0 top-full z-50 h-1 w-56"
+                      onMouseEnter={() => setIsContactOpen(true)}
+                      onMouseLeave={() => setIsContactOpen(false)}
+                    />
+                    <div 
+                      className="absolute right-0 top-full z-50 mt-2 w-56 bg-white border border-gray-200 shadow-lg rounded-sm py-3"
+                      onMouseEnter={() => setIsContactOpen(true)}
+                      onMouseLeave={() => setIsContactOpen(false)}
+                    >
+                      {contactItems.slice(0, 3).map((contactItem) => (
+                        <a
+                          key={contactItem.name}
+                          href={contactItem.href}
+                          target={contactItem.href.startsWith("http") ? "_blank" : "_self"}
+                          rel={contactItem.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                          className="flex items-center gap-3 px-5 py-2.5 text-sm text-[#1f1f2e] transition-all duration-200 hover:bg-gray-50"
+                          onClick={() => setIsContactOpen(false)}
+                        >
+                          <div className="flex-shrink-0">
+                            {contactItem.icon === "phone" && (
+                              <svg className="h-4 w-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                              </svg>
+                            )}
+                            {contactItem.icon === "email" && (
+                              <svg className="h-4 w-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                              </svg>
+                            )}
+                            {contactItem.icon === "location" && (
+                              <svg className="h-4 w-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                              </svg>
+                            )}
+                            {contactItem.icon === "clock" && (
+                              <svg className="h-4 w-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                              </svg>
+                            )}
+                          </div>
+                          <div className="flex-1 min-w-0">
+                            <p className="text-xs font-light text-gray-500 uppercase tracking-[0.05em]" style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}>{contactItem.name}</p>
+                            <p className="text-sm text-[#1f1f2e] truncate font-light" style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}>{contactItem.value}</p>
+                          </div>
+                        </a>
+                      ))}
+                      <div className="px-4 pt-3 mt-2 border-t border-gray-200">
+                        <a
+                          href="/contact"
+                          className="block w-full text-center bg-[#1f1f2e] px-5 py-2.5 text-xs font-light text-white transition-all duration-200 hover:bg-[#2a2a35] uppercase tracking-[0.15em] rounded-sm"
+                          style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}
+                          onClick={() => setIsContactOpen(false)}
+                        >
+                          View Full Contact Page
+                        </a>
+                      </div>
+                    </div>
+                  </>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+        </nav>
+
+      {/* Search Dropdown */}
+      {isSearchOpen && (
+            <>
+              <div
+            className="fixed inset-0 z-40 bg-black/20 backdrop-blur-sm"
+            onClick={() => {
+              setIsSearchOpen(false);
+              setSearchQuery("");
+            }}
+              />
+          <div className="fixed top-16 sm:top-20 md:top-24 left-1/2 -translate-x-1/2 z-50 w-full max-w-2xl mx-4 sm:mx-auto">
+            <div className="bg-white rounded-lg shadow-2xl border border-gray-200 overflow-hidden">
+              <form onSubmit={handleSearchSubmit} className="flex items-center border-b border-gray-200">
+                <div className="flex-1 flex items-center px-4 sm:px-6">
+                  <svg className="h-5 w-5 text-gray-400 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                  </svg>
+                    <input
+                      type="text"
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    placeholder="Search for services, products, or pages..."
+                    className="w-full py-4 text-sm sm:text-base text-gray-900 placeholder-gray-400 focus:outline-none"
+                    autoFocus
+                  />
+                  {searchQuery && (
+                    <button
+                      type="button"
+                      onClick={() => setSearchQuery("")}
+                      className="ml-2 p-1 hover:bg-gray-100 rounded-full transition"
+                      aria-label="Clear search"
+                    >
+                      <svg className="h-5 w-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                      </svg>
+                    </button>
+                  )}
+                  </div>
+                <button
+                  type="submit"
+                  className="px-4 sm:px-6 py-4 bg-red-600 text-white hover:bg-red-700 transition-colors font-medium text-sm sm:text-base"
+                >
+                  Search
+                </button>
+              </form>
+              
+              {searchQuery.trim() && (
+                <div className="max-h-96 overflow-y-auto">
+                  {filteredResults.length > 0 ? (
+                    <div className="p-2">
+                      {filteredResults.map((result, index) => (
+                        <a
+                          key={index}
+                          href={result.href}
+                          onClick={() => {
+                            setIsSearchOpen(false);
+                            setSearchQuery("");
+                          }}
+                          className="flex items-center justify-between px-4 py-3 hover:bg-gray-50 transition-colors group"
+                    >
+                          <div className="flex-1">
+                            <p className="text-sm sm:text-base font-medium text-gray-900 group-hover:text-red-600 transition-colors">
+                              {result.name}
+                            </p>
+                            <p className="text-xs text-gray-500 mt-0.5">{result.category}</p>
+                  </div>
+                          <svg className="h-5 w-5 text-gray-400 group-hover:text-red-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                          </svg>
+                        </a>
+                      ))}
+                    </div>
+                  ) : (
+                    <div className="p-8 text-center">
+                      <svg className="h-12 w-12 text-gray-300 mx-auto mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                      </svg>
+                      <p className="text-sm text-gray-500">No results found for "{searchQuery}"</p>
+                      <p className="text-xs text-gray-400 mt-1">Try searching for services, products, or pages</p>
+                    </div>
+                  )}
+                    </div>
+                  )}
+                  
+              {!searchQuery.trim() && (
+                <div className="p-6">
+                  <p className="text-xs font-light text-gray-500 uppercase tracking-[0.1em] mb-3" style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}>Popular Searches</p>
+                  <div className="flex flex-wrap gap-2">
+                    {["Hair Services", "Beauty Treatments", "Salon Memberships", "Franchise", "Academy", "Shops"].map((item, index) => (
+                    <button
+                        key={index}
+                      onClick={() => {
+                          const searchItem = searchItems.find((s) => s.name === item);
+                          if (searchItem) {
+                            window.location.href = searchItem.href;
+                            setIsSearchOpen(false);
+                            setSearchQuery("");
+                          }
+                      }}
+                        className="px-3 py-1.5 text-xs sm:text-sm bg-gray-100 hover:bg-red-600 hover:text-white text-gray-700 rounded-full transition-colors"
+                    >
+                        {item}
+                    </button>
+                    ))}
+                  </div>
+              </div>
+          )}
+        </div>
+      </div>
+        </>
+      )}
+
+
+      {/* Mobile Menu */}
+      {isMobileMenuOpen && (
+        <div className="lg:hidden border-t border-gray-200/50 bg-white/98 backdrop-blur-sm fixed top-full left-0 right-0 z-50 max-h-[calc(100vh-200px)] overflow-y-auto">
+          <nav className="px-4 py-3">
+            <ul className="space-y-2">
+              {menuItems.map((item) => (
+                <li key={item}>
+                  {item === "Services" ? (
+                    <div>
+                      <button
+                        onClick={() => setIsServiceOpen(!isServiceOpen)}
+                        className="w-full text-left py-1.5 text-xs uppercase tracking-[0.1em] font-light text-gray-800 transition-all duration-200 hover:text-gray-500"
+                        style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}
+                      >
+                        {item} {isServiceOpen ? '−' : '+'}
+                      </button>
+                      {isServiceOpen && (
+                        <ul className="pl-4 mt-1.5 space-y-1 border-l border-gray-200/50">
+                          {services.map((service) => (
+                            <li key={service.name}>
+                              <a
+                                href={service.href}
+                                className="block py-1.5 text-xs text-gray-600 transition-all duration-200 hover:text-gray-900 hover:pl-2"
+                                onClick={() => {
+                                  setIsServiceOpen(false);
+                                  setIsMobileMenuOpen(false);
+                                }}
+                              >
+                                {service.name}
+                              </a>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+                    </div>
+                  ) : item === "Franchise" ? (
+                    <div>
+                      <button
+                        onClick={() => setIsFranchiseOpen(!isFranchiseOpen)}
+                        className="w-full text-left py-1.5 text-xs uppercase tracking-[0.1em] font-light text-gray-800 transition-all duration-200 hover:text-gray-500"
+                        style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}
+                      >
+                        {item} {isFranchiseOpen ? '−' : '+'}
+                      </button>
+                      {isFranchiseOpen && (
+                        <div className="pl-4 mt-2 space-y-2 border-l-2 border-gray-200">
+                          <div className="pb-2 mb-2 border-b border-gray-200">
+                            <p className="text-xs font-light text-gray-500 uppercase tracking-[0.1em] mb-1" style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}>Franchise Opportunity</p>
+                            <p className="text-xs text-gray-600 leading-relaxed">
+                              Start your own salon franchise in Bangalore with SCENT
+                            </p>
+                          </div>
+                          <ul className="space-y-2">
+                            {franchiseItems.map((franchiseItem) => (
+                              <li key={franchiseItem.name}>
+                                <a
+                                  href={franchiseItem.href}
+                                  className="block py-2 text-sm text-gray-600 transition-colors hover:text-red-500"
+                                  onClick={() => {
+                                    setIsFranchiseOpen(false);
+                                    setIsMobileMenuOpen(false);
+                                  }}
+                                >
+                                  {franchiseItem.name}
+                                </a>
+                              </li>
+                            ))}
+                          </ul>
+                          <div className="pt-2 mt-2 border-t border-gray-200 space-y-2">
+                            <a
+                              href="/franchise"
+                              className="block w-full text-center rounded-md bg-red-600 px-4 py-2 text-xs font-semibold text-white transition-colors hover:bg-red-700"
+                              onClick={() => {
+                                setIsFranchiseOpen(false);
+                                setIsMobileMenuOpen(false);
+                              }}
+                            >
+                              Learn More
+                            </a>
+                            <div className="text-xs text-gray-500 space-y-1">
+                              <p>
+                                <span className="font-medium">Email:</span>{" "}
+                                <a href="mailto:franchisee@scentlifestyle.com" className="text-red-600 hover:underline">
+                                  franchisee@scentlifestyle.com
+                                </a>
+                              </p>
+                              <p>
+                                <span className="font-medium">Phone:</span>{" "}
+                                <a href="tel:+919591522700" className="text-red-600 hover:underline">
+                                  +91 9591522700
+                                </a>
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  ) : item === "Shops" ? (
+                    <div>
+                      <button
+                        onClick={() => setIsShopOpen(!isShopOpen)}
+                        className="w-full text-left py-2 text-base text-gray-700 transition-colors hover:text-red-500"
+                      >
+                        {item} {isShopOpen ? '−' : '+'}
+                      </button>
+                      {isShopOpen && (
+                        <div className="pl-4 mt-2 space-y-3 border-l-2 border-gray-200">
+                          <div className="pb-2 mb-2 border-b border-gray-200">
+                            <p className="text-xs font-light text-gray-500 uppercase tracking-[0.1em] mb-1" style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}>Best Hair Treatment Products</p>
+                            <p className="text-xs text-gray-600 leading-relaxed">
+                              Premium hair care products from trusted brands
+                            </p>
+                          </div>
+                          {shopCategories.map((category) => (
+                            <div key={category.name} className="space-y-2">
+                              <h4 className="text-sm font-light text-gray-800 uppercase tracking-[0.05em]" style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}>
+                                {category.name}
+                              </h4>
+                              <ul className="space-y-1">
+                                {category.products.slice(0, 5).map((product, index) => (
+                                  <li key={index} className="text-xs text-gray-600">
+                                    <span className="font-medium">{product.name}</span>
+                                    <span className="text-gray-500 ml-2">{product.price}</span>
+                                  </li>
+                                ))}
+                              </ul>
+                              {category.products.length > 5 && (
+                                <a
+                                  href="/shops"
+                                  className="text-xs text-red-600 hover:underline font-medium"
+                                  onClick={() => {
+                                    setIsShopOpen(false);
+                                    setIsMobileMenuOpen(false);
+                                  }}
+                                >
+                                  View All {category.products.length} Products →
+                                </a>
+                              )}
+                            </div>
+                          ))}
+                          <div className="pt-2 mt-2 border-t border-gray-200">
+                            <a
+                              href="/shops"
+                              className="block w-full text-center rounded-md bg-red-600 px-4 py-2 text-xs font-semibold text-white transition-colors hover:bg-red-700"
+                              onClick={() => {
+                                setIsShopOpen(false);
+                                setIsMobileMenuOpen(false);
+                              }}
+                            >
+                              View All Products
+                            </a>
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  ) : item === "Home" ? (
+                    <a
+                      href="/"
+                      className="block py-1.5 text-xs uppercase tracking-[0.1em] font-light text-gray-800 transition-all duration-200 hover:text-gray-500"
+                      onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                      {item}
+                    </a>
+                  ) : item === "Salon Memberships" ? (
+                    <a
+                      href="/salon-memberships"
+                      className="block py-1.5 text-xs uppercase tracking-[0.1em] font-light text-gray-800 transition-all duration-200 hover:text-gray-500"
+                      onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                      {item}
+                    </a>
+                  ) : item === "Franchise" ? (
+                    <a
+                      href="/franchise"
+                      className="block py-1.5 text-xs uppercase tracking-[0.1em] font-light text-gray-800 transition-all duration-200 hover:text-gray-500"
+                      onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                      {item}
+                    </a>
+                  ) : item === "Academy" ? (
+                    <a
+                      href="/academy"
+                      className="block py-1.5 text-xs uppercase tracking-[0.1em] font-light text-gray-800 transition-all duration-200 hover:text-gray-500"
+                      onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                      {item}
+                    </a>
+                  ) : item === "Contact" ? (
+                    <div>
+                      <button
+                        onClick={() => setIsContactOpen(!isContactOpen)}
+                        className="w-full text-left py-1.5 text-xs uppercase tracking-[0.1em] font-light text-gray-800 transition-all duration-200 hover:text-gray-500"
+                        style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}
+                      >
+                        {item} {isContactOpen ? '−' : '+'}
+                      </button>
+                      {isContactOpen && (
+                        <div className="pl-4 mt-2 space-y-2 border-l-2 border-gray-200">
+                          <div className="pb-2 mb-2 border-b border-gray-200">
+                            <p className="text-xs font-light text-gray-500 uppercase tracking-[0.1em] mb-1" style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}>Get In Touch</p>
+                            <p className="text-xs text-gray-600 leading-relaxed">
+                              Reach out to us for inquiries and appointments
+                            </p>
+                          </div>
+                          <div className="space-y-2">
+                            {contactItems.map((contactItem) => (
+                              <a
+                                key={contactItem.name}
+                                href={contactItem.href}
+                                target={contactItem.href.startsWith("http") ? "_blank" : "_self"}
+                                rel={contactItem.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                                className="flex items-start gap-3 py-2 text-sm text-gray-600 transition-colors hover:text-red-500"
+                                onClick={() => {
+                                  setIsContactOpen(false);
+                                  setIsMobileMenuOpen(false);
+                                }}
+                              >
+                                <div className="flex-shrink-0 mt-0.5">
+                                  {contactItem.icon === "phone" && (
+                                    <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                                    </svg>
+                                  )}
+                                  {contactItem.icon === "email" && (
+                                    <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                                    </svg>
+                                  )}
+                                  {contactItem.icon === "location" && (
+                                    <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                                    </svg>
+                                  )}
+                                  {contactItem.icon === "clock" && (
+                                    <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                    </svg>
+                                  )}
+                                </div>
+                                <div className="flex-1 min-w-0">
+                                  <p className="text-xs font-medium text-gray-500">{contactItem.name}</p>
+                                  <p className="text-xs text-gray-700">{contactItem.value}</p>
+                                </div>
+                              </a>
+                            ))}
+                          </div>
+                          <div className="pt-2 mt-2 border-t border-gray-200 space-y-2">
+                            <div className="flex items-center gap-2">
+                              <span className="text-xs font-medium text-gray-500">Follow Us:</span>
+                              <div className="flex gap-2">
+                                <a href="https://www.facebook.com/ScentSalonSpas/" target="_blank" rel="noopener noreferrer" className="h-5 w-5 rounded-full overflow-hidden hover:opacity-80 transition">
+                                  <Image src="/x1.png" alt="Facebook" width={20} height={20} className="h-full w-full object-cover" />
+                                </a>
+                                <a href="https://x.com/scentlifestyle" target="_blank" rel="noopener noreferrer" className="h-5 w-5 rounded-full overflow-hidden hover:opacity-80 transition">
+                                  <Image src="/x2.png" alt="X" width={20} height={20} className="h-full w-full object-cover" />
+                                </a>
+                                <a href="https://www.instagram.com/scentlifestyle/" target="_blank" rel="noopener noreferrer" className="h-5 w-5 rounded-full overflow-hidden hover:opacity-80 transition">
+                                  <Image src="/x3.png" alt="Instagram" width={20} height={20} className="h-full w-full object-cover" />
+                                </a>
+                                <a href="https://in.pinterest.com/scentlifestyle/" target="_blank" rel="noopener noreferrer" className="h-5 w-5 rounded-full overflow-hidden hover:opacity-80 transition">
+                                  <Image src="/x4.png" alt="Pinterest" width={20} height={20} className="h-full w-full object-cover" />
+                                </a>
+                              </div>
+                            </div>
+                            <a
+                              href="/contact"
+                              className="block w-full text-center rounded-md bg-red-600 px-4 py-2 text-xs font-semibold text-white transition-colors hover:bg-red-700"
+                              onClick={() => {
+                                setIsContactOpen(false);
+                                setIsMobileMenuOpen(false);
+                              }}
+                            >
+                              View Full Contact Page
+                            </a>
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  ) : (
+                    <span className="block py-2 text-base text-gray-700">
+                      {item}
+                    </span>
+                  )}
+                </li>
+              ))}
+            </ul>
+            <button
+              className="mt-3 w-full bg-gray-900 px-5 py-2 text-xs uppercase tracking-[0.15em] font-light text-white transition-all duration-300 hover:bg-gray-800"
+              style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}
+              onClick={() => {
+                setIsMobileMenuOpen(false);
+                window.location.href = "/book-now";
+              }}
+            >
+              Book Appointment
+            </button>
+          </nav>
+        </div>
+      )}
+
+      {/* Book Appointment Modal (Mobile & Desktop) */}
+      {isBookAppointmentOpen && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-3 sm:p-4 bg-black/60 backdrop-blur-sm">
+          <div className="relative w-full max-w-md bg-white rounded-xl sm:rounded-2xl shadow-2xl max-h-[95vh] sm:max-h-[90vh] overflow-y-auto">
+            <button
+              onClick={() => setIsBookAppointmentOpen(false)}
+              className="absolute top-4 right-4 z-10 flex h-8 w-8 items-center justify-center rounded-full bg-gray-100 text-gray-600 transition hover:bg-gray-200"
+              aria-label="Close"
+            >
+              <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+            
+            <div className="p-4 sm:p-6">
+              <div className="mb-4 sm:mb-6">
+                  <h3 className="text-xl sm:text-2xl font-light text-[#1f1f2e] mb-2 uppercase tracking-[0.1em]" style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}>
+                  Book Your Appointment
+                </h3>
+                <p className="text-xs sm:text-sm text-gray-600">
+                  Fill in your details and we'll confirm your booking
+                </p>
+              </div>
+              
+              <form onSubmit={handleAppointmentSubmit} className="space-y-3 sm:space-y-4">
+                <div>
+                  <label htmlFor="modal-name" className="block text-xs sm:text-sm font-medium text-gray-700 mb-1">
+                    Full Name *
+                  </label>
+                  <input
+                    type="text"
+                    id="modal-name"
+                    name="name"
+                    required
+                    value={appointmentForm.name}
+                    onChange={handleInputChange}
+                    className="w-full rounded-md border border-gray-300 px-3 sm:px-4 py-2 sm:py-2.5 text-sm focus:border-red-500 focus:outline-none focus:ring-2 focus:ring-red-500/20"
+                    placeholder="Enter your name"
+                  />
+                </div>
+                
+                <div>
+                  <label htmlFor="modal-email" className="block text-xs sm:text-sm font-medium text-gray-700 mb-1">
+                    Email *
+                  </label>
+                  <input
+                    type="email"
+                    id="modal-email"
+                    name="email"
+                    required
+                    value={appointmentForm.email}
+                    onChange={handleInputChange}
+                    className="w-full rounded-md border border-gray-300 px-3 sm:px-4 py-2 sm:py-2.5 text-sm focus:border-red-500 focus:outline-none focus:ring-2 focus:ring-red-500/20"
+                    placeholder="your.email@example.com"
+                  />
+                </div>
+                
+                <div>
+                  <label htmlFor="modal-phone" className="block text-xs sm:text-sm font-medium text-gray-700 mb-1">
+                    Phone Number *
+                  </label>
+                  <input
+                    type="tel"
+                    id="modal-phone"
+                    name="phone"
+                    required
+                    value={appointmentForm.phone}
+                    onChange={handleInputChange}
+                    className="w-full rounded-md border border-gray-300 px-3 sm:px-4 py-2 sm:py-2.5 text-sm focus:border-red-500 focus:outline-none focus:ring-2 focus:ring-red-500/20"
+                    placeholder="+91 9876543210"
+                  />
+                </div>
+                
+                <div>
+                  <label htmlFor="modal-service" className="block text-xs sm:text-sm font-medium text-gray-700 mb-1">
+                    Service *
+                  </label>
+                  <select
+                    id="modal-service"
+                    name="service"
+                    required
+                    value={appointmentForm.service}
+                    onChange={handleInputChange}
+                    className="w-full rounded-md border border-gray-300 px-3 sm:px-4 py-2 sm:py-2.5 text-sm focus:border-red-500 focus:outline-none focus:ring-2 focus:ring-red-500/20"
+                  >
+                    <option value="">Select a service</option>
+                    <option value="Hair Services">Hair Services</option>
+                    <option value="Beauty Treatments">Beauty Treatments</option>
+                    <option value="Nail Services">Nail Services</option>
+                    <option value="Skincare">Skincare</option>
+                    <option value="Makeup">Makeup</option>
+                    <option value="Massage Therapy">Massage Therapy</option>
+                  </select>
+                </div>
+                
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <div>
+                    <label htmlFor="modal-date" className="block text-xs sm:text-sm font-medium text-gray-700 mb-1">
+                      Preferred Date *
+                    </label>
+                    <input
+                      type="date"
+                      id="modal-date"
+                      name="date"
+                      required
+                      value={appointmentForm.date}
+                      onChange={handleInputChange}
+                      min={new Date().toISOString().split('T')[0]}
+                      className="w-full rounded-md border border-gray-300 px-3 sm:px-4 py-2 sm:py-2.5 text-sm focus:border-red-500 focus:outline-none focus:ring-2 focus:ring-red-500/20"
+                    />
+                  </div>
+                  
+                  <div>
+                    <label htmlFor="modal-time" className="block text-xs sm:text-sm font-medium text-gray-700 mb-1">
+                      Preferred Time *
+                    </label>
+                    <input
+                      type="time"
+                      id="modal-time"
+                      name="time"
+                      required
+                      value={appointmentForm.time}
+                      onChange={handleInputChange}
+                      className="w-full rounded-md border border-gray-300 px-3 sm:px-4 py-2 sm:py-2.5 text-sm focus:border-red-500 focus:outline-none focus:ring-2 focus:ring-red-500/20"
+                    />
+                  </div>
+                </div>
+                
+                <div>
+                  <label htmlFor="modal-message" className="block text-xs sm:text-sm font-medium text-gray-700 mb-1">
+                    Additional Message
+                  </label>
+                  <textarea
+                    id="modal-message"
+                    name="message"
+                    rows={3}
+                    value={appointmentForm.message}
+                    onChange={handleInputChange}
+                    className="w-full rounded-md border border-gray-300 px-3 sm:px-4 py-2 sm:py-2.5 text-sm focus:border-red-500 focus:outline-none focus:ring-2 focus:ring-red-500/20 resize-none"
+                    placeholder="Any special requests or notes..."
+                  />
+                </div>
+                
+                {appointmentMessage && (
+                  <div className={`rounded-lg p-3 text-xs sm:text-sm ${
+                    appointmentMessage.includes("Thank you") 
+                      ? "bg-green-50 border border-green-200 text-green-800" 
+                      : "bg-red-50 border border-red-200 text-red-800"
+                  }`}>
+                    {appointmentMessage}
+                  </div>
+                )}
+                
+                <div className="flex flex-col sm:flex-row gap-3 pt-2">
+                  <button
+                    type="submit"
+                    disabled={isSubmittingAppointment}
+                    className="flex-1 rounded-md bg-red-600 px-4 sm:px-6 py-2.5 sm:py-3 text-xs sm:text-sm font-semibold text-white transition hover:bg-red-700 disabled:opacity-50 disabled:cursor-not-allowed"
+                  >
+                    {isSubmittingAppointment ? "Sending..." : "Book Now"}
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setIsBookAppointmentOpen(false);
+                      setAppointmentMessage("");
+                    }}
+                    className="px-4 sm:px-6 py-2.5 sm:py-3 text-xs sm:text-sm font-medium text-gray-700 border border-gray-300 rounded-md hover:bg-gray-50 transition"
+                  >
+                    Cancel
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Appointment Success Modal */}
+      {showAppointmentSuccess && (
+        <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/60 backdrop-blur-sm animate-fadeIn">
+          <div className="relative bg-white rounded-3xl shadow-2xl max-w-md w-full mx-4 p-8 sm:p-10 text-center animate-zoomIn">
+            {/* Success Icon */}
+            <div className="mb-6 flex justify-center">
+              <div className="relative">
+                <div className="absolute inset-0 bg-green-100 rounded-full animate-ping opacity-75"></div>
+                <div className="relative flex h-20 w-20 sm:h-24 sm:w-24 items-center justify-center rounded-full bg-gradient-to-br from-green-400 to-green-600">
+                  <svg className="h-12 w-12 sm:h-14 sm:w-14 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+
+            {/* Success Message */}
+            <h2 className="text-2xl sm:text-3xl font-light text-[#1f1f2e] mb-3 uppercase tracking-[0.1em]" style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif', fontWeight: 300 }}>
+              Appointment Request Sent!
+            </h2>
+            <p className="text-base sm:text-lg text-gray-600 mb-6 leading-relaxed">
+              Thank you for booking with us. We've received your appointment request and will confirm your booking soon.
+            </p>
+
+            {/* Countdown */}
+            <div className="flex items-center justify-center gap-2 text-sm text-gray-500">
+              <svg className="h-4 w-4 animate-spin" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+              </svg>
+              <span>Redirecting to home page in a moment...</span>
+            </div>
+          </div>
+        </div>
+      )}
+    </header>
+    {/* Spacer for fixed navbar - adjusts height based on scroll state */}
+    <div className={`transition-all duration-500 ease-in-out ${isScrolled ? 'h-14 sm:h-16 md:h-18' : 'h-20 sm:h-24 md:h-28 lg:h-32'}`}></div>
+    </>
+  );
+}
+
