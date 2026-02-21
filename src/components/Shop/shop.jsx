@@ -142,7 +142,8 @@ export default function ShopSection() {
               {/* Buy Button */}
               <button
                 onClick={() => handleBuy(product.name)}
-                className="mt-4 w-full rounded-md bg-black px-4 sm:px-6 py-2.5 sm:py-3 text-sm sm:text-sm font-semibold uppercase tracking-wide text-white transition-all hover:bg-red-600 hover:scale-105"
+                className="mt-4 w-full rounded-md bg-black px-4 sm:px-6 py-2.5 sm:py-3 text-sm sm:text-sm font-semibold tracking-wide text-white transition-all hover:bg-red-600 hover:scale-105"
+                style={{ textTransform: 'none' }}
               >
                 Buy
               </button>

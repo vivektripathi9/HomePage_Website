@@ -277,10 +277,10 @@ export default function SpaSection() {
         <div className="w-full rounded-[32px] border border-white/80 bg-gradient-to-r from-white/95 via-pink-50/80 to-purple-50/80 px-8 py-12 text-center shadow-[0px_30px_120px_rgba(255,182,193,0.25)] backdrop-blur-sm transition-all duration-500 hover:shadow-[0px_40px_140px_rgba(255,182,193,0.35)]">
           <div className="mx-auto flex max-w-3xl flex-col gap-4">
             <p
-              className="text-sm font-semibold uppercase tracking-[0.4em] text-[#C06C84]"
-              style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300 }}
+              className="text-sm font-semibold tracking-[0.4em] text-[#C06C84]"
+              style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300, textTransform: 'none' }}
             >
-              Urban Escape
+              Urban escape
             </p>
             <h2
               className="text-2xl font-semibold text-[#1f1f2e] sm:text-[30px] leading-tight"
@@ -302,7 +302,7 @@ export default function SpaSection() {
             className="space-y-8 rounded-[36px] border border-white/80 bg-white/90 backdrop-blur-sm p-8 shadow-[0px_30px_120px_rgba(0,0,0,0.08)] transition-all duration-500 hover:shadow-[0px_40px_140px_rgba(0,0,0,0.12)]"
           >
             <div className="text-center lg:text-left space-y-2">
-              <p className="text-base font-semibold uppercase tracking-[0.5em] text-black/80">
+              <p className="text-base font-semibold tracking-[0.5em] text-black/80" style={{ textTransform: 'none' }}>
                 {group.title}
               </p>
               <p className="text-lg font-medium text-[#444] leading-relaxed">{group.description}</p>
@@ -472,12 +472,13 @@ export default function SpaSection() {
                         window.dispatchEvent(event);
                       }
                     }}
-                    className="flex-1 md:flex-none rounded-full bg-[#C06C84] px-8 py-3 text-sm font-semibold uppercase tracking-[0.2em] text-white transition hover:bg-[#C06C84]/90 hover:scale-105"
+                    className="flex-1 md:flex-none rounded-full bg-[#C06C84] px-8 py-3 text-sm font-semibold tracking-[0.2em] text-white transition hover:bg-[#C06C84]/90 hover:scale-105"
+                    style={{ textTransform: 'none' }}
                   >
-                    Book Now
+                    Book now
                   </button>
-                  <button className="flex-1 md:flex-none rounded-full border-2 border-[#C06C84] px-8 py-3 text-sm font-semibold uppercase tracking-[0.2em] text-[#C06C84] transition hover:bg-[#C06C84] hover:text-white hover:scale-105">
-                    Learn More
+                  <button className="flex-1 md:flex-none rounded-full border-2 border-[#C06C84] px-8 py-3 text-sm font-semibold tracking-[0.2em] text-[#C06C84] transition hover:bg-[#C06C84] hover:text-white hover:scale-105" style={{ textTransform: 'none' }}>
+                    Learn more
                   </button>
                 </div>
               </div>

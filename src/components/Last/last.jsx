@@ -27,7 +27,7 @@ export default function Footer() {
         <div className="space-y-3 sm:space-y-4 md:pr-6 lg:pr-10">
           <div className="flex items-center">
             <Image
-              src="/Asset 2.png"
+              src="/Logo_scent.png"
               alt="Scent logo"
               width={160}
               height={32}
@@ -62,11 +62,11 @@ export default function Footer() {
 
         {/* Column 2: Quick Links */}
         <div className="md:px-4 lg:px-6">
-          <h3 className="mb-2 text-lg sm:text-[20px] font-light text-[#2E2E2E] text-center md:text-left uppercase tracking-[0.05em]" style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300 }}>Quick Links</h3>
+          <h3 className="mb-2 text-lg sm:text-[20px] font-light text-[#2E2E2E] text-center md:text-left tracking-[0.05em]" style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300, textTransform: 'none' }}>Quick links</h3>
           <span className="block h-px w-full bg-gray-300 mb-3 sm:mb-4" />
           <ul className="space-y-1.5 sm:space-y-2 text-sm sm:text-[16px] font-light text-black" style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300 }}>
             {quickLinks.map((link) => (
-              <li key={link} className="transition hover:text-[#2E2E2E] cursor-pointer uppercase tracking-[0.05em]">
+              <li key={link} className="transition hover:text-[#2E2E2E] cursor-pointer tracking-[0.05em]" style={{ textTransform: 'none' }}>
                 {link}
               </li>
             ))}
@@ -75,7 +75,7 @@ export default function Footer() {
 
         {/* Column 3: Recent Posts */}
         <div className="md:px-4 lg:px-6">
-          <h3 className="mb-2 text-lg sm:text-[20px] font-light text-[#2E2E2E] text-center md:text-left uppercase tracking-[0.05em]" style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300 }}>Recent Posts</h3>
+          <h3 className="mb-2 text-lg sm:text-[20px] font-light text-[#2E2E2E] text-center md:text-left tracking-[0.05em]" style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300, textTransform: 'none' }}>Recent posts</h3>
           <span className="block h-px w-full bg-gray-300 mb-3 sm:mb-4" />
           <ul className="space-y-3 sm:space-y-4">
             {recentPosts.map((post) => (
@@ -104,8 +104,8 @@ export default function Footer() {
 
         {/* Column 4: Opening Hours */}
         <div className="flex flex-col text-left md:ml-auto md:items-end md:text-right md:pl-6 lg:pl-10">
-          <h3 className="mb-2 w-full text-lg sm:text-[20px] font-light text-[#2E2E2E] text-center md:text-left uppercase tracking-[0.05em]" style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300 }}>
-            Opening Hours
+          <h3 className="mb-2 w-full text-lg sm:text-[20px] font-light text-[#2E2E2E] text-center md:text-left tracking-[0.05em]" style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300, textTransform: 'none' }}>
+            Opening hours
           </h3>
           <span className="block h-px w-full bg-gray-300 mb-3 sm:mb-4" />
           <p className="description-main !text-left mb-3 sm:mb-4">

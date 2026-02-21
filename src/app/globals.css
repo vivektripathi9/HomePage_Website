@@ -1,5 +1,23 @@
 @import "tailwindcss";
 
+/* Reset body margin */
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* Remove any navbar borders and shadows */
+header,
+header nav,
+header nav div,
+header nav ul {
+  border: none !important;
+  border-bottom: none !important;
+  box-shadow: none !important;
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+
 /* ABChanelCorpo Font */
 @font-face {
   font-family: "ABChanelCorpo";
@@ -354,6 +372,19 @@ button, a, input[type="button"], input[type="submit"] {
   }
 }
 
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    max-height: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    max-height: 1000px;
+    transform: translateY(0);
+  }
+}
+
 /* Animation utilities for success modals */
 .animate-fadeIn {
   animation: fadeIn 0.3s ease-out;
@@ -361,6 +392,14 @@ button, a, input[type="button"], input[type="submit"] {
 
 .animate-zoomIn {
   animation: zoomIn 0.4s ease-out;
+}
+
+.animate-fadeInUp {
+  animation: fadeInUp 0.4s ease-out forwards;
+}
+
+.animate-slideDown {
+  animation: slideDown 0.3s ease-out forwards;
 }
 
 /* Hide scrollbar for Chrome, Safari and Opera */

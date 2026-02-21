@@ -224,8 +224,8 @@ export default function NewServicesShowcase() {
 
                         {/* CTA */}
                         <div className="flex items-center justify-between pt-4 border-t border-gray-100">
-                          <span className="text-sm font-light text-pink-600 uppercase tracking-wider" style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300 }}>
-                            Learn More
+                          <span className="text-sm font-light text-pink-600 tracking-wider" style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300, textTransform: 'none' }}>
+                            Learn more
                           </span>
                           <div className="flex items-center justify-center w-10 h-10 rounded-full bg-pink-50 border-2 border-pink-100 group-hover:bg-pink-100 group-hover:border-pink-200 transition-all duration-300">
                             <span className="text-xl text-pink-600 transition-transform duration-300 group-hover:translate-x-1">
@@ -267,7 +267,7 @@ export default function NewServicesShowcase() {
                     <div className="rounded-2xl bg-white/90 backdrop-blur-md px-6 py-4 shadow-xl border border-white/20">
                       <div className="flex items-center gap-3">
                         <span className="text-pink-500 text-2xl">❀</span>
-                        <p className="text-sm font-light uppercase tracking-[0.4em] text-[#1f1f2e]" style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300 }}>
+                        <p className="text-sm font-light tracking-[0.4em] text-[#1f1f2e]" style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300, textTransform: 'none' }}>
                           {activeService.title}
                         </p>
                       </div>
@@ -294,8 +294,8 @@ export default function NewServicesShowcase() {
                     </div>
 
                     <div className="space-y-4 pt-4 border-t border-gray-200">
-                      <p className="text-xs font-light uppercase tracking-[0.4em] text-[#1f1f2e]" style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300 }}>
-                        Signature Touches
+                      <p className="text-xs font-light tracking-[0.4em] text-[#1f1f2e]" style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300, textTransform: 'none' }}>
+                        Signature touches
                       </p>
                       <div className="space-y-3">
                         {activeService.highlights.map((item) => (
@@ -322,13 +322,13 @@ export default function NewServicesShowcase() {
                           window.dispatchEvent(event);
                         }
                       }}
-                      className="w-full rounded-full bg-gradient-to-r from-pink-600 via-rose-500 to-pink-600 px-8 py-4 text-sm font-light uppercase tracking-wider text-white shadow-xl transition-all duration-300 hover:shadow-2xl hover:scale-105"
-                      style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300 }}
+                      className="w-full rounded-full bg-gradient-to-r from-pink-600 via-rose-500 to-pink-600 px-8 py-4 text-sm font-light tracking-wider text-white shadow-xl transition-all duration-300 hover:shadow-2xl hover:scale-105"
+                      style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300, textTransform: 'none' }}
                     >
                       Book {activeService.title}
                     </button>
-                    <button className="w-full rounded-full border-2 border-gray-300 bg-white px-8 py-4 text-sm font-light uppercase tracking-wider text-[#1f1f2e] transition-all duration-300 hover:border-pink-300 hover:bg-pink-50" style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300 }}>
-                      Download Menu
+                    <button className="w-full rounded-full border-2 border-gray-300 bg-white px-8 py-4 text-sm font-light tracking-wider text-[#1f1f2e] transition-all duration-300 hover:border-pink-300 hover:bg-pink-50" style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300, textTransform: 'none' }}>
+                      Download menu
                     </button>
                   </div>
                 </div>

@@ -137,10 +137,10 @@ export default function SalonMembershipsSection() {
         {/* Section Title */}
         <div className="mb-16 text-center">
           <h2
-            className="mb-4 text-3xl font-light uppercase tracking-[0.2em] text-[#1a1a1a] sm:text-4xl md:text-5xl lg:text-6xl"
-            style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300 }}
+            className="mb-4 text-3xl font-light tracking-[0.2em] text-[#1a1a1a] sm:text-4xl md:text-5xl lg:text-6xl"
+            style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300, textTransform: 'none' }}
           >
-            Membership Plans
+            Membership plans
           </h2>
           <div className="decorative-flower-divider mx-auto flex items-center justify-center gap-3">
             <span className="h-px w-12 bg-[#1a1a1a]/30 sm:w-16" />

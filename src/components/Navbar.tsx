@@ -271,13 +271,13 @@ export default function Navbar() {
             className="flex-1 flex justify-center items-center group"
           >
             <Image
-              src="/Asset 1.png"
+              src="/Logo_scent.png"
               alt="Scent logo"
-              width={220}
-              height={44}
-              className="h-6 sm:h-8 md:h-10 w-auto object-contain transition-opacity duration-300 group-hover:opacity-60"
+              width={180}
+              height={36}
+              className="h-5 sm:h-6 md:h-7 lg:h-8 w-auto object-contain transition-opacity duration-300 group-hover:opacity-60"
               priority
-              sizes="(max-width: 640px) 120px, (max-width: 768px) 160px, 220px"
+              sizes="(max-width: 640px) 100px, (max-width: 768px) 140px, 180px"
             />
           </a>
 
@@ -791,7 +791,8 @@ export default function Navbar() {
                     <div>
                       <button
                         onClick={() => setIsShopOpen(!isShopOpen)}
-                        className="w-full text-left py-2 text-base text-gray-700 transition-colors hover:text-red-500"
+                        className="w-full text-left py-1.5 text-xs uppercase tracking-[0.1em] font-semibold text-black transition-all duration-200 hover:text-gray-700"
+                        style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 600 }}
                       >
                         {item} {isShopOpen ? '−' : '+'}
                       </button>

@@ -237,8 +237,8 @@ export default function ServicesSection() {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
                   <div className="pointer-events-none absolute inset-0 flex flex-col items-center justify-center gap-3 px-6 text-center text-white opacity-0 transition-opacity duration-500 group-hover:opacity-100">
                     <p 
-                      className="pointer-events-auto cursor-pointer text-sm tracking-[0.3em] uppercase text-pink-100 transition-all hover:scale-110 hover:text-white" 
-                      style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300 }}
+                      className="pointer-events-auto cursor-pointer text-sm tracking-[0.3em] text-pink-100 transition-all hover:scale-110 hover:text-white" 
+                      style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300, textTransform: 'none' }}
                       onClick={(e) => {
                         e.stopPropagation();
                         setActiveService(category.id);
@@ -257,14 +257,14 @@ export default function ServicesSection() {
                       Hover to preview & click to reveal full service details.
                     </p>
                     <button
-                      className="pointer-events-auto rounded-full border border-white/80 bg-white/10 px-6 py-2 text-xs font-light uppercase tracking-[0.3em] text-white backdrop-blur-sm transition-all hover:bg-white hover:text-black hover:border-white"
-                      style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300 }}
+                      className="pointer-events-auto rounded-full border border-white/80 bg-white/10 px-6 py-2 text-xs font-light tracking-[0.3em] text-white backdrop-blur-sm transition-all hover:bg-white hover:text-black hover:border-white"
+                      style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300, textTransform: 'none' }}
                       onClick={(e) => {
                         e.stopPropagation();
                         openBookAppointment(category.title);
                       }}
                     >
-                      Book Now
+                      Book now
                     </button>
                   </div>
                 </div>
@@ -278,7 +278,7 @@ export default function ServicesSection() {
                     >
                       {category.title}
                     </h3>
-                    <span className="text-xs sm:text-sm uppercase tracking-[0.3em] text-gray-400 font-light" style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300 }}>
+                    <span className="text-xs sm:text-sm tracking-[0.3em] text-gray-400 font-light" style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300, textTransform: 'none' }}>
                       {isActive ? "Hide" : "View"}
                     </span>
                   </div>
@@ -287,23 +287,23 @@ export default function ServicesSection() {
                       isActive ? "max-h-[400px] sm:max-h-[450px] md:max-h-[500px] opacity-100" : "max-h-0 opacity-0"
                     } overflow-y-auto`}
                   >
-                    <p className="leading-relaxed font-light text-xs sm:text-sm" style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300 }}>{category.description}</p>
+                    <p className="leading-relaxed font-light text-xs sm:text-sm" style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300, textTransform: 'none' }}>{category.description}</p>
                     {category.detailedDescription && (
                       <div className="pt-2 border-t border-gray-200">
-                        <p className="leading-relaxed text-xs sm:text-sm text-gray-600 mt-2 line-clamp-6 sm:line-clamp-none font-light" style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300 }}>
+                        <p className="leading-relaxed text-xs sm:text-sm text-gray-600 mt-2 line-clamp-6 sm:line-clamp-none font-light" style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300, textTransform: 'none' }}>
                           {category.detailedDescription}
                         </p>
                       </div>
                     )}
                     <button
-                      className="w-fit rounded-full border border-black/20 px-4 sm:px-5 py-1.5 sm:py-2 text-xs sm:text-sm font-light uppercase tracking-[0.3em] text-[#1f1f2e] transition-all hover:bg-black hover:text-white mt-3 sm:mt-4"
-                      style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300 }}
+                      className="w-fit rounded-full border border-black/20 px-4 sm:px-5 py-1.5 sm:py-2 text-xs sm:text-sm font-light tracking-[0.3em] text-[#1f1f2e] transition-all hover:bg-black hover:text-white mt-3 sm:mt-4"
+                      style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300, textTransform: 'none' }}
                       onClick={(e) => {
                         e.stopPropagation();
                         openBookAppointment(category.title);
                       }}
                     >
-                      Book Appointment
+                      Book appointment
                     </button>
                   </div>
                 </div>
@@ -339,7 +339,7 @@ export default function ServicesSection() {
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
                       <div className="absolute bottom-4 left-4 text-white">
-                        <p className="text-sm uppercase tracking-[0.4em]" style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300 }}>
+                        <p className="text-sm tracking-[0.4em]" style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300, textTransform: 'none' }}>
                           {activeCategory.title}
                         </p>
                         <p className="text-xs text-white/80">Tailored rituals for every mood</p>
@@ -360,8 +360,8 @@ export default function ServicesSection() {
                         )}
                       </div>
                       <div className="space-y-3">
-                        <p className="text-xs uppercase tracking-[0.3em] text-gray-400 font-light" style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300 }}>
-                          Service Menu
+                        <p className="text-xs tracking-[0.3em] text-gray-400 font-light" style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300, textTransform: 'none' }}>
+                          Service menu
                         </p>
                         <div className="grid grid-cols-1 gap-2">
                           {activeCategory.services.map(({ name, price }) => (
@@ -382,15 +382,15 @@ export default function ServicesSection() {
                       </div>
                       <div className="mt-auto flex flex-wrap gap-3">
                         <button
-                          className="rounded-full bg-black px-8 py-3 text-xs font-light uppercase tracking-[0.3em] text-white transition hover:bg-black/80"
-                          style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300 }}
+                          className="rounded-full bg-black px-8 py-3 text-xs font-light tracking-[0.3em] text-white transition hover:bg-black/80"
+                          style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300, textTransform: 'none' }}
                           onClick={(e) => handleBookAppointment(e, activeCategory.title)}
                         >
-                          Book Appointment
+                          Book appointment
                         </button>
                         <button
-                          className="rounded-full border border-black px-8 py-3 text-xs font-light uppercase tracking-[0.3em] text-[#1f1f2e] transition hover:bg-black hover:text-white"
-                          style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300 }}
+                          className="rounded-full border border-black px-8 py-3 text-xs font-light tracking-[0.3em] text-[#1f1f2e] transition hover:bg-black hover:text-white"
+                          style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300, textTransform: 'none' }}
                           onClick={() => setActiveService(null)}
                         >
                           Close
@@ -421,14 +421,14 @@ export default function ServicesSection() {
             Reserve your ritual now and arrive to a stylist who already knows what you need.
           </p>
           <button
-            className="rounded-md bg-red-600 px-8 py-3 text-sm font-light uppercase tracking-wide text-white transition-colors hover:bg-red-700"
-            style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300 }}
+            className="rounded-md bg-red-600 px-8 py-3 text-sm font-light tracking-wide text-white transition-colors hover:bg-red-700"
+            style={{ fontFamily: '"ABChanelCorpo", Helvetica, Arial, sans-serif', fontWeight: 300, textTransform: 'none' }}
             onClick={(e) => {
               e.preventDefault();
               openBookAppointment("Signature Service Bundle");
             }}
           >
-            Book Appointment
+            Book appointment
           </button>
         </div>
       </div>
